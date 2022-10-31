@@ -1,0 +1,83 @@
+table {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .mat-header-row {
+    background-color: rgb(116, 116, 227);
+  }
+
+  .buttons-area {
+    margin: auto;
+    flex: 1 1 0;
+    width: 80%;
+    
+  }
+
+  .add-button{
+    float: right;
+    font-size: 20px;
+    margin-left:10%;
+    margin-bottom: 10px;
+  }
+
+  .filter-button {
+    size: 60px;
+  }
+
+  b {
+    color: rgb(255, 255, 255);
+  }
+
+  .spacer > div {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+  }
+  .mat-column-select{
+    width: 60px;
+    border-right: 1px solid currentColor;
+    border-left: 2px solid currentColor;
+    align-items: center;
+  }
+  .mat-column-position{
+    width: 100px;
+    border-right: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+    text-align: center;
+    font-size: medium;
+  }
+
+  .mat-column-productName{
+    max-width: 100px;
+    border-right: 1px solid currentColor;
+    text-align: center;
+    font-size: medium;
+  }
+
+  .mat-column-manufacturerName{
+    max-width: 100px;
+    border-right: 1px solid currentColor;
+    text-align: center;
+    font-size: medium;
+  }
+
+  .mat-column-productDesc{
+    max-width: 100px;
+    border-right: 2px solid currentColor;
+    text-align: center;
+    font-size: medium;
+  }
+
+  .mat-column-actions{
+    width: auto;
+    border-right: 2px solid currentColor;
+    text-align: center;
+    font-size: medium;
+  }
+
+  .product-heading {
+    margin-top: 10px;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px rgb(63, 51, 51);
+  }
