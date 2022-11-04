@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowLeft, faEdit, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Product, ProductSku } from 'src/app/data/data-objects';
 import { ProductDataService } from 'src/app/services/product-data.service';
@@ -20,9 +20,15 @@ export class ProductViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
+    private router: Router,
     private productDataService: ProductDataService,
     private productSkuDataService: ProductSkuDataService
     ) { }
+
+    onSelect()
+    {
+      this.router.navigate(["/admin/product-view",this.id])
+    }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('productId');

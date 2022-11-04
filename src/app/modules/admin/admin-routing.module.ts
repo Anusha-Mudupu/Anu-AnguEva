@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductSkuComponent } from 'src/app/product-sku/product-sku.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductViewComponent } from './components/product-view/product-view.component';
@@ -14,6 +15,8 @@ const routes: Routes = [
     {path:'products',component: ProductsComponent},
     {path:'vendors',component: VendorsComponent},
     {path:'products/:productId', component: ProductViewComponent},
+    {path:'product-view/:productId', component:ProductSkuComponent},
+
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },

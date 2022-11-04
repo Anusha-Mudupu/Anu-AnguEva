@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './modules/admin/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductSkuComponent } from './product-sku/product-sku.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     PageNotFoundComponent,
     ForgotPasswordComponent,
+    ProductSkuComponent,
   ],
   imports: [
     BrowserModule,
