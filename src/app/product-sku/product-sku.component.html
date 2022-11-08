@@ -1,9 +1,17 @@
-<h3>create new product-sku</h3>
+<h3 class="strong">create new product-sku</h3>
 <!-- <button>add Options</button>
 <button>add </button> -->
+<div class="center">
+
+<div class="scroll-bar"> 
+
+   
+
+  
 
 <div class="col-md-4 offset-md-3"> 
 
+    <br>
 
 <form (ngSubmit)="onSubmit() ;">
 
@@ -48,8 +56,8 @@
 
     <div class="form-group">
         <label>product id</label>
-        <input type="text" class="form-control" id="productId"
-        [(ngModel)]="productSku.productId" name="productId">
+        <input class="form-control" id="readOnlyInput" type="text" placeholder={{id}} readonly=""   
+            [(ngModel)]="productSku.productId" name="productId">
 
     </div>
 
@@ -74,8 +82,14 @@
 
     </div>
 
+    <br>
+
 <button class="btn btn-success" type="submit">submit</button>
 
 </form>
+
+</div>
+
+</div>
 
 </div>

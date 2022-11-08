@@ -17,7 +17,7 @@ export class ProductViewComponent implements OnInit {
   faArrowLeft = faArrowLeft;
   faSave = faSave;
   faEdit = faEdit;
-
+id2:any;
   constructor(
     private route: ActivatedRoute, 
     private router: Router,
@@ -28,6 +28,7 @@ export class ProductViewComponent implements OnInit {
     onSelect()
     {
       this.router.navigate(["/admin/product-view",this.id])
+  
     }
 
   ngOnInit(): void {

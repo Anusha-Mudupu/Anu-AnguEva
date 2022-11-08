@@ -2,6 +2,7 @@ import { Observable } from "rxjs";
 
 export interface Product {
     productId: number;
+    productSkuId:number;
     productName: string;
     manufacturerName: string;
     productDesc: string;

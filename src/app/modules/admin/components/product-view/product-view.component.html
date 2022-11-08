@@ -44,7 +44,7 @@
               <tbody>
                 <tr class="table-light" *ngFor="let sku of skuData">
                   <td>
-                    <input class="form-control" style="width: auto" type="text" class="form-control" value={{sku.productSkuCode}}>
+                    <input class="form-control" style="width: auto" type="text" class="form-control" value={{sku.productSkuId}}>
                 
                 </td>
                   <td style="text-align: center; font-size: medium">
@@ -59,7 +59,8 @@
                   </div>
                 </td>
                 <td style="text-align: center; vertical-align: middle;">
-                  <fa-icon [icon]="faEdit"></fa-icon>
+                  <a [routerLink]="['/admin/product-view',id,sku.productSkuId]">  <fa-icon [icon]="faEdit"></fa-icon> </a>
+                 
                 </td>
                 </tr>
               </tbody>

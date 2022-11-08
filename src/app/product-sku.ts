@@ -1,5 +1,5 @@
 export class ProductSku {
-    productSkuId: number;
+productSkuId: number;
 imageUrl: string;
 price:number;
 skuDescription:string;
