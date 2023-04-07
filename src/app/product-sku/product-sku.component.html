@@ -1,7 +1,7 @@
-<h3 class="strong">create new product-sku</h3>
+<!-- <h3 class="strong">create new product-sku</h3> -->
 <!-- <button>add Options</button>
 <button>add </button> -->
-<div class="center">
+<!-- <div class="center">
 
 <div class="scroll-bar"> 
 
@@ -61,6 +61,8 @@
 
     </div>
 
+  
+
     <div class="form-group">
         <label>status</label>
         <input type="text" class="form-control" id="status"
@@ -91,5 +93,129 @@
 </div>
 
 </div>
+</div> -->
 
-</div>
+
+
+
+<form class="row  g-3" class="box" [formGroup]="AddproductSkuform">
+
+    <div class="row">
+        <!-- <div class="col-2">
+            <label  class="form-label">SkuId:</label>
+            <input type="text" class="form-control" id="Skuid"  formControlName="Skuid"  [(ngModel)]="productSku.productSkuId">
+            <div
+                *ngIf="AddproductSkuform.controls['Skuid'].touched && AddproductSkuform.controls['Skuid'] ?.['errors']">
+                <span *ngIf="f ['Skuid'].getError('required')!=null" class="invalid"> enter Skuid</span>
+            </div>
+        </div> -->
+
+        <div class="col-2">
+            <label class="form-label">Price:</label>
+            <input type="text" class="form-control" id="price" name="price" [(ngModel)]="productSku.price"
+                formControlName="price">
+            <div
+                *ngIf="AddproductSkuform.controls['price'].touched && AddproductSkuform.controls['price'] ?.['errors']">
+                <span *ngIf="form ['price'].getError('required')!=null" class="invalid"> enter price</span>
+            </div>
+        </div>
+
+
+        <div class="col-2">
+            <label class="form-label">SkuCode:</label>
+            <input type="text" class="form-control" id="productSkuCd" name="productSkuCd"
+                [(ngModel)]="productSku.productSkuCd" formControlName="Skucode">
+            <div
+                *ngIf="AddproductSkuform.controls['Skucode'].touched && AddproductSkuform.controls['Skucode'] ?.['errors']">
+                <span *ngIf="form ['Skucode'].getError('required')!=null" class="invalid"> enter Skucode</span>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <label class="form-label">Quantity:</label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="count"
+                [(ngModel)]="productSku.count">
+            <div
+                *ngIf="AddproductSkuform.controls['count'].touched && AddproductSkuform.controls['count'] ?.['errors']">
+                <span *ngIf="form ['count'].getError('required')!=null" class="invalid"> enter count</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <label class="form-label">Discount%:</label>
+
+            <input type="text" class="form-control" id="discount" name="discount" [(ngModel)]="productSku.discount"
+                formControlName="Discount">
+            <div
+                *ngIf="AddproductSkuform.controls['Discount'].touched && AddproductSkuform.controls['Discount'] ?.['errors']">
+                <span *ngIf="form ['Discount'].getError('required')!=null" class="invalid"> enter Discount</span>
+            </div>
+        </div>
+        <div class="col-2">
+            <label class="form-label">barcode:</label>
+            <input type="text" class="form-control" id="barCode" name="barCode" [(ngModel)]="productSku.barCode"
+                formControlName="barcode">
+
+            <div
+                *ngIf="AddproductSkuform.controls['barcode'].touched && AddproductSkuform.controls['barcode'] ?.['errors']">
+                <span *ngIf="form ['barcode'].getError('required')!=null" class="invalid"> enter barcode</span>
+                <span *ngIf="form ['barcode'].getError('minLength')!=null" class="invalid"> minimum length is
+                    6</span>
+
+            </div>
+        </div>
+
+        <div class="form-group" class="col-2" class="textarea">
+            <label class="form-label">Description:</label>
+            <textarea class="form-control" rows="" id="skuDescription" name="skuDescription"
+                [(ngModel)]="productSku.skuDescription" formControlName="Description"></textarea>
+
+            <div
+                *ngIf="AddproductSkuform.controls['Description'].touched && AddproductSkuform.controls['Description'] ?.['errors']">
+                <span *ngIf="form ['Description'].getError('required')!=null" class="invalid"> enter Description</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+
+
+        <div class="col-2">
+            <label class="form-label">ProductId:</label>
+            <input type="text" class="form-control" id="barCode" placeholder={{productSku.productId}} name="productId"
+                [(ngModel)]="productSku.productId" formControlName="productId"
+                [attr.disabled]="isDisabled ? true : null">
+
+        </div>
+
+
+         <div class="form-check form-switch" id="toggle">
+            <p class="select">Select Availablity Status:</p>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+                [(ngModel)]="productSku.status" formControlName="status">
+            <span>{{productSku.status ? 'Available' : 'Not-Available'}}</span>
+        </div> 
+
+<!-- 
+         <div class="form-check form-switch" id="toggle">
+            <p class="select">Select  Availablity Status:</p>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+                [(ngModel)]="productSku.status" formControlName="status">
+            <span *ngIf="productSku.status">{{Available}}</span>
+            <span *ngIf="!productSku.status">{{NotAvailable}}</span>
+          </div>  -->
+    </div>
+
+
+
+    <div class="col-3" class="button">
+        <button type="submit" class="btn btn-primary"
+            (click)=" onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
+
+    </div>
+</form>

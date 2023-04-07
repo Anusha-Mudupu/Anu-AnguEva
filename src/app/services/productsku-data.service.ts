@@ -17,4 +17,13 @@ export class ProductSkuDataService {
 
     return this.httpclient.get<ProductSku[]>(environment.getProductSkuByIdURL + id)
   }
+  getProductSkuByID(id:number): Observable<any>{
+    return this.httpclient.get<any>(environment.getproductSkuById + id)
+}
+
+  upDateProductSkuById(id:any,productSku:ProductSku){
+return this.httpclient.put(environment.updateProductSku + id,productSku)
+   }
+
+  
 }

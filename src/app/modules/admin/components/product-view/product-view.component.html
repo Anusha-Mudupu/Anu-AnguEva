@@ -53,14 +53,23 @@
                     </div>
                   </td>
                 <td style="vertical-align: middle; align-items: center;">
-                    <div class="form-check form-switch">
-                    <input style="margin: auto;" class="form-check-input" type="checkbox" id="StatusSwitchCheck" checked="">
+                    <!-- <div class="form-check form-switch">
+                    <input style="margin: auto;" class="form-check-input" type="checkbox" id="StatusSwitchCheck" checked="" [(ngModel)]="sku.status">
                     <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status}}</span>
-                  </div>
-                </td>
-                <td style="text-align: center; vertical-align: middle;">
-                  <a [routerLink]="['/admin/product-view',id,sku.productSkuId]">  <fa-icon [icon]="faEdit"></fa-icon> </a>
+                  </div> -->
                  
+                    <!-- <span *ngIf="sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{Available}}</span>
+                    <span *ngIf="!sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{NotAvailable}}</span> -->
+                    <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status ? 'Available' : 'Not-Available'}}</span>
+                </td>
+    
+
+                
+
+                <td style="text-align: center; vertical-align: middle;">
+                   <a [routerLink]="['/admin/product-view',id,sku.productSkuId]">  
+                    <fa-icon [icon]="faEdit" ></fa-icon> </a>
+                    <!-- (click)="goToProductSkuDetails(sku.productSkuId)" -->
                 </td>
                 </tr>
               </tbody>

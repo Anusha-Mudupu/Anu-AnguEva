@@ -11,9 +11,11 @@ import { VendorsComponent } from './components/vendors/vendors.component';
 
 
 const routes: Routes = [
+
   {path: '', component: AdminDashboardComponent,
+  
   children: [
-    {path:'home', component: HomeComponent},
+     {path:'home', component: HomeComponent},
     {path:'products',component: ProductsComponent},
     {path:'vendors',component: VendorsComponent},
     {path:'products/:productId', component: ProductViewComponent},

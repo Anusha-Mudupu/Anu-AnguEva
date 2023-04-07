@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdminModule } from './modules/admin/admin.module';
+ import { AdminModule } from './modules/admin/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductSkuComponent } from './product-sku/product-sku.component';
@@ -30,7 +30,7 @@ import { ProductSkuDetailComponent } from './product-sku-detail/product-sku-deta
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AdminModule,
+     AdminModule,
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,

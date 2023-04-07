@@ -13,6 +13,7 @@ private addProductSku="http://localhost:8085/addproductsku";
 
 private addProductSkuImage="http://localhost:8085/addImages";
 
+
   constructor(private http:HttpClient) { }
   createProductSku(productSku:ProductSku): Observable<Object>
 
@@ -24,5 +25,8 @@ addImageToProduSku( _productSkuImage:ProductSkuImage ):Observable<Object>
 {
 return this.http.post(`${this.addProductSkuImage}`,_productSkuImage);
 }
+
+
+
 
 }

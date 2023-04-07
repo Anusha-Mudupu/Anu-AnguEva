@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowLeft, faEdit, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Product, ProductSku } from 'src/app/data/data-objects';
+
 import { ProductDataService } from 'src/app/services/product-data.service';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 
@@ -13,22 +14,28 @@ import { ProductSkuDataService } from 'src/app/services/productsku-data.service'
 export class ProductViewComponent implements OnInit {
   productData!: Product;
   id: any;
-  skuData: ProductSku[] = [];
+  productSkuId:any
+
   faArrowLeft = faArrowLeft;
   faSave = faSave;
   faEdit = faEdit;
-id2:any;
+  skuData:any;
+  Available='Available';
+    NotAvailable='Not-Available';
+
   constructor(
     private route: ActivatedRoute, 
     private router: Router,
     private productDataService: ProductDataService,
     private productSkuDataService: ProductSkuDataService
+    
     ) { }
 
     onSelect()
     {
       this.router.navigate(["/admin/product-view",this.id])
-  
+      // this.router.navigate(["/admin/product-view",this.productSkuId])
+      
     }
 
   ngOnInit(): void {
@@ -38,11 +45,15 @@ id2:any;
       this.productData = response;
       console.log(this.productData);
     })
-
+      
       this.productSkuDataService.getAllProductSkus(this.id).subscribe(
         (data) => {
         this.skuData = data;
         console.log(this.skuData);
       })
+      
     }
+    // goToProductSkuDetails(productSkuId:any,id:any,){
+    //   this.router.navigate(['/admin/product-view',id,productSkuId])
+    // }
   }
