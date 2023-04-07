@@ -42,8 +42,11 @@ productSku: ProductSku = new ProductSku();
    console.log(this.id);
    this.productdataservice.getProductById(this.id).subscribe(data=>{
     this.productSku=data;
-   
+    this.productSku.status=data;
+
     console.log(data)
+    console.log("this.productSku:", this.productSku.status)
+
   })
  }
 

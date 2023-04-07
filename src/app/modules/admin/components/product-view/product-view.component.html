@@ -58,9 +58,10 @@
                     <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status}}</span>
                   </div> -->
                  
-                    <!-- <span *ngIf="sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{Available}}</span>
-                    <span *ngIf="!sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{NotAvailable}}</span> -->
-                    <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status ? 'Available' : 'Not-Available'}}</span>
+                      <!-- <span *ngIf="sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status ||Available}}</span>
+                    <span *ngIf="!sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status || NotAvailable}}</span>  -->
+
+                     <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status === 'true' ? 'Available' : 'Not-Available'}}</span> 
                 </td>
     
 

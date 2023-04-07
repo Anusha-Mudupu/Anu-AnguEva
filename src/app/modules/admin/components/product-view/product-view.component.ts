@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowLeft, faEdit, faSave } from '@fortawesome/free-solid-svg-icons';
-import { Product, ProductSku } from 'src/app/data/data-objects';
+import { Product } from 'src/app/data/data-objects';
 
 import { ProductDataService } from 'src/app/services/product-data.service';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 
 @Component({
+
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
   styleUrls: ['./product-view.component.scss']
