@@ -4,6 +4,11 @@
         <a routerLink="../" style="color: black;"><fa-icon [icon]="faArrowLeft" size="2x" class="fa-regular"></fa-icon></a>
       <fa-icon [icon]="faSave" size="2x" class="fal" style="margin-left: 20px;"></fa-icon>
       </div>
+
+      <div>
+        <button  type="button" class="btn btn-dark" style="margin-left: 1300px; " (click)="onSelect()" >Add New Product Sku</button>
+
+      </div>
         <div class="row">
           <div class="col-sm-4 p-3" style="background-color:rgb(218, 136, 35);">
             <div class="form-group">
@@ -39,7 +44,7 @@
               <tbody>
                 <tr class="table-light" *ngFor="let sku of skuData">
                   <td>
-                    <input class="form-control" style="width: auto" type="text" class="form-control" value={{sku.productSkuCode}}>
+                    <input class="form-control" style="width: auto" type="text" class="form-control" value={{sku.productSkuId}}>
                 
                 </td>
                   <td style="text-align: center; font-size: medium">
@@ -48,13 +53,23 @@
                     </div>
                   </td>
                 <td style="vertical-align: middle; align-items: center;">
-                    <div class="form-check form-switch">
-                    <input style="margin: auto;" class="form-check-input" type="checkbox" id="StatusSwitchCheck" checked="">
+                    <!-- <div class="form-check form-switch">
+                    <input style="margin: auto;" class="form-check-input" type="checkbox" id="StatusSwitchCheck" checked="" [(ngModel)]="sku.status">
                     <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status}}</span>
-                  </div>
+                  </div> -->
+                 
+                    <!-- <span *ngIf="sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{Available}}</span>
+                    <span *ngIf="!sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{NotAvailable}}</span> -->
+                    <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status ? 'Available' : 'Not-Available'}}</span>
                 </td>
+    
+
+                
+
                 <td style="text-align: center; vertical-align: middle;">
-                  <fa-icon [icon]="faEdit"></fa-icon>
+                   <a [routerLink]="['/admin/product-view',id,sku.productSkuId]">  
+                    <fa-icon [icon]="faEdit" ></fa-icon> </a>
+                    <!-- (click)="goToProductSkuDetails(sku.productSkuId)" -->
                 </td>
                 </tr>
               </tbody>

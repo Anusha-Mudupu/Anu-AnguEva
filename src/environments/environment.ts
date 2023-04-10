@@ -8,8 +8,12 @@ export const environment = {
   getAllVendorsURL: 'http://localhost:8085/getAllManufacturers',
   saveProductURL: 'http://localhost:8085/addproduct',
   getProductByIdURL: 'http://localhost:8085/getProduct/?productId=',
-  getProductSkuByIdURL: 'http://localhost:8085/getAllProductSkus?productId='
+  getProductSkuByIdURL: 'http://localhost:8085/getAllProductSkus?productId=',
+  
+  getproductSkuById:'http://localhost:8085/getByProductSkusId?skuId=',
+ updateProductSku:'http://localhost:8085/editSku/'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -26,6 +26,7 @@ export class ProductDialogComponent implements OnInit {
   vendorData: Vendor[] = [];
   addOnBlur = true;
   searchTags: string[] = [];
+  
 
   ngOnInit(){
     this.vendorDataService.getVendors().subscribe((response) => {

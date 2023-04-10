@@ -19,7 +19,9 @@ export class ProductDataService {
     return this.httpclient.post<any>(environment.saveProductURL,product);
   }
 
-  getProductById(id: number): Observable<Product>{
-    return this.httpclient.get<Product>(environment.getProductByIdURL + id)
+  getProductById(id: number): Observable<any>{
+    return this.httpclient.get<any>(environment.getProductByIdURL + id)
   }
+
+ 
 }
