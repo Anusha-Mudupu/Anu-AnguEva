@@ -11,3 +11,4 @@ productSkuCd:string;
 listPrice:number;
 barCode:number;
 }
+

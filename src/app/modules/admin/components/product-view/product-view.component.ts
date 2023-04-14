@@ -21,8 +21,7 @@ export class ProductViewComponent implements OnInit {
   faSave = faSave;
   faEdit = faEdit;
   skuData:any;
-  Available='Available';
-    NotAvailable='Not-Available';
+  isDisabled: boolean = true;
 
   constructor(
     private route: ActivatedRoute, 
@@ -45,6 +44,7 @@ export class ProductViewComponent implements OnInit {
       (response) =>{ 
       this.productData = response;
       console.log(this.productData);
+      console.log(this.id);
     })
       
       this.productSkuDataService.getAllProductSkus(this.id).subscribe(

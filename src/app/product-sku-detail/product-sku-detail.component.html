@@ -7,104 +7,93 @@
 
 
 
+<div >
+    <img [src]="imageBaseUrl" alt="no" width="100px" height="70px" class="Skuimgs"> 
+  </div> 
+
 <form class="row  g-3" class="box" [formGroup]="Updateform">
 
     <div class="row">
 
+
         <div class="col-2">
             <label class="form-label">productSkuid:</label>
-            <input type="text" class="form-control" id="productSkuId" name="productSkuId" [(ngModel)]="productSku.productSkuId"
-                formControlName="productSkuId" placeholder="{{id}}" [attr.disabled]="isDisabled ? true : null" >
-           
+            <input type="text" class="form-control" id="productSkuId" name="productSkuId"
+                [(ngModel)]="productSku.productSkuId" formControlName="productSkuId" placeholder="{{id}}"
+                [attr.disabled]="isDisabled ? true : null">
+
         </div>
 
         <div class="col-2">
             <label class="form-label">Price:</label>
-            <input type="text" class="form-control" id="price"  [(ngModel)]="productSku.price"
-                formControlName="price" placeholder="{{productSku.price}}">
-           
+            <input type="text" class="form-control" id="price" [(ngModel)]="productSku.price" formControlName="price"
+                placeholder="{{productSku.price}}">
+
         </div>
+    </div>
 
-
+    <div class="row">
         <div class="col-2">
             <label class="form-label">SkuCode:</label>
             <input type="text" class="form-control" id="productSkuCd" name="productSkuCd"
-                [(ngModel)]="productSku.productSkuCd" formControlName="productSkuCd" >
-           
+                [(ngModel)]="productSku.productSkuCd" formControlName="productSkuCd">
+
         </div>
 
         <div class="col-2">
             <label class="form-label">Quantity:</label>
-            <input type="text" class="form-control" id="count" formControlName="count"
-                [(ngModel)]="productSku.count" >
-            
+            <input type="text" class="form-control" id="count" formControlName="count" [(ngModel)]="productSku.count">
+
         </div>
     </div>
 
     <div class="row">
-       <div class="col-2">
+        <div class="col-2">
             <label class="form-label">Discount%:</label>
 
             <input type="text" class="form-control" id="discount" name="discount" [(ngModel)]="productSku.discount"
-                formControlName="Discount" >
-                
+                formControlName="Discount">
+
         </div>
         <div class="col-2">
             <label class="form-label">barcode:</label>
             <input type="text" class="form-control" id="barCode" name="barCode" [(ngModel)]="productSku.barCode"
-                formControlName="barcode" >
+                formControlName="barcode">
 
-           
+
         </div>
+    </div>
+    <div class="row">
 
-        <div class="form-group" class="col-2" class="textarea">
+        <div class="form-group" class="col-4" class="textarea">
             <label class="form-label">Description:</label>
             <textarea class="form-control" rows="" id="skuDescription" name="skuDescription"
-                [(ngModel)]="productSku.skuDescription" formControlName="Description" ></textarea>
-
-           
+                [(ngModel)]="productSku.skuDescription" formControlName="Description"></textarea>
         </div>
     </div>
 
-
-
     <div class="row">
-        
-
         <div class="col-2">
             <label class="form-label">ProductId:</label>
-            <input type="text" class="form-control" id="productId"  name="productId"
-                [(ngModel)]="productSku.productId" formControlName="productId" placeholder="{{productSku.productId}}" [attr.disabled]="isDisabled ? true : null">
-                
+            <input type="text" class="form-control" id="productId" name="productId" [(ngModel)]="productSku.productId"
+                formControlName="productId" placeholder="{{productSku.productId}}"
+                [attr.disabled]="isDisabled ? true : null">
         </div>
-           
+
+
         <div class="form-check form-switch" id="toggle">
             <p class="select">Select Status:</p>
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''  [(ngModel)]="productSku.status" formControlName="status">
-            <span>{{productSku.status ?'Available':'Not-Available'}}</span>
-            <!-- <span *ngIf="!productSku.status">{{productSku.status}}</span>
-            -->
-            
-          </div>
-
-          <!-- <div class="form-check form-switch" id="toggle">
-            <p class="select">Select  Availablity Status:</p>
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
                 [(ngModel)]="productSku.status" formControlName="status">
-            <span *ngIf="productSku.status">{{Available}}</span>
-            <span *ngIf="!productSku.status">{{NotAvailable}}</span>
-          </div> -->
+            <span>{{productSku.status ? 'Available':'Not-Available'}}</span>
         </div>
-        
+    </div>
 
+</form>
 
+<div class="col-3" class="button">
+    <button type="submit" class="btn btn-primary"
+        (click)=" onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
-
-
-        <div class="col-3" class="button">
-            <button type="submit" class="btn btn-primary"
-                (click)=" onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
-
-        </div>
-    </form>
+</div>

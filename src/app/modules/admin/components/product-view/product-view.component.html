@@ -32,7 +32,7 @@
           </div>
           <div class="col-sm-8 p-3 sku-section">
             <h1>Product SKUs</h1>
-            <table class="table table-hover">
+            <table class="table table-hover" >
               <thead>
                 <tr>
                   <th scope="col">SKU Code</th>
@@ -44,12 +44,14 @@
               <tbody>
                 <tr class="table-light" *ngFor="let sku of skuData">
                   <td>
-                    <input class="form-control" style="width: auto" type="text" class="form-control" value={{sku.productSkuId}}>
+                    <input class="form-control" style="width: auto" type="text" class="form-control" value={{sku.productSkuCd}} [attr.disabled]="isDisabled ? true : null">
                 
                 </td>
+
+                
                   <td style="text-align: center; font-size: medium">
                     <div class="form-outline">
-                      <input type="number" class="form-control" style="width: auto;" value={{sku.count}}>
+                      <input type="number" class="form-control" style="width: auto;" value={{sku.count}} [attr.disabled]="isDisabled ? true : null">
                     </div>
                   </td>
                 <td style="vertical-align: middle; align-items: center;">
@@ -58,8 +60,6 @@
                     <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status}}</span>
                   </div> -->
                  
-                      <!-- <span *ngIf="sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status ||Available}}</span>
-                    <span *ngIf="!sku.status" style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status || NotAvailable}}</span>  -->
 
                      <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status === 'true' ? 'Available' : 'Not-Available'}}</span> 
                 </td>
@@ -79,4 +79,4 @@
         </div>
       </div>
 
-</div>
+    </div>

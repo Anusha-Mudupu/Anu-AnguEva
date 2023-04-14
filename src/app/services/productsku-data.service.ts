@@ -25,5 +25,7 @@ export class ProductSkuDataService {
 return this.httpclient.put(environment.updateProductSku + id,productSku)
    }
 
-  
+  getImageBySkuId(id:number){
+  return this.httpclient.get<any>(environment.imagesBaseUrl2 +id);
+  }
 }

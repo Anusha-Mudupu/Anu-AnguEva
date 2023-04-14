@@ -11,7 +11,11 @@ export const environment = {
   getProductSkuByIdURL: 'http://localhost:8085/getAllProductSkus?productId=',
   
   getproductSkuById:'http://localhost:8085/getByProductSkusId?skuId=',
- updateProductSku:'http://localhost:8085/editSku/'
+ updateProductSku:'http://localhost:8085/updateProductSkuById/',
+   imagesBaseUrl: `http://localhost:8085/`,
+
+   imagesBaseUrl2: `http://localhost:8085/getImageSkuId/{id}?id=`,
+
 };
 
 

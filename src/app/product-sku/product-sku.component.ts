@@ -29,8 +29,7 @@ export class ProductSkuComponent implements OnInit {
   })
 
 
-  Available:any;
-  NotAvailable:any;
+
   id: any;
   isDisabled:boolean=true;
 
@@ -42,10 +41,11 @@ productSku: ProductSku = new ProductSku();
    console.log(this.id);
    this.productdataservice.getProductById(this.id).subscribe(data=>{
     this.productSku=data;
-    this.productSku.status=data;
+    // this.productSku.status=data;
 
     console.log(data)
-    console.log("this.productSku:", this.productSku.status)
+    console.log(this.productSku)
+   
 
   })
  }
@@ -53,7 +53,7 @@ productSku: ProductSku = new ProductSku();
 
   saveProductSku() {
  this.produSku.createProductSku(this.productSku).subscribe(data => {
-      console.log(data);
+      console.log(this.productSku);
    alert('product Sku added successfully')
     },
       error => console.log(error));

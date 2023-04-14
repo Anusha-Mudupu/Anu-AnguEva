@@ -197,17 +197,11 @@
             <p class="select">Select Availablity Status:</p>
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
                 [(ngModel)]="productSku.status" formControlName="status">
-            <span>{{productSku.status === 'true' ? 'Available' : 'Not-Available'}}</span>
+            <span>{{productSku.status ? 'Available' : 'Not-Available'}}</span>
         </div> 
 
 
-         <!-- <div class="form-check form-switch" id="toggle">
-            <p class="select">Select  Availablity Status:</p>
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
-                [(ngModel)]="productSku.status" formControlName="status">
-            <span *ngIf="productSku.status">{{Available}}</span>
-            <span *ngIf="productSku.status">{{NotAvailable}}</span>
-          </div>   -->
+       
     </div>
 
 
