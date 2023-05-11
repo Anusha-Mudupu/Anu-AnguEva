@@ -15,6 +15,8 @@ import { ProductSkuImagesComponent } from './product-sku-images/product-sku-imag
 import { ProductSkuDetailComponent } from './product-sku-detail/product-sku-detail.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { ProductSkuDetailComponent } from './product-sku-detail/product-sku-deta
     ProductSkuOptionsComponent,
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
+ 
+   
   ],
   imports: [
     BrowserModule,

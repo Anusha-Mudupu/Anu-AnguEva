@@ -1,0 +1,80 @@
+<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
+    <label>
+        optionTypeName:
+      <input type="text" formControlName="optionTypeName" class="p1">
+    </label> -->
+<!-- <label>
+        optionTypeId:
+      <input type="email" formControlName="optionTypeId">
+    </label> -->
+
+<!-- <label>
+        optionTypeFor:
+      <input type="email" formControlName="optionTypeFor" class="p1">
+    </label>
+  
+    <div formArrayName="OptionValues">
+      <div *ngFor="let address of myForm.get('OptionValues').controls; let i=index" [formGroupName]="i">
+        <label>
+            optionValue:
+          <input type="text" formControlName="optionValue" class="p1">
+        </label>
+        <label>
+            optionTypeId:
+          <input type="text" formControlName="optionTypeId" class="p1">
+        </label>
+        <label>
+            productSkuId:
+          <input type="text" formControlName="productSkuId" class="p1">
+        </label>
+        
+         </div>
+    </div>
+  
+    <button type="button" (click)="addOptionValues()">Add Options</button>
+  
+    <button type="submit">Submit</button>
+  </form> -->
+
+<form [formGroup]="myForm1" class="form1" >
+  <div class="row" >
+
+    <label class="col-4">
+      optionTypeName:
+      <input type="text" formControlName="optionTypeName" class="p1">
+    </label>
+    <label class="col-4">
+      optionTypeFor:
+      <input type="text" formControlName="optionTypeFor" class="p1">
+    </label>
+  
+  </div>
+  <div class="btn3">
+  <button type="submit" (click)="SubmitOption()"  class="btn btn-success">Submit</button>
+ 
+</div>
+</form>
+<!-- <button type="button"(click)='get()'>get</button> -->
+
+<form [formGroup]="myForm" class="form2">
+  <button type="submit" class="btn btn-primary" (click)="addOptions()" id="btn1">AddOptionValue</button>
+  <div class="row">
+    <div *ngFor="let field of myForm.get('fields').controls; let i = index" [formControlName]="i">
+      <label class="col-4">
+        optionTypeId:
+        <input type="text" formControlName="optionTypeId" class="p2">
+      </label>
+      <label class="col-4">
+        optionValue:
+        <input type="text" formControlName="optionValue" class="p2" >
+      </label>
+
+      <label class="col-4">
+        productSkuId:
+        <input type="email" formControlName="productSkuId" class="p2" placeholder={{OptionsData.productSkuId}}
+          [(ngModel)]="OptionsData.productSkuId">
+      </label>
+    </div>
+</div>
+<button type="submit" class="btn btn-success" (click)="onSubmit()" id="btn2">Submit</button>
+</form>

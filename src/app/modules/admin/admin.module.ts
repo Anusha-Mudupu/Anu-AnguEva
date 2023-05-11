@@ -23,6 +23,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddOptionsComponent } from './components/add-options/add-options.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     AdminDashboardComponent,
     ProductDialogComponent,
-    MyRoutings
+    MyRoutings,
+    AddOptionsComponent
   ],
   imports: [
     CommonModule,

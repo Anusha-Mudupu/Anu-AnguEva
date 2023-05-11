@@ -1,9 +1,9 @@
 export class ProductSku {
 productSkuId: number;
-imageUrl: string;
+productSkuImag: any;
 price:number;
 skuDescription:string;
-status:string;
+status:any;
 count:number;
 discount:number;
 productId:number;

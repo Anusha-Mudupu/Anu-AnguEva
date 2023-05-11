@@ -9,24 +9,22 @@ import { ProductSkuImage } from './product-sku-image';
 })
 export class ProductSkuServiceService {
 
-private addProductSku="http://localhost:8085/addproductsku";
+  private addProductSku = "http://localhost:8085/addproductsku";
 
-private addProductSkuImage="http://localhost:8085/addImages";
+  private addProductSkuImage = "http://localhost:8085/addImages";
 
 
-  constructor(private http:HttpClient) { }
-  createProductSku(productSku:ProductSku): Observable<Object>
-
-  {
-return this.http.post(`${this.addProductSku}`,productSku);
+  constructor(private http: HttpClient) { }
+  createProductSku(productSku: ProductSku): Observable<Object> {
+    return this.http.post(`${this.addProductSku}`, productSku);
   }
 
-addImageToProduSku( _productSkuImage:ProductSkuImage ):Observable<Object>
-{
-return this.http.post(`${this.addProductSkuImage}`,_productSkuImage);
+  addImageToProduSku(_productSkuImage: ProductSkuImage): Observable<Object> {
+    return this.http.post(`${this.addProductSkuImage}`, _productSkuImage);
+  }
+
+
+     
+
 }
-
-
-
-
-}
+  

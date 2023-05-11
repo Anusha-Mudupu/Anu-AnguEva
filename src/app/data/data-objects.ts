@@ -1,14 +1,19 @@
 import { Observable } from "rxjs";
-
+export interface Product1{
+  productId: number;
+  productName: string;
+  productDesc: string;
+  manufacturerId: number
+  search_tag: string
+}
 export interface Product {
     productId: number;
-    productSkuId:number;
-    productName: string;
+   productName: string;
     manufacturerName: string;
     productDesc: string;
     manufacturerId: number;
     storeId: number;
-    search_tag: string
+    searchTag: string
   }
 
 export interface Vendor {
@@ -22,10 +27,10 @@ export interface SearchTag {
 
 export interface ProductSku {
   productSkuId: number;
-imageUrl: string;
+  productSkuImage: any;
 price:number;
 skuDescription:string;
-status:string;
+status:any;
 count:number;
 discount:number;
 productId:number;
@@ -33,3 +38,18 @@ productSkuCd:string;
 listPrice:number;
 barCode:number;
 }
+
+export interface ProductSkuOptions{
+  optionTypeName:string;
+  optionTypeId:number;
+ optionTypeFor:string
+  theOption:theOption[];
+}
+export interface theOption{
+  optionId: number;
+  optionTypeId: number;
+  optionValue: string;
+  productSkuId:number
+}
+ 
+

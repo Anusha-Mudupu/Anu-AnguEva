@@ -6,15 +6,24 @@ export const environment = {
   production: false,
   getAllProductsURL: 'http://localhost:8085/getAllProducts',
   getAllVendorsURL: 'http://localhost:8085/getAllManufacturers',
-  saveProductURL: 'http://localhost:8085/addproduct',
+  saveProductURL: 'http://localhost:8085/addProduct',
   getProductByIdURL: 'http://localhost:8085/getProduct/?productId=',
   getProductSkuByIdURL: 'http://localhost:8085/getAllProductSkus?productId=',
   
   getproductSkuById:'http://localhost:8085/getByProductSkusId?skuId=',
  updateProductSku:'http://localhost:8085/updateProductSkuById/',
-   imagesBaseUrl: `http://localhost:8085/`,
+  imagesBaseUrl: `http://localhost:8085/`,
 
-   imagesBaseUrl2: `http://localhost:8085/getImageSkuId/{id}?id=`,
+   getImageBySkuId: `http://localhost:8085/getImageSkuId/{id}?id=`,
+   uploadImageBySkuId:'http://localhost:8085/api/file/upload/',
+   deleteImgByImgId:'http://localhost:8085/api/file/delete?id=',
+   getOptionsBySkuId:'http://localhost:8085/getOptionBySkuId?skuId=',
+   addOptions:'http://localhost:8085/api/addOptionType',
+   addOptionsValues:'http://localhost:8085/addTheOption',
+   getOptionTypeId:'http://localhost:8085/getOptionType?typeId='
+  
+
+   
 
 };
 

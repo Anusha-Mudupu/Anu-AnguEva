@@ -1,45 +1,52 @@
 <h1 mat-dialog-title>Add New Product</h1>
 <div mat-dialog-content class="dialog-content">
-  <form [formGroup] = "productForm">
+  <form [formGroup]="productForm">
     <div>
       <mat-form-field class="product-name" appearance="fill">
-          <mat-label>Product Name</mat-label>
-          <input matInput formControlName="productName">
-        </mat-form-field>
-        <mat-form-field class="vendor-select" appearance="fill">
-          <mat-label>Vendor Name</mat-label>
-          <mat-select formControlName="manufacturerId">
-              <mat-option *ngFor="let vendor of vendorData" [value]="vendor.manufacturerId">
-                  {{vendor.manufacturerName}}
-                </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="search-tag-list" appearance="fill">
-          <mat-label>Search Tags</mat-label>
-          <mat-chip-list #chipList aria-label="Searchtag selection">
-            <mat-chip *ngFor="let tag of searchTags" (removed)="removeTag(tag)">
-              {{tag}}
-              <button matChipRemove>
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip>
-            <input formControlName="search_tags" placeholder="Enter Tags..."
-                   [matChipInputFor]="chipList"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   [matChipInputAddOnBlur]="addOnBlur"
-                   (matChipInputTokenEnd)="addTag($event)">
-          </mat-chip-list>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="product-description" appearance="fill">
-          <mat-label>Product Description</mat-label>
-          <textarea formControlName="productDesc" matInput placeholder="Type Here..."></textarea>
-        </mat-form-field>
-      </div>
-      <div mat-dialog-action [align]="'center'">
-          <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-          <button style="margin-left:10px" mat-raised-button color="primary" (click)="AddProduct()">Submit</button>
-  </div>
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="productName">
+      </mat-form-field>
+
+
+
+      <mat-form-field class="vendor-select" appearance="fill">
+        <mat-label>Vendor Name</mat-label>
+        <mat-select formControlName="manufacturerId">
+          <mat-option *ngFor="let vendor of vendorData" [value]="vendor.manufacturerId">
+            {{vendor.manufacturerName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field class="search-tag-list" appearance="fill">
+        <mat-label>Search Tags</mat-label>
+        <mat-chip-list #chipList aria-label="Searchtag selection">
+          <mat-chip *ngFor="let tag of searchTags" (removed)="removeTag(tag)">
+            {{tag}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input formControlName="searchTag" placeholder="Enter Tags..." [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="addTag($event)">
+        </mat-chip-list>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="product-description" appearance="fill">
+        <mat-label>Product Description</mat-label>
+        <textarea formControlName="productDesc" matInput placeholder="Type Here..."></textarea>
+      </mat-form-field>
+    </div>
+
+
+
+    <div mat-dialog-action [align]="'center'">
+      <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+      <button style="margin-left:10px" mat-raised-button color="primary"
+        (click)="addProduct(productForm)">Submit</button>
+    </div>
   </form>
 </div>

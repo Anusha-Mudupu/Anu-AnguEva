@@ -3,5 +3,5 @@ export class ProductSkuImage {
     name:string;
     mimetype:string;
     productSkuId:number;
-    imageUrl:any
+    productSkuImage:any;
 }

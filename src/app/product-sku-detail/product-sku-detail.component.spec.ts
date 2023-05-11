@@ -19,5 +19,6 @@ describe('ProductSkuDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    
   });
 });
