@@ -8,20 +8,19 @@ export const environment = {
   getAllVendorsURL: 'http://localhost:8085/getAllManufacturers',
   saveProductURL: 'http://localhost:8085/addProduct',
   getProductByIdURL: 'http://localhost:8085/getProduct/?productId=',
-  getProductSkuByIdURL: 'http://localhost:8085/getAllProductSkus?productId=',
+  getAllProductskusIdURL: 'http://localhost:8085/getAllProductSkus?productId=',
   
-  getproductSkuById:'http://localhost:8085/getByProductSkusId?skuId=',
- updateProductSku:'http://localhost:8085/updateProductSkuById/',
+  getproductSkuById:'http://localhost:8085/ecomm/getByProductSkuId?skuId=',
+ updateProductSku:'http://localhost:8085/ecomm/updateByProductSkuId?skuId=',
   imagesBaseUrl: `http://localhost:8085/`,
 
    getImageBySkuId: `http://localhost:8085/getImageSkuId/{id}?id=`,
    uploadImageBySkuId:'http://localhost:8085/api/file/upload/',
    deleteImgByImgId:'http://localhost:8085/api/file/delete?id=',
-   getOptionsBySkuId:'http://localhost:8085/getOptionBySkuId?skuId=',
-   addOptions:'http://localhost:8085/api/addOptionType',
-   addOptionsValues:'http://localhost:8085/addTheOption',
-   getOptionTypeId:'http://localhost:8085/getOptionType?typeId='
-  
+  //  getOptionsBySkuId:'http://localhost:8085/getOptionBySkuId?skuId=',
+   
+    // getOptionUrl:'http://localhost:8085/api/getOptionSkuId?skuId=',
+   addNewOption:'http://localhost:8085/addOption' 
 
    
 

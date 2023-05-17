@@ -13,9 +13,12 @@ import { ProductSkuComponent } from './product-sku/product-sku.component';
 import { ProductSkuOptionsComponent } from './product-sku-options/product-sku-options.component';
 import { ProductSkuImagesComponent } from './product-sku-images/product-sku-images.component';
 import { ProductSkuDetailComponent } from './product-sku-detail/product-sku-detail.component';
-
-
-
+import { MatSelectModule } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+// import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { ProductSkuDetailComponent } from './product-sku-detail/product-sku-deta
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
  
+ 
    
   ],
   imports: [
@@ -38,6 +42,12 @@ import { ProductSkuDetailComponent } from './product-sku-detail/product-sku-deta
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatButtonModule,
+    NgMultiSelectDropDownModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

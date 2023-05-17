@@ -7,7 +7,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
-
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AddOptionsComponent } from '../modules/admin/components/add-options/add-options.component';
 @Component({
   selector: 'app-product-sku-detail',
   templateUrl: './product-sku-detail.component.html',
@@ -24,8 +27,14 @@ export class ProductSkuDetailComponent implements OnInit {
   myfiles:any=[];
   isPrimary:boolean=true;
   isEditMode=true;
+  OptionsData:any;
+  OptionsData1:any;
 
- constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService) { }
+ 
+  toppings = new FormControl();
+
+  toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+ constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService ,private dialog: MatDialog) { }
 
   // onSelect()
   // {
@@ -47,24 +56,27 @@ export class ProductSkuDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.edit()
+   
  this.imageBaseUrl=environment.imagesBaseUrl
 this.id = this.route.snapshot.params['productSkuId']
     console.log(this.id)
     this.productSkuDataservice.getProductSkuByID(this.id).subscribe(
       (response) => {
-        this.productSku = response[0];
+        console.log(response)
+        this.productSku = response;
+        this.image = this.productSku.images;
+        this.OptionsData=this.productSku.options
+        console.log(this.image)
        console.log(this.productSku);
-       console.log(this.productSku.productSkuImage);
+       console.log(this.OptionsData)
+       
     
        //this.imageBaseUrl= environment.imagesBaseUrl + this.productSku.productSkuImage;
 
       });
 
-      this.productSkuDataservice.getImageBySkuId(this.id).subscribe((data:any)=>{
-        this.image=data;
-        console.log(this.image);
-        console.log(environment.imagesBaseUrl)
-        })
+     
+
      }
 
  
@@ -103,7 +115,7 @@ this.id = this.route.snapshot.params['productSkuId']
 
   cancel() {
     this.router.navigate(['/admin/products/:productId',this.productSku])
-    alert('Youre Changes are not saved Do you Want to Cancel It ');
+     alert('Youre Changes are not saved Do you Want to Cancel It ');
   }
   onFileSelected(event:any) {
     // for(let i=0;i<(event.target.files.length);i++){
@@ -124,10 +136,12 @@ this.id = this.route.snapshot.params['productSkuId']
 deleteimage(productSkuImageId:number){
   this.productSkuDataservice.deleteImgByImgId(productSkuImageId).subscribe(data=>{
     console.log(data);
-    window.location.reload()
+ 
   },message=>{
-    alert('Do you want to delete it')
-  })
+    alert('Do you want to delete it');
+  }
+  )
+  this.ngOnInit()
 }
 
 // setPrimary() {
@@ -155,8 +169,17 @@ edit (){
 }
 
 AddOptions(){
-  this.router.navigate(['/admin/add-options',this.id])
+  this.router.navigate(['/admin/addnewoption',this.id])
 }
+
+
+
+openModal(): void {
+  this.dialog.open(AddOptionsComponent);
+}
+
+
+
 }
 
 

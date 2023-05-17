@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddOptionsComponent } from './components/add-options/add-options.component';
+import { AddNewOptionComponent } from './components/add-new-option/add-new-option.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AddOptionsComponent } from './components/add-options/add-options.compon
     AdminDashboardComponent,
     ProductDialogComponent,
     MyRoutings,
-    AddOptionsComponent
+    AddOptionsComponent,
+    AddNewOptionComponent
   ],
   imports: [
     CommonModule,

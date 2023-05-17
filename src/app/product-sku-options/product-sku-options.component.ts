@@ -19,20 +19,20 @@ constructor(private router: Router, private activateroute: ActivatedRoute, priva
 
 
   ngOnInit(): void {
-    this.id = this.activateroute.snapshot.params['productSkuId'];
+    // this.id = this.activateroute.snapshot.params['productSkuId'];
 
-    this.productSkuDataservice.getOptionsBySkuId(this.id).subscribe((data: any) => {
-      this.OptionsData = data;
-      console.log(this.OptionsData);
-    })
+    // this.productSkuDataservice.getOptionsBySkuId(this.id).subscribe((data: any) => {
+    //   this.OptionsData = data;
+    //   console.log(this.OptionsData);
+    // })
   }
-  onselected(event: any) {
-    console.log(event.target.value);
-    console.log(this.selectedOptionName)
-  }
+  // onselected(event: any) {
+  //   console.log(event.target.value);
+  //   console.log(this.selectedOptionName)
+  // }
 
-  addOptions() {
-    this.router.navigate(['/admin/add-options',this.id])
-  }
+  // addOptions() {
+  //   this.router.navigate(['/admin/add-options',this.id])
+  // }
 
 }

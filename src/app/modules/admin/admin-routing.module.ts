@@ -10,6 +10,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { VendorsComponent } from './components/vendors/vendors.component';
 import { ProductSkuOptionsComponent } from 'src/app/product-sku-options/product-sku-options.component';
 import { AddOptionsComponent } from './components/add-options/add-options.component';
+import { AddNewOptionComponent } from './components/add-new-option/add-new-option.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
     {path:'product-sku-detail/:productSkuId', component:ProductSkuImagesComponent},
     {path:'product-sku-options',component:ProductSkuOptionsComponent},
     {path:'add-options/:productSkuId',component:AddOptionsComponent},
+    {path:'addnewoption/:productSkuId',component:AddNewOptionComponent},
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },

@@ -1,7 +1,8 @@
-// .box{
+.box{
    
-//     margin-top: -70px;
-// }
+    margin-top: 70px;
+
+}
 
   .row{
     margin-left: 200px;
@@ -39,7 +40,7 @@
   }
   .Skuimgs{
       margin-left: 260px;
-    margin-top: 30px;
+    // margin-top: 30px;
    }
    
    .images{
@@ -52,32 +53,67 @@
    }
   .crossmark{
     margin-left: 350px;
-    margin-top: 28px;
+    // margin-top: 10px;
     color: aqua;
     position: absolute;
   }
   #editbtn{
   margin-left: 900px;
   width: 100px;
-  margin-top: 50px;
+  margin-top: -35px;
   position: absolute;
 }
 #addoptbtn{
   margin-left: 1050px;
-  width: 100px;
-  margin-top: 50px;
+  width: 160px;
+  margin-top: -35px;
   position: absolute;
 }
   .labelforoptions{
-    font-size: 18px;
+    font-size: 20px;
+   
   }
   #labelforoptionsvalues{
-    font-size: 18px;
+    font-size: 20px;
+   
   }
   .para{
-    font-size: 18px;
+    font-size: 20px;
+     
   }
- 
+  #trashbin{
+    margin-left: 10px;
+    color: red;
+  }
+ .optionsize{
+  font-size: 18px;
+ }
+
+ #plusicon{
+  margin-left: 180px;
+  margin-top: -40px;
+ }
+#select{
+  width: 160px;
+  margin-left: -200px;
+}
+#slecet1{
+ margin-top: -60px;
+}
+
+#selectors{
+  display: flex;
+  margin-left: 30px;
+}
+.slector1{
+  margin-left: 20px;
+  width: 200px;
+}
+.slector2{
+  margin-left: 20px;
+  width: 200px;
+}
+
 
 
   
@@ -88,16 +124,7 @@
       width: 60%;
       padding: 0px;
     }
-    .button{
-      margin-left: -200px;
-      margin-top: -40px;
-    
-    }
-    .textarea{
-      width:100px;
-      height: 0px;
-      margin-top: 5px;
-    }
+   
   
   
   }

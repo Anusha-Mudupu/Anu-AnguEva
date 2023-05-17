@@ -53,3 +53,17 @@ export interface theOption{
 }
  
 
+export interface Options{
+  
+    optionId: number;
+    optionName: string;
+    optionValue: string;
+    productSkuOptions:productSkuOptions[]
+
+}
+
+export interface productSkuOptions{
+  optionId: number,
+  productSkuId: number,
+  productSkuOptionsId: number
+}

@@ -1,80 +1,98 @@
-<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
-    <label>
-        optionTypeName:
-      <input type="text" formControlName="optionTypeName" class="p1">
-    </label> -->
-<!-- <label>
-        optionTypeId:
-      <input type="email" formControlName="optionTypeId">
-    </label> -->
+ <!-- <div class="dai">
+<mat-form-field id="optname">
+  <mat-select placeholder="Select OptionName" [formControl]="toppings" multiple> -->
+<!-- <mat-select-trigger>
+      {{toppings.value ? toppings.value[0] : ''}}
+      <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+        (+{{toppings.value.length - 1}} others)
+      </span>
+    </mat-select-trigger> -->
 
-<!-- <label>
-        optionTypeFor:
-      <input type="email" formControlName="optionTypeFor" class="p1">
-    </label>
-  
-    <div formArrayName="OptionValues">
-      <div *ngFor="let address of myForm.get('OptionValues').controls; let i=index" [formGroupName]="i">
-        <label>
-            optionValue:
-          <input type="text" formControlName="optionValue" class="p1">
-        </label>
-        <label>
-            optionTypeId:
-          <input type="text" formControlName="optionTypeId" class="p1">
-        </label>
-        <label>
-            productSkuId:
-          <input type="text" formControlName="productSkuId" class="p1">
-        </label>
-        
-         </div>
-    </div>
-  
-    <button type="button" (click)="addOptionValues()">Add Options</button>
-  
-    <button type="submit">Submit</button>
-  </form> -->
 
-<form [formGroup]="myForm1" class="form1" >
-  <div class="row" >
+<!-- <mat-option *ngFor="let opt of OptionsData" [value]="opt.optionName">{{opt.optionName}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
-    <label class="col-4">
-      optionTypeName:
-      <input type="text" formControlName="optionTypeName" class="p1">
-    </label>
-    <label class="col-4">
-      optionTypeFor:
-      <input type="text" formControlName="optionTypeFor" class="p1">
-    </label>
-  
-  </div>
-  <div class="btn3">
-  <button type="submit" (click)="SubmitOption()"  class="btn btn-success">Submit</button>
+
+<mat-form-field id="optvalue">
+  <mat-select placeholder="Select optionValue" [formControl]="toppings" [(ngModel)]="selectedoption" (click)="onSelected($event)" multiple> -->
+
+<!-- <mat-select-trigger>
+      {{toppings.value ? toppings.value[0] : ''}}
+      <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+        (+{{toppings.value.length - 1}} others)
+      </span>
+    </mat-select-trigger> -->
+
+
+    
+    <!-- <mat-option *ngFor="let opt of OptionsData" [value]="opt.optionValue">{{opt.optionValue}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+  <div mat-dialog-action [align]="'center'">
+    <button mat-raised-button color="warn" mat-dialog-close class="close">Cancel</button>
+    <button style="margin-left:10px" mat-raised-button color="primary"
+       mat-dialog-close>Submit</button>
  
 </div>
-</form>
-<!-- <button type="button"(click)='get()'>get</button> -->
+</div> -->
+ 
 
-<form [formGroup]="myForm" class="form2">
-  <button type="submit" class="btn btn-primary" (click)="addOptions()" id="btn1">AddOptionValue</button>
+
+
+
+
+
+
+
+
+
+
+
+ <!-- <br>
+<div class="container">
   <div class="row">
-    <div *ngFor="let field of myForm.get('fields').controls; let i = index" [formControlName]="i">
-      <label class="col-4">
-        optionTypeId:
-        <input type="text" formControlName="optionTypeId" class="p2">
-      </label>
-      <label class="col-4">
-        optionValue:
-        <input type="text" formControlName="optionValue" class="p2" >
-      </label>
 
-      <label class="col-4">
-        productSkuId:
-        <input type="email" formControlName="productSkuId" class="p2" placeholder={{OptionsData.productSkuId}}
-          [(ngModel)]="OptionsData.productSkuId">
-      </label>
+    <mat-form-field>
+      <mat-label>Catalog</mat-label>
+      <mat-select [formControl]="catalogs" (change)="onSelectCatalogName($event)">
+        <input placeholder="Search" (keyup)="onKey($event)">
+        <ng-container *ngFor="let parentCatalog of names; let j = index">
+          <mat-option [value]="parentCatalog">{{parentCatalog}}</mat-option>
+
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <mat-form-field>
+        <mat-label>child catalog</mat-label>
+        <mat-select [formControl]="catalogs" multiple>
+          <input placeholder="Search" (keyup)="onKey($event)">
+          <ng-container *ngFor="let catalog of childCatalog; let i = index">
+            <mat-option [value]="catalog">{{catalog}}</mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+
     </div>
-</div>
-<button type="submit" class="btn btn-success" (click)="onSubmit()" id="btn2">Submit</button>
-</form>
+  </div> -->
+
+
+
+
+  <select (change)="onOptionNameSelected($event)">
+    <option *ngFor="let option of options" [value]="option.optionName">{{ option.optionName }}</option>
+  </select>
+  
+  <select>
+    <option *ngFor="let value of selectedOptionValues" [value]="value.optionValue">{{value. optionValue }}</option>
+  </select>
