@@ -11,6 +11,8 @@ import { VendorsComponent } from './components/vendors/vendors.component';
 import { ProductSkuOptionsComponent } from 'src/app/product-sku-options/product-sku-options.component';
 import { AddOptionsComponent } from './components/add-options/add-options.component';
 import { AddNewOptionComponent } from './components/add-new-option/add-new-option.component';
+import { SelectGstComponent } from 'src/app/select-gst/select-gst.component';
+
 
 
 
@@ -29,6 +31,8 @@ const routes: Routes = [
     {path:'product-sku-options',component:ProductSkuOptionsComponent},
     {path:'add-options/:productSkuId',component:AddOptionsComponent},
     {path:'addnewoption/:productSkuId',component:AddNewOptionComponent},
+    {path:'select-gst/:productSkuId',component:SelectGstComponent},
+   
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },

@@ -21,6 +21,7 @@ export class AuthService {
     return this.getToken() !== null;
   }
 
+  
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['login']);
@@ -32,5 +33,6 @@ export class AuthService {
       return of({ name: 'Sumanth Nandyala', email: 'admin@gmail.com' });
     }
     return throwError(new Error('Failed to login'));
+
   }
 }

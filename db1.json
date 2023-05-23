@@ -1,0 +1,37 @@
+{
+    "getallgstdetails":[
+      {
+       "gstid":123,
+       "gstcode":65768,
+       "Cgst":1.5,
+       "sgst":1.5,
+       "igst":3,
+       "percentage":3
+    },
+      {
+       "gstid":123,
+       "gstcode":12368,
+       "Cgst":1.5,
+       "sgst":1.5,
+       "igst":3,
+       "percentage":3
+    },
+      {
+       "gstid":123,
+       "gstcode":456748,
+       "Cgst":1.5,
+       "sgst":1.5,
+       "igst":3,
+       "percentage":3
+    },
+      {
+       "gstid":123,
+       "gstcode":60857,
+       "Cgst":3.5,
+       "sgst":1.5,
+       "igst":5,
+       "percentage":3
+    }
+  ]
+    
+  }

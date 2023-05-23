@@ -1,33 +1,33 @@
-export interface productSkudetails{
-    productSkuId:number;
-    imageUrl:string;
-    price:number;
-    skuDescription:string;
-    status: string;
-    count: number;
-    discount: number;
-    productId: number;
-    productSkuCd:string;
-    listPrice: number;
-    barCode: number;
-    options:Options[]
+export interface ProductSkudetails{
+    productSkuId: number,
+  imageUrl: string,
+  productSkuCd: string,
+  count: number,
+  status: string,
+  discount: number,
+  price: number,
+  listPrice: number,
+  skuDescription:string,
+  productId: number,
+  barCode: string,
+  avgCustomerRating: string,
+  ratingCount: number,
+  trendingProductFlg: string,
+  gstId: number,
+  gstCode: number,
+  igst: number
+  images:image[]
 }
-export interface Options{
-    optionId: number;
-    optionName:string;
-    optionValue: number;
-    images:Images[]
-}
-export interface Images{
+
+export interface image{
+    productSkuImage: string,
+    productSkuId: number,
     productSkuImageId: number,
-      name:string
-      mimetype:string
-      productSkuId: number
-      primaryImageFlg: string
-      pic: string
+    options:option[]
 }
 
 export interface option{
-    optionName:string;
-    optionValue:string
+    optionName: string,
+      optionValue: number,
+      optionId: number
 }

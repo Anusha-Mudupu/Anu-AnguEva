@@ -11,6 +11,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddOptionsComponent } from '../modules/admin/components/add-options/add-options.component';
+import { SelectGstComponent } from '../select-gst/select-gst.component';
+
 @Component({
   selector: 'app-product-sku-detail',
   templateUrl: './product-sku-detail.component.html',
@@ -29,11 +31,12 @@ export class ProductSkuDetailComponent implements OnInit {
   isEditMode=true;
   OptionsData:any;
   OptionsData1:any;
+  Gstcode:any
+  GstTypes:any;
+  Gstpercentage:any
+ productSkudetails:any
+  
 
- 
-  toppings = new FormControl();
-
-  toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
  constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService ,private dialog: MatDialog) { }
 
   // onSelect()
@@ -58,14 +61,23 @@ export class ProductSkuDetailComponent implements OnInit {
     this.edit()
    
  this.imageBaseUrl=environment.imagesBaseUrl
-this.id = this.route.snapshot.params['productSkuId']
+   this.id = this.route.snapshot.params['productSkuId']
     console.log(this.id)
     this.productSkuDataservice.getProductSkuByID(this.id).subscribe(
       (response) => {
         console.log(response)
         this.productSku = response;
-        this.image = this.productSku.images;
-        this.OptionsData=this.productSku.options
+
+      //  this.productSkudetails=this.productSku.productSku[0]
+      //  console.log(this.productSkudetails)
+
+        this.image = this.productSku.image;
+        this.OptionsData=this.productSku.option
+        
+        //  this.GstTypes=this.productSku.gst
+        // this.Gstcode=this.productSku.gstCode;
+
+        console.log(this.Gstcode)
         console.log(this.image)
        console.log(this.productSku);
        console.log(this.OptionsData)
@@ -99,7 +111,7 @@ this.id = this.route.snapshot.params['productSkuId']
     }
     this.saveUpdateProductSku();
     // this.saveUploadImage();
-    this.router.navigate(['/admin/products/:productId',this.productSku]);
+    // this.router.navigate(['/admin/products/:productId',this.productSku]);
 
     const formData = new FormData();
     // for(let i=0;i<this.selectedFile.length;i++){
@@ -172,12 +184,18 @@ AddOptions(){
   this.router.navigate(['/admin/addnewoption',this.id])
 }
 
+addNewGst(){
+  this.router.navigate(['/admin/add-new-gst'])
+}
 
 
 openModal(): void {
-  this.dialog.open(AddOptionsComponent);
+  this.dialog.open(SelectGstComponent,this.id);
 }
 
+button(){
+  this.router.navigate(['/admin/select-gst',this.id])
+}
 
 
 }

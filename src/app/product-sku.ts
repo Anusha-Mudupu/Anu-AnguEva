@@ -9,6 +9,6 @@ discount:number;
 productId:number;
 productSkuCd:string;
 listPrice:number;
-barCode:number;
+barCode:string;
 }
 

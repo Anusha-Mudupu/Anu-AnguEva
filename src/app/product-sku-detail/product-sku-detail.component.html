@@ -1,15 +1,14 @@
- 
-
-
-
 <div>
     <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()">Edit</button>
     <button type="button" id="addoptbtn" class="btn btn-primary" (click)="AddOptions()">Add NewOption</button>
+
+
+
 </div>
 
 <form class="row  g-3" class="box" [formGroup]="Updateform">
 
-     <div class="img1">
+    <div class="img1">
         <div *ngFor="let img of image" class="images">
             <i class="bi bi-file-excel"></i>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-file-excel"
@@ -19,9 +18,9 @@
                 <path
                     d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
             </svg>
-            <img src={{imageBaseUrl}}{{img.name}} alt="no" width="100px" height="70px" class="Skuimgs"
+            <img src={{imageBaseUrl}}{{img.productSkuImage}} alt="no" width="100px" height="70px" class="Skuimgs"
                 [ngClass]="{'primary-image': isPrimary}">
-             <!-- <button (click)="setPrimary()">Set as primary</button> -->
+            <!-- <button (click)="setPrimary()">Set as primary</button> -->
         </div>
     </div>
 
@@ -40,8 +39,8 @@
 
         <div class="col-2">
             <label class="form-label">Price:</label>
-            <input type="text" class="form-control" id="price" [(ngModel)]="productSku.price" formControlName="price"
-                placeholder="{{productSku.price}}">
+            <input type="text" class="form-control" id="price" [(ngModel)]="productSku.price"
+                formControlName="price" placeholder="{{productSku.price}}">
 
         </div>
         <div class="col-2">
@@ -57,14 +56,15 @@
 
         <div class="col-2">
             <label class="form-label">Quantity:</label>
-            <input type="text" class="form-control" id="count" formControlName="count" [(ngModel)]="productSku.count">
+            <input type="text" class="form-control" id="count" formControlName="count"
+                [(ngModel)]="productSku.count">
 
         </div>
         <div class="col-2">
             <label class="form-label">Discount in %:</label>
 
-            <input type="text" class="form-control" id="discount" name="discount" [(ngModel)]="productSku.discount"
-                formControlName="Discount">
+            <input type="text" class="form-control" id="discount" name="discount"
+                [(ngModel)]="productSku.discount" formControlName="Discount">
 
         </div>
         <div class="col-2">
@@ -88,9 +88,9 @@
 
         <div class="col-2">
             <label class="form-label">ProductId:</label>
-            <input type="text" class="form-control" id="productId" name="productId" [(ngModel)]="productSku.productId"
-                formControlName="productId" placeholder="{{productSku.productId}}"
-                [attr.disabled]="isDisabled ? true : null">
+            <input type="text" class="form-control" id="productId" name="productId"
+                [(ngModel)]="productSku.productId" formControlName="productId"
+                placeholder="{{productSku.productId}}" [attr.disabled]="isDisabled ? true : null">
         </div>
 
 
@@ -110,7 +110,7 @@
                 class="choosefile">
         </div>
 
-         <div class="col-2">
+        <div class="col-2">
             <label class="labelforoptions">Option Name:</label>
             <p *ngFor="let opt of OptionsData" class="optionsize">{{opt.optionName}}</p>
         </div>
@@ -119,6 +119,8 @@
             <label id="labelforoptionsvalues">Option Value:</label>
             <p *ngFor="let val of OptionsData" class="optionsize">
                 {{val.optionValue}}
+
+                
                 <i class="bi bi-trash"></i>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
                     viewBox="0 0 16 16" id="trashbin">
@@ -127,36 +129,56 @@
                     <path
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
                 </svg>
-                   </p>
-                 </div>
- 
+            </p>
+        </div>
+       
+       
+
+    </div>
+     
+    <div id="Gst">
+        <h1 style="font-size:bold;">GST Info:</h1>
+          <p class="gstcd">GST Code:{{productSku.gstCode}}</p>
+          <p class="gstcd" id="gstPercentage">Percentage:{{productSku.igst}}%</p>
 
 
-        <i class="bi bi-plus-lg"></i>
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-plus-lg"
-            viewBox="0 0 16 16" id="plusicon" (click)="openModal()">
-            <path fill-rule="evenodd"
-                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-        </svg>
-    </div> 
 
-       <div class="col-3" class="button">
+
+        <div id="plusicon">
+
+            <!-- <i class="bi bi-plus-lg"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-plus-lg"
+                viewBox="0 0 16 16" id="plusicon" (click)="openModal()">
+                <path fill-rule="evenodd"
+                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+            </svg> -->
+            <button (click)="button()" class="btn btn-primary" id="gsteditbtn">Edit</button>
+    
+        </div>
+        <p></p>
+      </div>
+
+
+    <!-- <div calss="row" id="gstrow">
+        <div class="col-3">
+            <label id="labelforgsttype">GST Type:</label>
+            <p id="gstType">{{productSku.gstCode}}</p>
+
+        </div>
+        <div class="col-3">
+            <label id="labelforpercentage">GST Percentage:</label>
+            <p id="gstPercentage">{{productSku.gstPercentage}}</p>
+        </div>
+      </div> -->
+
+
+  
+
+
+    <div class="col-3" class="button">
         <button type="submit" class="btn btn-success"
             (click)=" onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
     </div>
-
-
 </form>
-
-
-
-
-
-
-
-
-
-
- 

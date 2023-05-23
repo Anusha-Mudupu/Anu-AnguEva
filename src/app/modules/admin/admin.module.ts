@@ -27,6 +27,7 @@ import { AddOptionsComponent } from './components/add-options/add-options.compon
 import { AddNewOptionComponent } from './components/add-new-option/add-new-option.component';
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -35,7 +36,8 @@ import { AddNewOptionComponent } from './components/add-new-option/add-new-optio
     ProductDialogComponent,
     MyRoutings,
     AddOptionsComponent,
-    AddNewOptionComponent
+    AddNewOptionComponent,
+ 
   ],
   imports: [
     CommonModule,

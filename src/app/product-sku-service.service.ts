@@ -9,7 +9,8 @@ import { ProductSkuImage } from './product-sku-image';
 })
 export class ProductSkuServiceService {
 
-  private addProductSku = "http://localhost:8085/addproductsku";
+   private addProductSku = "http://localhost:8085/addproductsku";
+  
 
   private addProductSkuImage = "http://localhost:8085/addImages";
 

@@ -19,6 +19,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { SelectGstComponent } from './select-gst/select-gst.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ProductSkuOptionsComponent,
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
+    SelectGstComponent,
+  
  
  
    

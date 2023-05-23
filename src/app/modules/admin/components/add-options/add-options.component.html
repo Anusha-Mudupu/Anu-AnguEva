@@ -40,18 +40,7 @@
 </div> -->
  
 
-
-
-
-
-
-
-
-
-
-
-
- <!-- <br>
+<!-- <br>
 <div class="container">
   <div class="row">
 
@@ -88,11 +77,36 @@
 
 
 
-
+<!-- 
   <select (change)="onOptionNameSelected($event)">
     <option *ngFor="let option of options" [value]="option.optionName">{{ option.optionName }}</option>
   </select>
   
   <select>
     <option *ngFor="let value of selectedOptionValues" [value]="value.optionValue">{{value. optionValue }}</option>
-  </select>
+  </select> -->
+
+
+
+<form [formGroup]="Gstcodeform"  id="raji" (ngSubmit)="onSubmit()">
+
+  <label>Gst Code:</label>
+  <input type="text" formControlName="gstCode">
+  <label>ProductSkuid:</label>
+  <input type="text" formControlName="prductSkuId">
+
+
+
+  <br>
+
+  <div [formGroup]="Gsttypeform">
+    <label>Gst type:</label>
+    <input type="text" formControlName="gstType">
+    <label>percentage:</label>
+    <input type="text" formControlName="gstPercentage">
+    <label>ProductSkuid:</label>
+  <input type="text" formControlName="prductSkuId">
+  </div>
+
+  <button type="submit" >Submit</button>
+</form>

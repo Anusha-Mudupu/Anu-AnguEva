@@ -1,0 +1,41 @@
+<form id="gstform" [formGroup]="gstForm" (ngSubmit)="onSubmit()">
+
+
+  <!-- <label class="addlabel">Click on Plus icon to Add New GST</label>
+  <i class="bi bi-plus-lg"></i>
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-plus-lg"
+      viewBox="0 0 16 16" id="plusicon" (click)="openModal()">
+      <path fill-rule="evenodd"
+          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+  </svg> -->
+  <div class="container">
+    <div class="row" id="dropdownrows">
+      <div class="2">
+        <mat-form-field>
+          <mat-label> select Gstcode</mat-label>
+          <mat-select formControlName="gstId" (selectionChange)="onSelectedGstCode($event)"
+            [(ngModel)]="productskudetails.gstId">
+
+            <ng-container *ngFor="let code of Gstcode; let i = index">
+              <mat-option [value]="code.gstId">{{code.gst_code}}</mat-option>
+
+
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+  <div id="gstsavebtn">
+    <button type="submit" class="btn btn-success">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-danger"(click)="cancel()">Cancel</button>
+
+  </div>
+
+
+</form>

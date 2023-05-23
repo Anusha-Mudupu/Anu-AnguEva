@@ -19,7 +19,7 @@
   }
   .button{
     margin-left: 600px;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 500px;
   
   }
@@ -69,6 +69,14 @@
   margin-top: -35px;
   position: absolute;
 }
+
+#plusicon{
+  margin-left: 760px;
+  width: 160px;
+  
+  position: absolute;
+ }
+
   .labelforoptions{
     font-size: 20px;
    
@@ -90,9 +98,17 @@
  }
 
  #plusicon{
-  margin-left: 180px;
+  margin-left: 40px;
   margin-top: -40px;
  }
+ .gstcd{
+  font-size: 20px;
+  display:inline-flex;
+ }
+
+
+
+
 #select{
   width: 160px;
   margin-left: -200px;
@@ -114,8 +130,52 @@
   width: 200px;
 }
 
+#gstform{
+  margin-left: 1200px;
+  margin-top: -380px;
+  border-style: ridge;width: 400px;
+  height: 400px;
+}
 
 
+.addlabel{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+#gstrow{
+  // margin-left: 200px;
+  display: flex;
+}
+#labelforgsttype{
+  font-size: 20px;
+  margin-left: 260px;
+  margin-top: 15px;
+}
+
+
+
+#gstType{
+  font-size: 20px;
+  margin-left: 268px;
+}
+#gstPercentage{
+  font-size: 20px;
+  margin-left:150px;
+}
+#Gst{
+  margin-left: 270px;
+
+  margin-top: 10px;
+  border-style: ridge;
+  width: 500px;
+}
+#gsteditbtn{
+  margin-top: -50px;
+  margin-left: 150px;
+  font-size: 10px;
+
+}
   
   
   @media only screen and (max-width: 800px) {

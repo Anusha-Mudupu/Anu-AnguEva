@@ -10,8 +10,9 @@ export const environment = {
   getProductByIdURL: 'http://localhost:8085/getProduct/?productId=',
   getAllProductskusIdURL: 'http://localhost:8085/getAllProductSkus?productId=',
   
-  getproductSkuById:'http://localhost:8085/ecomm/getByProductSkuId?skuId=',
- updateProductSku:'http://localhost:8085/ecomm/updateByProductSkuId?skuId=',
+  getproductSkuById:'http://localhost:8085/api/getByProductSkusId?skuId=',
+//  updateProductSku:'http://localhost:8085/ecomm/updateByProductSkuId?skuId=',
+updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   imagesBaseUrl: `http://localhost:8085/`,
 
    getImageBySkuId: `http://localhost:8085/getImageSkuId/{id}?id=`,
@@ -20,8 +21,8 @@ export const environment = {
   //  getOptionsBySkuId:'http://localhost:8085/getOptionBySkuId?skuId=',
    
     // getOptionUrl:'http://localhost:8085/api/getOptionSkuId?skuId=',
-   addNewOption:'http://localhost:8085/addOption' 
-
+   addNewOption:'http://localhost:8085/addOption' ,
+  
    
 
 };
