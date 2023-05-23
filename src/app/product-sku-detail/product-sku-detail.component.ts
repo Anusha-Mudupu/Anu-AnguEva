@@ -111,7 +111,7 @@ export class ProductSkuDetailComponent implements OnInit {
     }
     this.saveUpdateProductSku();
     // this.saveUploadImage();
-    // this.router.navigate(['/admin/products/:productId',this.productSku]);
+   this.router.navigate(['/admin/products/:productId',this.productSku]);
 
     const formData = new FormData();
     // for(let i=0;i<this.selectedFile.length;i++){

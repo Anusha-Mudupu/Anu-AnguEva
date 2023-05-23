@@ -52,8 +52,11 @@ export class SelectGstComponent implements OnInit {
       saveUpdateGst(){
       this.productskudataservice.upDateGstCode(this.id,this.productskudetails).subscribe((data:any)=>{
         console.log(data)
+        
         console.log(this.gstForm.value)
-      })
+      }
+    
+      )
 
       }
 
@@ -66,10 +69,11 @@ export class SelectGstComponent implements OnInit {
      
       onSubmit(){
         this.saveUpdateGst()
+        alert('successfully Updated')
       }
-      cancel(){
-        this.router.navigate(['/admin/product-view/:productId/:productSkuId'])
-      }
+      // cancel(){
+      //   this.router.navigate(['/admin/product-view/:productId/:productSkuId'])
+      // }
 
      
   }
