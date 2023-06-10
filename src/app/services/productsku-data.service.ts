@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Options, ProductSku, ProductSkuOptions } from '../data/data-objects';
+import { Options, OrderDetails, ProductSku, ProductSkuOptions } from '../data/data-objects';
 import { ProductSkudetails } from '../data/productskudetail';
 
 @Injectable({
@@ -76,5 +76,15 @@ export class ProductSkuDataService {
     return this .httpclient.get<any>(`${this.test}`)
   }
 
+  getAllOrders(){
+    return this.httpclient.get<any>(environment.getAllOrders);
+  }
 
+  getOrderItemDetails(orderId:any){
+ return this.httpclient.get<any>(environment.getOrderItemDetails +orderId)
+  }
+
+  updateOrderStatusByOrderId(orderId: any, OrderDetails:OrderDetails) {
+    return this.httpclient.put(environment.updateOrderStatusByOrderId + orderId, OrderDetails)
+  }
 }

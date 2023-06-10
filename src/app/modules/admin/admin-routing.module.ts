@@ -12,6 +12,9 @@ import { ProductSkuOptionsComponent } from 'src/app/product-sku-options/product-
 import { AddOptionsComponent } from './components/add-options/add-options.component';
 import { AddNewOptionComponent } from './components/add-new-option/add-new-option.component';
 import { SelectGstComponent } from 'src/app/select-gst/select-gst.component';
+import { OrderManagementComponent } from './components/order-management/order-management.component';
+import { OrderItemDetailsComponent } from './components/order-item-details/order-item-details.component';
+import { VerifyPaymentComponent } from './components/verify-payment/verify-payment.component';
 
 
 
@@ -32,6 +35,9 @@ const routes: Routes = [
     {path:'add-options/:productSkuId',component:AddOptionsComponent},
     {path:'addnewoption/:productSkuId',component:AddNewOptionComponent},
     {path:'select-gst/:productSkuId',component:SelectGstComponent},
+    {path:'order-management',component:OrderManagementComponent},
+    {path:'order-item-details/:orderId',component:OrderItemDetailsComponent},
+    {path:'verify-payment/:orderId',component:VerifyPaymentComponent},
    
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],

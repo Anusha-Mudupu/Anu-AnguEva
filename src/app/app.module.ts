@@ -20,6 +20,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SelectGstComponent } from './select-gst/select-gst.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 @NgModule({
@@ -33,6 +39,8 @@ import { SelectGstComponent } from './select-gst/select-gst.component';
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
     SelectGstComponent,
+ 
+   
   
  
  
@@ -50,7 +58,12 @@ import { SelectGstComponent } from './select-gst/select-gst.component';
     MatCheckboxModule,
     MatDialogModule,
     MatButtonModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    Ng2SearchPipeModule,
+    MatTableModule,
+    MatSortModule,
+    MatInputModule,
+    MatFormFieldModule
 
   ],
   providers: [],

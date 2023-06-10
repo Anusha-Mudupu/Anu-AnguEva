@@ -11,7 +11,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { VendorsComponent } from './components/vendors/vendors.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatTableModule} from '@angular/material/table';
+import {MatTable, MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductDialogComponent } from './components/product-dialog/product-dialog.component';
@@ -25,6 +25,11 @@ import { ProductViewComponent } from './components/product-view/product-view.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddOptionsComponent } from './components/add-options/add-options.component';
 import { AddNewOptionComponent } from './components/add-new-option/add-new-option.component';
+import { OrderManagementComponent } from './components/order-management/order-management.component';
+import { MatSortModule } from '@angular/material/sort';
+import { OrderItemDetailsComponent } from './components/order-item-details/order-item-details.component';
+import { VerifyPaymentComponent } from './components/verify-payment/verify-payment.component';
+
 
 
 
@@ -37,6 +42,9 @@ import { AddNewOptionComponent } from './components/add-new-option/add-new-optio
     MyRoutings,
     AddOptionsComponent,
     AddNewOptionComponent,
+    OrderManagementComponent,
+    OrderItemDetailsComponent,
+    VerifyPaymentComponent,
  
   ],
   imports: [
@@ -56,7 +64,10 @@ import { AddNewOptionComponent } from './components/add-new-option/add-new-optio
     MatChipsModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatSortModule
+
+  
   ]
 })
 export class AdminModule { }

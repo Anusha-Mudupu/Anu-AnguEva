@@ -67,3 +67,42 @@ export interface productSkuOptions{
   productSkuId: number,
   productSkuOptionsId: number
 }
+
+export interface OrderDetails{
+  orderId: number,
+  customerId: string,
+  orderModDtTm:number,
+  orderSubmitDtTm: number,
+  status: string,
+  imageUrl:string,
+  totalAmount: number,
+  userId: number,
+  igst: number,
+  couponApplied: boolean,
+  pgRazorpayOrderId:string,
+  pgRazorpayPaymentId:string,
+  mobileNumber: number,
+  lastUpdate: number,
+  orderItemdetails:orderItems[]
+}
+export interface orderItems{
+  orderItemId: number,
+  discountApplied: number,
+  giftWrapped: string,
+  productName:string,
+  status: string,
+  price: number,
+  mrpPrice: number,
+  orderId: number,
+  productId: number,
+  productSku:number,
+  quantity: number,
+  totalPrice: number,
+  finalPrice: number,
+  igstAmt: number,
+  igstPct: number,
+  imageUrl: string
+
+}
+
+   
