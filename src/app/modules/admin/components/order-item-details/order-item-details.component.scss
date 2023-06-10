@@ -1,0 +1,160 @@
+// .list-group-item{
+//     height: 130px;
+//     margin-top: 40px;
+//     font-size: 18px;
+//     margin-left: 10px;
+
+// }
+// .card{
+//     margin-top: 30px;
+//     margin-left: 50px;
+//     margin-right: 50px;
+// }
+// #itemdetails{
+//     display: inline-flex;
+// }
+// .itmlable{
+//     margin-left: 25px;
+//     font-size: 20px;
+//     margin-top: 40px;
+// }
+// #imgs{
+//     margin-top: 20px;
+//     margin-left: 20px;
+// }
+// .card-header{
+// background-color:darkgrey;
+// font-weight:50%;
+// }
+
+
+
+
+
+
+  span li{
+    position: relative;
+    display: inline-block;
+    justify-content: space-between;
+    margin-left: 50px;
+   
+   
+  }
+  li{
+    list-style-type: none;
+    justify-items: self-start;
+  }
+ 
+  #Buy-Again1{
+    position: relative;
+  left: 350px;
+  margin-top: -40px;
+  background-color: orange;
+  color:black;
+  }
+  .card{
+    position: relative;
+    height: 250px;
+    width:1050px;
+    margin-left: 100px;
+    top:-30px;
+  }
+  #order{
+    position: relative;
+    left:-50px;
+  }
+
+  
+  
+  #image {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    
+  
+  }
+  
+  .card-container {
+   
+    width: 1000px;
+    position: relative;
+    left:140px;
+   
+  }
+  
+  .card {
+    width: 1200px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    height:600px;
+    margin-top: 50px;
+  }
+  
+  .card-header {
+    font-weight:30px;
+    background-color:lightskyblue;
+
+  }
+  
+  .card-body {
+    margin-top: 10px;
+  
+  }
+  
+ 
+  
+  .image {
+   
+    
+    // height: auto;
+    // margin-right: 50px;
+    margin-top: 20px;
+    //  flex: 0 0 calc(33.33% - 20px);
+  
+  
+  }
+  
+  .description {
+    /* Define any styles for the description */
+    font-size: 14px;
+    left:10px;
+     position: relative;
+     margin-top: 20px;
+     margin-left: 10px;
+   
+
+   
+  }
+  .icons{
+    position: relative;
+   left:160px;
+    
+  }
+  .image-item{
+     display: inline-flex;
+    //  margin-top: 20px;
+    //  margin-left: 10px;
+  }
+
+
+#left-arrow{
+  margin-top: 50px;
+position: absolute;
+margin-left: 80px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

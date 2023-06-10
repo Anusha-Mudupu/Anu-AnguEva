@@ -1,0 +1,83 @@
+<!-- <div class="card" *ngFor="let item of orderItemDetails">
+    <div class="card-header">
+      OrderItem Details
+    </div>
+   <span id="itemdetails">
+    <img src="{{imageBaseUrl}}{{item.imageUrl}}" width="100px"height="80px" id="imgs">
+    <label class="itmlable">Order ItemId:</label>
+      <li class="list-group-item">{{item.orderItemId}}</li>
+    <label class="itmlable">Product Name:</label>
+      <li class="list-group-item">{{item.productName}}</li>
+    <label class="itmlable">Price:</label>
+      <li class="list-group-item">{{item.price}}</li>
+     <label class="itmlable">GST:</label>
+      <li class="list-group-item">{{item.igstAmt}}%</li> 
+    <label class="itmlable">Total Price:</label>
+      <li class="list-group-item">{{item.totalPrice}}</li>
+    <label class="itmlable">Status:</label>
+      <li class="list-group-item">{{item.status}}</li>
+    <label class="itmlable">Quantity:</label>
+      <li class="list-group-item">{{item.quantity}}</li>
+      
+    </span>
+  </div> -->
+
+<div id="left-arrow">
+  <i class="bi bi-arrow-left-circle"></i>
+  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16" (click)="goToOrdersList()" >
+    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+  </svg>
+</div>
+
+
+<div class="card-container">
+  <div>
+    <div class="card">
+
+      <div class="card-header">
+          <span>
+
+          <li id="order"> <b>Order Id</b>
+            <br>#{{Orderdetails.orderId}}
+          </li>
+          <li><b>status</b>
+            <br>{{Orderdetails.status}}
+          </li>
+          <li><b>Expected Date</b>
+            <br>{{Orderdetails.orderSubmitDtTm}}
+          </li>
+          <li><b>Total Amount</b>
+            <br>₹{{Orderdetails.totalAmount}}.00
+          </li>
+          <li><b>mobileNumber</b>
+            <br>{{Orderdetails.mobileNumber}}
+          </li>
+          <li><b>Last Updated Date:</b>
+            <br>Null
+          </li>
+          <span class="icons">
+             
+            </span>
+        </span>
+
+      </div>
+
+
+      <div class="card-body" class="image-item">
+        <div *ngFor="let item of orderItemDetails">
+          <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="130px" width="130px">
+          <div class="description">
+         
+             
+            <p>  <b>Name:</b>&nbsp;&nbsp;&nbsp;{{item.productName}}</p>
+            <p><b>Quantity:</b>&nbsp;&nbsp;&nbsp;{{item.quantity}}</p>
+            <p><b>GST:</b>&nbsp;&nbsp;&nbsp;{{item.igstAmt}}%</p>
+              
+            <p><b>price:</b>&nbsp;&nbsp;&nbsp;{{item.totalPrice}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
