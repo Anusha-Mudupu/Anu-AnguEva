@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 
@@ -15,7 +15,9 @@ export class VerifyPaymentComponent implements OnInit {
   orderId:any
   Orderdetails: any;
 
-  constructor(private productskudataservice:ProductSkuDataService,private activated:ActivatedRoute ) { 
+  constructor(private dailogRef:MatDialogRef<VerifyPaymentComponent>,private productskudataservice:ProductSkuDataService,private activated:ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any ) { 
+    this.orderId=data.orderId;
+    console.log(this.orderId)
      this.verifypaymentform=new FormGroup({
       status:new FormControl('')
 
@@ -23,10 +25,10 @@ export class VerifyPaymentComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    this.orderId=this.activated.snapshot.params['orderId']
+    // this.id=this.activated.snapshot.params['orderId']
     this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data=>{
      this.Orderdetails=data;
-    //  this.Orderdetails=this.Orderdetails.orderItems
+    //  this.Orderdetails=this.Orderdetails.orderItems;
      console.log(data)
     })
   }

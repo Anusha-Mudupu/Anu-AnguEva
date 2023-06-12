@@ -37,7 +37,7 @@ const routes: Routes = [
     {path:'select-gst/:productSkuId',component:SelectGstComponent},
     {path:'order-management',component:OrderManagementComponent},
     {path:'order-item-details/:orderId',component:OrderItemDetailsComponent},
-    {path:'verify-payment/:orderId',component:VerifyPaymentComponent},
+    {path:'verify-payment',component:VerifyPaymentComponent},
    
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],

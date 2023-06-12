@@ -39,8 +39,7 @@ export class OrderManagementComponent implements OnInit {
     this.productskudataservice.getAllOrders().subscribe(data=>{
       this.dataSource = new MatTableDataSource(data);
       this.allOrders=data;
-
-     console.log(data);
+      console.log(data);
       // this.currentStatus = this.allOrders.find((x:any) =>x.status == this.allOrders[0].status);
    //   console.log(this.currentStatus.status);
      
@@ -48,49 +47,7 @@ export class OrderManagementComponent implements OnInit {
       // this.cdr.detectChanges();
      
    
-   //  if(this.currentStatus.status ==='OPEN'){
-   //    this.currentStatus='NO-ACTION';
-   //  }
-   //  else
-   //  if(this.currentStatus.status ==='SUBMITTED'){
-   //   this.currentStatus='verify Payment';
-   //  }
-   //  else
-   //     if(this.currentStatus.status ==='payment verified'){
-   //      this.currentStatus='Start filling';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='filling in progress'){
-   //      this.currentStatus='Finish filling';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='Filled'){
-   //      this.currentStatus='Check Quantity';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='QC In process '){
-   //      this.currentStatus='QC Done';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='QCDONE'){
-   //      this.currentStatus='Start Packing';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='Packing In process'){
-   //      this.currentStatus='Packing done';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='Pcaking Done'){
-   //      this.currentStatus='Start shipping';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='Shipping In progress'){
-   //      this.currentStatus='finish Shipping';
-   //     }
-   //  else
-   //     if(this.currentStatus.status ==='shipped'){
-   //      this.currentStatus='Done';
-   //     }
+  
       //  for(let i=0;i<=this.allOrders.length;i++){
       //    this.currentStatus=this.allOrders[i].status;
       //      this.currentStatus = this.allOrders.find((x:any) =>x.status == this.allOrders[i].status);
@@ -131,9 +88,11 @@ this.router.navigate(['/admin/order-item-details',orderId])
 
   openDialog(orderId:any){
    
-    // const dialogRef =this.dailog.open(VerifyPaymentComponent,orderId)
-    // .afterClosed().subscribe(result=>{this.ngOnInit()});
-    this.router.navigate(['/admin/verify-payment',orderId])
+    const dialogRef =this.dailog.open(VerifyPaymentComponent,{
+      data: { orderId:orderId}
+    })
+   //  .afterClosed().subscribe(result=>{this.ngOnInit()});
+   //  this.router.navigate(['/admin/verify-payment',orderId])
   }
 
 

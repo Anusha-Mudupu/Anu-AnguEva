@@ -1,15 +1,16 @@
 <p>verify-payment works!</p>
- <form [formGroup]="verifypaymentform" id="form">
- <!-- <input type="text" fromControlName="status"  [(ngModel)]="allOrders.status">
+<form [formGroup]="verifypaymentform" id="form">
+    <!-- <input type="text" fromControlName="status"  [(ngModel)]="allOrders.status">
  <button class="btn btn-success"(click)="submit()">Submit</button> -->
- <div class="form-check form-switch" id="toggle">
-    <p class="select">Select Status:</p>
-    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
-        [(ngModel)]="Orderdetails.status" formControlName="status">
-    <span>{{Orderdetails.status ? 'paymentVerified':'Not-Available'}}</span>
-</div><br>
-<div>
-    <button class="btn btn-success"(click)="submit()">Submit</button>
-</div>
+<p>orderId:{{Orderdetails.orderId}}</p>
+    <div class="form-check form-switch" id="toggle">
+        <p class="select">Select Status:</p>
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
+            [(ngModel)]="Orderdetails.status" formControlName="status">
+        <span>{{Orderdetails.status ? 'paymentVerified':'Not-Available'}}</span>
+    </div><br>
+    <div>
+        <button class="btn btn-success" (click)="submit()">Submit</button>
+    </div>
 
- </form>
+</form>

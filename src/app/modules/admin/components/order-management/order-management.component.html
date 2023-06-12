@@ -49,7 +49,7 @@
 
     <ng-container matColumnDef="Actions">
       <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
-      <mat-cell *matCellDef="let element">
+      <mat-cell *matCellDef="let element" (click)="openDialog(element.orderId)">
 
         <!-- <div *ngIf="element.status=='OPEN'">
           <button>NO-ACTION</button>
@@ -86,8 +86,9 @@
           <button class="btn btn-outline-primary">FINISH SHIPPING</button>
         </div>
 
-        
+
         &nbsp;
+        <div class="view-icon">
          <i class="bi bi-card-list"></i>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list"
           viewBox="0 0 16 16" (click)="viewOrderItemDetails(element.orderId)" id="view-icon">
@@ -96,6 +97,7 @@
           <path
             d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
         </svg>
+      </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <!-- <i class="bi bi-trash"></i>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
