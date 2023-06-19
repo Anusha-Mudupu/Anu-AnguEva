@@ -29,6 +29,15 @@ import { OrderManagementComponent } from './components/order-management/order-ma
 import { MatSortModule } from '@angular/material/sort';
 import { OrderItemDetailsComponent } from './components/order-item-details/order-item-details.component';
 import { VerifyPaymentComponent } from './components/verify-payment/verify-payment.component';
+import { StartFillingActionComponent } from './components/start-filling-action/start-filling-action.component';
+import { FinishFillingActionComponent } from './components/finish-filling-action/finish-filling-action.component';
+import { CheckQuantityActionComponent } from './components/check-quantity-action/check-quantity-action.component';
+import { QCDoneActionComponent } from './components/qc-done-action/qc-done-action.component';
+import { StartPackingActionComponent } from './components/start-packing-action/start-packing-action.component';
+import { DonePackingActionComponent } from './components/done-packing-action/done-packing-action.component';
+import { StartShippingActionComponent } from './components/start-shipping-action/start-shipping-action.component';
+import { FinishShippingActionComponent } from './components/finish-shipping-action/finish-shipping-action.component';
+
 
 
 
@@ -45,6 +54,15 @@ import { VerifyPaymentComponent } from './components/verify-payment/verify-payme
     OrderManagementComponent,
     OrderItemDetailsComponent,
     VerifyPaymentComponent,
+    StartFillingActionComponent,
+    FinishFillingActionComponent,
+    CheckQuantityActionComponent,
+    QCDoneActionComponent,
+    StartPackingActionComponent,
+    DonePackingActionComponent,
+    StartShippingActionComponent,
+    FinishShippingActionComponent,
+    
  
   ],
   imports: [

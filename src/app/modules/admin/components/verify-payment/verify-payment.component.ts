@@ -1,8 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { OrderDetails } from 'src/app/data/data-objects';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-verify-payment',
@@ -11,44 +13,88 @@ import { ProductSkuDataService } from 'src/app/services/productsku-data.service'
 })
 export class VerifyPaymentComponent implements OnInit {
   allOrders:any;
-  verifypaymentform:FormGroup
+  verifypaymentform:any
   orderId:any
   Orderdetails: any;
-
-  constructor(private dailogRef:MatDialogRef<VerifyPaymentComponent>,private productskudataservice:ProductSkuDataService,private activated:ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any ) { 
-    this.orderId=data.orderId;
+  OrderStatus:any;
+  orderItemDetails:any
+ 
+  paymentsuccess:any;
+  paymentfail:any
+  @Input() datafromparent :any
+ 
+  
+  paymentverified ='PAYMENT VERIFIED'
+  paymentfailed='PAYMENT FAILED'
+  constructor( private dialogRef: MatDialogRef<VerifyPaymentComponent>,private productskudataservice:ProductSkuDataService,private activated:ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any) { 
+     this.orderId=data.orderId;
+  
     console.log(this.orderId)
-     this.verifypaymentform=new FormGroup({
-      status:new FormControl('')
 
+
+     this.verifypaymentform=new FormGroup({
+      orderId:new FormControl(''),
+     statusCd:new FormControl(''),
+      lastUpdateDtTm:new FormControl('')
+     
     })
   }
  
   ngOnInit(): void {
     // this.id=this.activated.snapshot.params['orderId']
+   
     this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data=>{
      this.Orderdetails=data;
-    //  this.Orderdetails=this.Orderdetails.orderItems;
+     this.orderItemDetails=this.Orderdetails.orderItems
+    
      console.log(data)
     })
   }
-  saveUpdateOrder() {
-    this.productskudataservice.updateOrderStatusByOrderId(this.orderId,this.Orderdetails).subscribe(data => {
-        console.log(data);
-        alert('successfully updated');
-      })
-    }
 
+  success(event:any)
+{
+  this.paymentsuccess=event.target.value;
 
-  submit(){
-    if(this.Orderdetails.status===true){
-      this.Orderdetails.status='filling in progress'
-    }
-    else
-    if(this.Orderdetails.status===false){
-      this.Orderdetails.status='Not-Available'
-    }
-  this.saveUpdateOrder();
-  }
+  console.log(this.paymentsuccess);
+  alert('Payment Verified Successfully')
+ 
+}
+  
+failed(event:any){
+  this.paymentfail=event.target.value;
+  console.log(this.paymentfail);
+  alert('Payment Failed')
 
 }
+
+  saveOrderWithUpdatedStatus() {
+   
+   
+ 
+      this.productskudataservice.addOrderStatus(this.verifypaymentform.value).subscribe(data => {
+        this.OrderStatus=data;
+        console.log(data);
+      })
+      
+
+  
+      
+    }
+    
+    //  this.failed(event);
+    
+   
+
+
+
+    paymentSuccess(){
+       this.success(event);
+    this.saveOrderWithUpdatedStatus();
+   }
+   paymentFailed(){
+    this.failed(event);
+    this.saveOrderWithUpdatedStatus();
+   }
+
+}
+

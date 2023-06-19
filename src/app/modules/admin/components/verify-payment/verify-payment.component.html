@@ -1,16 +1,93 @@
-<p>verify-payment works!</p>
 <form [formGroup]="verifypaymentform" id="form">
-    <!-- <input type="text" fromControlName="status"  [(ngModel)]="allOrders.status">
- <button class="btn btn-success"(click)="submit()">Submit</button> -->
-<p>orderId:{{Orderdetails.orderId}}</p>
-    <div class="form-check form-switch" id="toggle">
-        <p class="select">Select Status:</p>
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
-            [(ngModel)]="Orderdetails.status" formControlName="status">
-        <span>{{Orderdetails.status ? 'paymentVerified':'Not-Available'}}</span>
-    </div><br>
-    <div>
-        <button class="btn btn-success" (click)="submit()">Submit</button>
+    <!-- <h1>data:{{datafromparent.statusCd}}</h1> -->
+
+<h1>Verify Payment</h1>
+<button type="button" id="printbtn">Print</button>
+    <div class="card" class="card1">
+     
+        <div class="card-body" class="card-body1">
+            <div class="row">
+
+
+
+                <div class="col-4">
+                    <label class="lables">OrderId:</label>
+                    <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
+                        placeholder="{{Orderdetails.orderId}}">
+
+                </div>
+
+                <div class="col-4">
+                    <label class="lables">Mobile number:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.mobileNumber"
+                        placeholder="{{Orderdetails.mobileNumber}}">
+                </div>
+                <div class="col-4">
+                    <label class="lables">Payment Id:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.pgRazorpayPaymentId"
+                        placeholder="{{Orderdetails.pgRazorpayPaymentId}}">
+                </div>
+                <div class="col-4">
+                    <label class="lables">Order Submitted Date:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
+                        placeholder="{{Orderdetails.orderSubmitDtTm}}">
+                </div>
+                <div class="col-4">
+                    <label class="lables">Total Amount:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
+                        placeholder="{{Orderdetails.totalAmount}}">
+                </div>
+
+                <!-- <div class="col-4">
+                    <label>Status:</label>
+                <input type="text" formControlName="statusCd" [(ngModel)]="verifypaymentform.statusCd"
+                    class="form-control">
+                    <label class="lables">Select Status</label>
+                    <select formControlName="statusCd" [(ngModel)]="verifypaymentform.statusCd" id="dropdown">
+                        <option *ngFor="let status of Statuces" [value]="status">{{status}}</option>
+                    </select>
+                  
+                        <button (click)="select($event)"  [value]="Statuces" >verifypayment</button>
+                        <input type="text" placeholder="{{aa}}"  formControlName="statusCd" [(ngModel)]="aa" hidden>
+                 
+                   
+
+                </div> -->
+
+
+                <div class="col-4">
+                    <label class="lables">Date and time:</label>
+                    <input type="datetime-local" formControlName="lastUpdateDtTm"
+                        [(ngModel)]="verifypaymentform.lastUpdateDtTm" class="form-control">
+                </div>
+            </div>
+
+
+        </div>
     </div>
+
+
+
+
+
+    <div id="submittedbtns">
+        <!-- <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        <button style="margin-left:10px" mat-raised-button color="primary" (click)="submit()" mat-dialog-close>Submit</button> -->
+        <button class="btn btn-success" (click)="success($event)" [value]="paymentverified" (click)="paymentSuccess()" style="width: 100px;">PASS</button>
+        <input type="text" placeholder="{{paymentsuccess}}"  formControlName="statusCd" [(ngModel)]="paymentsuccess" hidden>
+        
+        <button class="btn btn-primary" (click)="failed($event)" [value]="paymentfailed" (click)="paymentFailed()" style="margin-left:20px;width:100px">FAIL</button>
+        <input type="text" placeholder="{{paymentfail}}"  formControlName="statusCd" [(ngModel)]="paymentfail" hidden>
+
+          <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
+    
+    </div>
+
+
+
+
+
+
+
 
 </form>

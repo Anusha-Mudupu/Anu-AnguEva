@@ -83,8 +83,13 @@ export interface OrderDetails{
   pgRazorpayPaymentId:string,
   mobileNumber: number,
   lastUpdate: number,
+  statusCd:string,
+  lastUpdateDtTm:number,
+  emailId:string
+
   orderItemdetails:orderItems[]
 }
+
 export interface orderItems{
   orderItemId: number,
   discountApplied: number,
@@ -104,5 +109,7 @@ export interface orderItems{
   imageUrl: string
 
 }
+
+
 
    

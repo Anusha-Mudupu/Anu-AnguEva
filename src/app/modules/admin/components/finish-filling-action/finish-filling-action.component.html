@@ -1,0 +1,85 @@
+<form [formGroup]="finishfillingform" id="form">
+    <!-- <h1>data:{{datafromparent.statusCd}}</h1> -->
+
+    <h1>Finish Filling</h1>
+    <button type="button" id="printbtn">Print</button>
+    <div class="card" class="card1">
+
+        <div class="card-body" class="card-body1">
+            <div class="row">
+
+
+
+                <div class="col-4">
+                    <label class="lables">OrderId:</label>
+                    <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
+                        placeholder="{{Orderdetails.orderId}}">
+
+                </div>
+
+                <div class="col-4">
+                    <label class="lables">Mobile number:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.mobileNumber"
+                        placeholder="{{Orderdetails.mobileNumber}}">
+                </div>
+                <div class="col-4">
+                    <label class="lables">Payment Id:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.pgRazorpayPaymentId"
+                        placeholder="{{Orderdetails.pgRazorpayPaymentId}}">
+                </div>
+                <div class="col-4">
+                    <label class="lables">Order Submitted Date:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
+                        placeholder="{{Orderdetails.orderSubmitDtTm}}">
+                </div>
+                <div class="col-4">
+                    <label class="lables">Total Amount:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
+                        placeholder="{{Orderdetails.totalAmount}}">
+                </div>
+
+
+
+
+                <div class="col-4">
+                    <label class="lables">Date and time:</label>
+                    <input type="datetime-local" formControlName="lastUpdateDtTm"
+                        [(ngModel)]="finishfillingform.lastUpdateDtTm" class="form-control">
+                </div>
+                <div class="col-4">
+                    <label class="lables">Click on Status button:</label>
+                    <br>
+                    <button (click)="filling($event)" [value]="finishfilling" style="width: 200px;margin-top:5px;"
+                        id="statusbtn" class="btn btn-success">FILLED</button>
+                    <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd"
+                        [(ngModel)]="currentstatus" hidden>
+                </div>
+
+
+
+                <div id="submittedbtns">
+                    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+                    <button style="margin-left:10px" mat-raised-button color="primary" (click)="submit()" mat-dialog-close>Submit</button>
+                </div>
+            </div>
+
+          
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>

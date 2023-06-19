@@ -24,7 +24,7 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
    addNewOption:'http://localhost:8085/addOption' ,
    getAllOrders:'http://localhost:8085/getAllOrders',
    getOrderItemDetails:'http://localhost:8085/getOrderItemsByOrderId?orderId=',
-  updateOrderStatusByOrderId:'http://localhost:8085/updateStatusByOrderId?orderId='
+  addOrderStatus:'http://localhost:8085/addOrderStatus'
    
 
 };

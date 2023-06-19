@@ -15,6 +15,15 @@ import { SelectGstComponent } from 'src/app/select-gst/select-gst.component';
 import { OrderManagementComponent } from './components/order-management/order-management.component';
 import { OrderItemDetailsComponent } from './components/order-item-details/order-item-details.component';
 import { VerifyPaymentComponent } from './components/verify-payment/verify-payment.component';
+import { StartFillingActionComponent } from './components/start-filling-action/start-filling-action.component';
+import { FinishFillingActionComponent } from './components/finish-filling-action/finish-filling-action.component';
+import { CheckQuantityActionComponent } from './components/check-quantity-action/check-quantity-action.component';
+import { QCDoneActionComponent } from './components/qc-done-action/qc-done-action.component';
+import { StartPackingActionComponent } from './components/start-packing-action/start-packing-action.component';
+import { DonePackingActionComponent } from './components/done-packing-action/done-packing-action.component';
+import { StartShippingActionComponent } from './components/start-shipping-action/start-shipping-action.component';
+import { FinishShippingActionComponent } from './components/finish-shipping-action/finish-shipping-action.component';
+
 
 
 
@@ -37,8 +46,15 @@ const routes: Routes = [
     {path:'select-gst/:productSkuId',component:SelectGstComponent},
     {path:'order-management',component:OrderManagementComponent},
     {path:'order-item-details/:orderId',component:OrderItemDetailsComponent},
-    {path:'verify-payment',component:VerifyPaymentComponent},
-   
+    {path:'verify-payment/:orderId',component:VerifyPaymentComponent},
+    {path:'start-filling-action',component:StartFillingActionComponent},
+    {path:'finish-filling-action',component:FinishFillingActionComponent},
+    {path:'check-quantity-action',component:CheckQuantityActionComponent},
+    {path:'Qc-done-action',component:QCDoneActionComponent},
+    {path:'start-packing-action',component:StartPackingActionComponent},
+    {path:'done-packing-action',component:DonePackingActionComponent},
+    {path:'start-shipping-action',component:StartShippingActionComponent},
+    {path:'finish-shipping-action',component:FinishShippingActionComponent},
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },
