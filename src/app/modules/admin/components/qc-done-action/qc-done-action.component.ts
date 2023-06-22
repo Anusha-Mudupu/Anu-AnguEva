@@ -20,6 +20,8 @@ export class QCDoneActionComponent implements OnInit {
   qualitcheckdoneform:any
   Qcsuccess = 'QC SUCCESS'
   Qcfailed = 'QC FAILED'
+  isCheckboxSelected = false;
+  isSubmitDisabled = true;
   constructor(private dialogRef: MatDialogRef<QCDoneActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
     this.orderId = data.orderId
     this.qualitcheckdoneform = new FormGroup({
@@ -39,6 +41,11 @@ export class QCDoneActionComponent implements OnInit {
     })
   }
 
+  onCheckboxChange(event: any) {
+    this.isCheckboxSelected = event.target.checked;
+    this.isSubmitDisabled = !this.isCheckboxSelected;
+  }
+
   success(event: any) {
     this.currentstatus = event.target.value;
 
@@ -55,12 +62,14 @@ export class QCDoneActionComponent implements OnInit {
   }
 
   saveOrderWithUpdatedStatus() {
-    this.productskudataservice.addOrderStatus(this.qualitcheckdoneform.value).subscribe(data => {
+    
+    this.productskudataservice.updateOrderStatus(this.qualitcheckdoneform.value).subscribe(data => {
       this.OrderStatus = data;
       console.log(data);
 
     })
   }
+
 
   paymentSuccess() {
     this.success(event);

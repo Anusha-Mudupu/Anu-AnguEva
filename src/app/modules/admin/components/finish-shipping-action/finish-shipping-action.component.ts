@@ -17,7 +17,8 @@ export class FinishShippingActionComponent implements OnInit {
   currentstatus: any;
   OrderStatus: any;
   finishshippingform:any
-  finishshipping='SHIPPED'
+  finishshipping='SHIPPED';
+  shouldHideBorder:boolean=true
   constructor(private dialogRef: MatDialogRef<FinishShippingActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService) { 
     this.orderId=data.orderId
     this.finishshippingform=new FormGroup({
@@ -39,13 +40,14 @@ export class FinishShippingActionComponent implements OnInit {
 
   
   
-  finishShipping(event:any){
+  packingDone(event:any){
     this.currentstatus=event.target.value;
     console.log(this.currentstatus)
-    alert('You  have selected Status')
+    // alert('You  have selected Status')
     }
   saveOrderWithUpdatedStatus() {
-    this.productskudataservice.addOrderStatus(this.finishshippingform.value).subscribe(data => {
+
+    this.productskudataservice.updateOrderStatus(this.finishshippingform.value).subscribe(data => {
        this.OrderStatus=data;
        console.log(data);
        alert('Successfully Updated')
@@ -53,6 +55,7 @@ export class FinishShippingActionComponent implements OnInit {
      }
       
      submit(){
+     this.packingDone(event)
       this.saveOrderWithUpdatedStatus()
     }
 

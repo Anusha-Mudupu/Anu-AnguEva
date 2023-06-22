@@ -1,154 +1,234 @@
-#form{
-    width: 1400px;
-    height: 600px;
-}
+// #form{
+//     width: 1400px;
+//     height: 600px;
+// }
 
 
 
-h1{
-    margin-left: 600px;
-    color:coral
-  }
+// h1{
+//     margin-left: 600px;
+//     color:coral
+//   }
 
-span li{
-position: relative;
-display: inline-block;
-justify-content: space-between;
-margin-left: 50px;
-
-
-}
-li{
-list-style-type: none;
-justify-items: self-start;
-}
-
-#Buy-Again1{
-position: relative;
-left: 350px;
-margin-top: -40px;
-background-color: orange;
-color:black;
-}
-.card{
-position: relative;
-height: 250px;
-width:1050px;
-margin-left: 100px;
-top:-30px;
-}
-#order{
-position: relative;
-left:-50px;
-}
+// span li{
+// position: relative;
+// display: inline-block;
+// justify-content: space-between;
+// margin-left: 50px;
 
 
+// }
+// li{
+// list-style-type: none;
+// justify-items: self-start;
+// }
 
-#image {
-flex: 0 0 calc(33.33% - 20px);
-margin: 10px;
-
-
-}
-
-.card-container {
-
-width: 800px;
-position: relative;
-left:10px;
-margin-top: 50px;
-}
-
-.card {
-width: 1200px;
-border: 1px solid #ccc;
-margin: 10px;
-padding: 10px;
-height:600px;
-margin-top: 80px;
-margin-left: 150px;
-}
-
-.card-header {
-font-weight:30px;
-background-color:lightskyblue;
-
-}
-
-.card-body {
-margin-top: 10px;
-
-}
+// #Buy-Again1{
+// position: relative;
+// left: 350px;
+// margin-top: -40px;
+// background-color: orange;
+// color:black;
+// }
+// .card{
+// position: relative;
+// height: 250px;
+// width:1050px;
+// margin-left: 100px;
+// top:-30px;
+// }
+// #order{
+// position: relative;
+// left:-50px;
+// }
 
 
 
-.image {
+// #image {
+// flex: 0 0 calc(33.33% - 20px);
+// margin: 10px;
 
 
-// height: auto;
-// margin-right: 50px;
-margin-top: 20px;
-//  flex: 0 0 calc(33.33% - 20px);
+// }
+
+// .card-container {
+
+// width: 800px;
+// position: relative;
+// left:10px;
+// margin-top: 50px;
+// }
+
+// .card {
+// width: 1200px;
+// border: 1px solid #ccc;
+// margin: 10px;
+// padding: 10px;
+// height:600px;
+// margin-top: 80px;
+// margin-left: 150px;
+// }
+
+// .card-header {
+// font-weight:30px;
+// background-color:lightskyblue;
+
+// }
+
+// .card-body {
+// margin-top: 10px;
+
+// }
 
 
-}
 
-.description {
-/* Define any styles for the description */
-font-size: 14px;
-left:10px;
- position: relative;
- margin-top: 20px;
- margin-left: 10px;
+// .image {
 
 
+// // height: auto;
+// // margin-right: 50px;
+// margin-top: 20px;
+// //  flex: 0 0 calc(33.33% - 20px);
 
-}
-.icons{
-position: relative;
-left:160px;
 
-}
-.image-item{
- display: inline-flex;
+// }
+
+// .description {
+// /* Define any styles for the description */
+// font-size: 14px;
+// left:10px;
+//  position: relative;
 //  margin-top: 20px;
 //  margin-left: 10px;
+
+
+
+// }
+// .icons{
+// position: relative;
+// left:160px;
+
+// }
+// .image-item{
+//  display: inline-flex;
+// //  margin-top: 20px;
+// //  margin-left: 10px;
+// }
+
+
+// #left-arrow{
+// margin-top: 50px;
+// position: absolute;
+// margin-left: 60px;
+
+// }
+// #submittedbtns{
+// margin-top:30px;
+// margin-left: 450px;
+
+
+// }
+// #statusbtn{
+// color:black;
+//  height: 30px;
+// }
+
+
+// #printbtn{
+// margin-left: 1100px;
+// width: 100px;
+// height: 30px;
+// color: cadetblue;
+// margin-top: -200px;
+// }
+
+
+// #flexCheckDefault{
+//     width: 20px;
+//     height: 20px;
+//     margin-top: -3px;
+
+// }
+// .form-check-label{
+//     font-size: 18px;
+// }
+#form{
+    width: 1300px;
+    height: 600px;
+     border: ridge 3px;
 }
+.card1{
+    height: 200px;
+    margin-top: 50px;
+}
+.card-body1{
+    display: inline-flex;
 
-
-#left-arrow{
-margin-top: 50px;
-position: absolute;
-margin-left: 60px;
-
+    // margin-top: 50px;
+}
+.lables{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 18px;
+    margin-top: 20px;
+  
 }
 #submittedbtns{
-margin-top:30px;
-margin-left: 450px;
-
-
+      margin-top:250px;
+    margin-left: 450px;
+   
+   
 }
-#statusbtn{
-color:black;
- height: 30px;
-}
-
-
-#printbtn{
-margin-left: 1100px;
-width: 100px;
-height: 30px;
-color: cadetblue;
-margin-top: -200px;
+#dropdown{
+  margin-top: 20px;
+  width: 300px;
+  height: 40px;
 }
 
-
-#flexCheckDefault{
-    width: 20px;
-    height: 20px;
-    margin-top: -3px;
-
+#printbtn1{
+    // margin-left: 990px;
+    width: 180px;
+    height: 30px;
+  color: black;
+    // margin-top: -200px;
 }
-.form-check-label{
-    font-size: 18px;
+.printbtn2{
+    // margin-left: 1100px;
+    width: 180px;
+    height: 30px;
+    color:black;
+     margin-top: 20px;
 }
+#printbtns{
+    margin-left: 1000px;
+    margin-top: 80px;
+    position: absolute;
+}
+
+p{
+    margin-top: -20px;
+   margin-left: 400px;
+   font-size: 18px;
+   font-family: initial;
+}
+b{
+    font-size: 20px;
+    margin-left: 200px;
+    font-family: initial;
+}
+#addrress{
+    margin-left: 200px;
+    font-family: initial;
+    font-weight: bold;
+}
+#headding{
+    margin-left: 550px;
+    color:coral
+}
+.hide-input-border {
+    border: none;
+    outline: none;
+  }
+
+
+

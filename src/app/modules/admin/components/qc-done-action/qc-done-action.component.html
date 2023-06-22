@@ -1,5 +1,5 @@
-<form [formGroup]="qualitcheckdoneform" id="form">
-    <h1> Quality Check Done</h1>
+<!-- <form [formGroup]="qualitcheckdoneform" id="form">
+    <h1> Quality Check Conformation</h1>
     <button type="button" id="printbtn">Print</button>
     <div class="card-container">
         <div>
@@ -72,7 +72,7 @@
 
                 <div id="submittedbtns">
                    
-                    <button class="btn btn-success" (click)="success($event)" [value]="Qcsuccess" (click)="paymentSuccess()" style="width: 100px;">PASS</button>
+                    <button class="btn btn-success" (click)="success($event)" [value]="Qcsuccess" (click)="paymentSuccess()" style="width: 100px;" >DONE</button>
                     <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
 
                     <button class="btn btn-primary" (click)="failed($event)" [value]="Qcfailed" (click)="paymentFailed()" style="margin-left:20px;width:100px">FAIL</button>
@@ -85,4 +85,62 @@
         </div>
 
     </div>
+</form> -->
+
+
+
+<form [formGroup]="qualitcheckdoneform" id="form">
+    <h1>QC Conformation</h1>
+    <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
+        [(ngModel)]="Orderdetails.orderId" hidden>
+    <div id="table">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>PRODUCT NAME</th>
+                    <th>PRODUCTSKU ID</th>
+                    <th>LOCATION</th>
+                    <th>QUANTITY</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let item of orderItemDetails">
+
+                    <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px">
+                    </td>
+                    <td>{{item.productName}}
+
+                    </td>
+                    <td>{{item.productSku}}</td>
+                    <td>12345678</td>
+                    <td>{{item.quantity}}</td>
+                   
+                    <label style="margin-top: 50px; font-size: 20px;"> 
+                        <input type="checkbox" (change)="onCheckboxChange($event)" style="width: 25px;height: 25px;">
+                        Yes
+                      </label>
+              
+
+                       
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div id="submittedbtns">
+                   
+        <button class="btn btn-success" (click)="success($event)" [value]="Qcsuccess" (click)="paymentSuccess()" style="width: 100px;"[disabled]="isSubmitDisabled" >DONE</button>
+        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
+
+        <button class="btn btn-primary" (click)="failed($event)" [value]="Qcfailed" (click)="paymentFailed()" style="margin-left:20px;width:100px">FAIL</button>
+        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
+
+        <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
+
+    </div>
+
+   
 </form>

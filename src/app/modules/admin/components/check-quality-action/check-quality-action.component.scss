@@ -151,83 +151,55 @@
 // }
 // .form-check-label{
 //     font-size: 18px;
-// }
+// }.
+
 
 
 #form{
-    width: 1300px;
-    height: 600px;
-     border: ridge 3px;
+    width:auto;
+    height: auto;
+  //  border: ridge 3px;
+ 
 }
-.card1{
-    height: 200px;
-    margin-top: 50px;
-}
-.card-body1{
-    display: inline-flex;
 
-    // margin-top: 50px;
+#table{
+border: ridge 2px;
+margin-left: 20px;
+margin-right: 20px;
 }
-.lables{
-    font-size: 15px;
-    font-weight: bold;
-    margin-left: 18px;
-    margin-top: 20px;
+
+.custom-table td,
+.custom-table th {
+  // border:none;
+   padding: 5px;
+   margin-left: 30px;
   
 }
+
+.custom-table td{
+  font-size: 20px;
+font-family:initial ;
+  padding-left: 70px;
+
+
+
+ 
+}
+.custom-table th{
+  font-size: 20px;
+  font-family:initial ;
+  padding-left: 60px;
+  border-bottom: 1px solid black;
+
+}
+h1{
+  margin-left: 500px;
+  color: coral;
+  font-weight:bolder
+}
 #submittedbtns{
-      margin-top:250px;
-    margin-left: 450px;
-   
-   
+    margin-top:30px;
+   margin-left: 500px;
+  
+  
 }
-#dropdown{
-  margin-top: 20px;
-  width: 300px;
-  height: 40px;
-}
-
-#printbtn1{
-    // margin-left: 990px;
-    width: 180px;
-    height: 30px;
-  color: black;
-    // margin-top: -200px;
-}
-.printbtn2{
-    // margin-left: 1100px;
-    width: 180px;
-    height: 30px;
-    color:black;
-     margin-top: 20px;
-}
-#printbtns{
-    margin-left: 1000px;
-    margin-top: 80px;
-    position: absolute;
-}
-
-p{
-    margin-top: -20px;
-   margin-left: 400px;
-   font-size: 18px;
-   font-family: initial;
-}
-b{
-    font-size: 20px;
-    margin-left: 200px;
-    font-family: initial;
-}
-#addrress{
-    margin-left: 200px;
-    font-family: initial;
-    font-weight: bold;
-}
-#headding{
-    margin-left: 550px;
-    color:coral
-}
-.hide-input-border {
-    border: none;
-    outline: none;
-  }

@@ -5,11 +5,11 @@ import { ProductSkuDataService } from 'src/app/services/productsku-data.service'
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-check-quantity-action',
-  templateUrl: './check-quantity-action.component.html',
-  styleUrls: ['./check-quantity-action.component.scss']
+  selector: 'app-check-quality-action',
+  templateUrl: './check-quality-action.component.html',
+  styleUrls: ['./check-quality-action.component.scss']
 })
-export class CheckQuantityActionComponent implements OnInit {
+export class CheckQualityActionComponent implements OnInit {
   orderId: any;
   imageBaseUrl: any;
   Orderdetails: any;
@@ -17,8 +17,8 @@ export class CheckQuantityActionComponent implements OnInit {
   currentstatus: any;
   OrderStatus: any;
   checkqualityform:any;
-  checkquantity='QC IN PROGRESS'
-  constructor( private dialogRef: MatDialogRef<CheckQuantityActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService ) {
+  checkquality='QC IN PROGRESS'
+  constructor( private dialogRef: MatDialogRef<CheckQualityActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService ) {
     this.orderId=data.orderId
     this.checkqualityform=new FormGroup({
       statusCd:new FormControl(),
@@ -42,18 +42,20 @@ export class CheckQuantityActionComponent implements OnInit {
   filling(event:any){
     this.currentstatus=event.target.value;
     console.log(this.currentstatus)
-    alert('You selected Status')
+    // alert('You selected Status')
     }
   
     saveOrderWithUpdatedStatus() {
-     this.productskudataservice.addOrderStatus(this.checkqualityform.value).subscribe(data => {
+ 
+     this.productskudataservice.updateOrderStatus(this.checkqualityform.value).subscribe(data => {
         this.OrderStatus=data;
         console.log(data);
         alert('Successfully Updated')
       })
       }
-      
+  
       submit(){
+        // this.filling(event)
         this.saveOrderWithUpdatedStatus()
       }
   

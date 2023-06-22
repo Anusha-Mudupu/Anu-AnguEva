@@ -86,7 +86,7 @@ export interface OrderDetails{
   statusCd:string,
   lastUpdateDtTm:number,
   emailId:string
-
+  staffCd:number;
   orderItemdetails:orderItems[]
 }
 

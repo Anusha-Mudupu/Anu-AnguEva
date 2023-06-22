@@ -1,4 +1,4 @@
-<form [formGroup]="checkqualityform" id="form">
+<!-- <form [formGroup]="checkqualityform" id="form">
     <h1>Check Quality</h1>
     <button type="button" id="printbtn">Print</button>
     <div class="card-container">
@@ -82,4 +82,48 @@
         </div>
 
     </div>
+</form> -->
+
+
+
+<form [formGroup]="checkqualityform" id="form">
+    <h1>Check Quality</h1>
+    <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
+        [(ngModel)]="Orderdetails.orderId" hidden>
+    <div id="table">
+
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>PRODUCT NAME</th>
+                    <th>PRODUCTSKU ID</th>
+                    <th>LOCATION</th>
+                    <th>QUANTITY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of orderItemDetails">
+                    <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px"></td>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.productSku}}</td>
+                    <td>12345678</td>
+                    <td>{{item.quantity}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div id="submittedbtns">
+        
+        <button (click)="filling($event)" [value]="checkquality" (click)="submit()" style="width: 90px;"  class="btn btn-success" >Start</button>
+        <input type="text" placeholder="{{currentstatus}}"  formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
+        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+        
+    </div>
+
+
+
+
 </form>

@@ -18,6 +18,7 @@ export class DonePackingActionComponent implements OnInit {
   OrderStatus: any;
   packingdoneform:any
   packingdone='PACKING DONE'
+  shouldHideBorder:boolean=true
   constructor(private dialogRef: MatDialogRef<DonePackingActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService) {
     this.orderId=data.orderId
     this.packingdoneform=new FormGroup({
@@ -43,10 +44,10 @@ export class DonePackingActionComponent implements OnInit {
   packingDone(event:any){
     this.currentstatus=event.target.value;
     console.log(this.currentstatus)
-    alert('You  have selected Status')
+    // alert('You  have selected Status')
     }
   saveOrderWithUpdatedStatus() {
-    this.productskudataservice.addOrderStatus(this.packingdoneform.value).subscribe(data => {
+    this.productskudataservice.updateOrderStatus(this.packingdoneform.value).subscribe(data => {
        this.OrderStatus=data;
        console.log(data);
        alert('Successfully Updated')
@@ -54,6 +55,7 @@ export class DonePackingActionComponent implements OnInit {
      }
       
      submit(){
+     this.packingDone(event)
       this.saveOrderWithUpdatedStatus()
     }
 

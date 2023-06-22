@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CheckQuantityActionComponent } from './check-quantity-action.component';
+import { CheckQualityActionComponent } from './check-quality-action.component';
 
 describe('CheckQuantityActionComponent', () => {
-  let component: CheckQuantityActionComponent;
-  let fixture: ComponentFixture<CheckQuantityActionComponent>;
+  let component: CheckQualityActionComponent;
+  let fixture: ComponentFixture<CheckQualityActionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CheckQuantityActionComponent ]
+      declarations: [ CheckQualityActionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CheckQuantityActionComponent);
+    fixture = TestBed.createComponent(CheckQualityActionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -37,6 +37,11 @@
                     <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
                         placeholder="{{Orderdetails.totalAmount}}">
                 </div>
+                <!-- <div class="col-4">
+                    <label class="lables">Name:</label>
+                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.firstName"
+                        placeholder="{{Orderdetails.firstName}}">
+                </div> -->
 
                 <!-- <div class="col-4">
                     <label>Status:</label>
@@ -73,7 +78,7 @@
     <div id="submittedbtns">
         <!-- <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
         <button style="margin-left:10px" mat-raised-button color="primary" (click)="submit()" mat-dialog-close>Submit</button> -->
-        <button class="btn btn-success" (click)="success($event)" [value]="paymentverified" (click)="paymentSuccess()" style="width: 100px;">PASS</button>
+        <button class="btn btn-success" (click)="success($event)" [value]="paymentverified" (click)="paymentSuccess()" style="width: 100px;" >PASS</button>
         <input type="text" placeholder="{{paymentsuccess}}"  formControlName="statusCd" [(ngModel)]="paymentsuccess" hidden>
         
         <button class="btn btn-primary" (click)="failed($event)" [value]="paymentfailed" (click)="paymentFailed()" style="margin-left:20px;width:100px">FAIL</button>
@@ -84,7 +89,7 @@
     </div>
 
 
-
+<!-- <input type="text" formControlName="staffCd" [(ngModel)]="verifypaymentform.staffCd"> -->
 
 
 

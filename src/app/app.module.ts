@@ -20,7 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SelectGstComponent } from './select-gst/select-gst.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
@@ -59,7 +59,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDialogModule,
     MatButtonModule,
     NgMultiSelectDropDownModule,
-    Ng2SearchPipeModule,
+    // Ng2SearchPipeModule,
     MatTableModule,
     MatSortModule,
     MatInputModule,

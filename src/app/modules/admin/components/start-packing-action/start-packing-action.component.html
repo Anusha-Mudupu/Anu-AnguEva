@@ -1,6 +1,7 @@
-<form [formGroup]="startpackingform" id="form">
+<!-- <form [formGroup]="startpackingform" id="form">
     <h1>Start Packing</h1>
-    <button type="button" id="printbtn">Print</button>
+    <button type="button" id="printbtn1">Print Label</button>
+    <button type="button" id="printbtn2">Print INV</button>
     <div class="card-container">
         <div>
             <div class="card">
@@ -77,10 +78,82 @@
                 <div id="submittedbtns">
                 <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
                 <button style="margin-left:10px" mat-raised-button color="primary" (click)="submit()" mat-dialog-close>Submit</button>
+                <button (click)="filling($event)" [value]="startpacking" mat-raised-button color="primary" (click)="submit()" style="margin-left:10px;width: 90px;">Start</button>
+                <input type="text" placeholder="{{currentstatus}}"  formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
             </div>
             </div>
         </div>
 
     </div>
 </form>
+ -->
 
+
+
+
+
+<form [formGroup]="startpackingform" id="form">
+
+
+    <h1 id="headding">Start Packing</h1>
+    <div id="printbtns">
+        <button type="button" id="printbtn1">Print Label</button>
+        <br>
+        <button type="button" class="printbtn2" style="margin-left: 10px;">Print Invoice</button>
+    </div>
+    <div class="card" class="card1">
+
+        <div class="card-body" class="card-body1">
+            <div class="row">
+                <div>
+                    <!-- <b>OredrId
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.orderId}}</p> -->
+                    <b>OrderId:</b>
+                    <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}" [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"></p> 
+                    <b>Name
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.firstName}}</p>
+                    <b>Mobile Number &nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.mobileNumber}}</p>
+
+                </div>
+                <div>
+                    <h1 id="addrress">Address &nbsp;&nbsp;:</h1>
+                    <b>Flat NO
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.flatNO}}</p>
+                    <b>Area
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.area}}</p>
+                    <b>City
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.city}}</p>
+                    <b>LandMark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.landmark}}</p>
+                    <b>Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.mobileNo}}</p>
+                    <b>State
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.state}}</p>
+                    <b>PinCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.pincode}}</p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+   
+    <div id="submittedbtns">
+
+
+        <button (click)="filling($event);" [value]="startpacking" class="btn btn-success" (click)="submit()"
+            style="margin-left:10px;width: 90px;">Start</button>
+        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus"
+            hidden>
+        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+    </div>
+</form>

@@ -35,7 +35,8 @@ export class VerifyPaymentComponent implements OnInit {
      this.verifypaymentform=new FormGroup({
       orderId:new FormControl(''),
      statusCd:new FormControl(''),
-      lastUpdateDtTm:new FormControl('')
+     
+      // staffCd:new FormControl('')
      
     })
   }
@@ -71,7 +72,7 @@ failed(event:any){
    
    
  
-      this.productskudataservice.addOrderStatus(this.verifypaymentform.value).subscribe(data => {
+      this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
         this.OrderStatus=data;
         console.log(data);
       })

@@ -84,7 +84,7 @@ export class ProductSkuDataService {
  return this.httpclient.get<any>(environment.getOrderItemDetails +orderId)
   }
 
-  addOrderStatus(orderstatus:OrderDetails) {
-    return this.httpclient.post(environment.addOrderStatus,orderstatus)
+  updateOrderStatus(orderstatus:OrderDetails) {
+    return this.httpclient.post(environment.updateOrderStatus,orderstatus)
   }
 }

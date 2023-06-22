@@ -20,6 +20,8 @@ export class StartFillingActionComponent implements OnInit {
 startfilling='FILLING IN PROGRESS'
   constructor(private dialogRef: MatDialogRef<StartFillingActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService ) { 
     this.orderId=data.orderId
+
+
     this.startFillingform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
@@ -39,19 +41,23 @@ startfilling='FILLING IN PROGRESS'
   filling(event:any){
   this.currentstatus=event.target.value;
   console.log(this.currentstatus)
-  alert('You selected Status')
+  this.saveOrderWithUpdatedStatus()
+  // alert('You selected Status')
   }
 
   saveOrderWithUpdatedStatus() {
-   this.productskudataservice.addOrderStatus(this.startFillingform.value).subscribe(data => {
+  if(this.startFillingform.statusCd===this.currentstatus){
+   this.productskudataservice.updateOrderStatus(this.startFillingform.value).subscribe(data => {
       this.OrderStatus=data;
       console.log(data);
       alert('Successfully Updated')
     })
     }
+  }
     
-    submit(){
-      this.saveOrderWithUpdatedStatus()
-    }
+    // start(){
+ 
+    //   this.saveOrderWithUpdatedStatus()
+    // }
 
 }

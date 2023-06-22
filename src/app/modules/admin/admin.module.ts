@@ -31,12 +31,13 @@ import { OrderItemDetailsComponent } from './components/order-item-details/order
 import { VerifyPaymentComponent } from './components/verify-payment/verify-payment.component';
 import { StartFillingActionComponent } from './components/start-filling-action/start-filling-action.component';
 import { FinishFillingActionComponent } from './components/finish-filling-action/finish-filling-action.component';
-import { CheckQuantityActionComponent } from './components/check-quantity-action/check-quantity-action.component';
+import { CheckQualityActionComponent } from './components/check-quality-action/check-quality-action.component';
 import { QCDoneActionComponent } from './components/qc-done-action/qc-done-action.component';
 import { StartPackingActionComponent } from './components/start-packing-action/start-packing-action.component';
 import { DonePackingActionComponent } from './components/done-packing-action/done-packing-action.component';
 import { StartShippingActionComponent } from './components/start-shipping-action/start-shipping-action.component';
 import { FinishShippingActionComponent } from './components/finish-shipping-action/finish-shipping-action.component';
+import { OrderHistoryPageComponent } from './components/order-history-page/order-history-page.component';
 
 
 
@@ -56,12 +57,13 @@ import { FinishShippingActionComponent } from './components/finish-shipping-acti
     VerifyPaymentComponent,
     StartFillingActionComponent,
     FinishFillingActionComponent,
-    CheckQuantityActionComponent,
+    CheckQualityActionComponent,
     QCDoneActionComponent,
     StartPackingActionComponent,
     DonePackingActionComponent,
     StartShippingActionComponent,
     FinishShippingActionComponent,
+    OrderHistoryPageComponent,
     
  
   ],

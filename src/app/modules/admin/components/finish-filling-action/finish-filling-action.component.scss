@@ -1,54 +1,97 @@
-#form{
-    width: 1300px;
-    height: 500px;
-    border: ridge 10px;
-}
-.card1{
-    height: 200px;
-    margin-top: 50px;
-}
-.card-body1{
-    display: inline-flex;
+// #form{
+//     width: 1300px;
+//     height: 500px;
+//     border: ridge 10px;
+// }
+// .card1{
+//     height: 200px;
+//     margin-top: 50px;
+// }
+// .card-body1{
+//     display: inline-flex;
 
-    // margin-top: 50px;
+//     // margin-top: 50px;
+// }
+// .lables{
+//     font-size: 15px;
+//     font-weight: bold;
+//     margin-left: 18px;
+//     margin-top: 20px;
+  
+// }
+// #submittedbtns{
+//      margin-top:30px;
+//     margin-left: 450px;
+   
+   
+// }
+// #dropdown{
+//   margin-top: 20px;
+//   width: 300px;
+//   height: 40px;
+// }
+// h1{
+//   margin-left: 550px;
+//   color:coral
+// }
+// #printbtn{
+//     margin-left: 1100px;
+//     width: 100px;
+//     height: 30px;
+//     color: cadetblue;
+//     margin-top: -200px;
+// }
+
+
+
+
+#form{
+    width:auto;
+    height: auto;
+  //  border: ridge 3px;
 }
-.lables{
-    font-size: 15px;
-    font-weight: bold;
-    margin-left: 18px;
-    margin-top: 20px;
+
+#table{
+border: ridge 2px;
+margin-left: 20px;
+margin-right: 20px;
+}
+
+.custom-table td,
+.custom-table th {
+  // border:none;
+   padding: 5px;
+   margin-left: 30px;
   
 }
-#submittedbtns{
-     margin-top:30px;
-    margin-left: 450px;
-   
-   
+
+.custom-table td{
+  font-size: 20px;
+font-family:initial ;
+  padding-left: 70px;
+
+
+
+ 
 }
-#dropdown{
-  margin-top: 20px;
-  width: 300px;
-  height: 40px;
+.custom-table th{
+  font-size: 20px;
+  font-family:initial ;
+  padding-left: 60px;
+  border-bottom: 1px solid black;
+
 }
 h1{
-  margin-left: 550px;
-  color:coral
-}
-#printbtn{
-    margin-left: 1100px;
-    width: 100px;
-    height: 30px;
-    color: cadetblue;
-    margin-top: -200px;
+  margin-left: 450px;
+  color: coral;
 }
 
-
-
-
-
-
-
-
+#submittedbtns{
+    margin-top:30px;
+   margin-left: 400px;
+  
+  
+}
 
 
 

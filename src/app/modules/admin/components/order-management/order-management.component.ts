@@ -8,12 +8,13 @@ import { VerifyPaymentComponent } from '../verify-payment/verify-payment.compone
 import { MatDialog } from '@angular/material/dialog';
 import { StartFillingActionComponent } from '../start-filling-action/start-filling-action.component';
 import { FinishFillingActionComponent } from '../finish-filling-action/finish-filling-action.component';
-import { CheckQuantityActionComponent } from '../check-quantity-action/check-quantity-action.component';
+
 import { QCDoneActionComponent } from '../qc-done-action/qc-done-action.component';
 import { StartPackingActionComponent } from '../start-packing-action/start-packing-action.component';
 import { DonePackingActionComponent } from '../done-packing-action/done-packing-action.component';
 import { StartShippingActionComponent } from '../start-shipping-action/start-shipping-action.component';
 import { FinishShippingActionComponent } from '../finish-shipping-action/finish-shipping-action.component';
+import { CheckQualityActionComponent } from '../check-quality-action/check-quality-action.component';
 
 
 @Component({
@@ -129,7 +130,7 @@ this.router.navigate(['/admin/order-item-details',orderId])
    
         else 
       if(action === 'check-quality'){
-        const dialogRef =this.dailog.open( CheckQuantityActionComponent,{
+        const dialogRef =this.dailog.open(CheckQualityActionComponent,{
           
           data: { orderId:orderId}
         }).afterClosed().subscribe(result=>{this.ngOnInit();})
@@ -158,14 +159,14 @@ this.router.navigate(['/admin/order-item-details',orderId])
         }
         else 
       if(action === 'start-shipping'){
-        const dialogRef =this.dailog.open( StartShippingActionComponent,{
+        const dialogRef =this.dailog.open(StartShippingActionComponent,{
           
           data: { orderId:orderId}
         }).afterClosed().subscribe(result=>{this.ngOnInit();})
         }
         else 
       if(action === 'finish-shipping'){
-        const dialogRef =this.dailog.open( FinishShippingActionComponent,{
+        const dialogRef =this.dailog.open(FinishShippingActionComponent,{
           
           data: { orderId:orderId}
         }).afterClosed().subscribe(result=>{this.ngOnInit();})
