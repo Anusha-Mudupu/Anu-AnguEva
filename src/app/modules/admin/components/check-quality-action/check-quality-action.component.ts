@@ -23,7 +23,7 @@ export class CheckQualityActionComponent implements OnInit {
     this.checkqualityform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-     lastUpdateDtTm:new FormControl()
+    
     })
    }
 

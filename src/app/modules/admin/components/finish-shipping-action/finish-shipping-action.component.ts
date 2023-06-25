@@ -24,7 +24,7 @@ export class FinishShippingActionComponent implements OnInit {
     this.finishshippingform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-     lastUpdateDtTm:new FormControl()
+ 
     })
   }
 

@@ -110,6 +110,22 @@ export interface orderItems{
 
 }
 
+export interface OrderStatus{
+  orderId: number;
+  orderstatus:orderStatus[]
+ 
 
+  }
+  export interface orderStatus{
+    id:number,
+    lastUpdateDtTm: string,
+    staffCd: number,
+    staffName: string,
+    statusCd: string
+  }
 
+  
    
+   
+
+

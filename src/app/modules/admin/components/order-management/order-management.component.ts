@@ -15,6 +15,7 @@ import { DonePackingActionComponent } from '../done-packing-action/done-packing-
 import { StartShippingActionComponent } from '../start-shipping-action/start-shipping-action.component';
 import { FinishShippingActionComponent } from '../finish-shipping-action/finish-shipping-action.component';
 import { CheckQualityActionComponent } from '../check-quality-action/check-quality-action.component';
+import { OrderHistoryPageComponent } from '../order-history-page/order-history-page.component';
 
 
 @Component({
@@ -200,6 +201,15 @@ this.router.navigate(['/admin/order-item-details',orderId])
   //    }
   // }
 
+
+
+  viewOrderHistoryPage(orderId:any){
+    const dialogRef =this.dailog.open( OrderHistoryPageComponent,{
+          
+      data: { orderId:orderId}
+    }).afterClosed().subscribe(result=>{this.ngOnInit();})
+
+  }
 
   
 }

@@ -80,8 +80,13 @@ export class ProductSkuDataService {
     return this.httpclient.get<any>(environment.getAllOrders);
   }
 
-  getOrderItemDetails(orderId:any){
+  getOrderItemDetails(orderId:OrderDetails){
  return this.httpclient.get<any>(environment.getOrderItemDetails +orderId)
+  }
+
+
+  getOrderStatusHistoryByOrderId(orderId:any){
+    return this.httpclient.get<any>(environment.Orderstatushistory +orderId)
   }
 
   updateOrderStatus(orderstatus:OrderDetails) {

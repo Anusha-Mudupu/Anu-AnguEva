@@ -27,7 +27,7 @@ export class QCDoneActionComponent implements OnInit {
     this.qualitcheckdoneform = new FormGroup({
       statusCd: new FormControl(),
       orderId: new FormControl(),
-      lastUpdateDtTm: new FormControl()
+     
     })
   }
 

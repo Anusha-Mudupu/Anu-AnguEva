@@ -33,6 +33,8 @@ export class AddOptionsComponent implements OnInit {
  
   option:any
   selectedName: any;
+  fruits: string[] = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'];
+  selectedFruits: string[] = [];
 
      constructor( private fb: FormBuilder,private http:HttpClient,private route:Router,private activateroute:ActivatedRoute,private productSkudataservice:ProductSkuDataService,private dialogRef: MatDialogRef<AddOptionsComponent>) { }
   

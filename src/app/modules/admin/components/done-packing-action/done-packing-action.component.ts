@@ -24,7 +24,7 @@ export class DonePackingActionComponent implements OnInit {
     this.packingdoneform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-     lastUpdateDtTm:new FormControl()
+    
     })
    }
 
@@ -50,7 +50,7 @@ export class DonePackingActionComponent implements OnInit {
     this.productskudataservice.updateOrderStatus(this.packingdoneform.value).subscribe(data => {
        this.OrderStatus=data;
        console.log(data);
-       alert('Successfully Updated')
+      //  alert('Successfully Updated')
      })
      }
       

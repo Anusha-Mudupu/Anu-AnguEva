@@ -36,7 +36,7 @@ export class VerifyPaymentComponent implements OnInit {
       orderId:new FormControl(''),
      statusCd:new FormControl(''),
      
-      // staffCd:new FormControl('')
+     
      
     })
   }

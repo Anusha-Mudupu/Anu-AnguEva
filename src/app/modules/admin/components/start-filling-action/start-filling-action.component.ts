@@ -25,7 +25,7 @@ startfilling='FILLING IN PROGRESS'
     this.startFillingform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-     lastUpdateDtTm:new FormControl()
+     
     })
   }
  

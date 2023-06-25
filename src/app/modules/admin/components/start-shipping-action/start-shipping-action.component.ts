@@ -25,7 +25,7 @@ export class StartShippingActionComponent implements OnInit {
     this.startshippingform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-     lastUpdateDtTm:new FormControl()
+    
     })
   }
 
@@ -48,7 +48,7 @@ export class StartShippingActionComponent implements OnInit {
     this.productskudataservice.updateOrderStatus(this.startshippingform.value).subscribe(data => {
        this.OrderStatus=data;
        console.log(data);
-       alert('Successfully Updated')
+      //  alert('Successfully Updated')
      })
      }
       

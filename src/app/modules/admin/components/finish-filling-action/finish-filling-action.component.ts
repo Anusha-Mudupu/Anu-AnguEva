@@ -34,7 +34,7 @@ export class FinishFillingActionComponent implements OnInit {
     this.finishfillingform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-     lastUpdateDtTm:new FormControl()
+   
     })
   }
  

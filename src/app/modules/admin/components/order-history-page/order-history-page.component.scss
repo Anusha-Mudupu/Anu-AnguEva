@@ -1,0 +1,66 @@
+
+
+// #table{
+// border: ridge 2px;
+// margin-left: 20px;
+// margin-right: 20px;
+// width: 1000px;
+
+
+// }
+
+.custom-table td,
+.custom-table th {
+padding: 10px;
+  border-right: 1px solid black;
+
+
+
+  
+}
+
+.custom-table td{
+  font-size: 20px;
+font-family:initial ;
+ padding-left: 40px;
+
+  
+}
+.custom-table{
+    width: 1000px;
+   height:600px;
+   overflow-y: auto;
+   border: ridge 2px;
+  
+}
+
+ #table{
+  height: 600px;
+  overflow-y: auto;
+ }
+
+.custom-table th{
+  font-size: 20px;
+  font-family:initial ;
+  border-bottom: 1px solid black;
+ padding-left: 50px;
+
+ 
+ }
+
+
+h1{
+  margin-left: 410px;
+  color: rgb(62, 8, 199);
+  font-weight: bold;
+  font-family: initial;
+}
+p{
+    font-size: 20px;
+    font-weight:bold;
+    margin-left: 20px;
+    font-family: initial;
+}
+
+
+

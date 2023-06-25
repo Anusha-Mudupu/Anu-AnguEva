@@ -24,7 +24,7 @@ export class StartPackingActionComponent implements OnInit {
     this.startpackingform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-     lastUpdateDtTm:new FormControl()
+    
     })
    }
 
