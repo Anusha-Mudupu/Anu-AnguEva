@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Add New Catalog</h1>
+<div mat-dialog-content class="dialog-content">
+    <form [formGroup]="addnewcatalogform">
+        <div>
+            <div>
+                <mat-form-field class="catalogName" appearance="fill">
+                    <mat-label>Catalog Name</mat-label>
+                    <input matInput formControlName="catalogName">
+                </mat-form-field>
+        
+        
+                <mat-form-field class="catalogDesc" appearance="fill">
+                    <mat-label>catalogDesc</mat-label>
+                    <input matInput formControlName="catalogDesc">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="catalogLevel" appearance="fill">
+                    <mat-label>catalogLevel</mat-label>
+                    <input matInput type="number" formControlName="catalogLevel">
+                </mat-form-field>
+           
+
+      
+                <mat-form-field class="parentCatalogId" appearance="fill">
+                    <mat-label>parentCatalogId</mat-label>
+                    <input matInput type="number" formControlName="parentCatalogId">
+                </mat-form-field>
+            </div>
+
+            <!-- <mat-form-field class="product-name" appearance="fill">
+                <mat-label>catalogId</mat-label>
+                <input matInput type="number" formControlName="catalogId">
+            </mat-form-field> -->
+
+            <!-- <mat-form-field class="product-name" appearance="fill">
+                <mat-label>storeId</mat-label>
+                <input matInput type="number" formControlName="storeId">
+            </mat-form-field> -->
+              </div>
+
+        <div mat-dialog-action [align]="'center'">
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+            <button style="margin-left:10px" mat-raised-button color="primary"
+            mat-dialog-close (click)="addNewCatalog(addnewcatalogform)">Submit</button>
+        </div>
+    </form>
+</div>

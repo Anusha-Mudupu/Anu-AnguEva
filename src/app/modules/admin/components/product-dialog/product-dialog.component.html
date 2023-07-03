@@ -39,14 +39,88 @@
         <mat-label>Product Description</mat-label>
         <textarea formControlName="productDesc" matInput placeholder="Type Here..."></textarea>
       </mat-form-field>
+
+
+
+
+      <div formArrayName="selectedCatalogs" class="product-catalog">
+        <div *ngFor="let catalog of productForm.get('selectedCatalogs').controls; let i=index" [formGroupName]="i">
+          <mat-form-field>
+
+            <mat-label>Select Catalog</mat-label>
+            <mat-select multiple [(value)]="selectedmanufactureId" formControlName="selectedCatalogs">
+          
+              <!-- <input class="form-control" href="#datalistOptions" id="exampleDataList" placeholder="Type to search..." class="col-6" [(ngModel)]="searchText"> -->
+              <mat-option *ngFor="let item of Catalogsdata "  [value]="item">
+                {{item.parent}}/{{item.catalogName}}
+
+              </mat-option>
+
+            </mat-select>
+          </mat-form-field>
+
+
+
+          <!-- <mat-form-field class="product-name" appearance="fill">
+            <mat-label>ProductId</mat-label>
+            <input matInput formControlName="productId">
+          </mat-form-field> -->
+        </div>
+      </div>
+      <br>
+
+
+
+
     </div>
 
+
+
+
+
+    <div>
+      <!-- <i class="bi bi-plus-lg"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16" (click)="addNewCatalog()">
+        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+      </svg> -->
+      <button type="button" (click)="addNewCatalog()" id="addnewcatalogbtn" class="btn btn-outline-primary">Add New
+        Catalog</button>
+    </div>
 
 
     <div mat-dialog-action [align]="'center'">
       <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-      <button style="margin-left:10px" mat-raised-button color="primary"
-        (click)="addProduct(productForm)" mat-dialog-close>Submit</button>
+      <button style="margin-left:10px" mat-raised-button color="primary" (click)="addProduct(productForm)"
+        mat-dialog-close>Submit</button>
     </div>
   </form>
 </div>
+
+<!-- <mat-form-field>
+  <mat-label>Select Fruits</mat-label>
+  <mat-select [(ngModel)]="selectedFruits" multiple>
+   
+    <mat-select-trigger>
+      {{selectedFruits}}
+       {{ selectedFruits.length > 0 ? selectedFruits.length + ' fruits selected' : 'Select fruits' }} 
+    </mat-select-trigger>
+    <input matInput placeholder="Search.." (input)="search($event)" />
+    <mat-option *ngFor="let fruit of Catalogsdata" [value]="fruit">
+      {{ fruit.parentName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<P>You have selected Items:{{selectedFruits}}</P> -->
+
+
+<!-- <mat-form-field>
+  <mat-select placeholder="Toppings"  [(value)]="selectedToppings" multiple>
+    <mat-option *ngFor="let topping of Catalogsdata" [value]="topping">{{topping.parentName}}</mat-option>
+  </mat-select>
+</mat-form-field> -->
+<!-- <p>
+  {{selectedToppings | json}}
+</p> -->
+<!-- <p>abbv:{{selectedmanufactureId}}</p> -->
+
+<!-- <div *ngFor="let catalog of productForm.get('catalog').controls; let i=index" [formGroupName]="i"> -->

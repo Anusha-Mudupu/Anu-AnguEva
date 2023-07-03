@@ -25,7 +25,9 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
    getAllOrders:'http://localhost:8085/getAllOrders',
    getOrderItemDetails:'http://localhost:8085/getOrderItemsByOrderId?orderId=',
    updateOrderStatus:'http://localhost:8085/updateOrderStatus',
-  Orderstatushistory:'http://localhost:8085/getOrderStatusHistory?orderId=' 
+  Orderstatushistory:'http://localhost:8085/getOrderStatusHistory?orderId=' ,
+  getAllcatalogs:'http://localhost:8085/api/getAllCatalog',
+  Addnewcatalog:'http://localhost:8085/addCatalog'
    
 
 };

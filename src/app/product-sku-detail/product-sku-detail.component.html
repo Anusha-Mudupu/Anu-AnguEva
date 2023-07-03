@@ -39,8 +39,8 @@
 
         <div class="col-2">
             <label class="form-label">Price:</label>
-            <input type="text" class="form-control" id="price" [(ngModel)]="productSku.price"
-                formControlName="price" placeholder="{{productSku.price}}">
+            <input type="text" class="form-control" id="price" [(ngModel)]="productSku.price" formControlName="price"
+                placeholder="{{productSku.price}}">
 
         </div>
         <div class="col-2">
@@ -56,15 +56,14 @@
 
         <div class="col-2">
             <label class="form-label">Quantity:</label>
-            <input type="text" class="form-control" id="count" formControlName="count"
-                [(ngModel)]="productSku.count">
+            <input type="text" class="form-control" id="count" formControlName="count" [(ngModel)]="productSku.count">
 
         </div>
         <div class="col-2">
             <label class="form-label">Discount in %:</label>
 
-            <input type="text" class="form-control" id="discount" name="discount"
-                [(ngModel)]="productSku.discount" formControlName="Discount">
+            <input type="text" class="form-control" id="discount" name="discount" [(ngModel)]="productSku.discount"
+                formControlName="Discount">
 
         </div>
         <div class="col-2">
@@ -77,7 +76,7 @@
     </div>
 
 
-    <div class="row">
+    <div class="row" id="lastrow">
 
         <div class="form-group" class="col-2" class="textarea">
             <label class="form-label">Description:</label>
@@ -88,19 +87,21 @@
 
         <div class="col-2">
             <label class="form-label">ProductId:</label>
-            <input type="text" class="form-control" id="productId" name="productId"
-                [(ngModel)]="productSku.productId" formControlName="productId"
-                placeholder="{{productSku.productId}}" [attr.disabled]="isDisabled ? true : null">
+            <input type="text" class="form-control" id="productId" name="productId" [(ngModel)]="productSku.productId"
+                formControlName="productId" placeholder="{{productSku.productId}}"
+                [attr.disabled]="isDisabled ? true : null">
         </div>
 
 
-        <div class="form-check form-switch" id="toggle">
-            <p class="select">Select Status:</p>
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
-                [(ngModel)]="productSku.status" formControlName="status">
-            <span>{{productSku.status ?
-                'Available':'Not-Available'}}</span>
+        <div class="col-2">
+            <label class="form-label">SelfLocation Code:</label>
+            <input type="text" class="form-control" id="productId" name="selfLocCd" [(ngModel)]="productSku.selfLocCd"
+                formControlName="selfLocCd" placeholder="{{productSku.selfLocCd}}"
+                [attr.disabled]="isDisabled ? true : null">
         </div>
+
+
+
     </div>
 
     <div class="row">
@@ -120,7 +121,7 @@
             <p *ngFor="let val of OptionsData" class="optionsize">
                 {{val.optionValue}}
 
-                
+
                 <i class="bi bi-trash"></i>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
                     viewBox="0 0 16 16" id="trashbin">
@@ -131,15 +132,15 @@
                 </svg>
             </p>
         </div>
-       
-       
+
+
 
     </div>
-     
+
     <div id="Gst">
         <h1 style="font-size:bold;">GST Info:</h1>
-          <p class="gstcd">GST Code:{{productSku.gstCode}}</p>
-          <p class="gstcd" id="gstPercentage">Percentage:{{productSku.igst}}%</p>
+        <p class="gstcd">GST Code:{{productSku.gstCode}}</p>
+        <p class="gstcd" id="gstPercentage">Percentage:{{productSku.igst}}%</p>
 
 
 
@@ -153,10 +154,17 @@
                     d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
             </svg> -->
             <button (click)="button()" class="btn btn-primary" id="gsteditbtn">Edit</button>
-    
+
         </div>
         <p></p>
-      </div>
+    </div>
+
+    <div class="form-check form-switch" id="toggle">
+        <p class="select">Select Status:</p>
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
+            [(ngModel)]="productSku.status" formControlName="status">
+        <span>{{productSku.status ? 'Available':'Not-Available'}}</span>
+    </div>
 
 
     <!-- <div calss="row" id="gstrow">
@@ -172,7 +180,7 @@
       </div> -->
 
 
-  
+
 
 
     <div class="col-3" class="button">

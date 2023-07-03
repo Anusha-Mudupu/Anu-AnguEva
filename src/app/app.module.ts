@@ -25,6 +25,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 
@@ -39,6 +41,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
     SelectGstComponent,
+  
  
    
   
@@ -63,7 +66,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     MatSortModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    Ng2SearchPipeModule
 
   ],
   providers: [],

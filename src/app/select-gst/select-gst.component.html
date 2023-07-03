@@ -1,4 +1,4 @@
-<form id="gstform" [formGroup]="gstForm" (ngSubmit)="onSubmit()">
+<form id="gstform" [formGroup]="gstForm" >
 
 
   <!-- <label class="addlabel">Click on Plus icon to Add New GST</label>
@@ -32,8 +32,8 @@
     </div>
   </div>
   <div id="gstsavebtn">
-    <button type="submit" class="btn btn-success">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="submit" class="btn btn-danger">Cancel</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
   </div>
 

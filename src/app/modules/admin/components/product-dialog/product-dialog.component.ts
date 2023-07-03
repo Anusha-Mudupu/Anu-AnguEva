@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, SearchTag, Vendor } from 'src/app/data/data-objects';
+import { Catalog, Product, SearchTag, Vendor } from 'src/app/data/data-objects';
 import { VendorDataService } from 'src/app/services/vendor-data.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { ProductDataService } from 'src/app/services/product-data.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
+import { filter } from 'rxjs';
+import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.component';
 
 @Component({
   selector: 'app-product-dialog',
@@ -20,23 +22,35 @@ export class ProductDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private productDataService: ProductDataService,
     private dialogRef: MatDialogRef<ProductDialogComponent>,
-  ) { }
+    private fb:FormBuilder,
+    private dailog:MatDialog
+  ) { 
+
+  }
+
 
   product!: Product;
-
-  productForm: FormGroup
+  selectedCatalogs: Catalog[];
+  productForm: any
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   vendorData: any;
   addOnBlur = true;
   searchTags: string[] = [];
   public selectedId: number;
   selectedmanufactureId: any;
-  selectedVendor: string
+  selectedVendor: string;
+  Catalogsdata:any
+  searchText:any;
 
   ngOnInit() {
     this.vendorDataService.getVendors().subscribe((response) => {
       this.vendorData = response;
 
+    })
+    this.vendorDataService.getAllCatalogs().subscribe((data:any)=>{
+      this.Catalogsdata=data;
+      console.log(data);
+      
     })
     //   this.productForm = this.formBuilder.group({
     //     productName: ['', Validators.compose([Validators.required])],
@@ -53,9 +67,27 @@ export class ProductDialogComponent implements OnInit {
       productDesc: new FormControl(''),
       searchTag: new FormControl(''),
       manufacturerId: new FormControl(''),
-      storeId: new FormControl('1'
-      )
+      storeId: new FormControl('1'),
+      selectedCatalogs: this.fb.array([
+        this.Catalog()
+      ]),
     })
+  }
+
+  Catalog(): FormGroup {
+    return this.fb.group({
+      catalogId: new FormControl(''),
+       primaryFlg:new FormControl('Y'),
+       productId:new FormControl(''),
+       productCatalogId:new FormControl(''),
+       
+    });
+  }
+
+
+  addAddress() {
+    const addresses = this.productForm.get('selectedCatalogs') as FormArray;
+    addresses.push(this.Catalog());
   }
  
 
@@ -112,5 +144,26 @@ export class ProductDialogComponent implements OnInit {
       alert('Product Added Successfully');
     });
     this.searchTags = []
+    // this.productForm.push(this.Catalog);
   }
+
+onSelectedGstCode(event:any){
+    this.selectedmanufactureId=event.target.value;
+    console.log(this.selectedmanufactureId)
+   }
+
+   addNewCatalog(){
+    const dialogRef =this.dailog.open( AddNewCatalogComponent,{ })
+   }
+
+
+
+ 
+
+
+
+
+
+
+
 }

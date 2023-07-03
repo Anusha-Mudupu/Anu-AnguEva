@@ -24,6 +24,7 @@ import { DonePackingActionComponent } from './components/done-packing-action/don
 import { StartShippingActionComponent } from './components/start-shipping-action/start-shipping-action.component';
 import { FinishShippingActionComponent } from './components/finish-shipping-action/finish-shipping-action.component';
 import { OrderHistoryPageComponent } from './components/order-history-page/order-history-page.component';
+import { AddNewCatalogComponent } from './components/add-new-catalog/add-new-catalog.component';
 
 
 
@@ -57,6 +58,7 @@ const routes: Routes = [
     {path:'start-shipping-action',component:StartShippingActionComponent},
     {path:'finish-shipping-action',component:FinishShippingActionComponent},
     {path:'order-history-page',component:OrderHistoryPageComponent},
+    {path:'add-new-catalog',component:AddNewCatalogComponent},
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },

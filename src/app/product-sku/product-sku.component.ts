@@ -26,7 +26,8 @@ export class ProductSkuComponent implements OnInit {
     Description: new FormControl('', Validators.compose([Validators.required])),
     barcode: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
     productId: new FormControl('', Validators.compose([Validators.required])),
-    status: new FormControl('', Validators.compose([Validators.required]))
+    status: new FormControl('', Validators.compose([Validators.required])),
+    selfLocCd:new FormControl('',Validators.compose([Validators.required]))
   })
 
 

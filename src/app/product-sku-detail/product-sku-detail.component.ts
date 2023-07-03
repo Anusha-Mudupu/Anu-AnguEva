@@ -54,7 +54,8 @@ export class ProductSkuDetailComponent implements OnInit {
     Description: new FormControl('', Validators.compose([Validators.required])),
     productId: new FormControl('', Validators.compose([Validators.required])),
     status: new FormControl('', Validators.compose([Validators.required])),
-    profile:new FormControl('',Validators.compose([Validators.required]))
+    profile:new FormControl('',Validators.compose([Validators.required])),
+    selfLocCd:new FormControl('',Validators.compose([Validators.required]))
   })
 
   ngOnInit(): void {

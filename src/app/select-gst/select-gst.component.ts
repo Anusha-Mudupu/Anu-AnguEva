@@ -70,10 +70,11 @@ export class SelectGstComponent implements OnInit {
       onSubmit(){
         this.saveUpdateGst()
         alert('successfully Updated')
+        this.router.navigate(['/admin/product-view/:productId/:productSkuId',this.productskudetails])
       }
-      // cancel(){
-      //   this.router.navigate(['/admin/product-view/:productId/:productSkuId'])
-      // }
+      cancel(){
+        this.router.navigate(['/admin/product-view/:productId/:productSkuId',this.productskudetails])
+      }
 
      
   }

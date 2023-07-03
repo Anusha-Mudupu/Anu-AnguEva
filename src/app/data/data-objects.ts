@@ -13,7 +13,8 @@ export interface Product {
     productDesc: string;
     manufacturerId: number;
     storeId: number;
-    searchTag: string
+    searchTag: string;
+    Catalogdetails:Catalog[]
   }
 
 export interface Vendor {
@@ -37,6 +38,7 @@ productId:number;
 productSkuCd:string;
 listPrice:number;
 barCode:string;
+selfLocCd:string
 }
 
 export interface ProductSkuOptions{
@@ -125,7 +127,23 @@ export interface OrderStatus{
   }
 
   
-   
+   export interface Catalog{
+    parentCatalogId: number,
+    catalogId: number,
+    parent: string,
+    catalogName: string,
+    primaryFlg:string,
+    productCatalogId:Number,
+    productId:number
+   }
    
 
-
+export interface AddNewCatalog{
+  
+  catalogId: number,
+  parentCatalogId: number,
+  catalogLevel: number,
+  catalogName: string,
+  catalogDesc: string,
+  storeId: number
+}

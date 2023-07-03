@@ -38,7 +38,8 @@ import { DonePackingActionComponent } from './components/done-packing-action/don
 import { StartShippingActionComponent } from './components/start-shipping-action/start-shipping-action.component';
 import { FinishShippingActionComponent } from './components/finish-shipping-action/finish-shipping-action.component';
 import { OrderHistoryPageComponent } from './components/order-history-page/order-history-page.component';
-
+import { AddNewCatalogComponent } from './components/add-new-catalog/add-new-catalog.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -64,6 +65,8 @@ import { OrderHistoryPageComponent } from './components/order-history-page/order
     StartShippingActionComponent,
     FinishShippingActionComponent,
     OrderHistoryPageComponent,
+    AddNewCatalogComponent,
+   
     
  
   ],
@@ -85,7 +88,8 @@ import { OrderHistoryPageComponent } from './components/order-history-page/order
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    MatSortModule
+    MatSortModule,
+    Ng2SearchPipeModule
 
   
   ]
