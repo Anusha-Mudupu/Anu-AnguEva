@@ -20,7 +20,7 @@ export class VendorDataService {
   }
 
 
-  addNewCatalog(addnewcatalog:AddNewCatalog[]){
-    return this.httpclient.post<AddNewCatalog[]>(environment.Addnewcatalog ,addnewcatalog)
+  addNewCatalog(addnewcatalog:AddNewCatalog){
+    return this.httpclient.post<AddNewCatalog>(environment.Addnewcatalog ,addnewcatalog)
   }
 }

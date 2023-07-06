@@ -34,7 +34,7 @@ export class OrderManagementComponent implements OnInit {
    Orders:any;
    CurrentOrder:any;
    index: any = 0
-  raji:boolean=false
+
    showDynamicComponent:boolean=false
 
  displayedColumns = ['orderId','userId','lastUpdate','mobileNumber','orderSubmitDtTm','status','totalAmount','Actions'];

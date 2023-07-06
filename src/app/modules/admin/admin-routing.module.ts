@@ -25,6 +25,9 @@ import { StartShippingActionComponent } from './components/start-shipping-action
 import { FinishShippingActionComponent } from './components/finish-shipping-action/finish-shipping-action.component';
 import { OrderHistoryPageComponent } from './components/order-history-page/order-history-page.component';
 import { AddNewCatalogComponent } from './components/add-new-catalog/add-new-catalog.component';
+import { StaffListComponent } from './components/staff-list/staff-list.component';
+import { AddStaffComponent } from './components/add-staff/add-staff.component';
+import { TestComponent } from 'src/app/test/test.component';
 
 
 
@@ -59,6 +62,9 @@ const routes: Routes = [
     {path:'finish-shipping-action',component:FinishShippingActionComponent},
     {path:'order-history-page',component:OrderHistoryPageComponent},
     {path:'add-new-catalog',component:AddNewCatalogComponent},
+    {path:'staff-list',component:StaffListComponent},
+    {path:'add-staff',component:AddStaffComponent},
+    {path:'test',component:TestComponent},
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },

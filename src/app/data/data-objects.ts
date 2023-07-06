@@ -128,13 +128,11 @@ export interface OrderStatus{
 
   
    export interface Catalog{
-    parentCatalogId: number,
-    catalogId: number,
-    parent: string,
-    catalogName: string,
-    primaryFlg:string,
-    productCatalogId:Number,
-    productId:number
+   catalogId: number,
+   primaryFlg:string,
+   productCatalogId:Number,
+  
+    
    }
    
 
@@ -147,3 +145,21 @@ export interface AddNewCatalog{
   catalogDesc: string,
   storeId: number
 }
+
+export interface Staffdata{
+  opStaffId: number,
+    staffCd: number,
+    staffName:string,
+    mobileNo: number,
+    emailId: string,
+    state: string,
+    area: string,
+    city: string,
+    pincode: number,
+    startDt:number,
+    endDt: number,
+    dob: number
+}
+
+
+

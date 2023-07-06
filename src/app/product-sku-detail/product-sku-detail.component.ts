@@ -112,7 +112,7 @@ export class ProductSkuDetailComponent implements OnInit {
     }
     this.saveUpdateProductSku();
     // this.saveUploadImage();
-   this.router.navigate(['/admin/products/:productId',this.productSku]);
+  //  this.router.navigate(['/admin/products/:productId',this.productSku]);
 
     const formData = new FormData();
     // for(let i=0;i<this.selectedFile.length;i++){
@@ -120,6 +120,7 @@ export class ProductSkuDetailComponent implements OnInit {
     // }
     this.httpClient.post('http://localhost:8085/api/file/upload/'+this.id, formData).subscribe(
       response => console.log('image_added',response),
+    
       error => console.error(error)
     );
 

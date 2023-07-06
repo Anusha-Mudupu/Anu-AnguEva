@@ -1,0 +1,52 @@
+<div class="demo-button-container">
+    <button mat-raised-button class="demo-button" (click)="addStaff()"> Add Staff </button>
+    <!-- <button
+        mat-raised-button
+        [disabled]="!dataSource.length"
+        (click)="removeData()"
+        class="demo-button">
+      Remove data
+    </button> -->
+</div>
+<div >
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" id="table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="staffCd">
+        <th mat-header-cell *matHeaderCellDef>StaffCode</th>
+        <td mat-cell *matCellDef="let element">{{element.staffCd}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="staffName">
+        <th mat-header-cell *matHeaderCellDef>Staff Name</th>
+        <td mat-cell *matCellDef="let element">{{element.staffName}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="mobileNo">
+        <th mat-header-cell *matHeaderCellDef>Mobile Number</th>
+        <td mat-cell *matCellDef="let element">{{element.mobileNo}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="emailId">
+        <th mat-header-cell *matHeaderCellDef>Email Id</th>
+        <td mat-cell *matCellDef="let element">{{element.emailId}}</td>
+    </ng-container>
+    <ng-container matColumnDef="startDt">
+        <th mat-header-cell *matHeaderCellDef>Start Date</th>
+        <td mat-cell *matCellDef="let element">{{element.startDt}}</td>
+    </ng-container>
+    <ng-container matColumnDef="endDt">
+        <th mat-header-cell *matHeaderCellDef>End Date</th>
+        <td mat-cell *matCellDef="let element">{{element.endDt}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">{{element.Actions}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

@@ -1,0 +1,77 @@
+<h1 mat-dialog-title>Add New Catalog</h1>
+<div mat-dialog-content class="dialog-content">
+    <form [formGroup]="addstaffform">
+        <div>
+            <div>
+                <mat-form-field class="catalogName">
+                    <mat-label>Staff Name</mat-label>
+                    <input matInput formControlName="staffName">
+                </mat-form-field>
+
+
+                <mat-form-field class="catalogDesc">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput formControlName="emailId">
+                </mat-form-field>
+
+                <mat-form-field class="mobileNo">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput formControlName="mobileNo">
+                </mat-form-field>
+
+
+                <mat-form-field class="pincode">
+                    <mat-label>Pincode</mat-label>
+                    <input matInput type="number" formControlName="pincode">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="area">
+                    <mat-label>Area</mat-label>
+                    <input matInput formControlName="area">
+                </mat-form-field>
+                <mat-form-field class="city">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city">
+                </mat-form-field>
+                <mat-form-field class="state">
+                    <mat-label>State</mat-label>
+                    <input matInput formControlName="state">
+                </mat-form-field>
+            </div>
+            <div>
+
+                <mat-form-field class="dob">
+                    <mat-label>DOB</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker" id="calicon"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="startdt">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="startdt" formControlName="startDt">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="startdt" id="calicon"></mat-datepicker-toggle>
+                    <mat-datepicker #startdt></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="enddt" style="height: 10px;">
+                    <mat-label>End Date</mat-label>
+                    <input matInput [matDatepicker]="enddt" formControlName="endDt">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="enddt" id="calicon"></mat-datepicker-toggle>
+                    <mat-datepicker #enddt></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div mat-dialog-action [align]="'center'">
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+            <button style="margin-left:10px" mat-raised-button color="primary" mat-dialog-close
+                (click)="addSatff(addstaffform)">Submit</button>
+        </div>
+    </form>
+</div>

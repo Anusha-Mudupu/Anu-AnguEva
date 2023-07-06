@@ -13,29 +13,29 @@
                 <div class="col-4">
                     <label class="lables">OrderId:</label>
                     <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                        placeholder="{{Orderdetails.orderId}}">
+                        placeholder="{{Orderdetails.orderId}}" [attr.disabled]="isDisabled ? true : null" >
 
                 </div>
 
                 <div class="col-4">
                     <label class="lables">Mobile number:</label>
                     <input type="text" class="form-control" [(ngModel)]="Orderdetails.mobileNumber"
-                        placeholder="{{Orderdetails.mobileNumber}}">
+                        placeholder="{{Orderdetails.mobileNumber}}" [attr.disabled]="isDisabled ? true : null" >
                 </div>
                 <div class="col-4">
                     <label class="lables">Payment Id:</label>
                     <input type="text" class="form-control" [(ngModel)]="Orderdetails.pgRazorpayPaymentId"
-                        placeholder="{{Orderdetails.pgRazorpayPaymentId}}">
+                        placeholder="{{Orderdetails.pgRazorpayPaymentId}}" [attr.disabled]="isDisabled ? true : null" >
                 </div>
                 <div class="col-4">
                     <label class="lables">Order Submitted Date:</label>
                     <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
-                        placeholder="{{Orderdetails.orderSubmitDtTm}}">
+                        placeholder="{{Orderdetails.orderSubmitDtTm}}" [attr.disabled]="isDisabled ? true : null" >
                 </div>
                 <div class="col-4">
                     <label class="lables">Total Amount:</label>
                     <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
-                        placeholder="{{Orderdetails.totalAmount}}">
+                        placeholder="{{Orderdetails.totalAmount}}" [attr.disabled]="isDisabled ? true : null" >
                 </div>
                 <!-- <div class="col-4">
                     <label class="lables">Name:</label>
@@ -60,11 +60,11 @@
                 </div> -->
 
 
-                <div class="col-4">
+                <!-- <div class="col-4">
                     <label class="lables">Date and time:</label>
                     <input type="datetime-local" formControlName="lastUpdateDtTm"
                         [(ngModel)]="verifypaymentform.lastUpdateDtTm" class="form-control">
-                </div>
+                </div> -->
             </div>
 
 

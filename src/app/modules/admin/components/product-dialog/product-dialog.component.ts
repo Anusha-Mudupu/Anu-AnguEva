@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Catalog, Product, SearchTag, Vendor } from 'src/app/data/data-objects';
 import { VendorDataService } from 'src/app/services/vendor-data.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -7,7 +7,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@ang
 import { ProductDataService } from 'src/app/services/product-data.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
-import { filter } from 'rxjs';
+import { Observable, filter, map, startWith } from 'rxjs';
 import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.component';
 
 @Component({
@@ -16,21 +16,19 @@ import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.compo
   styleUrls: ['./product-dialog.component.scss']
 })
 export class ProductDialogComponent implements OnInit {
+ 
 
-  constructor(
+constructor(
     private vendorDataService: VendorDataService,
-    private formBuilder: FormBuilder,
     private productDataService: ProductDataService,
     private dialogRef: MatDialogRef<ProductDialogComponent>,
     private fb:FormBuilder,
     private dailog:MatDialog
-  ) { 
-
-  }
+  ) { }
 
 
   product!: Product;
-  selectedCatalogs: Catalog[];
+  //selectedCatalogs: Catalog[];
   productForm: any
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   vendorData: any;
@@ -38,20 +36,24 @@ export class ProductDialogComponent implements OnInit {
   searchTags: string[] = [];
   public selectedId: number;
   selectedmanufactureId: any;
+  selectedCatalogVals: any;
   selectedVendor: string;
   Catalogsdata:any
   searchText:any;
-
+  selectedcatalogid:any
+  //  index:any=0;
+  filteredOptions: string[] = [];
   ngOnInit() {
     this.vendorDataService.getVendors().subscribe((response) => {
-      this.vendorData = response;
-
+      this.vendorData = response; 
     })
     this.vendorDataService.getAllCatalogs().subscribe((data:any)=>{
       this.Catalogsdata=data;
+      // this.selectedCatalogVals = data;
       console.log(data);
       
     })
+    
     //   this.productForm = this.formBuilder.group({
     //     productName: ['', Validators.compose([Validators.required])],
     //     manufacturerName: ['', Validators.compose([Validators.required])],
@@ -68,28 +70,52 @@ export class ProductDialogComponent implements OnInit {
       searchTag: new FormControl(''),
       manufacturerId: new FormControl(''),
       storeId: new FormControl('1'),
-      selectedCatalogs: this.fb.array([
-        this.Catalog()
-      ]),
-    })
+      catalog: new FormArray([])
+      // catalog: this.fb.array([
+      //  this.onSelectCatalogs()
+      // ]),
+      })
   }
 
-  Catalog(): FormGroup {
-    return this.fb.group({
-      catalogId: new FormControl(''),
-       primaryFlg:new FormControl('Y'),
-       productId:new FormControl(''),
-       productCatalogId:new FormControl(''),
+
+  get catalog(): FormArray {
+    console.log('get selectedCatalogs called');
+    return this.productForm.get('catalog') as FormArray;
+  }
+
+
+  // Catalog(): FormGroup {
+  //   return this.fb.group({
+  //     catalogId: new FormControl(''),
+  //      primaryFlg:new FormControl('Y'),
+  //      productId:new FormControl(''),
+  //      productCatalogId:new FormControl(''),
        
-    });
+  //   });
+  // }
+
+  onSelectCatalogs(){
+    console.log("onSelectCatalogs Called",this.selectedCatalogVals);
+    // this.selectedcatalogid=this.selectedCatalogVals[this.index].catalogId;
+  //   this.selectedcatalogid = this.selectedCatalogVals.find((id:any) => id.catalogId=== this.selectedCatalogVals.catalogId);
+  //  this.selectedId = this.selectedcatalogid ? this.selectedcatalogid.catalogId : null;
+    
+   
+    //Loops through this.selectedCatalogVals and push each value.
+    for(let i=0;i<this.selectedCatalogVals.length;i++){
+      this.selectedcatalogid=this.selectedCatalogVals[i].catalogId;
+      console.log('selectedcatalogid',this.selectedcatalogid);
+    }
+          //  this.selectedCatalogs.clear();
+    this.catalog.push(this.fb.group({
+      catalogId: this.selectedcatalogid,
+      primaryFlg:new FormControl('Y'), 
+      productCatalogId:new FormControl()
+      }));
+//TODO create new form group and push to selectedCatalogs
   }
 
 
-  addAddress() {
-    const addresses = this.productForm.get('selectedCatalogs') as FormArray;
-    addresses.push(this.Catalog());
-  }
- 
 
   addTag(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
@@ -144,20 +170,17 @@ export class ProductDialogComponent implements OnInit {
       alert('Product Added Successfully');
     });
     this.searchTags = []
-    // this.productForm.push(this.Catalog);
+   
   }
-
-onSelectedGstCode(event:any){
-    this.selectedmanufactureId=event.target.value;
-    console.log(this.selectedmanufactureId)
-   }
-
-   addNewCatalog(){
+  addNewCatalog(){
     const dialogRef =this.dailog.open( AddNewCatalogComponent,{ })
    }
+   filterOptions(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
+    this.filteredOptions = this.Catalogsdata.filter((option:any) => option.toLowerCase().includes(filterValue));
+  }
 
-
-
+}
  
 
 
@@ -166,4 +189,3 @@ onSelectedGstCode(event:any){
 
 
 
-}

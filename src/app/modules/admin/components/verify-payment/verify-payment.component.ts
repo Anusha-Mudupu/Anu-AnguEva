@@ -22,7 +22,7 @@ export class VerifyPaymentComponent implements OnInit {
   paymentsuccess:any;
   paymentfail:any
   @Input() datafromparent :any
- 
+  isDisabled: boolean = true;
   
   paymentverified ='PAYMENT VERIFIED'
   paymentfailed='PAYMENT FAILED'

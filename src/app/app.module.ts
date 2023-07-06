@@ -26,9 +26,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { TestComponent } from './test/test.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
     SelectGstComponent,
+    TestComponent,
   
  
    
@@ -67,7 +69,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatSortModule,
     MatInputModule,
     MatFormFieldModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   providers: [],

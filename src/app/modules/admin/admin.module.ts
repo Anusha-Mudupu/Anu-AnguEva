@@ -40,8 +40,12 @@ import { FinishShippingActionComponent } from './components/finish-shipping-acti
 import { OrderHistoryPageComponent } from './components/order-history-page/order-history-page.component';
 import { AddNewCatalogComponent } from './components/add-new-catalog/add-new-catalog.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
+import { StaffListComponent } from './components/staff-list/staff-list.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { AddStaffComponent } from './components/add-staff/add-staff.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -66,6 +70,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FinishShippingActionComponent,
     OrderHistoryPageComponent,
     AddNewCatalogComponent,
+    StaffListComponent,
+    AddStaffComponent,
    
     
  
@@ -89,7 +95,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     FontAwesomeModule,
     MatSortModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatMenuModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   
   ]

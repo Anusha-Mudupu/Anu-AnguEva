@@ -11,6 +11,7 @@ import { ProductSkuDataService } from 'src/app/services/productsku-data.service'
 })
 export class AddNewOptionComponent implements OnInit {
   AddnewOptionform:FormGroup;
+
   constructor( private fb: FormBuilder,private http:HttpClient,private productskudataservice:ProductSkuDataService,private router:Router) { }
 
   ngOnInit(): void {
