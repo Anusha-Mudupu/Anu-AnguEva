@@ -48,7 +48,7 @@
 
           <mat-label>Select Catalog</mat-label>
           <mat-select multiple [(value)]="selectedCatalogVals" (selectionChange)="onSelectCatalogs()">
-            <input matInput type="text" (input)="filterOptions($event)">
+           
             <!-- <mat-select multiple [(value)]="selectedmanufactureId" formControlName="selectedCatalogs"> -->
             <!-- <input class="form-control" href="#datalistOptions" id="exampleDataList" placeholder="Type to search..." class="col-6" [(ngModel)]="searchText"> -->
             <mat-option *ngFor="let item of Catalogsdata" [value]="item">

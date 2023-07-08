@@ -42,18 +42,18 @@ constructor(
   searchText:any;
   selectedcatalogid:any
   //  index:any=0;
-  filteredOptions: string[] = [];
+ 
   ngOnInit() {
     this.vendorDataService.getVendors().subscribe((response) => {
       this.vendorData = response; 
     })
     this.vendorDataService.getAllCatalogs().subscribe((data:any)=>{
       this.Catalogsdata=data;
-      // this.selectedCatalogVals = data;
+      //  this.selectedCatalogVals = data;
       console.log(data);
-      
-    })
     
+    })
+
     //   this.productForm = this.formBuilder.group({
     //     productName: ['', Validators.compose([Validators.required])],
     //     manufacturerName: ['', Validators.compose([Validators.required])],
@@ -175,11 +175,10 @@ constructor(
   addNewCatalog(){
     const dialogRef =this.dailog.open( AddNewCatalogComponent,{ })
    }
-   filterOptions(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
-    this.filteredOptions = this.Catalogsdata.filter((option:any) => option.toLowerCase().includes(filterValue));
-  }
+   
 
+
+  
 }
  
 

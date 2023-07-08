@@ -3,6 +3,8 @@
      margin-left: 60px;
      margin-right: 60px;
      margin-top: 30px;
+     font-family: initial;
+    
   }
   
   .demo-button-container {
@@ -18,15 +20,24 @@
     background-color: rgb(143, 204, 206);
   }
   .mat-header-cell{
-    font-size: 18px;
+    font-size: 20px;
     color: black;
     justify-content: center;
+    font-weight: bold;
   }
   .mat-cell{
-    font-size: 16px;
+    font-size: 18px;
 
   }
   .mat-table {
     overflow: auto;
     // max-height: 500px;
+  }
+  h1{
+    margin-left: 840px;
+    position: absolute;
+    margin-top: -20px;
+    color: green;
+    font-family: initial;
+    font-size: 31px;
   }

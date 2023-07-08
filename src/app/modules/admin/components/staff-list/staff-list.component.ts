@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Staffdata } from 'src/app/data/data-objects';
 import { StaffDataService } from 'src/app/services/staff-data.service';
 import { AddStaffComponent } from '../add-staff/add-staff.component';
+import { UpdateStaffComponent } from '../update-staff/update-staff.component';
 
 @Component({
   selector: 'app-staff-list',
@@ -12,7 +13,7 @@ import { AddStaffComponent } from '../add-staff/add-staff.component';
 })
 export class StaffListComponent implements OnInit {
 staffdata:any
-  constructor( private staffservice:StaffDataService, private dailog:MatDialog) { }
+  constructor( private staffservice:StaffDataService, private dailog:MatDialog ) { }
   displayedColumns: string[] = ['staffCd', 'staffName', 'mobileNo','emailId','startDt','endDt','Actions'];
   dataSource = new MatTableDataSource<Staffdata>();
 
@@ -21,15 +22,21 @@ staffdata:any
  this.staffservice.getStaffList().subscribe((data:any)=>{
   this.dataSource = new MatTableDataSource(data);
   this.staffdata=data;
-  console.log('raaaaji',data);
+  console.log('staffData',data);
  })
   }
 
 
-  addStaff(){
+  addStaffbtn(){
     const dialogRef =this.dailog.open( AddStaffComponent,{ }).afterClosed().subscribe((result:any)=>{
+     this.ngOnInit();})
+  }
+  updateStaff(staffCd:any){
+    const dialogRef =this.dailog.open( UpdateStaffComponent,{
+          
+      data: { staffCd:staffCd}
+    }).afterClosed().subscribe(result=>{
      
       this.ngOnInit();})
   }
-
 }

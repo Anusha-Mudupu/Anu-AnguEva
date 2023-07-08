@@ -27,7 +27,8 @@ import { OrderHistoryPageComponent } from './components/order-history-page/order
 import { AddNewCatalogComponent } from './components/add-new-catalog/add-new-catalog.component';
 import { StaffListComponent } from './components/staff-list/staff-list.component';
 import { AddStaffComponent } from './components/add-staff/add-staff.component';
-import { TestComponent } from 'src/app/test/test.component';
+
+import { UpdateStaffComponent } from './components/update-staff/update-staff.component';
 
 
 
@@ -64,7 +65,8 @@ const routes: Routes = [
     {path:'add-new-catalog',component:AddNewCatalogComponent},
     {path:'staff-list',component:StaffListComponent},
     {path:'add-staff',component:AddStaffComponent},
-    {path:'test',component:TestComponent},
+
+    {path:'updatestaff',component:UpdateStaffComponent},
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },

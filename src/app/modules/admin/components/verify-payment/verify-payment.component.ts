@@ -35,7 +35,7 @@ export class VerifyPaymentComponent implements OnInit {
      this.verifypaymentform=new FormGroup({
       orderId:new FormControl(''),
      statusCd:new FormControl(''),
-     
+     staffCd:new FormControl('')
      
      
     })
@@ -57,14 +57,14 @@ export class VerifyPaymentComponent implements OnInit {
   this.paymentsuccess=event.target.value;
 
   console.log(this.paymentsuccess);
-  alert('Payment Verified Successfully')
+  // alert('Payment Verified Successfully')
  
 }
   
 failed(event:any){
   this.paymentfail=event.target.value;
   console.log(this.paymentfail);
-  alert('Payment Failed')
+  // alert('Payment Failed')
 
 }
 

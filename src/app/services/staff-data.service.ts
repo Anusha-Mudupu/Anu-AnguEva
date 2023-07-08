@@ -15,9 +15,16 @@ export class StaffDataService {
     return this.httpclient.get<Staffdata>(environment.getstafflistUrl)
   }
 
-
-
-  addStaff(addstaff:Staffdata){
+ addStaff(addstaff:Staffdata){
     return this.httpclient.post<Staffdata>(environment.addstaffurl,addstaff)
+  }
+
+
+  getStaffByStaffCd(staffCd:any){
+    return this.httpclient.get<Staffdata>(environment.getstaffBystaffCd +staffCd)
+  }
+
+  updateStaffByid(staffid:any,staffdata:Staffdata){
+    return this.httpclient.put<Staffdata>(environment.updateStaff +staffid,staffdata)
   }
 }

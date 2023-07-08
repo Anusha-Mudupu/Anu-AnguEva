@@ -1,0 +1,104 @@
+<div>
+    <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()">Edit</button>
+</div>
+ <h1>Update Staff Form</h1>
+<form class="row  g-3" class="box" [formGroup]="UpdateStaffform">
+    <div class="row">
+        <div class="col-3">
+            <label class="form-label">Staff Id:</label>
+            <input type="text" class="form-control"  [(ngModel)]="staffdata.opStaffId"
+                formControlName="opStaffId" placeholder="{{staffdata.opStaffId}}">
+
+        </div>
+
+        <div class="col-3">
+            <label class="form-label">Staff Name:</label>
+            <input type="text" class="form-control"  [(ngModel)]="staffdata.staffName"
+                formControlName="staffName" placeholder="{{staffdata.staffName}}">
+
+        </div>
+
+         <div class="col-3">
+            <label class="form-label">Staff Code:</label>
+            <input type="text" class="form-control"  [(ngModel)]="staffdata.staffCd"
+                formControlName="staffCd" placeholder="{{staffdata.staffCd}}">
+
+        </div>
+    </div>
+
+    <div class="row">
+
+
+        <div class="col-3">
+            <label class="form-label">Email Id:</label>
+            <input type="text" class="form-control"  formControlName="emailId"
+                [(ngModel)]="staffdata.emailId">
+
+        </div>
+        <div class="col-3">
+            <label class="form-label">DOB:</label>
+
+            <input type="text" class="form-control"  [(ngModel)]="staffdata.dob"
+                formControlName="dob">
+
+        </div>
+        <div class="col-3">
+            <label class="form-label">Mobile No:</label>
+            <input type="text" class="form-control"   [(ngModel)]="staffdata.mobileNo"
+                formControlName="mobileNo">
+
+
+        </div>
+    </div>
+
+
+    <div class="row" id="lastrow">
+        <div class="col-3">
+            <label class="form-label">start Date:</label>
+            <input type="text" class="form-control"  [(ngModel)]="staffdata.startDt"
+                formControlName="startDt" placeholder="{{staffdata.startDt}}"
+                >
+        </div>
+        <div class="col-3">
+            <label class="form-label">End Date:</label>
+            <input type="text"  class="form-control"   [(ngModel)]="staffdata.endDt"
+                formControlName="endDt" placeholder="{{staffdata.endDt}}" >
+        </div>
+
+
+        <div class="col-3">
+            <label class="form-label">Area:</label>
+            <input type="text" class="form-control"  [(ngModel)]="staffdata.area"
+                formControlName="area" placeholder="{{staffdata.area}}" >
+        </div>
+    </div>
+
+
+    <div class="row" id="lastrow">
+        <div class="col-3">
+           <label class="form-label">City:</label>
+           <input type="text" class="form-control"   [(ngModel)]="staffdata.city"
+               formControlName="city" placeholder="{{staffdata.city}}"
+               >
+       </div>
+       <div class="col-3">
+           <label class="form-label">State:</label>
+           <input type="text" class="form-control"   [(ngModel)]="staffdata.state"
+               formControlName="state" placeholder="{{staffdata.state}}" >
+       </div>
+
+
+       <div class="col-3">
+           <label class="form-label">Pincode:</label>
+           <input type="text" class="form-control"   [(ngModel)]="staffdata.pincode"
+               formControlName="pincode" placeholder="{{staffdata.pincode}}" >
+       </div>
+</div>
+
+  <div class="col-3" class="button">
+        <button type="submit" class="btn btn-success"
+            (click)=" onSubmit()" style="width: 100px;" mat-dialog-close>Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-danger"  style="width: 100px;" mat-dialog-close>Cancel</button>
+
+    </div>
+</form>

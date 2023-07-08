@@ -27,7 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { TestComponent } from './test/test.component';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 
@@ -42,7 +42,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
     SelectGstComponent,
-    TestComponent,
+  
   
  
    

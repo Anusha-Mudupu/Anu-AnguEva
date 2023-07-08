@@ -46,6 +46,7 @@ import { AddStaffComponent } from './components/add-staff/add-staff.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { UpdateStaffComponent } from './components/update-staff/update-staff.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     AddNewCatalogComponent,
     StaffListComponent,
     AddStaffComponent,
+    UpdateStaffComponent,
    
     
  

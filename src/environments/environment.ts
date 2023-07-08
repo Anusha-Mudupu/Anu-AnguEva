@@ -29,7 +29,9 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   getAllcatalogs:'http://localhost:8085/api/getAllCatalog',
   Addnewcatalog:'http://localhost:8085/addCatalog',
   getstafflistUrl:'http://localhost:8085/getStaff',
-  addstaffurl:'http://localhost:8085/addStaff'
+  addstaffurl:'http://localhost:8085/addStaff',
+  getstaffBystaffCd:'http://localhost:8085/getStaffByCd?staffCd=',
+  updateStaff:'http://localhost:8085/updateStaff?StaffCd='
    
 
 };

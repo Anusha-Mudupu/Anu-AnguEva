@@ -50,4 +50,12 @@ export class ProductsComponent implements OnInit{
   }
 displayedColumns: string[] = ['select','position','productName', 'productDesc','manufacturerName','actions'];
 
+
+
+applyFilter(event: any) {
+  let filterValue = event.target.value; // Remove whitespace
+  filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+  this.dataSource.filter = filterValue;
+}
+
   }
