@@ -13,7 +13,7 @@ import { ProductSkuDataService } from '../services/productsku-data.service';
   styleUrls: ['./product-sku.component.scss']
 })
 export class ProductSkuComponent implements OnInit {
-
+submitted:boolean=false;
   constructor(private produSku: ProductSkuServiceService, private route: ActivatedRoute,
     private router: Router, private productdataservice: ProductDataService,private productSkudataservice:ProductSkuDataService) { }
 
@@ -64,6 +64,7 @@ export class ProductSkuComponent implements OnInit {
   }
 
   onSubmit() {
+
     if (this.productSku.status === true) {
       this.productSku.status = 'Available';
     } else
@@ -71,9 +72,12 @@ export class ProductSkuComponent implements OnInit {
         this.productSku.status = 'Not-Available'
       }
     console.log(this.productSku);
-    this.saveProductSku();
-    this.router.navigate(['/admin/products/:productId', this.productSku])
+  
+      this.saveProductSku();
+    // this.router.navigate(['/admin/products/:productId', this.productSku])
     console.log(this.AddproductSkuform)
+
+   
   }
 
   cancel() {

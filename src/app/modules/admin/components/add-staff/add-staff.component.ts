@@ -14,31 +14,31 @@ export class AddStaffComponent implements OnInit {
   submitted:boolean= false;
   staffdata:any
   constructor(private dialogRef: MatDialogRef<AddStaffComponent>,private formBuilder: FormBuilder,private staffservice:StaffDataService,private router:Router) {
-    // this.addstaffform=new FormGroup({
-    //   staffName:new FormControl(),
-    //   emailId: new FormControl(),
-    //   mobileNo: new FormControl(),                                  
-    //   dob: new FormControl(),
-    //   area: new FormControl(),
-    //   city: new FormControl(),
-    //   state: new FormControl(),
-    //   pincode: new FormControl(),
-    //   startDt: new FormControl(),
-    //   endDt: new FormControl()
-    
-    // })
-    this.addstaffform = this.formBuilder.group({
-      staffName: ['',Validators.compose ([Validators.required])],
+    this.addstaffform=this.formBuilder.group({
+      staffName:['',Validators.compose ([Validators.required])],
       emailId: ['',Validators.compose ([Validators.required, Validators.email])],
-      mobileNo: ['', [Validators.required,  Validators.maxLength(10)]],
+      mobileNo: ['', [Validators.required,  Validators.maxLength(10)]],      
       dob: ['', [Validators.required,]],
-      area: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      pincode: ['', Validators.required ,Validators.maxLength(6)],
-      startDt: ['', Validators.required],
+        area: ['', Validators.required],
+        city: ['', Validators.required],
+        state: ['', Validators.required],
+         pincode: ['', Validators.required],
+       startDt: ['', Validators.required],
       endDt: ['', Validators.required]
-    });
+    
+    })
+    // this.addstaffform = this.formBuilder.group({
+    //   staffName: ['',Validators.compose ([Validators.required])],
+    //   emailId: ['',Validators.compose ([Validators.required, Validators.email])],
+    //   mobileNo: ['', [Validators.required,  Validators.maxLength(10)]],
+    //   dob: ['', [Validators.required,]],
+    //   area: ['', Validators.required],
+    //   city: ['', Validators.required],
+    //   state: ['', Validators.required],
+    //   pincode: ['', Validators.required ,Validators.maxLength(6)],
+    //   startDt: ['', Validators.required],
+    //   endDt: ['', Validators.required]
+    // });
    }
    ngOnInit(): void {
   }
