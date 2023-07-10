@@ -42,7 +42,8 @@
         <div mat-dialog-action [align]="'center'">
             <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
             <button style="margin-left:10px" mat-raised-button color="primary"
-            mat-dialog-close (click)="addNewCatalog(addnewcatalogform)">Submit</button>
+              (click)="addNewCatalog(addnewcatalogform)">Submit</button>
+            <div *ngIf="submitted && !addnewcatalogform.valid">All fields are required.</div>
         </div>
     </form>
 </div>

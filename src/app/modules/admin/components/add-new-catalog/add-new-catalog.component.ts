@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AddNewCatalog } from 'src/app/data/data-objects';
 import { VendorDataService } from 'src/app/services/vendor-data.service';
@@ -11,14 +11,25 @@ import { VendorDataService } from 'src/app/services/vendor-data.service';
 })
 export class AddNewCatalogComponent implements OnInit {
   addnewcatalogform:any
+  submitted: boolean = false;
   constructor(  private dialogRef: MatDialogRef<AddNewCatalogComponent>,private vendorservice:VendorDataService,private formBuilder: FormBuilder) {
-this.addnewcatalogform=new FormGroup({
-  catalogId:new FormControl(),
-  parentCatalogId: new FormControl(),
-  catalogLevel: new FormControl(),
-  catalogName: new FormControl(),
-  catalogDesc: new FormControl(),
-  storeId: new FormControl('1')
+// this.addnewcatalogform=new FormGroup({
+//   catalogId:new FormControl(),
+//   parentCatalogId: new FormControl(),
+//   catalogLevel: new FormControl(),
+//   catalogName: new FormControl(),
+//   catalogDesc: new FormControl(),
+//   storeId: new FormControl('1')
+
+// })
+this.addnewcatalogform = this.formBuilder.group({
+  catalogId: ['', Validators.compose([Validators.required])],
+  parentCatalogId: ['', Validators.compose([Validators.required])],
+  catalogLevel: ['',Validators.compose([Validators.required])],
+  catalogName: ['', Validators.compose([Validators.required])],
+  catalogDesc: ['', Validators.compose([Validators.required])],
+  storeId: [1],
+ 
 
 })
 
@@ -33,11 +44,13 @@ this.addnewcatalogform=new FormGroup({
 
 
   addNewCatalog(addnewcatalogform:any){
-
-    this.vendorservice.addNewCatalog(this.addnewcatalogform.value).subscribe(data=>{
-      console.log(data);
-      alert('Catalog added Successflly');
-    })
-  }
+        this.submitted=true;
+        if(this.addnewcatalogform.valid){
+          this.vendorservice.addNewCatalog(this.addnewcatalogform.value).subscribe(data=>{
+            console.log(data);
+            alert('Catalog added Successflly');
+          })
+        }
+       }
 
 }

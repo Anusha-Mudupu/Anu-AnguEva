@@ -1,42 +1,56 @@
 <h1 mat-dialog-title style="margin-left: 430px;">Add New Staff</h1>
-<div mat-dialog-content class="dialog-content">
-    <form [formGroup]="addstaffform">
+<div mat-dialog-content class="dialog-content" id="form">
+    <form [formGroup]="addstaffform" >
         <div>
             <div>
                 <mat-form-field class="catalogName">
                     <mat-label>Staff Name</mat-label>
                     <input matInput formControlName="staffName">
+                    <div *ngIf="submitted && addstaffform.get('staffName').invalid">
+                    </div>
                 </mat-form-field>
 
 
                 <mat-form-field class="catalogDesc">
                     <mat-label>Email Id</mat-label>
                     <input matInput formControlName="emailId">
+                    <div *ngIf="submitted && addstaffform.get('emailId').invalid">
+                    </div>
                 </mat-form-field>
 
                 <mat-form-field class="mobileNo">
                     <mat-label>Mobile Number</mat-label>
                     <input matInput formControlName="mobileNo">
+                    <div *ngIf="submitted && addstaffform.get('mobileNo').invalid">
+                    </div>
                 </mat-form-field>
 
 
                 <mat-form-field class="pincode">
                     <mat-label>Pincode</mat-label>
                     <input matInput type="number" formControlName="pincode">
+                    <div *ngIf="submitted && addstaffform.get('pincode').invalid">
+                    </div>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field class="area">
                     <mat-label>Area</mat-label>
                     <input matInput formControlName="area">
+                    <div *ngIf="submitted && addstaffform.get('area').invalid">
+                    </div>
                 </mat-form-field>
                 <mat-form-field class="city">
                     <mat-label>City</mat-label>
                     <input matInput formControlName="city">
+                    <div *ngIf="submitted && addstaffform.get('city').invalid">
+                    </div>
                 </mat-form-field>
                 <mat-form-field class="state">
                     <mat-label>State</mat-label>
                     <input matInput formControlName="state">
+                    <div *ngIf="submitted && addstaffform.get('state').invalid">
+                    </div>
                 </mat-form-field>
             </div>
             <div>
@@ -46,6 +60,8 @@
                     <input matInput [matDatepicker]="picker" formControlName="dob">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker" id="calicon"></mat-datepicker-toggle>
+                    <div *ngIf="submitted && addstaffform.get('dob').invalid">
+                    </div>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
 
@@ -54,6 +70,8 @@
                     <input matInput [matDatepicker]="startdt" formControlName="startDt">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="startdt" id="calicon"></mat-datepicker-toggle>
+                    <div *ngIf="submitted && addstaffform.get('startDt').invalid">
+                    </div>
                     <mat-datepicker #startdt></mat-datepicker>
                 </mat-form-field>
 
@@ -62,6 +80,8 @@
                     <input matInput [matDatepicker]="enddt" formControlName="endDt">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="enddt" id="calicon"></mat-datepicker-toggle>
+                    <div *ngIf="submitted && addstaffform.get('endDt').invalid">
+                    </div>
                     <mat-datepicker #enddt></mat-datepicker>
                 </mat-form-field>
             </div>
@@ -70,8 +90,9 @@
 
         <div mat-dialog-action [align]="'center'">
             <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-            <button style="margin-left:10px" mat-raised-button color="primary" mat-dialog-close
-                (click)="addSatff(addstaffform)">Submit</button>
+            <button style="margin-left:10px" mat-raised-button color="primary"
+                (click)="addSatff()">Submit</button>
+                <div *ngIf="submitted && !addstaffform.valid">All fields are required.</div>
         </div>
     </form>
 </div>

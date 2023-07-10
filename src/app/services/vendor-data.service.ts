@@ -15,7 +15,7 @@ export class VendorDataService {
     return this.httpclient.get<Vendor[]>(environment.getAllVendorsURL)
 
   }
-  getAllCatalogs():Observable<Catalog[]>{
+  getAllCatalogs(){
     return this.httpclient.get<Catalog[]>(environment.getAllcatalogs)
   }
 

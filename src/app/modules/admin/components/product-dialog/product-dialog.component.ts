@@ -9,6 +9,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
 import { Observable, filter, map, startWith } from 'rxjs';
 import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-dialog',
@@ -18,15 +19,17 @@ import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.compo
 export class ProductDialogComponent implements OnInit {
  
 
+
 constructor(
     private vendorDataService: VendorDataService,
     private productDataService: ProductDataService,
     private dialogRef: MatDialogRef<ProductDialogComponent>,
     private fb:FormBuilder,
-    private dailog:MatDialog
+    private dailog:MatDialog,
+    private router:Router
   ) { }
 
-
+  submitted: boolean = false;
   product!: Product;
   //selectedCatalogs: Catalog[];
   productForm: any
@@ -47,34 +50,34 @@ constructor(
     this.vendorDataService.getVendors().subscribe((response) => {
       this.vendorData = response; 
     })
+   
     this.vendorDataService.getAllCatalogs().subscribe((data:any)=>{
       this.Catalogsdata=data;
       //  this.selectedCatalogVals = data;
-      console.log(data);
+      console.log(this.Catalogsdata);
     
     })
 
-    //   this.productForm = this.formBuilder.group({
-    //     productName: ['', Validators.compose([Validators.required])],
-    //     manufacturerName: ['', Validators.compose([Validators.required])],
-    //    productDesc: ['',Validators.compose([Validators.required])],
-    //    search_tags: ['', Validators.compose([Validators.required])],
-    //  manufacturerId:'',
-    //     storeId: [1]
-    //   })
+      this.productForm = this.fb.group({
+        productName: ['', Validators.compose([Validators.required])],
+        manufacturerId: ['', Validators.compose([Validators.required])],
+       productDesc: ['',Validators.compose([Validators.required])],
+       searchTag: ['', Validators.compose([Validators.required])],
+        storeId: [1],
+        catalog: new FormArray([])
+    
+      })
 
     //this.onselected(this.selectedmanufactureId)
-    this.productForm = new FormGroup({
-      productName: new FormControl(''),
-      productDesc: new FormControl(''),
-      searchTag: new FormControl(''),
-      manufacturerId: new FormControl(''),
-      storeId: new FormControl('1'),
-      catalog: new FormArray([])
-      // catalog: this.fb.array([
-      //  this.onSelectCatalogs()
-      // ]),
-      })
+    // this.productForm = new FormGroup({
+    //   productName: new FormControl(''),
+    //   productDesc: new FormControl(''),
+    //   searchTag: new FormControl(''),
+    //   manufacturerId: new FormControl(''),
+    //   storeId: new FormControl('1'),
+    //   catalog: new FormArray([])
+      
+    //   })
   }
 
 
@@ -83,22 +86,11 @@ constructor(
     return this.productForm.get('catalog') as FormArray;
   }
 
-
-  // Catalog(): FormGroup {
-  //   return this.fb.group({
-  //     catalogId: new FormControl(''),
-  //      primaryFlg:new FormControl('Y'),
-  //      productId:new FormControl(''),
-  //      productCatalogId:new FormControl(''),
-       
-  //   });
-  // }
-
-  onSelectCatalogs(){
+onSelectCatalogs(){
     console.log("onSelectCatalogs Called",this.selectedCatalogVals);
     // this.selectedcatalogid=this.selectedCatalogVals[this.index].catalogId;
   //   this.selectedcatalogid = this.selectedCatalogVals.find((id:any) => id.catalogId=== this.selectedCatalogVals.catalogId);
-  //  this.selectedId = this.selectedcatalogid ? this.selectedcatalogid.catalogId : null;
+  
     
    
     //Loops through this.selectedCatalogVals and push each value.
@@ -165,11 +157,17 @@ constructor(
   addProduct(productForm: any) {
     this.productForm.controls['searchTag'].setValue(this.searchTags.toString());
     console.log(this.productForm.value);
-    this.productDataService.addProduct(this.productForm.value).subscribe(res => {
-      console.log(res);
-      alert('Product Added Successfully');
-    });
-    this.searchTags = []
+    this.submitted = true;
+    if(this.productForm.valid){
+      this.productDataService.addProduct(this.productForm.value).subscribe(res => {
+        console.log(res);
+         alert('Product Added Successfully');
+      
+      });
+      this.searchTags = []
+      this.router.navigate(['/admin/products'])
+    }
+   
    
   }
   addNewCatalog(){

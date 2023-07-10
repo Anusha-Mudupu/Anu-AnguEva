@@ -5,6 +5,7 @@ import { Staffdata } from 'src/app/data/data-objects';
 import { StaffDataService } from 'src/app/services/staff-data.service';
 import { AddStaffComponent } from '../add-staff/add-staff.component';
 import { UpdateStaffComponent } from '../update-staff/update-staff.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-staff-list',
@@ -13,7 +14,7 @@ import { UpdateStaffComponent } from '../update-staff/update-staff.component';
 })
 export class StaffListComponent implements OnInit {
 staffdata:any
-  constructor( private staffservice:StaffDataService, private dailog:MatDialog ) { }
+  constructor( private staffservice:StaffDataService, private dailog:MatDialog,private active:ActivatedRoute ) { }
   displayedColumns: string[] = ['staffCd', 'staffName', 'mobileNo','emailId','startDt','endDt','Actions'];
   dataSource = new MatTableDataSource<Staffdata>();
 
