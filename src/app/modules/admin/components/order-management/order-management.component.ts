@@ -16,7 +16,7 @@ import { StartShippingActionComponent } from '../start-shipping-action/start-shi
 import { FinishShippingActionComponent } from '../finish-shipping-action/finish-shipping-action.component';
 import { CheckQualityActionComponent } from '../check-quality-action/check-quality-action.component';
 import { OrderHistoryPageComponent } from '../order-history-page/order-history-page.component';
-import { VerifyPaymentStaffComponent } from '../verify-payment-staff/verify-payment-staff.component';
+
 
 
 @Component({
@@ -107,7 +107,7 @@ this.router.navigate(['/admin/order-item-details',orderId])
 
   openDialog(action:any,orderId:any){
      if(action === 'verifypayment'){
-      const dialogRef =this.dailog.open( VerifyPaymentStaffComponent,{
+      const dialogRef =this.dailog.open( VerifyPaymentComponent,{
         data: { orderId:orderId}
       })
       // .afterClosed().subscribe(result=>{

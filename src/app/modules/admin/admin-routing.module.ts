@@ -29,8 +29,7 @@ import { StaffListComponent } from './components/staff-list/staff-list.component
 import { AddStaffComponent } from './components/add-staff/add-staff.component';
 
 import { UpdateStaffComponent } from './components/update-staff/update-staff.component';
-import { VerifyPaymentStaffComponent } from './components/verify-payment-staff/verify-payment-staff.component';
-import { StaffGuard } from 'src/app/services/staff.guard';
+
 
 
 
@@ -69,7 +68,7 @@ const routes: Routes = [
     {path:'add-staff',component:AddStaffComponent},
 
     {path:'updatestaff',component:UpdateStaffComponent},
-    {path:'verify-payment-staff',component:VerifyPaymentStaffComponent,canActivate:[StaffGuard]},
+
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],
   },

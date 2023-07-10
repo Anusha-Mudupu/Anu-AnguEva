@@ -47,7 +47,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { UpdateStaffComponent } from './components/update-staff/update-staff.component';
-import { VerifyPaymentStaffComponent } from './components/verify-payment-staff/verify-payment-staff.component';
+
 
 
 @NgModule({
@@ -75,7 +75,7 @@ import { VerifyPaymentStaffComponent } from './components/verify-payment-staff/v
     StaffListComponent,
     AddStaffComponent,
     UpdateStaffComponent,
-    VerifyPaymentStaffComponent,
+  
    
     
  
