@@ -3,10 +3,11 @@ import { Product } from 'src/app/data/data-objects';
 import { ProductDataService } from 'src/app/services/product-data.service';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
-import { window } from 'rxjs';
+
 import { Router } from '@angular/router';
+import { UpdateProductComponent } from '../update-product/update-product.component';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -43,6 +44,11 @@ export class ProductsComponent implements OnInit{
     // console.log('open dialog clicked')
     const dialogRef = this.dialog.open(ProductDialogComponent, {width: '60%', height: 'auto',disableClose: true})
     .afterClosed().subscribe(result=>{this.ngOnInit()});
+  }
+  openUpdateProduct(productId:any){
+    const dialogRef =this.dialog.open( UpdateProductComponent,{
+      data: { productId:productId}
+    })
   }
 
   GotoProduct(productId: number){

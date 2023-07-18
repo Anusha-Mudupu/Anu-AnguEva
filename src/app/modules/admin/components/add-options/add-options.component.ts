@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Options, ProductSkuOptions } from 'src/app/data/data-objects';
-import { ProductSkuDetailComponent } from 'src/app/product-sku-detail/product-sku-detail.component';
+
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
-import { IDropdownSettings, } from 'ng-multiselect-dropdown';
-import { option } from 'src/app/data/productskudetail';
+
+
  
 
 
@@ -41,7 +40,7 @@ export class AddOptionsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.fetchOptionsData();
+ 
 
 this.Gstcodeform=new FormGroup({
   id:new FormControl(),
@@ -51,7 +50,7 @@ this.Gstcodeform=new FormGroup({
 });
 this.Gsttypeform=new FormGroup({
   gstType:new FormControl(),
-  // percentage:new FormControl(),
+
   prductSkuId:new FormControl(),
   gstDec:new FormControl(),
   gstPercentage:new FormControl()
@@ -71,27 +70,8 @@ onSubmit(){
    })
 }
 
-//    fetchOptionsData() {
-//   this.http.get<any>('http://localhost:8085/api/getOptions').subscribe(
-//     (response:any) => {
-//       this.options = response;
-//     },
-//     error => {
-//       console.error('Failed to fetch options data:', error);
-//     }
-//   );
-// }
 
-// onOptionNameSelected(event: any) {
-//   this.selectedOptionName = event.target.value;
-//   this.selectedName =this.selectedOptionName
-//   this.selectedOptionValues = this.getFilteredOptionValues(this.selectedName);
-// }
 
-// getFilteredOptionValues(selectedName: any): string[] {
-//   const selectedOption = this.options.find((option:any) => option.optionName=== selectedName);
-//   return selectedOption ? selectedOption.optionValue : [];
-// }
 
 
 

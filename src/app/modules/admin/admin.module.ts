@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -6,12 +10,12 @@ import {MatIconModule} from '@angular/material/icon';
 import { AdminRoutingModule, MyRoutings } from './admin-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
-import { ProductsComponent } from './components/products/products.component';
+
+
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { VendorsComponent } from './components/vendors/vendors.component';
+
 import { HttpClientModule } from '@angular/common/http';
-import {MatTable, MatTableModule} from '@angular/material/table';
+import { MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductDialogComponent } from './components/product-dialog/product-dialog.component';
@@ -21,7 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductViewComponent } from './components/product-view/product-view.component';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddOptionsComponent } from './components/add-options/add-options.component';
 import { AddNewOptionComponent } from './components/add-new-option/add-new-option.component';
@@ -47,6 +51,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { UpdateStaffComponent } from './components/update-staff/update-staff.component';
+import { NgxPrintElementModule } from 'ngx-print-element';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 
 
@@ -75,6 +81,7 @@ import { UpdateStaffComponent } from './components/update-staff/update-staff.com
     StaffListComponent,
     AddStaffComponent,
     UpdateStaffComponent,
+    UpdateProductComponent,
   
    
     
@@ -103,7 +110,9 @@ import { UpdateStaffComponent } from './components/update-staff/update-staff.com
     MatMenuModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgxPrintElementModule,
+
 
   
   ]

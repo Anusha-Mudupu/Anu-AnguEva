@@ -1,95 +1,14 @@
-<!-- <form [formGroup]="finishfillingform" id="form">
-    <h1>data:{{datafromparent.statusCd}}</h1>
-
-    <h1> Filling Conformation</h1>
-    <button type="button" id="printbtn">Print</button>
-    <div class="card" class="card1">
-
-        <div class="card-body" class="card-body1">
-            <div class="row">
 
 
 
-                <div class="col-4">
-                    <label class="lables">OrderId:</label>
-                    <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                        placeholder="{{Orderdetails.orderId}}">
-
-                </div>
-
-                <div class="col-4">
-                    <label class="lables">Mobile number:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.mobileNumber"
-                        placeholder="{{Orderdetails.mobileNumber}}">
-                </div>
-                <div class="col-4">
-                    <label class="lables">Payment Id:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.pgRazorpayPaymentId"
-                        placeholder="{{Orderdetails.pgRazorpayPaymentId}}">
-                </div>
-                <div class="col-4">
-                    <label class="lables">Order Submitted Date:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
-                        placeholder="{{Orderdetails.orderSubmitDtTm}}">
-                </div>
-                <div class="col-4">
-                    <label class="lables">Total Amount:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
-                        placeholder="{{Orderdetails.totalAmount}}">
-                </div>
-
-
-
-
-                <div class="col-4">
-                    <label class="lables">Date and time:</label>
-                    <input type="datetime-local" formControlName="lastUpdateDtTm"
-                        [(ngModel)]="finishfillingform.lastUpdateDtTm" class="form-control">
-                </div>
-                <div class="col-4">
-                    <label class="lables">Click on Status button:</label>
-                    <br>
-                    <button (click)="filling($event)" [value]="finishfilling" style="width: 200px;margin-top:5px;"
-                        id="statusbtn" class="btn btn-success">FILLED</button>
-                    <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd"
-                        [(ngModel)]="currentstatus" hidden>
-                </div>
-
-
-
-                <div id="submittedbtns">
-
-                    <button class="btn btn-success" (click)="success($event)" [value]="fillingconformation"
-                        (click)="paymentSuccess()" style="width: 100px;">DONE</button>
-                    <input type="text" placeholder="{{fillingsuccess}}" formControlName="statusCd"
-                        [(ngModel)]="fillingsuccess" hidden>
-
-                    <button class="btn btn-primary" (click)="failed($event)" [value]="confirmationfailed"
-                        (click)="paymentFailed()" style="margin-left:20px;width:100px">FAIL</button>
-                    <input type="text" placeholder="{{fillingfailed}}" formControlName="statusCd"
-                        [(ngModel)]="fillingfailed" hidden>
-
-                    <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </div>
-
-</form> -->
-
-
-
+<button [print]="['printfinishfillingform', config]" id="printbtn">Print</button>
 
 <form [formGroup]="finishfillingform" id="form">
     <h1>Fill Conformation</h1>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
-    <div id="table">
-        <table class="custom-table">
+    <div id="table" >
+        <table class="custom-table" id="printfinishfillingform">
             <thead>
                 <tr>
                     <th>IMAGE</th>

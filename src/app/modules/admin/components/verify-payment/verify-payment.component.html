@@ -1,13 +1,14 @@
+<button [print]="['printverifipaymentform', config]" id="printbtn">Print</button>
 <form [formGroup]="verifypaymentform" id="form">
-    <!-- <h1>data:{{datafromparent.statusCd}}</h1> -->
+
 
     <h1>Verify Payment</h1>
-    <button type="button" id="printbtn">Print</button>
+
     <div class="card" class="card1">
 
-        <div class="card-body" class="card-body1">
+        <div class="card-body" class="card-body1" id="printverifipaymentform">
             <div class="row">
-                 <div class="col-3">
+                <div class="col-3">
                     <label class="lables">OrderId:</label>
                     <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
                         placeholder="{{Orderdetails.orderId}}" [attr.disabled]="isDisabled ? true : null">
@@ -25,7 +26,7 @@
                         placeholder="{{Orderdetails.pgRazorpayPaymentId}}" [attr.disabled]="isDisabled ? true : null">
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="secondrow">
                 <div class="col-3">
                     <label class="lables">Order Submitted Date:</label>
                     <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
@@ -38,47 +39,14 @@
                 </div>
             </div>
 
-            <!-- <div class="col-3">
-                    <label class="lables">Name:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.firstName"
-                        placeholder="{{Orderdetails.firstName}}">
-                </div> -->
-
-            <!-- <div class="col-3">
-                    <label>Status:</label>
-                <input type="text" formControlName="statusCd" [(ngModel)]="verifypaymentform.statusCd"
-                    class="form-control">
-                    <label class="lables">Select Status</label>
-                    <select formControlName="statusCd" [(ngModel)]="verifypaymentform.statusCd" id="dropdown">
-                        <option *ngFor="let status of Statuces" [value]="status">{{status}}</option>
-                    </select>
-                  
-                        <button (click)="select($event)"  [value]="Statuces" >verifypayment</button>
-                        <input type="text" placeholder="{{aa}}"  formControlName="statusCd" [(ngModel)]="aa" hidden>
-                 
-                   
-
-                </div> -->
 
 
-            <!-- <div class="col-3">
-                    <label class="lables">Date and time:</label>
-                    <input type="datetime-local" formControlName="lastUpdateDtTm"
-                        [(ngModel)]="verifypaymentform.lastUpdateDtTm" class="form-control">
-                </div> -->
-        <!-- </div> -->
 
 
+        </div>
     </div>
-    </div>
-
-
-    <!-- <input type="text" formControlName="staffCd"> -->
-
-
     <div id="submittedbtns">
-        <!-- <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-        <button style="margin-left:10px" mat-raised-button color="primary" (click)="submit()" mat-dialog-close>Submit</button> -->
+
         <button class="btn btn-success" (click)="success($event)" [value]="paymentverified" (click)="paymentSuccess()"
             style="width: 100px;">PASS</button>
         <input type="text" placeholder="{{paymentsuccess}}" formControlName="statusCd" [(ngModel)]="paymentsuccess"
@@ -91,6 +59,12 @@
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
 
     </div>
+
+
+
+
+
+
 
 
 

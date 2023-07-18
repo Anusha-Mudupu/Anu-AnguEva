@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,13 +1,19 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Catalog, Product, SearchTag, Vendor } from 'src/app/data/data-objects';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Product } from 'src/app/data/data-objects';
 import { VendorDataService } from 'src/app/services/vendor-data.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
+import {  FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { ProductDataService } from 'src/app/services/product-data.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MatSelectChange } from '@angular/material/select';
-import { Observable, filter, map, startWith } from 'rxjs';
+
+/**
+ * File: example.component.ts
+ * Author: John Doe
+ * Created Date: 2023-07-17
+ * Description: This component provides an example implementation in Angular.
+ * License: MIT (Example license, replace with your actual license)
+ */
 import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.component';
 import { Router } from '@angular/router';
 
@@ -68,16 +74,7 @@ constructor(
     
       })
 
-    //this.onselected(this.selectedmanufactureId)
-    // this.productForm = new FormGroup({
-    //   productName: new FormControl(''),
-    //   productDesc: new FormControl(''),
-    //   searchTag: new FormControl(''),
-    //   manufacturerId: new FormControl(''),
-    //   storeId: new FormControl('1'),
-    //   catalog: new FormArray([])
-      
-    //   })
+  
   }
 
 
@@ -86,11 +83,10 @@ constructor(
     return this.productForm.get('catalog') as FormArray;
   }
 
-onSelectCatalogs(){
+  onSelectCatalogs(){
     console.log("onSelectCatalogs Called",this.selectedCatalogVals);
-    // this.selectedcatalogid=this.selectedCatalogVals[this.index].catalogId;
-  //   this.selectedcatalogid = this.selectedCatalogVals.find((id:any) => id.catalogId=== this.selectedCatalogVals.catalogId);
-  
+   
+   
     
    
     //Loops through this.selectedCatalogVals and push each value.
@@ -128,30 +124,7 @@ onSelectCatalogs(){
     }
   }
 
-  // AddProduct(productForm:any){
-
-  //   this.productForm.controls['search_tags'].setValue(this.searchTags.toString());
-  //    console.log(this.productForm.value);
-
-  //   if(this.productForm.valid){
-  //   this.productDataService.addProduct(this.productForm.value)
-  //   .subscribe({
-  //     next:(res) => {
-  //       alert("Product Added Successfully");
-  //       this.productForm.reset();
-  //       this.dialogRef.close();
-  //       console.log(res);
-  //     },
-  //     error:(error) => {
-  //       alert("Something's wrong please check Console");
-  //       console.log(error)
-  //     }
-  //   })
-  //   }
-  //   this.searchTags = [];
-  // }
-
-
+  
 
 
   addProduct(productForm: any) {

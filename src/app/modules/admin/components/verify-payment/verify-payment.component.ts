@@ -2,6 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { NgxPrintElementService } from 'ngx-print-element';
 import { OrderDetails } from 'src/app/data/data-objects';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 import { environment } from 'src/environments/environment';
@@ -26,7 +27,7 @@ export class VerifyPaymentComponent implements OnInit {
   
   paymentverified ='PAYMENT VERIFIED'
   paymentfailed='PAYMENT FAILED'
-  constructor( private dialogRef: MatDialogRef<VerifyPaymentComponent>,private productskudataservice:ProductSkuDataService,private activated:ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any) { 
+  constructor( private print: NgxPrintElementService, private dialogRef: MatDialogRef<VerifyPaymentComponent>,private productskudataservice:ProductSkuDataService,private activated:ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any) { 
      this.orderId=data.orderId;
   
     console.log(this.orderId)
@@ -41,6 +42,20 @@ export class VerifyPaymentComponent implements OnInit {
     })
   }
  
+  public config = {
+    printMode: 'template-popup',
+    popupProperties: 'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,fullscreen=yes',
+    //pageTitle: '',
+    //templateString: '<header>I\'m part of the template header</header>{{printBody}}<footer>I\'m part of the template footer</footer>',
+    stylesheets: [{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' }],
+    styles: ['td { border: 1px solid black;}', 'table { border: 1px solid black; }', 'header, table, footer { margin-top:100px text-align: center; }']
+
+  }
+
+
+
+
+
   ngOnInit(): void {
     // this.id=this.activated.snapshot.params['orderId']
    
@@ -76,19 +91,8 @@ failed(event:any){
         this.OrderStatus=data;
         console.log(data);
       })
-      
-
-  
-      
     }
-    
-    //  this.failed(event);
-    
-   
-
-
-
-    paymentSuccess(){
+     paymentSuccess(){
        this.success(event);
     this.saveOrderWithUpdatedStatus();
    }

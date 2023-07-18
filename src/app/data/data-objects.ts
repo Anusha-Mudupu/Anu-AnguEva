@@ -1,11 +1,9 @@
-import { Observable } from "rxjs";
-export interface Product1{
-  productId: number;
-  productName: string;
-  productDesc: string;
-  manufacturerId: number
-  search_tag: string
-}
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
+
+
 export interface Product {
     productId: number;
    productName: string;
@@ -61,7 +59,6 @@ export interface Options{
     optionName: string;
     optionValue: string;
     productSkuOptions:productSkuOptions[]
-
 }
 
 export interface productSkuOptions{

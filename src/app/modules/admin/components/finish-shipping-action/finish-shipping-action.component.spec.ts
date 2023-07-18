@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FinishShippingActionComponent } from './finish-shipping-action.component';

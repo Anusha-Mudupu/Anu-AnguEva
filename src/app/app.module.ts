@@ -15,12 +15,12 @@ import { ProductSkuImagesComponent } from './product-sku-images/product-sku-imag
 import { ProductSkuDetailComponent } from './product-sku-detail/product-sku-detail.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-// import { MatDialog } from '@angular/material/dialog';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SelectGstComponent } from './select-gst/select-gst.component';
-// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
@@ -30,6 +30,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { NgxPrintElementModule } from 'ngx-print-element';
+
 
 @NgModule({
   declarations: [
@@ -42,14 +44,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     ProductSkuImagesComponent,
     ProductSkuDetailComponent,
     SelectGstComponent,
-  
-  
- 
-   
-  
- 
- 
-   
   ],
   imports: [
     BrowserModule,
@@ -64,7 +58,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatDialogModule,
     MatButtonModule,
     NgMultiSelectDropDownModule,
-    // Ng2SearchPipeModule,
     MatTableModule,
     MatSortModule,
     MatInputModule,
@@ -72,9 +65,10 @@ import {MatNativeDateModule} from '@angular/material/core';
     Ng2SearchPipeModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule
-
-  ],
+    MatNativeDateModule,
+    NgxPrintElementModule,
+ 
+      ],
   providers: [],
   bootstrap: [AppComponent]
 })

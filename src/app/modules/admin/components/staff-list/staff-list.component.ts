@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Staffdata } from 'src/app/data/data-objects';
 import { StaffDataService } from 'src/app/services/staff-data.service';

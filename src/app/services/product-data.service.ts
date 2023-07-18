@@ -31,6 +31,8 @@ export class ProductDataService {
   getProductById(id: number): Observable<any>{
     return this.httpclient.get<any>(environment.getProductByIdURL + id)
   }
-
+  updateProductById(id:number,product:Product){
+    return this.httpclient.put<any>(environment.updateproduct + id,product)
+  }
  
 }

@@ -1,114 +1,7 @@
-<!-- <h3 class="strong">create new product-sku</h3> -->
-<!-- <button>add Options</button>
-<button>add </button> -->
-<!-- <div class="center">
-
-<div class="scroll-bar"> 
-
-   
-
-  
-
-<div class="col-md-4 offset-md-3"> 
-
-    <br>
-
-<form (ngSubmit)="onSubmit() ;">
-
-    <div class="form-group">
-        <label>Image Url</label>
-        <input type="text" class="form-control" id="imageUrl"
-        [(ngModel)]="productSku.imageUrl" name="imageUrl">
-
-    </div>
-
-    <div class="form-group">
-        <label>price</label>
-        <input type="text" class="form-control" id="price"
-        [(ngModel)]="productSku.price" name="price">
-
-    </div>
-    <div class="form-group">
-        <label>count</label>
-        <input type="text" class="form-control" id="count"
-        [(ngModel)]="productSku.count" name="count">
-
-    </div>
-    <div class="form-group">
-        <label>barcode</label>
-        <input type="text" class="form-control" id="barCode"
-        [(ngModel)]="productSku.barCode" name="barCode">
-
-    </div>
-    <div class="form-group">
-        <label>list price</label>
-        <input type="text" class="form-control" id="listPrice"
-        [(ngModel)]="productSku.listPrice" name="listPrice">
-
-    </div>
-
-    <div class="form-group">
-        <label>discount</label>
-        <input type="text" class="form-control" id="discount"
-        [(ngModel)]="productSku.discount" name="discount">
-
-    </div>
-
-    <div class="form-group">
-        <label>product id</label>
-        <input class="form-control" id="readOnlyInput" type="text" placeholder={{id}} readonly=""   
-            [(ngModel)]="productSku.productId" name="productId">
-
-    </div>
-
-  
-
-    <div class="form-group">
-        <label>status</label>
-        <input type="text" class="form-control" id="status"
-        [(ngModel)]="productSku.status" name="status">
-
-    </div>
-
-    <div class="form-group">
-        <label>produuct skuCd</label>
-        <input type="text" class="form-control" id="productSkuCd"
-        [(ngModel)]="productSku.productSkuCd" name="productSkuCd">
-
-    </div>
-
-    <div class="form-group">
-        <label>sku Description</label>
-        <input type="text" class="form-control" id="skuDescription"
-        [(ngModel)]="productSku.skuDescription" name="skuDescription">
-
-    </div>
-
-    <br>
-
-<button class="btn btn-success" type="submit">submit</button>
-
-</form>
-
-</div>
-
-</div>
-</div> -->
-
-
-
-
 <form class="row  g-3" class="box" [formGroup]="AddproductSkuform">
 
     <div class="row">
-        <!-- <div class="col-2">
-            <label  class="form-label">SkuId:</label>
-            <input type="text" class="form-control" id="Skuid"  formControlName="Skuid"  [(ngModel)]="productSku.productSkuId">
-            <div
-                *ngIf="AddproductSkuform.controls['Skuid'].touched && AddproductSkuform.controls['Skuid'] ?.['errors']">
-                <span *ngIf="f ['Skuid'].getError('required')!=null" class="invalid"> enter Skuid</span>
-            </div>
-        </div> -->
+
 
         <div class="col-2">
             <label class="form-label">Price:</label>
@@ -199,7 +92,8 @@
 
             <div
                 *ngIf="AddproductSkuform.controls['selfLocCd'].touched && AddproductSkuform.controls['selfLocCd'] ?.['errors']">
-                <span *ngIf="form ['selfLocCd'].getError('required')!=null" class="invalid"> enter SelfLocation Code</span>
+                <span *ngIf="form ['selfLocCd'].getError('required')!=null" class="invalid"> enter SelfLocation
+                    Code</span>
                 <span *ngIf="form ['selfLocCd'].getError('minLength')!=null" class="invalid"> minimum length is
                     6</span>
 
@@ -225,7 +119,7 @@
     <div class="col-3" class="button">
         <button type="submit" class="btn btn-primary"
             (click)=" onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          
+
         <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
     </div>

@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductSkuDetailComponent } from 'src/app/product-sku-detail/product-sku-detail.component';
@@ -29,6 +33,7 @@ import { StaffListComponent } from './components/staff-list/staff-list.component
 import { AddStaffComponent } from './components/add-staff/add-staff.component';
 
 import { UpdateStaffComponent } from './components/update-staff/update-staff.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 
 
@@ -66,8 +71,8 @@ const routes: Routes = [
     {path:'add-new-catalog',component:AddNewCatalogComponent},
     {path:'staff-list',component:StaffListComponent},
     {path:'add-staff',component:AddStaffComponent},
-
-    {path:'updatestaff',component:UpdateStaffComponent},
+     {path:'updatestaff',component:UpdateStaffComponent},
+     {path:'update-product/:productId',component:UpdateProductComponent},
 
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],

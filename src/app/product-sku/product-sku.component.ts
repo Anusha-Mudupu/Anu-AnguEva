@@ -43,7 +43,7 @@ submitted:boolean=false;
     console.log(this.id);
     this.productdataservice.getProductById(this.id).subscribe(data => {
       this.productSku = data;
-      // this.productSku.status=data;
+     
 
       console.log(data)
       console.log(this.productSku)

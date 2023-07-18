@@ -1,8 +1,12 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Options, OrderDetails, ProductSku, ProductSkuOptions } from '../data/data-objects';
+import {  OrderDetails, ProductSku} from '../data/data-objects';
 import { ProductSkudetails } from '../data/productskudetail';
 
 @Injectable({
@@ -92,4 +96,37 @@ export class ProductSkuDataService {
   updateOrderStatus(orderstatus:OrderDetails) {
     return this.httpclient.post(environment.updateOrderStatus,orderstatus)
   }
+
+
+  // downloadInvoiceByOrderId(orderId:any){
+  //   return this.httpclient.get<any>(environment.downloadinvoice + orderId);
+  // }
+
+
+  downloadInvoice(orderId:any) {
+    console.log("orderId is.(in service) ",orderId);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'responseType': 'text,application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:8085',
+        'Access-Control-Allow-Methods': "DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers': 'Content-Type,application/json',
+        'Authorization': 'my-auth-token'
+
+
+      })
+    };
+    console.log("downloadInvoiceUrl is. ",environment.downloadinvoice+orderId);
+    //return this._http.get<any>(environment.downloadInvoiceUrl+ orderId);
+    return this.httpclient.get(environment.downloadinvoice+orderId,{responseType: 'blob'});
+  }
+
+  getBlobFile(orderId:number) {
+    
+    console.log("downloadInvoiceUrl is. ",environment.downloadinvoice+orderId);
+    return this.httpclient.get(environment.downloadinvoice+orderId,{responseType: 'blob'});
+    }
+  
 }

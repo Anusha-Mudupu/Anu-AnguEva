@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -31,7 +35,9 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   getstafflistUrl:'http://localhost:8085/getStaff',
   addstaffurl:'http://localhost:8085/addStaff',
   getstaffBystaffCd:'http://localhost:8085/getStaffByCd?staffCd=',
-  updateStaff:'http://localhost:8085/updateStaff?StaffCd='
+  updateStaff:'http://localhost:8085/updateStaff?StaffCd=',
+  updateproduct:'http://localhost:8085/api/updateProduct?productId=',
+  downloadinvoice:'http://localhost:8085/downloadInvoice/'
    
 
 };

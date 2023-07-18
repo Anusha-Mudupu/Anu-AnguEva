@@ -1,11 +1,13 @@
 #form{
     width: 1300px;
-    height: 500px;
-    border: ridge 10px;
+    height: 600px;
+    
 }
 .card1{
     height: 200px;
     margin-top: 50px;
+    border: ridge 10px;
+    height: 500px;
 }
 // .card-body1{
 //     // display: inline-flex;
@@ -20,7 +22,7 @@
   
 }
 #submittedbtns{
-     margin-top:30px;
+     margin-top:-200px;
     margin-left: 450px;
    
    
@@ -32,21 +34,29 @@
 }
 h1{
   margin-left: 550px;
-  color:coral
+  color:coral;
+  margin-top: 30px;
+  
 }
 #printbtn{
     margin-left: 1100px;
     width: 100px;
     height: 30px;
     color: cadetblue;
-    margin-top: -200px;
+    margin-top: 60px;
+    position: absolute;
 }
 
 .col-3{
-    margin-left: 50px;
+    margin-left: 60px;
+    margin-top: 50px;
+}
+#secondrow{
+    margin-top: -50px;
 }
 
 
 
+  
 
 

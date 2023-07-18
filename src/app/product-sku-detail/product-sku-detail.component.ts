@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductSku } from '../product-sku';
+
 import { ProductSkuServiceService } from '../product-sku-service.service';
 import { ProductSkuDataService } from '../services/productsku-data.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
-import { MatCheckboxChange } from '@angular/material/checkbox';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AddOptionsComponent } from '../modules/admin/components/add-options/add-options.component';
+
+
+import { MatDialog} from '@angular/material/dialog';
+
 import { SelectGstComponent } from '../select-gst/select-gst.component';
 
 @Component({
@@ -39,11 +39,7 @@ export class ProductSkuDetailComponent implements OnInit {
 
  constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService ,private dialog: MatDialog) { }
 
-  // onSelect()
-  // {
-  //   this.router.navigate(["/admin/product-sku-detail",this.id]);
-
-  // }
+ 
   Updateform = new FormGroup({
     productSkuId: new FormControl('', Validators.compose([Validators.required])),
     price: new FormControl('', Validators.compose([Validators.required])),
@@ -69,14 +65,12 @@ export class ProductSkuDetailComponent implements OnInit {
         console.log(response)
         this.productSku = response;
 
-      //  this.productSkudetails=this.productSku.productSku[0]
-      //  console.log(this.productSkudetails)
+ 
 
         this.image = this.productSku.image;
         this.OptionsData=this.productSku.option
         
-        //  this.GstTypes=this.productSku.gst
-        // this.Gstcode=this.productSku.gstCode;
+      
 
         console.log(this.Gstcode)
         console.log(this.image)
@@ -138,14 +132,7 @@ export class ProductSkuDetailComponent implements OnInit {
   //   this.Updateform.get('profile')?.setValue(this.myfiles)
   // }
   }
-  // onUpload() {
-  //   const formData = new FormData();
-  //   formData.append('file', this.selectedFile);
-  //   this.httpClient.post('http://localhost:8085/api/file/upload/'+this.id, formData).subscribe(
-  //     response => console.log(response),
-  //     error => console.error(error)
-  //   );
-   //}
+ 
 
 deleteimage(productSkuImageId:number){
   this.productSkuDataservice.deleteImgByImgId(productSkuImageId).subscribe(data=>{
@@ -158,18 +145,7 @@ deleteimage(productSkuImageId:number){
   this.ngOnInit()
 }
 
-// setPrimary() {
-//   this.image.isPrimary = true;
-//   this.updateBackend();
-// }
 
-// updateBackend() {
-//   const url = 'http://localhost:8085/api/file/upload/' + this.id;
-//   this.httpClient.patch(url, { isPrimary: true }).subscribe(
-//     response => console.log('Backend update successful!', response),
-//     error => console.log('Backend update failed!', error)
-//   );
-// }
 edit (){
    this.isEditMode=!this.isEditMode
   if (this.isEditMode ==true) {

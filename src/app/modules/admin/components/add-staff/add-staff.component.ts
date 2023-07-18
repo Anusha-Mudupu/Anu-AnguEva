@@ -27,18 +27,7 @@ export class AddStaffComponent implements OnInit {
       endDt: ['', Validators.required]
     
     })
-    // this.addstaffform = this.formBuilder.group({
-    //   staffName: ['',Validators.compose ([Validators.required])],
-    //   emailId: ['',Validators.compose ([Validators.required, Validators.email])],
-    //   mobileNo: ['', [Validators.required,  Validators.maxLength(10)]],
-    //   dob: ['', [Validators.required,]],
-    //   area: ['', Validators.required],
-    //   city: ['', Validators.required],
-    //   state: ['', Validators.required],
-    //   pincode: ['', Validators.required ,Validators.maxLength(6)],
-    //   startDt: ['', Validators.required],
-    //   endDt: ['', Validators.required]
-    // });
+
    }
    ngOnInit(): void {
   }

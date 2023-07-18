@@ -1,0 +1,96 @@
+<h1 mat-dialog-title style="margin-left: 500px;margin-top: 100px;">Update Product</h1>
+<div mat-dialog-content class="dialog-content">
+  <form [formGroup]="updateproductform" id="form">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-3">
+          <label class="form-label">productName:</label>
+          <input type="text" class="form-control" [(ngModel)]="productdata.productName" formControlName="productName"
+            placeholder="{{productdata.productName}}">
+
+        </div>
+        <div class="col-3">
+          <label class="form-label">Product Id:</label>
+          <input type="text" class="form-control" [(ngModel)]="productdata.productId" formControlName="productId"
+            placeholder="{{productdata.productId}}">
+
+        </div>
+        <div class="col-3">
+          <label class="form-label">Product Des:</label>
+          <input type="text" class="form-control" [(ngModel)]="productdata.productDesc" formControlName="productDesc"
+            placeholder="{{productdata.productDesc}}">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <!-- <mat-form-field class="vendor-select" appearance="fill">
+          <mat-label>Vendor Name</mat-label>
+          <mat-select formControlName="manufacturerId">
+            <mat-option *ngFor="let vendor of vendorData " [value]="vendor.manufacturerId">
+              {{vendor.manufacturerName}}
+            </mat-option>
+
+
+          </mat-select>
+        </mat-form-field> -->
+        <div class="col-3">
+          <label class="form-label">Vendor Name:</label>
+          <input type="text" type="number" class="form-control" [(ngModel)]="productdata.manufacturerName" formControlName="manufacturerId"
+            placeholder="{{productdata.manufacturerName}}">
+
+        </div>
+
+
+
+        <div class="col-3">
+          <label class="form-label">Search Tag:</label>
+          <input type="text" class="form-control" [(ngModel)]="productdata.searchTag" formControlName="searchTag"
+            placeholder="{{productdata.searchTag}}">
+
+        </div>
+        <div class="col-3">
+          <label class="form-label">Stored Id:</label>
+          <input type="text" type="number" class="form-control" [(ngModel)]="productdata.storeId"
+            formControlName="storeId" placeholder="{{productdata.storeId}}">
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div formArrayName="catalog" class="product-catalog">
+      <mat-form-field>
+
+        <mat-label>Select Catalog</mat-label>
+        <mat-select multiple [(value)]="selectedCatalogVals" (selectionChange)="onSelectCatalogs()">
+          <mat-option *ngFor="let item of AllcatalogData; let a=index" [value]="item" >
+            {{item.catalogName}}
+
+          </mat-option>
+
+        </mat-select>
+
+      </mat-form-field>
+
+    </div>
+
+
+
+
+
+
+    <div mat-dialog-action [align]="'center'" id="buttons">
+      <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+      <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+
+    </div>
+
+  </form>
+</div>

@@ -3,7 +3,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 import { environment } from 'src/environments/environment';
-
 @Component({
   selector: 'app-start-shipping-action',
   templateUrl: './start-shipping-action.component.html',
@@ -16,45 +15,54 @@ export class StartShippingActionComponent implements OnInit {
   orderItemDetails: any;
   currentstatus: any;
   OrderStatus: any;
-  startshippingform:any
-  StartShipping='SHIPPING IN PROGRESS'
+  startshippingform: any
+  StartShipping = 'SHIPPING IN PROGRESS'
 
-  shouldHideBorder:boolean=true
-  constructor(private dialogRef: MatDialogRef<StartShippingActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService) { 
-    this.orderId=data.orderId
-    this.startshippingform=new FormGroup({
-      statusCd:new FormControl(),
-      orderId:new FormControl(),
-    
+  shouldHideBorder: boolean = true
+  constructor(private dialogRef: MatDialogRef<StartShippingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
+    this.orderId = data.orderId
+    this.startshippingform = new FormGroup({
+      statusCd: new FormControl(),
+      orderId: new FormControl(),
+
     })
+  }
+  public config = {
+    printMode: 'template-popup',
+    popupProperties: 'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,fullscreen=yes',
+    //pageTitle: '',
+    //templateString: '<header>I\'m part of the template header</header>{{printBody}}<footer>I\'m part of the template footer</footer>',
+    stylesheets: [{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' }],
+    // styles: ['td { border: 1px solid black; color: green;margin-top:400px;position:absolute }', 'table { border: 1px solid black; }', 'header, table, footer { margin-top:100px text-align: center; }']
+
   }
 
   ngOnInit(): void {
-    this.imageBaseUrl=environment.imagesBaseUrl
-    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data=>{
-      this.Orderdetails=data;
-      this.orderItemDetails=this.Orderdetails.orderItems
-     
+    this.imageBaseUrl = environment.imagesBaseUrl
+    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data => {
+      this.Orderdetails = data;
+      this.orderItemDetails = this.Orderdetails.orderItems
+
       console.log(data)
-     })
+    })
   }
-  packingDone(event:any){
-    this.currentstatus=event.target.value;
+  packingDone(event: any) {
+    this.currentstatus = event.target.value;
     console.log(this.currentstatus)
     // alert('You  have selected Status')
-    }
+  }
   saveOrderWithUpdatedStatus() {
 
     this.productskudataservice.updateOrderStatus(this.startshippingform.value).subscribe(data => {
-       this.OrderStatus=data;
-       console.log(data);
+      this.OrderStatus = data;
+      console.log(data);
       //  alert('Successfully Updated')
-     })
-     }
-      
-     submit(){
+    })
+  }
+
+  submit() {
     this.packingDone(event)
-      this.saveOrderWithUpdatedStatus()
-    }
+    this.saveOrderWithUpdatedStatus()
+  }
 
 }

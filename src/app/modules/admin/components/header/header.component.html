@@ -6,13 +6,13 @@
     <div class="menu-container"></div>
     <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./home" routerLinkActive="active-button">Home</a>
     <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./products" routerLinkActive="active-button">Inventory</a>
-    <a mat-flat-button color="primary" style="size: medium; font-size:larger;" routerLink="./vendors" routerLinkActive="active-button">Vendor Mgmt</a>
+    <!-- <a mat-flat-button color="primary" style="size: medium; font-size:larger;" routerLink="./vendors" routerLinkActive="active-button">Vendor Mgmt</a> -->
     <a mat-flat-button color="primary" style="font-size:larger;"  routerLink="./order-management" routerLinkActive="active-button">Operations</a>
     <a mat-flat-button color="primary" style="font-size:larger;"  routerLinkActive="active-button"   [matMenuTriggerFor]="menu" id="admin">Admin</a>
     <!-- <button mat-button [matMenuTriggerFor]="menu">Hover Me</button> -->
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="./staff-list">Staff management</button>
-      <button mat-menu-item></button>
+      <button mat-menu-item routerLink="./staff-list">Staff Management</button>
+      <button mat-menu-item routerLink="./vendors">Vendor Management</button>
       <button mat-menu-item></button>
     </mat-menu>
     

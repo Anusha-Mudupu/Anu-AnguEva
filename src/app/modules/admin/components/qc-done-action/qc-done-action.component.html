@@ -1,100 +1,13 @@
-<!-- <form [formGroup]="qualitcheckdoneform" id="form">
-    <h1> Quality Check Conformation</h1>
-    <button type="button" id="printbtn">Print</button>
-    <div class="card-container">
-        <div>
-            <div class="card">
-
-                <div class="card-header">
-                    <span>
-
-                        <b>Order Id</b>
-                        <br><input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
-                            [(ngModel)]="Orderdetails.orderId">
-
-                        <li><b>status</b>
-                            <br>{{Orderdetails.statusCd}}
-                        </li>
-                        <li><b>Expected Date</b>
-                            <br>{{Orderdetails.orderSubmitDtTm}}
-                        </li>
-                        <li><b>Total Amount</b>
-                            <br>₹{{Orderdetails.totalAmount}}.00
-                        </li>
-                        <li><b>mobileNumber</b>
-                            <br>{{Orderdetails.mobileNumber}}
-                        </li>
-                        <li><b>Last Updated Date:</b>
-                            <br>Null
-                        </li>
-                        <span class="icons">
-
-                        </span>
-                    </span>
-
-                </div>
-
-
-                <div class="card-body" class="image-item">
-                    <div *ngFor="let item of orderItemDetails">
-                        <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="130px" width="130px">
-
-                        <div class="description">
-
-
-                            <p> <b>Name:</b>&nbsp;&nbsp;&nbsp;{{item.productName}}</p>
-                            <p><b>Quantity:</b>&nbsp;&nbsp;&nbsp;{{item.quantity}}</p>
-                            <p><b>GST:</b>&nbsp;&nbsp;&nbsp;{{item.igstAmt}}%</p>
-
-                            <p><b>price:</b>&nbsp;&nbsp;&nbsp;{{item.totalPrice}}</p>
-                        </div>
-                        <div class="form-check" style="margin-bottom: 20px;">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault ">
-                                Check Quality
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-2">
-                        <label class="lables">Date and time:</label>
-                        <input type="datetime-local" formControlName="lastUpdateDtTm"
-                            [(ngModel)]="qualitcheckdoneform.lastUpdateDtTm" class="form-control">
-                    </div>
-
-                </div>
 
 
 
-
-                <div id="submittedbtns">
-                   
-                    <button class="btn btn-success" (click)="success($event)" [value]="Qcsuccess" (click)="paymentSuccess()" style="width: 100px;" >DONE</button>
-                    <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
-
-                    <button class="btn btn-primary" (click)="failed($event)" [value]="Qcfailed" (click)="paymentFailed()" style="margin-left:20px;width:100px">FAIL</button>
-                    <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
-
-                    <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-</form> -->
-
-
-
+<button [print]="['printqcdoneform', config]" id="printbtn">Print</button>
 <form [formGroup]="qualitcheckdoneform" id="form">
     <h1>QC Conformation</h1>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
     <div id="table">
-        <table class="custom-table">
+        <table class="custom-table" id="printqcdoneform">
             <thead>
                 <tr>
                     <th>IMAGE</th>

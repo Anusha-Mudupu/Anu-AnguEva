@@ -13,15 +13,7 @@ export class AddNewCatalogComponent implements OnInit {
   addnewcatalogform:any
   submitted: boolean = false;
   constructor(  private dialogRef: MatDialogRef<AddNewCatalogComponent>,private vendorservice:VendorDataService,private formBuilder: FormBuilder) {
-// this.addnewcatalogform=new FormGroup({
-//   catalogId:new FormControl(),
-//   parentCatalogId: new FormControl(),
-//   catalogLevel: new FormControl(),
-//   catalogName: new FormControl(),
-//   catalogDesc: new FormControl(),
-//   storeId: new FormControl('1')
 
-// })
 this.addnewcatalogform = this.formBuilder.group({
   // catalogId: ['', Validators.compose([Validators.required])],
   parentCatalogId: ['', Validators.compose([Validators.required])],
@@ -29,7 +21,6 @@ this.addnewcatalogform = this.formBuilder.group({
   catalogName: ['', Validators.compose([Validators.required])],
   catalogDesc: ['', Validators.compose([Validators.required])],
   storeId: ['1', Validators.compose([Validators.required])],
-  //  storeId: [1],
  
 
 })
