@@ -5,10 +5,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-
-
 import { ProductDataService } from 'src/app/services/product-data.service';
 import { VendorDataService } from 'src/app/services/vendor-data.service';
 
@@ -21,21 +17,20 @@ export class UpdateProductComponent implements OnInit {
   productId: any;
   productdata: any
   updateproductform: any;
-  catalogsdata: any;
+  catalogsdata: any[] = [];
   selectedCatalogVals: any;
   searchTags: any;
   vendorData: any;
   AllcatalogData: any;
-  filtervendordata: any
+
   filteredcatalogdata: any;
   selectedcatalogid: any
-  selectedvendors: any;
+  currentcatalogs: any
+  catalogItems: any
+  selectedvendors: any[] = [];
+  filtervendordata: any[] = [];
   slectedobjectfield: any[] = [];
-
-
-
-  AllcatalogData$:Observable<any>
-  constructor(private productservice: ProductDataService, private activate: ActivatedRoute, private route: Router, @Inject(MAT_DIALOG_DATA) public data: any, private vendorservice: VendorDataService, private fb: FormBuilder) {
+  constructor(private productservice: ProductDataService, @Inject(MAT_DIALOG_DATA) public data: any, private vendorservice: VendorDataService, private fb: FormBuilder) {
     this.updateproductform = this.fb.group({
       productName: new FormControl(''),
       manufacturerId: new FormControl(''),
@@ -44,25 +39,26 @@ export class UpdateProductComponent implements OnInit {
       searchTag: new FormControl(''),
       storeId: new FormControl(''),
       catalog: new FormArray([])
-    })
+    });
+
 
   }
 
   ngOnInit(): void {
 
-    // this.AllcatalogData$ = this.vendorservice.getData();
-    console.log('async',this.AllcatalogData$);
+
     this.productId = this.data.productId;
     console.log(this.productId)
     this.productservice.getProductById(this.productId).subscribe((res => {
       this.productdata = res;
       this.catalogsdata = this.productdata.catalog;
-     
+      this.filtervendordata = this.productdata.manufacturerName;
+
       console.log('nested catalogdata', this.catalogsdata);
     }));
 
-    
-    this.vendorservice.getAllCatalogs().subscribe((data:any) => {
+
+    this.vendorservice.getAllCatalogs().subscribe((data: any) => {
       this.AllcatalogData = data;
       this.filteredcatalogdata = this.AllcatalogData.filter((item: any) => {
         return this.catalogsdata.some((fiteritem: any) => {
@@ -70,18 +66,30 @@ export class UpdateProductComponent implements OnInit {
         })
       })
       this.selectedCatalogVals = this.filteredcatalogdata;
+      this.catalogItems = this.selectedCatalogVals.map((item: any) => {
+        return this.catalog.push(this.fb.group({
+          catalogId: item.catalogId,
+          primaryFlg: new FormControl('Y'),
+
+        }));
+      });
+      //  this.catalog.push(this.catalogItems);
+      console.log(this.updateproductform.value)
       console.log("filteredcatalogdata", this.filteredcatalogdata);
       console.log('allcatalogdata', this.AllcatalogData)
     });
 
-    this.vendorservice.getVendors().subscribe((res => {
-        this.vendorData = res;
-        // this.filtervendordata = this.productdata.manufacturerName;
-        // console.log('rajiiiiiii', this.slectedobjectfield.push(this.filtervendordata));
-        // console.log('filtervendordata', this.slectedobjectfield);
-        // this.selectedvendors=this.slectedobjectfield;
-      
-    }))
+    this.vendorservice.getVendors().subscribe((res: any) => {
+      this.vendorData = res;
+
+
+
+      this.selectedvendors = this.filtervendordata;
+      console.log('', this.slectedobjectfield.push(this.selectedvendors));
+      console.log('filtervendordata', this.selectedvendors);
+
+    })
+
 
 
   }
@@ -93,36 +101,48 @@ export class UpdateProductComponent implements OnInit {
     return this.updateproductform.get('catalog') as FormArray;
   }
 
-  onSelectCatalogs() {
-   
+  onSelectCatalogs(a: any) {
+
     console.log("onSelectCatalogs Called", this.selectedCatalogVals);
-  
-      for  (let i =0; i < this.selectedCatalogVals.length; i++) {
-        this.selectedcatalogid = this.selectedCatalogVals[i].catalogId;
-        console.log('selectedcatalogid', this.selectedcatalogid);
-      }
-     
-        console.log('if part called')
+    console.log('selectedcatalogid', this.selectedcatalogid = this.AllcatalogData[a].catalogId);
+    this.currentcatalogs = this.selectedCatalogVals.filter((item: any) => item.catalogId !== this.selectedcatalogid);
+
+
+
+    if (this.selectedCatalogVals >= this.catalogsdata) {
       this.catalog.push(this.fb.group({
         catalogId: this.selectedcatalogid,
         primaryFlg: new FormControl('Y'),
-        productCatalogId: new FormControl(),
-        catalogName: new FormControl(),
-        parent: new FormControl(),
-  
+
       }));
-    
- 
-  
+      console.log('if  part called')
+    }
+    else {
+      if (this.selectedCatalogVals < this.catalogsdata) {
+
+
+        this.catalog.clear()
+        this.currentcatalogs.forEach((item: any) => {
+          this.catalog.push(this.fb.group({
+            catalogId: new FormControl(item.catalogId),
+            primaryFlg: new FormControl('Y'),
+          }));
+        });
+
+        console.log('else called');
+      }
+    }
+    console.log(this.updateproductform.value)
 
 
   }
 
-
   saveUpdateProduct() {
+
     this.productservice.updateProductById(this.productId, this.updateproductform.value).subscribe((data => {
-      console.log('updatemethod called',data);
-      console.log('submitted form',this.updateproductform.value);
+
+      console.log('submitted form', this.updateproductform.value);
+      alert('Product Successfully Updated');
     }))
   }
 
@@ -133,5 +153,15 @@ export class UpdateProductComponent implements OnInit {
   }
 
 
- 
+
+
+
+
+
+
+
 }
+
+
+
+

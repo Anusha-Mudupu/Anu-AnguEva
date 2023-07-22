@@ -63,10 +63,10 @@
         <mat-form-field>
 
           <mat-label>Select Catalog</mat-label>
-          <mat-select multiple [(value)]="selectedCatalogVals" (selectionChange)="onSelectCatalogs()">
+          <mat-select multiple [(value)]="selectedCatalogVals" >
 
             <!-- <mat-select multiple [(value)]="selectedmanufactureId" formControlName="selectedCatalogs"> -->
-           <mat-option *ngFor="let item of Catalogsdata" [value]="item">
+           <mat-option *ngFor="let item of Catalogsdata;let i=index" [value]="item" (click)="onSelectCatalogs(i)">
               {{item.parent}}/{{item.catalogName}}
 
             </mat-option>

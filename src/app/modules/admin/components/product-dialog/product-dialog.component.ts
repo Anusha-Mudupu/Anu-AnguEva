@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from 'src/app/data/data-objects';
 import { VendorDataService } from 'src/app/services/vendor-data.service';
@@ -83,18 +87,15 @@ constructor(
     return this.productForm.get('catalog') as FormArray;
   }
 
-  onSelectCatalogs(){
+  onSelectCatalogs(i:any){
     console.log("onSelectCatalogs Called",this.selectedCatalogVals);
-   
-   
-    
-   
-    //Loops through this.selectedCatalogVals and push each value.
-    for(let i=0;i<this.selectedCatalogVals.length;i++){
-      this.selectedcatalogid=this.selectedCatalogVals[i].catalogId;
-      console.log('selectedcatalogid',this.selectedcatalogid);
-    }
+   //Loops through this.selectedCatalogVals and push each value.
+    // for(let i=0;i<this.selectedCatalogVals.length;i++){
+    //   this.selectedcatalogid=this.selectedCatalogVals[i].catalogId;
+    //   console.log('selectedcatalogid',this.selectedcatalogid);
+    // }
           //  this.selectedCatalogs.clear();
+          this.selectedcatalogid=this.Catalogsdata[i].catalogId;
     this.catalog.push(this.fb.group({
       catalogId: this.selectedcatalogid,
       primaryFlg:new FormControl('Y'), 

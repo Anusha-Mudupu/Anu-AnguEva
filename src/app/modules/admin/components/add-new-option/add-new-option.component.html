@@ -1,21 +1,33 @@
 <form id="form" [formGroup]="AddnewOptionform">
-<div class="row" id="main">
+  <div class="row" id="main">
 
 
-<div class="col-4">
-  <label for="OptionName" >OptionName:</label>
-  <input type="text" class="form-control" id="OptionName" formControlName="optionName">
-</div>
+    <div class="col-5">
+      <label for="OptionName">OptionName:</label>
+      <input type="text" class="form-control" id="OptionName" formControlName="optionName">
+      <div *ngIf="AddnewOptionform.get('optionName')?.invalid && AddnewOptionform.get('optionName')?.touched">
+        <div *ngIf="AddnewOptionform.get('optionName')?.errors?.['required']" style="color: red;">Name is required.
+        </div>
+      </div>
 
-<div class="col-4">
-  <label for="OptionValue">OptionValue:</label>
-  <input type="text" class="form-control" id="OptionValue" formControlName="optionValue">
-</div>
+    </div>
+    <div class="col-5">
+      <label for="OptionValue">OptionValue:</label>
+      <input type="text" class="form-control" id="OptionValue" formControlName="optionValue" required>
+      <div *ngIf="AddnewOptionform.get('optionValue')?.invalid && AddnewOptionform.get('optionValue')?.touched">
+        <div *ngIf="AddnewOptionform.get('optionValue')?.errors?.['required']" style="color: red;">Name is required.
+        </div>
+      </div>
 
-</div>
+    </div>
+  </div>
 
-<div class="btns">
-  <button type="button" class="btn btn-success" (click)="addNewOption()" >Submit</button>
-  <button type="button" class="btn btn-danger" id="cancelbtn"> Cancel</button>
-</div>
+
+
+  <div class="btns">
+    <button type="button" class="btn btn-success" (click)="addNewOption()">Submit</button>
+    <button type="button" class="btn btn-danger" id="cancelbtn" mat-dialog-close> Cancel</button>
+    <div *ngIf="submitted && !AddnewOptionform.valid" style="color: red;">All fields are required.</div>
+  </div>
+
 </form>

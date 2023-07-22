@@ -26,23 +26,22 @@
       </div>
 
       <div class="row">
-
-        <!-- <mat-form-field class="vendor-select" appearance="fill">
-          <mat-label>Vendor Name</mat-label>
-          <mat-select formControlName="manufacturerId">
-            <mat-option *ngFor="let vendor of vendorData " [value]="vendor.manufacturerId">
-              {{vendor.manufacturerName}}
-            </mat-option>
-
-
-          </mat-select>
-        </mat-form-field> -->
         <div class="col-3">
-          <label class="form-label">Vendor Name:</label>
-          <input type="text" type="number" class="form-control" [(ngModel)]="productdata.manufacturerName" formControlName="manufacturerId"
-            placeholder="{{productdata.manufacturerName}}">
+          <mat-form-field>
 
+            <mat-label>Select vendor</mat-label>
+            <mat-select [(value)]="selectedvendors" formControlName="manufacturerId">
+              <mat-option *ngFor="let vendor of vendorData; let a=index;" [value]="vendor.manufacturerId">
+                {{vendor.manufacturerName}}
+
+              </mat-option>
+
+            </mat-select>
+
+          </mat-form-field>
         </div>
+
+
 
 
 
@@ -69,8 +68,8 @@
       <mat-form-field>
 
         <mat-label>Select Catalog</mat-label>
-        <mat-select multiple [(value)]="selectedCatalogVals" (selectionChange)="onSelectCatalogs()">
-          <mat-option *ngFor="let item of AllcatalogData; let a=index" [value]="item" >
+        <mat-select multiple [(value)]="selectedCatalogVals">
+          <mat-option *ngFor="let item of AllcatalogData; let a=index;" [value]="item" (click)="onSelectCatalogs(a)">
             {{item.catalogName}}
 
           </mat-option>

@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -17,7 +21,7 @@ export class AddStaffComponent implements OnInit {
     this.addstaffform=this.formBuilder.group({
       staffName:['',Validators.compose ([Validators.required])],
       emailId: ['',Validators.compose ([Validators.required, Validators.email])],
-      mobileNo: ['', [Validators.required,  Validators.maxLength(10)]],      
+      mobileNo: ['', [Validators.required,  Validators.maxLength(10),Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]],      
       dob: ['', [Validators.required,]],
         area: ['', Validators.required],
         city: ['', Validators.required],

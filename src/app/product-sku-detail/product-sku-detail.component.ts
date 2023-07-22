@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { MatDialog} from '@angular/material/dialog';
 
 import { SelectGstComponent } from '../select-gst/select-gst.component';
+import { AddNewOptionComponent } from '../modules/admin/components/add-new-option/add-new-option.component';
 
 @Component({
   selector: 'app-product-sku-detail',
@@ -142,6 +147,7 @@ deleteimage(productSkuImageId:number){
     alert('Do you want to delete it');
   }
   )
+  window.location.reload();
   this.ngOnInit()
 }
 
@@ -159,7 +165,10 @@ edit (){
 }
 
 AddOptions(){
-  this.router.navigate(['/admin/addnewoption',this.id])
+  // this.router.navigate(['/admin/addnewoption',this.id])
+  
+    const dialogRef =this.dialog.open( AddNewOptionComponent,{ })
+
 }
 
 addNewGst(){
