@@ -29,8 +29,8 @@
         <div class="col-3">
           <mat-form-field>
 
-            <mat-label>Select vendor</mat-label>
-            <mat-select [(value)]="selectedvendors" formControlName="manufacturerId">
+            <mat-label>Select Vendor</mat-label>
+            <mat-select [(ngModel)]="selectedvendors" formControlName="manufacturerId">
               <mat-option *ngFor="let vendor of vendorData; let a=index;" [value]="vendor.manufacturerId">
                 {{vendor.manufacturerName}}
 

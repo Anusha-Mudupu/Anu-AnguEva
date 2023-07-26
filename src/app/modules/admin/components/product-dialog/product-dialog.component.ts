@@ -54,7 +54,8 @@ constructor(
   Catalogsdata:any
   searchText:any;
   selectedcatalogid:any
-  //  index:any=0;
+  currentcatalogs:any
+ 
  
   ngOnInit() {
     this.vendorDataService.getVendors().subscribe((response) => {
@@ -96,11 +97,32 @@ constructor(
     // }
           //  this.selectedCatalogs.clear();
           this.selectedcatalogid=this.Catalogsdata[i].catalogId;
-    this.catalog.push(this.fb.group({
-      catalogId: this.selectedcatalogid,
-      primaryFlg:new FormControl('Y'), 
-      productCatalogId:new FormControl()
-      }));
+         this.currentcatalogs=this.selectedCatalogVals.filter((item:any)=>item.catalogId !== this.selectedcatalogid);
+         console.log('currentcatalogs',this.currentcatalogs)
+          if(this.selectedCatalogVals>this.currentcatalogs){
+            
+            this.catalog.push(this.fb.group({
+              catalogId: this.selectedcatalogid,
+              primaryFlg:new FormControl('Y'), 
+              productCatalogId:new FormControl()
+              }));
+              console.log('if part called');
+          }
+          else{
+          if(this.currentcatalogs<=this.currentcatalogs){
+            this.catalog.clear();
+            this.currentcatalogs.forEach((item:any)=>{
+              this.catalog.push(this.fb.group({
+                catalogId:new FormControl(item.catalogId),
+                primaryFlg:new FormControl('Y')
+
+              }))
+            })
+            console.log('else part called');
+          }
+             
+           }
+    console.log('product form',this.productForm.value)
 //TODO create new form group and push to selectedCatalogs
   }
 

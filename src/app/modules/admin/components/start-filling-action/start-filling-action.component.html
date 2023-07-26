@@ -1,13 +1,11 @@
-
-
-
 <button [print]="['printstartfillingform', config]" id="printbtn">Print</button>
 
 <form [formGroup]="startFillingform" id="form">
     <h1>Fill Order</h1>
-    <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId" [(ngModel)]="Orderdetails.orderId" hidden>
+    <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
+        [(ngModel)]="Orderdetails.orderId" hidden>
     <div id="table">
-        
+
         <table class="custom-table" id="printstartfillingform">
             <thead>
                 <tr>
@@ -33,13 +31,36 @@
     </div>
     <div id="submittedbtns">
 
-        <button (click)="filling($event)" [value]="startfilling"  mat-raised-button color="primary">Start</button>
-        <input type="text" placeholder="{{currentstatus}}"  formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
+        <button (click)="filling($event)" [value]="startfilling" mat-raised-button color="primary" (click)="startfillingaction()">Start</button>
+        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus"
+            hidden>
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
-       
-       
-    </div>
 
-  
-   
+
+    </div>
 </form>
+
+<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
+
+    <form [formGroup]="startFillingform" id="secondform">
+        <div class="row">
+            <div class="col-3">
+
+                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
+                    placeholder="{{Orderdetails.orderId}}"  hidden>
+
+            </div>
+            <label id="enterstafflablel">Enter Staff Code: </label>
+            <div class="col-3" id="staffcd">
+                <input type="text" formControlName="staffCd" class="form-control">
+            </div>
+
+            <div class="col-3" id="sbmtbtn">
+                <button type="submit" (click)="staffVerificationForm()" class="btn btn-success">Submit</button>
+
+            </div>
+        </div>
+
+
+    </form>
+</div>

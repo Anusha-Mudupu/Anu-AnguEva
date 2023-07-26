@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -16,18 +20,21 @@ export class StartPackingActionComponent implements OnInit {
   orderItemDetails: any;
   currentstatus: any;
   OrderStatus: any;
-  startpackingform:any
-  startpacking='PACKING IN PROGRESS'
-  shouldHideBorder:boolean=true
-  constructor(private dialogRef: MatDialogRef<StartPackingActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService) {
-    this.orderId=data.orderId
-    this.startpackingform=new FormGroup({
-      statusCd:new FormControl(),
-      orderId:new FormControl(),
-    
+  startpackingform: any
+  startpacking = 'PACKING IN PROGRESS'
+  shouldHideBorder: boolean = true;
+  firstformdisable: boolean = false;
+  secondFormPopupVisible: boolean = false;
+  errorMessage: any;
+  constructor(private dialogRef: MatDialogRef<StartPackingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
+    this.orderId = data.orderId
+    this.startpackingform = new FormGroup({
+      statusCd: new FormControl(),
+      orderId: new FormControl(),
+      staffCd: new FormControl()
     })
-   }
-   public config = {
+  }
+  public config = {
     printMode: 'template-popup',
     popupProperties: 'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,fullscreen=yes',
     //pageTitle: '',
@@ -38,34 +45,75 @@ export class StartPackingActionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.imageBaseUrl=environment.imagesBaseUrl
-    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data=>{
-      this.Orderdetails=data;
-      this.orderItemDetails=this.Orderdetails.orderItems
-     
+    this.imageBaseUrl = environment.imagesBaseUrl
+    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data => {
+      this.Orderdetails = data;
+      this.orderItemDetails = this.Orderdetails.orderItems
+
       console.log(data)
+    });
+    this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
+      this.OrderStatus = data;
+      console.log(data);
+      this.errorMessage = this.OrderStatus.message
+      console.log(this.OrderStatus.message);
+      console.log(this.OrderStatus.status);
+    });
+  }
+
+  startPacking(event: any) {
+
+    this.currentstatus = event.target.value;
+    console.log(this.currentstatus)
+   
+
+  }
+  saveOrderWithUpdatedStatus() {
+    this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
+      this.OrderStatus = data;
+      console.log(data);
      })
   }
 
-  filling(event:any){
-
-    this.currentstatus=event.target.value;
-    console.log(this.currentstatus)
-    // alert('You  have selected Status')
- 
-    }
-  saveOrderWithUpdatedStatus() {
-    this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
-       this.OrderStatus=data;
-       console.log(data);
-       alert('Successfully Updated')
-     })
-     }
-      
-     submit(){
-      this.filling(event)
-  this.saveOrderWithUpdatedStatus()
+  submit() {
+    this.startPacking(event)
     
+    if (this.OrderStatus.status == 'SUCCESS') {
+      this.firstformdisable = false;
+      this.secondFormPopupVisible = false;
+      alert('PACKING IN PROGRESS');
+
     }
+    else {
+      if (this.OrderStatus.status == 'FAILURE') {
+        this.firstformdisable = true;
+        this.secondFormPopupVisible = true;
+        window.alert('VERIFY THE STAFF FIRST');
+      }
+
+    }
+
+  }
+  submitSecondForm() {
+    this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
+      this.OrderStatus = data;
+      console.log(data);
+  
+     if (this.OrderStatus.status == 'SUCCESS') {
+      this.firstformdisable = false;
+      this.secondFormPopupVisible = false;
+      alert('STAFF VERIFIED SUCCESSFULLY');
+
+    }
+    else {
+      if (this.OrderStatus.status == 'FAILURE') {
+       
+        window.alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
+      }
+
+    }
+  });
+   
+  }
 
 }

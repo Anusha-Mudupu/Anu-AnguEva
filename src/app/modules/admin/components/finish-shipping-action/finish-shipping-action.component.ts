@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -18,12 +22,16 @@ export class FinishShippingActionComponent implements OnInit {
   OrderStatus: any;
   finishshippingform:any
   finishshipping='SHIPPED';
-  shouldHideBorder:boolean=true
+  shouldHideBorder:boolean=true;
+  firstformdisable: boolean = false;
+  secondFormPopupVisible: boolean = false;
+  errorMessage: any;
   constructor(private dialogRef: MatDialogRef<FinishShippingActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService) { 
     this.orderId=data.orderId
     this.finishshippingform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
+      staffCd: new FormControl()
  
     })
   }
@@ -36,27 +44,66 @@ export class FinishShippingActionComponent implements OnInit {
      
       console.log(data)
      })
+     this.productskudataservice.updateOrderStatus(this.finishshippingform.value).subscribe(data => {
+      this.OrderStatus=data;
+      console.log(data);
+      this.errorMessage = this.OrderStatus.message
+      console.log(this.OrderStatus.message);
+      console.log(this.OrderStatus.status);
+     });
+    
+     
   }
 
   
   
-  packingDone(event:any){
+  finishShipping(event:any){
     this.currentstatus=event.target.value;
     console.log(this.currentstatus)
-    // alert('You  have selected Status')
-    }
-  saveOrderWithUpdatedStatus() {
 
-    this.productskudataservice.updateOrderStatus(this.finishshippingform.value).subscribe(data => {
-       this.OrderStatus=data;
-       console.log(data);
-       alert('Successfully Updated')
-     })
-     }
+    }
+ 
       
      submit(){
-     this.packingDone(event)
-      this.saveOrderWithUpdatedStatus()
+     this.finishShipping(event)
+   
+      if (this.OrderStatus.status == 'SUCCESS') {
+        this.firstformdisable = false;
+        this.secondFormPopupVisible = false;
+        alert('SHIPPING FINISHED');
+  
+      }
+      else {
+        if (this.OrderStatus.status == 'FAILURE') {
+          this.firstformdisable = true;
+          this.secondFormPopupVisible = true;
+          window.alert('VERIFY THE STAFF FIRST');
+        }
+  
+      }
+    }
+
+    submitSecondForm() {
+
+      this.productskudataservice.updateOrderStatus(this.finishshippingform.value).subscribe(data => {
+        this.OrderStatus=data;
+        console.log(data);
+
+       
+        if (this.OrderStatus.status == 'SUCCESS') {
+          this.firstformdisable = false;
+          this.secondFormPopupVisible = false;
+          alert('STAFF VERIFIED SUCCESSFULLY');
+  
+        }
+        else{
+          if(this.OrderStatus.status =='FAILURE'){
+            alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
+          }
+        }
+      
+      });
+     
     }
 
 }

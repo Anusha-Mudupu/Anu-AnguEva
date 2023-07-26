@@ -1,11 +1,15 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
+
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { NgxPrintElementService } from 'ngx-print-element';
-import { OrderDetails } from 'src/app/data/data-objects';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
-import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-verify-payment',
@@ -13,35 +17,37 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./verify-payment.component.scss']
 })
 export class VerifyPaymentComponent implements OnInit {
-  allOrders:any;
-  verifypaymentform:any
-  orderId:any
+  allOrders: any;
+  verifypaymentform: any;
+  orderId: any
   Orderdetails: any;
-  OrderStatus:any;
-  orderItemDetails:any
- 
-  paymentsuccess:any;
-  paymentfail:any
-  @Input() datafromparent :any
+  OrderStatus: any;
+  orderItemDetails: any
+
+  paymentsuccess: any;
+  paymentfail: any
+  @Input() datafromparent: any
   isDisabled: boolean = true;
-  
-  paymentverified ='PAYMENT VERIFIED'
-  paymentfailed='PAYMENT FAILED'
-  constructor( private print: NgxPrintElementService, private dialogRef: MatDialogRef<VerifyPaymentComponent>,private productskudataservice:ProductSkuDataService,private activated:ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any) { 
-     this.orderId=data.orderId;
-  
-    console.log(this.orderId)
+  firstformdisable: boolean = false;
+  secondFormPopupVisible: boolean = false;
+  paymentverified = 'PAYMENT VERIFIED'
+  paymentfailed = 'PAYMENT FAILED'
+  errorMessage: any;
+
+  constructor(private print: NgxPrintElementService, private dialogRef: MatDialogRef<VerifyPaymentComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.orderId = data.orderId;
+
+    console.log(this.orderId);
 
 
-     this.verifypaymentform=new FormGroup({
-      orderId:new FormControl(''),
-     statusCd:new FormControl(''),
-     staffCd:new FormControl('')
-     
-     
-    })
+    this.verifypaymentform = new FormGroup({
+      orderId: new FormControl(''),
+      statusCd: new FormControl(''),
+      staffCd: new FormControl('')
+    });
+
   }
- 
+
   public config = {
     printMode: 'template-popup',
     popupProperties: 'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,fullscreen=yes',
@@ -57,49 +63,96 @@ export class VerifyPaymentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.id=this.activated.snapshot.params['orderId']
-   
-    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data=>{
-     this.Orderdetails=data;
-     this.orderItemDetails=this.Orderdetails.orderItems
-    
-     console.log(data)
+
+
+    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data => {
+      this.Orderdetails = data;
+      this.orderItemDetails = this.Orderdetails.orderItems
+      console.log(data)
+    });
+    this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
+      this.OrderStatus = data;
+      this.errorMessage = this.OrderStatus.message
+      console.log(data);
+      console.log(this.OrderStatus.message);
+      console.log(this.OrderStatus.status);
+    })
+
+  }
+
+  success(event: any) {
+    this.paymentsuccess = event.target.value;
+
+    console.log(this.paymentsuccess);
+
+
+  }
+
+  failed(event: any) {
+    this.paymentfail = event.target.value;
+    console.log(this.paymentfail);
+    alert('Payment Failed')
+
+  }
+
+  saveOrderWithUpdatedStatus() {
+    this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
+      this.OrderStatus = data;
+      this.errorMessage = this.OrderStatus.message
+      console.log(data);
+      console.log(this.OrderStatus.message);
+      console.log(this.OrderStatus.status);
+
+
     })
   }
 
-  success(event:any)
-{
-  this.paymentsuccess=event.target.value;
 
-  console.log(this.paymentsuccess);
-  // alert('Payment Verified Successfully')
- 
-}
-  
-failed(event:any){
-  this.paymentfail=event.target.value;
-  console.log(this.paymentfail);
-  // alert('Payment Failed')
 
-}
+  paymentSuccess() {
+    this.success(event);
 
-  saveOrderWithUpdatedStatus() {
-   
-   
- 
-      this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
-        this.OrderStatus=data;
-        console.log(data);
-      })
+    if (this.OrderStatus.status == 'SUCCESS') {
+      this.firstformdisable = false;
+      this.secondFormPopupVisible = false;
+      alert('PAYMENT VERIFIED SCCESSFULLY');
+      console.log('Payment Verified Successful')
     }
-     paymentSuccess(){
-       this.success(event);
-    this.saveOrderWithUpdatedStatus();
-   }
-   paymentFailed(){
+    else {
+      if (this.OrderStatus.status == 'FAILURE') {
+        this.firstformdisable = true;
+        this.secondFormPopupVisible = true;
+        window.alert('VERIFY THE STAFF FIRST');
+      }
+
+    }
+  }
+
+  paymentFailed() {
     this.failed(event);
     this.saveOrderWithUpdatedStatus();
+  }
+
+
+  submitSecondForm() {
+    this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
+      this.OrderStatus = data;
+      this.errorMessage = this.OrderStatus.message
+
+      if (this.OrderStatus.status == 'SUCCESS') {
+        this.firstformdisable = false;
+        this.secondFormPopupVisible = false;
+        alert('STAFF VERIFIED SUCCESSFULLY');
+
+      }
+      else {
+        if (this.OrderStatus.status == 'FAILURE') {
+          this.firstformdisable = true;
+          this.secondFormPopupVisible = true;
+        }
+        window.alert('STAFF IS UNAHUTORIZED PLEASE TRY AGAIN');
+      }
+
+    })
    }
-
 }
-

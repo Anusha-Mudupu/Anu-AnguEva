@@ -1,6 +1,10 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 #form{
-    width: 1300px;
-    height: 600px;
+    width: 1400px;
+    height: 700px;
     
 }
 .card1{
@@ -55,8 +59,25 @@ h1{
     margin-top: -50px;
 }
 
-
-
+#secondform{
+    margin-top: -100px;
+  }
+#secondformmaindiv{
+    border: ridge 10px;
+ width: 800px;
+ height: 200px;
+ margin-top: -100px;
+margin-left: 300px;
+}
+#staffcd{
+    margin-top: 120px;
+    position: absolute;
+    margin-left: 160px;
+}
   
-
+#sbmtbtn{
+    margin-top: 200px;
+    margin-left: 300px;
+    position: absolute;
+}
 

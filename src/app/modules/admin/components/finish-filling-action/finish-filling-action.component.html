@@ -1,13 +1,10 @@
-
-
-
 <button [print]="['printfinishfillingform', config]" id="printbtn">Print</button>
 
 <form [formGroup]="finishfillingform" id="form">
     <h1>Fill Conformation</h1>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
-    <div id="table" >
+    <div id="table">
         <table class="custom-table" id="printfinishfillingform">
             <thead>
                 <tr>
@@ -30,14 +27,14 @@
                     <td>{{item.productSku}}</td>
                     <td>12345678</td>
                     <td>{{item.quantity}}</td>
-                   
-                    <label style="margin-top: 50px; font-size: 20px;"> 
+
+                    <label style="margin-top: 50px; font-size: 20px;">
                         <input type="checkbox" (change)="onCheckboxChange($event)" style="width: 25px;height: 25px;">
                         Yes
-                      </label>
-              
+                    </label>
 
-                       
+
+
 
                 </tr>
 
@@ -48,17 +45,41 @@
     <div id="submittedbtns">
 
         <button class="btn btn-success" (click)="success($event)" [value]="fillingconformation"
-            (click)="paymentSuccess()" style="width: 100px;" [disabled]="isSubmitDisabled" >DONE</button>
-        <input type="text" placeholder="{{fillingsuccess}}" formControlName="statusCd" [(ngModel)]="fillingsuccess"hidden>
+            (click)="fillingSuccess()" style="width: 100px;" [disabled]="isSubmitDisabled" [disabled]="firstformdisable">DONE</button>
+        <input type="text" placeholder="{{fillingsuccess}}" formControlName="statusCd" [(ngModel)]="fillingsuccess"
+            hidden>
 
-        <button class="btn btn-primary" (click)="failed($event)" [value]="confirmationfailed" (click)="paymentFailed()"
+        <button class="btn btn-primary" (click)="failed($event)" [value]="confirmationfailed" (click)="fillingFailed()"
             style="margin-left:20px;width:100px">FAIL</button>
         <input type="text" placeholder="{{fillingfailed}}" formControlName="statusCd" [(ngModel)]="fillingfailed"
             hidden>
 
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
     </div>
-  
-
-
 </form>
+
+
+<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
+
+    <form [formGroup]="finishfillingform" id="secondform">
+        <div class="row">
+            <div class="col-3">
+
+                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
+                    placeholder="{{Orderdetails.orderId}}" hidden>
+
+            </div>
+            <label id="enterstafflablel">Enter Staff Code: </label>
+            <div class="col-3" id="staffcd">
+                <input type="text" formControlName="staffCd" class="form-control">
+            </div>
+
+            <div class="col-3" id="sbmtbtn">  
+                <button type="submit" (click)="submitSecondForm()" class="btn btn-success" >Submit</button>
+
+            </div>
+        </div>
+
+
+    </form>
+</div>

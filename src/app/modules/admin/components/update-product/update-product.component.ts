@@ -27,9 +27,11 @@ export class UpdateProductComponent implements OnInit {
   selectedcatalogid: any
   currentcatalogs: any
   catalogItems: any
-  selectedvendors: any[] = [];
-  filtervendordata: any[] = [];
-  slectedobjectfield: any[] = [];
+  selectedvendors: any;
+  filtervendordata: any;
+
+  manufacturerNames: string[] = [];
+  manufacturerObject: any;
   constructor(private productservice: ProductDataService, @Inject(MAT_DIALOG_DATA) public data: any, private vendorservice: VendorDataService, private fb: FormBuilder) {
     this.updateproductform = this.fb.group({
       productName: new FormControl(''),
@@ -52,8 +54,11 @@ export class UpdateProductComponent implements OnInit {
     this.productservice.getProductById(this.productId).subscribe((res => {
       this.productdata = res;
       this.catalogsdata = this.productdata.catalog;
-      this.filtervendordata = this.productdata.manufacturerName;
+      console.log(this.productdata);
 
+      this.manufacturerObject = { manufacturerId: this.productdata.manufacturerId, manufacturerName: this.productdata.manufacturerName };
+      this.manufacturerNames.push(this.manufacturerObject);
+      console.log('manufacturerNames', this.manufacturerNames);
       console.log('nested catalogdata', this.catalogsdata);
     }));
 
@@ -73,7 +78,7 @@ export class UpdateProductComponent implements OnInit {
 
         }));
       });
-      //  this.catalog.push(this.catalogItems);
+
       console.log(this.updateproductform.value)
       console.log("filteredcatalogdata", this.filteredcatalogdata);
       console.log('allcatalogdata', this.AllcatalogData)
@@ -81,11 +86,16 @@ export class UpdateProductComponent implements OnInit {
 
     this.vendorservice.getVendors().subscribe((res: any) => {
       this.vendorData = res;
+      this.vendorData = this.vendorData.filter((item: any) => {
+        return this.manufacturerNames.some((fiteritem: any) => {
+          return fiteritem.manufacturerId === item.manufacturerId
+        })
+        
+      })
+      this.selectedvendors = this.vendorData;
 
-
-
-      this.selectedvendors = this.filtervendordata;
-      console.log('', this.slectedobjectfield.push(this.selectedvendors));
+     
+      console.log();
       console.log('filtervendordata', this.selectedvendors);
 
     })

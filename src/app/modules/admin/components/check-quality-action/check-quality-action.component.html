@@ -33,13 +33,34 @@
     </div>
     <div id="submittedbtns">
         
-        <button (click)="filling($event)" [value]="checkquality" (click)="submit()" style="width: 90px;"  class="btn btn-success" >Start</button>
+        <button (click)="checkQuality($event)" [value]="checkquality" (click)="submit()" style="width: 90px;"  class="btn btn-success"[disabled]="firstformdisable" >Start</button>
         <input type="text" placeholder="{{currentstatus}}"  formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
         
     </div>
-
-
-    
-
 </form>
+
+<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
+
+    <form [formGroup]="checkqualityform" id="secondform">
+        <div class="row">
+            <div class="col-3">
+
+                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
+                    placeholder="{{Orderdetails.orderId}}" hidden>
+
+            </div>
+            <label id="enterstafflablel">Enter Staff Code: </label>
+            <div class="col-3" id="staffcd">
+                <input type="text" formControlName="staffCd" class="form-control">
+            </div>
+
+            <div class="col-3" id="sbmtbtn">  
+                <button type="submit" (click)="submitSecondForm()" class="btn btn-success" >Submit</button>
+
+            </div>
+        </div>
+
+
+    </form>
+</div>

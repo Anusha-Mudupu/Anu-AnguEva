@@ -2,9 +2,9 @@
  *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
  *   All rights reserved.
  */
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import {  OrderDetails, ProductSku} from '../data/data-objects';
 import { ProductSkudetails } from '../data/productskudetail';
@@ -18,6 +18,7 @@ export class ProductSkuDataService {
 
   getoptions = 'http://localhost:8085/api/getOptions';
   test=' http://localhost:8085/getAllGstCode'
+  erroMessagge: any;
   constructor(
     private httpclient: HttpClient
   ) { }
@@ -94,13 +95,14 @@ export class ProductSkuDataService {
   }
 
   updateOrderStatus(orderstatus:OrderDetails) {
-    return this.httpclient.post(environment.updateOrderStatus,orderstatus)
+    return this.httpclient.post(environment.updateOrderStatus,orderstatus); 
+
   }
 
-
-  // downloadInvoiceByOrderId(orderId:any){
-  //   return this.httpclient.get<any>(environment.downloadinvoice + orderId);
-  // }
+ 
+ 
+ 
+ 
 
 
   downloadInvoice(orderId:any) {

@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -18,12 +22,16 @@ export class CheckQualityActionComponent implements OnInit {
   OrderStatus: any;
   checkqualityform:any;
   checkquality='QC IN PROGRESS'
+  firstformdisable: boolean = false;
+  secondFormPopupVisible: boolean = false;
+  errorMessage:any;
+  
   constructor( private dialogRef: MatDialogRef<CheckQualityActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService ) {
     this.orderId=data.orderId
     this.checkqualityform=new FormGroup({
       statusCd:new FormControl(),
       orderId:new FormControl(),
-    
+      staffCd:new FormControl()
     })
    }
    public config = {
@@ -42,30 +50,79 @@ export class CheckQualityActionComponent implements OnInit {
       this.orderItemDetails=this.Orderdetails.orderItems
      
       console.log(data)
-     })
+     });
+     this.productskudataservice.updateOrderStatus(this.checkqualityform.value).subscribe(data => {
+      this.OrderStatus=data;
+      console.log(data);
+      console.log(this.OrderStatus);
+      this.errorMessage = this.OrderStatus.message
+     
+      console.log(this.OrderStatus.message);
+      console.log(this.OrderStatus.status);
+      if (this.OrderStatus.status == 'SUCCESS') {
+        this.firstformdisable = false;
+        this.secondFormPopupVisible = false;
+        alert('STAFF VERIFIED SUCCESSFULLY');
+       
+      }
+     
+    
+    })
+     
   }
 
 
 
-  filling(event:any){
+  checkQuality(event:any){
     this.currentstatus=event.target.value;
     console.log(this.currentstatus)
-    // alert('You selected Status')
+
     }
   
-    saveOrderWithUpdatedStatus() {
- 
-     this.productskudataservice.updateOrderStatus(this.checkqualityform.value).subscribe(data => {
-        this.OrderStatus=data;
-        console.log(data);
-        alert('Successfully Updated')
-      })
-      }
   
       submit(){
-        // this.filling(event)
-        this.saveOrderWithUpdatedStatus()
+         this.checkQuality(event)
+       
+        if (this.OrderStatus.status == 'SUCCESS') {
+          this.firstformdisable = false;
+          this.secondFormPopupVisible = false;
+          alert('QC IN PROGRESS');
+    
+        }
+        else {
+          if (this.OrderStatus.status == 'FAILURE') {
+            this.firstformdisable = true;
+            this.secondFormPopupVisible = true;
+            window.alert('VERIFY THE STAFF FIRST');
+          }
+    
+        }
       }
   
-
+      submitSecondForm() {
+     
+        this.productskudataservice.updateOrderStatus(this.checkqualityform.value).subscribe(data => {
+          this.OrderStatus=data;
+          console.log(data);
+          console.log(this.OrderStatus);
+          this.errorMessage = this.OrderStatus.message
+         
+          console.log(this.OrderStatus.message);
+          console.log(this.OrderStatus.status);
+          if (this.OrderStatus.status == 'SUCCESS') {
+            this.firstformdisable = false;
+            this.secondFormPopupVisible = false;
+            alert('STAFF VERIFIED SUCCESSFULLY');
+           
+          }
+          else{
+            if(this.OrderStatus.status==='FAILURE'){
+            window.alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
+            }
+          }
+         
+        
+        })
+     
+    }
 }
