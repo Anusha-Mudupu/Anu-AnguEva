@@ -15,6 +15,7 @@
 .search-tag-list{
     margin-left: 5%;
     font-size: large;
+    
 }
 
 .product-description {
@@ -41,6 +42,25 @@ button {
     font-size: large;
 }
 #addnewcatalogbtn{
-    margin-left: 630px; 
+    margin-left: 600px; 
      margin-top: -100px;
 }
+#selectcatalog{
+    margin-left: 50px;
+}
+#search_tag{
+    margin-left: 30px;
+}
+
+@media screen and (min-width: 500px) and (max-width: 1350px) {
+    #addnewcatalogbtn{
+        margin-left: 280px; 
+        margin-top: -280px;
+    }
+
+    #selectcatalog{
+        margin-left: 100px;
+    }
+
+   
+  }

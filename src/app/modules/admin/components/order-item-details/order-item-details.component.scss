@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 
 
 
@@ -5,136 +9,131 @@
 
 
 
-  span li{
-    position: relative;
-    display: inline-block;
-    justify-content: space-between;
-    margin-left: 50px;
-   
-   
-  }
-  li{
-    list-style-type: none;
-    justify-items: self-start;
-  }
- 
-  #Buy-Again1{
-    position: relative;
+span li {
+  position: relative;
+  display: inline-block;
+  justify-content: space-between;
+  margin-left: 50px;
+
+
+}
+
+li {
+  list-style-type: none;
+  justify-items: self-start;
+}
+
+#Buy-Again1 {
+  position: relative;
   left: 350px;
   margin-top: -40px;
   background-color: orange;
-  color:black;
-  }
-  .card{
-    position: relative;
-    height: 250px;
-    width:1050px;
-    margin-left: 100px;
-    top:-30px;
-  }
-  #order{
-    position: relative;
-    left:-50px;
-  }
+  color: black;
+}
 
-  
-  
-  #image {
-    flex: 0 0 calc(33.33% - 20px);
-    margin: 10px;
-    
-  
-  }
-  
-  .card-container {
-   
-    width: 800px;
-    position: relative;
-    left:10px;
-   margin-top: 50px;
-  }
-  
-  .card {
-    width: 1200px;
-    border: 1px solid #ccc;
-    margin: 10px;
-    padding: 10px;
-    height:600px;
-    margin-top: 80px;
-    margin-left: 150px;
-  }
-  
-  .card-header {
-    font-weight:30px;
-    background-color:lightskyblue;
+.card {
+  position: relative;
+  height: 250px;
+  width: 1050px;
+  margin-left: 100px;
+  top: -30px;
+}
 
-  }
-  
-  .card-body {
-    margin-top: 10px;
-  
-  }
-  
- 
-  
-  .image {
-   
-    
-    // height: auto;
-    // margin-right: 50px;
-    margin-top: 20px;
-    //  flex: 0 0 calc(33.33% - 20px);
-  
-  
-  }
-  
-  .description {
-    /* Define any styles for the description */
-    font-size: 14px;
-    left:10px;
-     position: relative;
-     margin-top: 20px;
-     margin-left: 10px;
-   
-
-   
-  }
-  .icons{
-    position: relative;
-   left:160px;
-    
-  }
-  .image-item{
-     display: inline-flex;
-    //  margin-top: 20px;
-    //  margin-left: 10px;
-  }
+#order {
+  position: relative;
+  left: -50px;
+}
 
 
-#left-arrow{
-   margin-top: 50px;
-position: absolute;
-margin-left: 60px;
+
+#image {
+  flex: 0 0 calc(33.33% - 20px);
+  margin: 10px;
+
+
+}
+
+.card-container {
+
+  width: 800px;
+  position: absolute;
+  left: 10px;
+  margin-top: 10px;
+  height: auto;
+}
+
+.card {
+  width: 1200px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  height: auto;
+  // margin-top: 80px;
+  margin-left: 160px;
+}
+
+.card-header {
+  font-weight: 30px;
+  background-color: lightskyblue;
+
+}
+
+.card-body {
+  margin-top: 10px;
 
 }
 
 
-h1{
+
+.image {
+
+
+  // height: auto;
+  // margin-right: 50px;
+  margin-top: 20px;
+  //  flex: 0 0 calc(33.33% - 20px);
+
+
+}
+
+.description {
+
+  font-size: 14px;
+  left: 10px;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 10px;
+
+
+
+}
+
+.icons {
+  position: relative;
+  left: 160px;
+
+}
+
+.image-item {
+  display: inline-flex;
+  //  margin-top: 20px;
+  //  margin-left: 10px;
+}
+
+
+#left-arrow {
+  margin-top: 30px;
+  position: absolute;
+  margin-left: 70px;
+
+}
+
+
+h1 {
   color: hotpink;
   font-family: initial;
   margin-left: 600px;
   margin-top: 40px;
   font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
 

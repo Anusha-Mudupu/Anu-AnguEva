@@ -1,87 +1,92 @@
 <button [print]="['printverifipaymentform', config]" id="printbtn">Print</button>
-<form [formGroup]="verifypaymentform" id="form">
+<div id="maindiv">
+    <form [formGroup]="verifypaymentform" id="form">
 
 
-    <h1>Verify Payment</h1>
+        <h1>Verify Payment</h1>
 
-    <div class="card" class="card1">
+        <div class="card" class="card1">
 
-        <div class="card-body" class="card-body1" id="printverifipaymentform">
+            <div class="card-body" class="card-body1" id="printverifipaymentform">
+                <div class="row">
+                    <div class="col-3">
+                        <label class="lables">OrderId:</label>
+                        <input type="text" formControlName="orderId" class="form-control"
+                            [(ngModel)]="Orderdetails.orderId" placeholder="{{Orderdetails.orderId}}"
+                            [attr.disabled]="isDisabled ? true : null">
+
+                    </div>
+
+                    <div class="col-3">
+                        <label class="lables">Mobile number:</label>
+                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.mobileNumber"
+                            placeholder="{{Orderdetails.mobileNumber}}" [attr.disabled]="isDisabled ? true : null">
+                    </div>
+                    <div class="col-3">
+                        <label class="lables">Payment Id:</label>
+                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.pgRazorpayPaymentId"
+                            placeholder="{{Orderdetails.pgRazorpayPaymentId}}"
+                            [attr.disabled]="isDisabled ? true : null">
+                    </div>
+                </div>
+                <div class="row" id="secondrow">
+                    <div class="col-3">
+                        <label class="lables">Order Submitted Date:</label>
+                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
+                            placeholder="{{Orderdetails.orderSubmitDtTm}}" [attr.disabled]="isDisabled ? true : null">
+                    </div>
+                    <div class="col-3">
+                        <label class="lables">Total Amount:</label>
+                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
+                            placeholder="{{Orderdetails.totalAmount}}" [attr.disabled]="isDisabled ? true : null">
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <div id="submittedbtns">
+
+            <button class="btn btn-success" (click)="success($event)" [value]="paymentverified"
+                (click)="paymentSuccess()" style="width: 100px;" [disabled]="firstformdisable">PASS</button>
+            <input type="text" placeholder="{{paymentsuccess}}" formControlName="statusCd" [(ngModel)]="paymentsuccess"
+                hidden>
+
+            <button class="btn btn-primary" (click)="failed($event)" [value]="paymentfailed" (click)="paymentFailed()"
+                style="margin-left:20px;width:100px">FAIL</button>
+            <input type="text" placeholder="{{paymentfail}}" formControlName="statusCd" [(ngModel)]="paymentfail"
+                hidden>
+
+            <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
+
+        </div>
+    </form>
+
+    <div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
+
+        <form [formGroup]="verifypaymentform" id="secondform">
             <div class="row">
                 <div class="col-3">
-                    <label class="lables">OrderId:</label>
+
                     <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                        placeholder="{{Orderdetails.orderId}}" [attr.disabled]="isDisabled ? true : null">
+                        placeholder="{{Orderdetails.orderId}}" [attr.disabled]="isDisabled ? true : null" hidden>
 
                 </div>
+                <label style="font-size: 18px; margin-top:80px;margin-left: 20px;">Enter Staff Code: </label>
+                <div class="col-3" id="staffcd">
+                    <input type="text" formControlName="staffCd" class="form-control">
+                </div>
 
-                <div class="col-3">
-                    <label class="lables">Mobile number:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.mobileNumber"
-                        placeholder="{{Orderdetails.mobileNumber}}" [attr.disabled]="isDisabled ? true : null">
-                </div>
-                <div class="col-3">
-                    <label class="lables">Payment Id:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.pgRazorpayPaymentId"
-                        placeholder="{{Orderdetails.pgRazorpayPaymentId}}" [attr.disabled]="isDisabled ? true : null">
-                </div>
-            </div>
-            <div class="row" id="secondrow">
-                <div class="col-3">
-                    <label class="lables">Order Submitted Date:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
-                        placeholder="{{Orderdetails.orderSubmitDtTm}}" [attr.disabled]="isDisabled ? true : null">
-                </div>
-                <div class="col-3">
-                    <label class="lables">Total Amount:</label>
-                    <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
-                        placeholder="{{Orderdetails.totalAmount}}" [attr.disabled]="isDisabled ? true : null">
+                <div class="col-3" id="sbmtbtn">
+                    <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
+
                 </div>
             </div>
 
 
-
-
-
-        </div>
+        </form>
     </div>
-    <div id="submittedbtns">
-
-        <button class="btn btn-success" (click)="success($event)" [value]="paymentverified" (click)="paymentSuccess()"
-            style="width: 100px;" [disabled]="firstformdisable" >PASS</button>
-        <input type="text" placeholder="{{paymentsuccess}}" formControlName="statusCd" [(ngModel)]="paymentsuccess"
-            hidden>
-
-        <button class="btn btn-primary" (click)="failed($event)" [value]="paymentfailed" (click)="paymentFailed()"
-            style="margin-left:20px;width:100px">FAIL</button>
-        <input type="text" placeholder="{{paymentfail}}" formControlName="statusCd" [(ngModel)]="paymentfail" hidden>
-
-        <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
-
-    </div>
-</form>
-
-<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
-
-    <form [formGroup]="verifypaymentform" id="secondform">
-        <div class="row">
-            <div class="col-3">
-
-                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                    placeholder="{{Orderdetails.orderId}}" [attr.disabled]="isDisabled ? true : null" hidden>
-
-            </div>
-            <label style="font-size: 18px; margin-top:80px;margin-left: 20px;">Enter Staff Code: </label>
-            <div class="col-3" id="staffcd">
-                <input type="text" formControlName="staffCd" class="form-control">
-            </div>
-
-            <div class="col-3" id="sbmtbtn">
-                <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-
-            </div>
-        </div>
-
-
-    </form>
 </div>

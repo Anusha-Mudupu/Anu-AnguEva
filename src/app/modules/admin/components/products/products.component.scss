@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 table {
     width: 80%;
     margin-left: 10%;
@@ -96,4 +100,14 @@ table {
   #edibtn{
     margin-left: 20px;
     margin-top: -10px;
+  }
+
+  @media screen and (min-width: 500px) and (max-width: 1350px) {
+    #addnewproductbtn {
+    
+           margin-left: 500px;         
+        }
+        #searchbar{
+          margin-left: 180px;
+        }
   }

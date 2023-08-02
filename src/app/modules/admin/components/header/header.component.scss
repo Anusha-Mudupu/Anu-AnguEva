@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 .menu-container {
     flex: 1 1 auto;
 }
@@ -6,6 +10,16 @@
     background-color: rgb(215, 17, 37);
 }
 
-#admin:hover{
-    background-color:darkcyan
+#admin:hover {
+    background-color: darkcyan
+}
+
+@media screen and (min-width: 500px) and (max-width: 1350px) {
+    .menu-container {
+        flex: 1 1 auto;
+    }
+
+    #navbar {
+        width: auto;
+    }
 }

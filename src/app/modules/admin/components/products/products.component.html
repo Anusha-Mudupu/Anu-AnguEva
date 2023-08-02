@@ -7,12 +7,12 @@
   <button mat-mini-fab class="filter-button" color="primary" aria-label="Example icon button with a filter list icon">
     <mat-icon>filter_list</mat-icon>
   </button>
-  <button class="add-button" (click)="openDialog()" mat-stroked-button>Add New Product</button>
+  <button class="add-button" (click)="openDialog()" mat-stroked-button id="addnewproductbtn"> Add New Product</button>
 </div>
 
 <div >
-  <mat-form-field class="example-header">
-    <input matInput (keyup)="applyFilter($event)" placeholder="Search Here...">
+  <mat-form-field class="example-header" id="searchbar">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search Here..." >
   </mat-form-field>
 </div>
 

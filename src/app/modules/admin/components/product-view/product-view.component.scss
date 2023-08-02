@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 .sku-desc {
     height: 100%;
 }
@@ -33,3 +37,21 @@ input[disabled] {
   #prodDesc{
     width: 400px;
   }
+  #addnewproductskubtn{
+    margin-left: 1400px;  
+  }
+
+
+  @media screen and (min-width: 500px) and (max-width: 1350px) {
+    #addnewproductskubtn {
+    
+           margin-left: 450px;         
+        }
+  }
+  
+  
+  
+  
+  
+  
+  

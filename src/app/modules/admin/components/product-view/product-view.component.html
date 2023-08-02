@@ -7,7 +7,7 @@
     </div>
 
     <div>
-      <button type="button" class="btn btn-dark" style="margin-left: 1300px; " (click)="onSelect()">Add New Product
+      <button type="button" class="btn btn-dark"  (click)="onSelect()" id="addnewproductskubtn">Add New Product
         Sku</button>
 
     </div>
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
           <label for="prodDesc" class="form-label mt-4 field-labels">Product Description</label>
-          <textarea class="form-control" id="prodDesc" rows="3">{{productData.productDesc}}</textarea>
+          <textarea class="form-control" id="prodDesc" rows="3" readonly>{{productData.productDesc}}</textarea>
         </div>
 
       </div>

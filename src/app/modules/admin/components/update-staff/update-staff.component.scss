@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 .box{
    width: 1250px;
    height: 500px;
@@ -36,8 +40,32 @@
       padding: 0px;
     }
    
-  
-  
+}
+@media screen and (min-width:360px) and (max-width:1400px) {
+
+  [class*="col-2"] {
+    width: 60%;
+    padding: 0px;
   }
+ 
+  .box{
+    width: auto;
+    height: auto;
+    margin-top: 50px;
+    overflow-y: scroll;
+ 
+ }
+
+ #editbtn{
+  margin-left: 200px;
+   width: 100px;
+   margin-top: 50px;
+ 
+ }
+ .button{
+  margin-left: 500px;
+  margin-top: 80px;
+}
+}
   
   

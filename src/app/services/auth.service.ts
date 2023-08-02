@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';

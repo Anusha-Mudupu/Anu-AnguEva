@@ -81,3 +81,28 @@ margin-left: 300px;
     position: absolute;
 }
 
+@media screen and (min-width:360px) and (max-width:1350px){
+    #form{
+        width: auto;
+        height: auto;
+  
+    }
+  #printbtn{
+        margin-left: 100px;
+        width: 100px;
+        height: 30px;
+        color: cadetblue;
+        margin-top: 60px;
+        position: absolute;
+    }
+    #secondformmaindiv{
+        border: ridge 10px;
+     width: 800px;
+     height: 200px;
+     margin-top: 40px;
+    margin-left: 200px;
+    }
+    #maindiv{
+        overflow-y: scroll;
+    }
+}

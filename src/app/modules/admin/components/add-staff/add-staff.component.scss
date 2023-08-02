@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 .catalogName {
     font-size: large;
     margin-left: 5%;
@@ -62,4 +66,14 @@ button {
     margin-left: 5%; 
     margin-top: 10px;
   
+}
+
+@media screen and (min-width:360px) and (max-width:1400px){
+    .dialog-content {
+        height: auto;
+        width: auto;
+    } 
+    .mat-dialog-title{
+    margin-left: 300px;
+    } 
 }

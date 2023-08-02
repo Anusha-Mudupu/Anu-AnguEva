@@ -5,7 +5,7 @@
       <mat-form-field class="product-name" appearance="fill">
         <mat-label>Product Name</mat-label>
         <input matInput formControlName="productName">
-      
+
         <div *ngIf="submitted && productForm.get('productName').invalid">
           <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
         </div>
@@ -19,7 +19,7 @@
           <mat-option *ngFor="let vendor of vendorData" [value]="vendor.manufacturerId">
             {{vendor.manufacturerName}}
           </mat-option>
-       
+
           <div *ngIf="submitted && productForm.get('manufacturerId').invalid">
             <!-- <div *ngIf="productForm.get('manufacturerId').errors.required"> Select Vendor Name.</div> -->
           </div>
@@ -27,7 +27,7 @@
       </mat-form-field>
 
 
-      <mat-form-field class="search-tag-list" appearance="fill">
+      <mat-form-field class="search-tag_-list" appearance="fill" id="search_tag">
         <mat-label>Search Tags</mat-label>
         <mat-chip-list #chipList aria-label="Searchtag selection">
           <mat-chip *ngFor="let tag of searchTags" (removed)="removeTag(tag)">
@@ -40,7 +40,7 @@
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
             (matChipInputTokenEnd)="addTag($event)">
         </mat-chip-list>
-        
+
         <div *ngIf="submitted && productForm.get('searchTag').invalid">
           <div *ngIf="productForm.get('searchTag').errors.required" style="color: red;">SearchTag is required.</div>
         </div>
@@ -50,7 +50,7 @@
       <mat-form-field class="product-description" appearance="fill">
         <mat-label>Product Description</mat-label>
         <textarea formControlName="productDesc" matInput placeholder="Type Here..."></textarea>
-      
+
         <div *ngIf="submitted && productForm.get('productDesc').invalid">
           <!-- <div *ngIf="productForm.get('productDesc').errors.required">ProductDes is required.</div> -->
         </div>
@@ -60,41 +60,36 @@
 
 
       <div formArrayName="catalog" class="product-catalog">
-        <mat-form-field>
+        <mat-form-field id="selectcatalog">
 
           <mat-label>Select Catalog</mat-label>
-          <mat-select multiple [(value)]="selectedCatalogVals" >
+          <mat-select multiple [(value)]="selectedCatalogVals">
 
             <!-- <mat-select multiple [(value)]="selectedmanufactureId" formControlName="selectedCatalogs"> -->
-           <mat-option *ngFor="let item of Catalogsdata;let i=index" [value]="item" (click)="onSelectCatalogs(i)">
+            <mat-option *ngFor="let item of Catalogsdata;let i=index" [value]="item" (click)="onSelectCatalogs(i)">
               {{item.parent}}/{{item.catalogName}}
 
             </mat-option>
 
           </mat-select>
-          
+
         </mat-form-field>
 
       </div>
     </div>
- <div>
+    <div>
 
-      <button type="button" (click)="addNewCatalog()" id="addnewcatalogbtn" class="btn btn-outline-primary">Add New Catalog</button>
+      <button type="button" (click)="addNewCatalog()" id="addnewcatalogbtn" class="btn btn-outline-primary">Add New
+        Catalog</button>
     </div>
 
 
     <div mat-dialog-action [align]="'center'">
       <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-      <button style="margin-left:10px" mat-raised-button color="primary" (click)="addProduct(productForm)">Submit</button>
-        <div *ngIf="submitted && !productForm.valid">All fields are required.</div>
+      <button style="margin-left:10px" mat-raised-button color="primary"
+        (click)="addProduct(productForm)">Submit</button>
+      <div *ngIf="submitted && !productForm.valid">All fields are required.</div>
     </div>
 
   </form>
 </div>
-
-
-
-
-
-
-

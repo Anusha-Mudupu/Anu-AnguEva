@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 
 
 // #table{
@@ -61,6 +65,23 @@ p{
     margin-left: 20px;
     font-family: initial;
 }
+#crossbtn{
+  margin-left: 1000px;
+  margin-top: -50px;
+}
 
 
+@media screen and (min-width: 500px) and (max-width: 1350px) {
+#crossbtn{
+  margin-left: auto;
+}
 
+.custom-table{
+  width: auto;
+ height:600px;
+ overflow-y: auto;
+ border: ridge 2px;
+
+}
+ 
+}

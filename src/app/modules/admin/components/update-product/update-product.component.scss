@@ -29,6 +29,36 @@
     margin-left: 150px;
     margin-top: 10px;
 }
+@media screen and (min-width: 500px) and (max-width: 1350px) {
 
+    .dialog-content{
+        width: auto;
+        height: auto;
+    }
+    .col-3{
+        margin-left: 30px;
+    }
+    .container{
+        margin-top: 40px;
+        margin-left: 50px;
+    }
+    #buttons{
+        margin-top: 45px;
+        margin-left: 300px;
+        // position: fixed;
+        position: relative;
+    }
+    
+    
+    .example-additional-selection {
+        opacity: 0.75;
+        font-size: 0.75em;
+      }
+    .product-catalog{
+        margin-left: 100px;
+        margin-top: 10px;
+    }
+ 
+  }
 
 

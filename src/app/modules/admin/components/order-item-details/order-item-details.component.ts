@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
@@ -18,7 +22,8 @@ orderItemDetails:any;
 
   ngOnInit(): void {
     this.imageBaseUrl=environment.imagesBaseUrl
-    this.orderId=this.activated.snapshot.params['orderId']
+    this.orderId=this.activated.snapshot.params['orderId'];
+    console.log('oredrid',this.orderId);
  this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data=>{
   this.Orderdetails=data;
   this.orderItemDetails=this.Orderdetails.orderItems
@@ -28,7 +33,8 @@ orderItemDetails:any;
   }
 
   goToOrdersList(){
-     this.route.navigate(['/admin/order-management'])
+     this.route.navigate(['/admin/order-management']);
+    console.log('click')
   }
 
 }
