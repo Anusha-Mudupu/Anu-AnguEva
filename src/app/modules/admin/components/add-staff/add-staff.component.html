@@ -1,6 +1,6 @@
 <h1 mat-dialog-title style="margin-left: 430px;">Add New Staff</h1>
 <div mat-dialog-content class="dialog-content" id="form">
-    <form [formGroup]="addstaffform" >
+    <form [formGroup]="addstaffform">
         <div>
             <div>
                 <mat-form-field class="catalogName">
@@ -80,8 +80,8 @@
                     <input matInput [matDatepicker]="enddt" formControlName="endDt">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="enddt" id="calicon"></mat-datepicker-toggle>
-                    <div *ngIf="submitted && addstaffform.get('endDt').invalid">
-                    </div>
+                    <!-- <div *ngIf="submitted && addstaffform.get('endDt').invalid">
+                    </div> -->
                     <mat-datepicker #enddt></mat-datepicker>
                 </mat-form-field>
             </div>
@@ -90,9 +90,8 @@
 
         <div mat-dialog-action [align]="'center'">
             <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-            <button style="margin-left:10px" mat-raised-button color="primary"
-                (click)="addSatff()">Submit</button>
-                <div *ngIf="submitted && !addstaffform.valid">All fields are required.</div>
+            <button style="margin-left:10px" mat-raised-button color="primary" (click)="addSatff()">Submit</button>
+            <div *ngIf="submitted && !addstaffform.valid">All fields are required.</div>
         </div>
     </form>
 </div>

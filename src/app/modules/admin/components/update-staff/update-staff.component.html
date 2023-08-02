@@ -1,28 +1,36 @@
-<div>
+<!-- <div>
     <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()">Edit</button>
-</div>
- <h1>Update Staff Form</h1>
+</div> -->
+<h1>Update Staff Form</h1>
 <form class="row  g-3" class="box" [formGroup]="UpdateStaffform">
     <div class="row">
         <div class="col-3">
             <label class="form-label">Staff Id:</label>
-            <input type="text" class="form-control"  [(ngModel)]="staffdata.opStaffId"
-                formControlName="opStaffId" placeholder="{{staffdata.opStaffId}}">
+            <input type="text" class="form-control" [(ngModel)]="staffdata.opStaffId" formControlName="opStaffId"
+                placeholder="{{staffdata.opStaffId}}" readonly>
 
         </div>
 
         <div class="col-3">
             <label class="form-label">Staff Name:</label>
-            <input type="text" class="form-control"  [(ngModel)]="staffdata.staffName"
-                formControlName="staffName" placeholder="{{staffdata.staffName}}">
-
+            <input type="text" class="form-control" [(ngModel)]="staffdata.staffName" formControlName="staffName"
+                placeholder="{{staffdata.staffName}}">
+            <div *ngIf="submitted && UpdateStaffform.get('staffName').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('staffName').hasError('required') && UpdateStaffform.get('staffName').touched"
+                class="text-danger">
+                Staff name is required.
+            </div>
         </div>
 
-         <div class="col-3">
+        <div class="col-3">
             <label class="form-label">Staff Code:</label>
-            <input type="text" class="form-control"  [(ngModel)]="staffdata.staffCd"
-                formControlName="staffCd" placeholder="{{staffdata.staffCd}}">
+            <input type="text" class="form-control" [(ngModel)]="staffdata.staffCd" formControlName="staffCd"
+                placeholder="{{staffdata.staffCd}}" readonly>
+            <div *ngIf="UpdateStaffform.get('staffCd').hasError('required') && UpdateStaffform.get('staffCd').touched"
+                class="text-danger">
 
+            </div>
         </div>
     </div>
 
@@ -31,74 +39,181 @@
 
         <div class="col-3">
             <label class="form-label">Email Id:</label>
-            <input type="text" class="form-control"  formControlName="emailId"
-                [(ngModel)]="staffdata.emailId">
+            <input type="text" class="form-control" formControlName="emailId" [(ngModel)]="staffdata.emailId">
+            <div *ngIf="submitted && UpdateStaffform.get('emailId').invalid">
+            </div>
+
+            <div *ngIf="UpdateStaffform.get('emailId').hasError('required') && UpdateStaffform.get('emailId').touched"
+                class="text-danger">
+                Enter Email Id
+            </div>
+            <div *ngIf="UpdateStaffform.get('emailId').hasError('pattern') && UpdateStaffform.get('emailId').touched"
+                class="text-danger">
+                Enter Valid Email Id.
+            </div>
 
         </div>
+
         <div class="col-3">
             <label class="form-label">DOB:</label>
 
-            <input type="text" class="form-control"  [(ngModel)]="staffdata.dob"
-                formControlName="dob">
-
+            <input type="text" class="form-control" [(ngModel)]="staffdata.dob" formControlName="dob">
+            <div *ngIf="submitted && UpdateStaffform.get('dob').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('dob').hasError('required') && UpdateStaffform.get('dob').touched"
+                class="text-danger">
+                Enter Date of Birth.
+            </div>
+            <div *ngIf="UpdateStaffform.get('dob').hasError('pattern') && UpdateStaffform.get('dob').touched"
+                class="text-danger">
+                Enter valid DOB.
+            </div>
         </div>
+
+
         <div class="col-3">
             <label class="form-label">Mobile No:</label>
-            <input type="text" class="form-control"   [(ngModel)]="staffdata.mobileNo"
-                formControlName="mobileNo">
-
-
+            <input type="text" class="form-control" [(ngModel)]="staffdata.mobileNo" formControlName="mobileNo">
+            <div *ngIf="submitted && UpdateStaffform.get('mobileNo').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern') && UpdateStaffform.get('mobileNo').touched"
+                class="text-danger">
+                Please Enter Valid Mobile number.
+            </div>
+            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('minlength') && UpdateStaffform.get('mobileNo').touched"
+                class="text-danger">
+                Minimum length is 10 characters.
+            </div>
+            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('maxlength') && UpdateStaffform.get('mobileNo').touched"
+                class="text-danger">
+                Maximum length is 10 characters.
+            </div>
         </div>
+
+
     </div>
 
 
     <div class="row" id="lastrow">
         <div class="col-3">
             <label class="form-label">start Date:</label>
-            <input type="text" class="form-control"  [(ngModel)]="staffdata.startDt"
-                formControlName="startDt" placeholder="{{staffdata.startDt}}"
-                >
+            <input type="text" class="form-control" [(ngModel)]="staffdata.startDt" formControlName="startDt"
+                placeholder="{{staffdata.startDt}}">
+            <div *ngIf="submitted && UpdateStaffform.get('startDt').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('startDt').hasError('required') && UpdateStaffform.get('startDt').touched"
+                class="text-danger">
+                Please Enter Start Date
+            </div>
+            <div *ngIf="UpdateStaffform.get('startDt').hasError('pattern') && UpdateStaffform.get('startDt').touched"
+                class="text-danger">
+                Enter Valid Start Date.
+            </div>
         </div>
         <div class="col-3">
             <label class="form-label">End Date:</label>
-            <input type="text"  class="form-control"   [(ngModel)]="staffdata.endDt"
-                formControlName="endDt" placeholder="{{staffdata.endDt}}" >
+            <input type="text" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
+                placeholder="{{staffdata.endDt}}">
+            <div *ngIf="submitted && UpdateStaffform.get('endDt').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('endDt').hasError('required') && UpdateStaffform.get('endDt').touched"
+                class="text-danger">
+                Please Enter End Date
+            </div>
+            <div *ngIf="UpdateStaffform.get('endDt').hasError('pattern') && UpdateStaffform.get('endDt').touched"
+                class="text-danger">
+                Enter Valid End Date.
+            </div>
         </div>
+
+        <!-- <div class="col-3">
+            <label class="form-label">End Date:</label>
+            <input type="text" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
+                placeholder="{{staffdata.endDt}}">
+            <div *ngIf="submitted && UpdateStaffform.get('endDt').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('endDt').hasError('required') && UpdateStaffform.get('endDt').touched"
+                class="text-danger">
+                Please Enter End Date
+            </div>
+            <div *ngIf="UpdateStaffform.get('endDt').hasError('pattern') && UpdateStaffform.get('endDt').touched"
+                class="text-danger">
+                Enter Valid End Date.
+            </div>
+        </div> -->
+
 
 
         <div class="col-3">
             <label class="form-label">Area:</label>
-            <input type="text" class="form-control"  [(ngModel)]="staffdata.area"
-                formControlName="area" placeholder="{{staffdata.area}}" >
+            <input type="text" class="form-control" [(ngModel)]="staffdata.area" formControlName="area"
+                placeholder="{{staffdata.area}}">
+            <div *ngIf="submitted && UpdateStaffform.get('area').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('area').hasError('required') && UpdateStaffform.get('area').touched"
+                class="text-danger">
+                Area name is required.
+            </div>
         </div>
+
     </div>
 
 
     <div class="row" id="lastrow">
         <div class="col-3">
-           <label class="form-label">City:</label>
-           <input type="text" class="form-control"   [(ngModel)]="staffdata.city"
-               formControlName="city" placeholder="{{staffdata.city}}"
-               >
-       </div>
-       <div class="col-3">
-           <label class="form-label">State:</label>
-           <input type="text" class="form-control"   [(ngModel)]="staffdata.state"
-               formControlName="state" placeholder="{{staffdata.state}}" >
-       </div>
+            <label class="form-label">City:</label>
+            <input type="text" class="form-control" [(ngModel)]="staffdata.city" formControlName="city"
+                placeholder="{{staffdata.city}}">
+            <div *ngIf="submitted && UpdateStaffform.get('city').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('city').hasError('required') && UpdateStaffform.get('city').touched"
+                class="text-danger">
+                City name is required.
+            </div>
+        </div>
+
+        <div class="col-3">
+            <label class="form-label">State:</label>
+            <input type="text" class="form-control" [(ngModel)]="staffdata.state" formControlName="state"
+                placeholder="{{staffdata.state}}">
+            <div *ngIf="submitted && UpdateStaffform.get('state').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('state').hasError('required') && UpdateStaffform.get('state').touched"
+                class="text-danger">
+                State is required.
+            </div>
+        </div>
 
 
-       <div class="col-3">
-           <label class="form-label">Pincode:</label>
-           <input type="text" class="form-control"   [(ngModel)]="staffdata.pincode"
-               formControlName="pincode" placeholder="{{staffdata.pincode}}" >
-       </div>
-</div>
 
-  <div class="col-3" class="button">
-        <button type="submit" class="btn btn-success"
-            (click)=" onSubmit()" style="width: 100px;" mat-dialog-close>Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-danger"  style="width: 100px;" mat-dialog-close>Cancel</button>
+        <div class="col-3">
+            <label class="form-label">Pincode:</label>
+            <input type="text" class="form-control" [(ngModel)]="staffdata.pincode" formControlName="pincode"
+                placeholder="{{staffdata.pincode}}">
+            <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
+            </div>
+            <div *ngIf="UpdateStaffform.get('pincode').hasError('pattern') && UpdateStaffform.get('pincode').touched"
+                class="text-danger">
+                Please Enter Valid Pincode.
+            </div>
 
+            <div *ngIf="UpdateStaffform.get('pincode').hasError('minlength') && UpdateStaffform.get('pincode').touched"
+                class="text-danger">
+                Minimum length is 6 characters.
+            </div>
+            <div *ngIf="UpdateStaffform.get('pincode').hasError('maxlength') && UpdateStaffform.get('pincode').touched"
+                class="text-danger">
+                Maximum length is 6 characters.
+            </div>
+        </div>
+
+
+
+        <div class="col-3" class="button">
+            <button type="submit" class="btn btn-success" (click)=" onSubmit()"
+                style="width: 100px;">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-danger" style="width: 100px;" mat-dialog-close>Cancel</button>
+            <div *ngIf="submitted && !UpdateStaffform.valid" class="text-danger">All fields are required.</div>
+        </div>
     </div>
 </form>

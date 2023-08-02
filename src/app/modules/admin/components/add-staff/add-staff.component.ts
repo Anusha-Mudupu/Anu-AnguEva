@@ -26,9 +26,9 @@ export class AddStaffComponent implements OnInit {
         area: ['', Validators.required],
         city: ['', Validators.required],
         state: ['', Validators.required],
-         pincode: ['', Validators.required],
+         pincode: ['', [Validators.required,Validators.maxLength(6),Validators.minLength(6),Validators.pattern(/^[0-9]*$/)]],
        startDt: ['', Validators.required],
-      endDt: ['', Validators.required]
+     endDt:new FormControl('')
     
     })
 
