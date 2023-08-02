@@ -29,6 +29,6 @@ export class StaffDataService {
   }
 
   updateStaffByid(staffid:any,staffdata:Staffdata){
-    return this.httpclient.put<Staffdata>(environment.updateStaff +staffid,staffdata)
+    return this.httpclient.put<any>(environment.updateStaff +staffid,staffdata)
   }
 }

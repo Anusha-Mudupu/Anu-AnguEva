@@ -158,5 +158,11 @@ export interface Staffdata{
     dob: number
 }
 
+export interface parentCatalogData{
+  catalogId: number,
+  parent: string,
+  catalogName:string
+}
+
 
 

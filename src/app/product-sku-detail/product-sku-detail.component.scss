@@ -191,6 +191,12 @@
   margin-top: 10px;
   margin-left: 10px;
 }
+#productSkuId{
+  cursor: not-allowed;
+}
+#productId{
+  cursor: not-allowed;
+}
   
   
   @media only screen and (max-width: 800px) {

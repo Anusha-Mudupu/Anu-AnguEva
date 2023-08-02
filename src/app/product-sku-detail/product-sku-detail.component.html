@@ -34,7 +34,7 @@
             <label class="form-label">productSkuid:</label>
             <input type="text" class="form-control" id="productSkuId" name="productSkuId"
                 [(ngModel)]="productSku.productSkuId" formControlName="productSkuId" placeholder="{{id}}"
-                [attr.disabled]="isDisabled ? true : null">
+                [attr.disabled]="isDisabled ? true : null" readonly>
         </div>
 
         <div class="col-2">
@@ -89,13 +89,13 @@
             <label class="form-label">ProductId:</label>
             <input type="text" class="form-control" id="productId" name="productId" [(ngModel)]="productSku.productId"
                 formControlName="productId" placeholder="{{productSku.productId}}"
-                [attr.disabled]="isDisabled ? true : null">
+                [attr.disabled]="isDisabled ? true : null" readonly>
         </div>
 
 
         <div class="col-2">
             <label class="form-label">SelfLocation Code:</label>
-            <input type="text" class="form-control" id="productId" name="selfLocCd" [(ngModel)]="productSku.selfLocCd"
+            <input type="text" class="form-control" name="selfLocCd" [(ngModel)]="productSku.selfLocCd"
                 formControlName="selfLocCd" placeholder="{{productSku.selfLocCd}}"
                 [attr.disabled]="isDisabled ? true : null">
         </div>

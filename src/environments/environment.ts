@@ -37,7 +37,8 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   getstaffBystaffCd:'http://localhost:8085/getStaffByCd?staffCd=',
   updateStaff:'http://localhost:8085/updateStaff?StaffCd=',
   updateproduct:'http://localhost:8085/api/updateProduct?productId=',
-  downloadinvoice:'http://localhost:8085/downloadInvoice/'
+  downloadinvoice:'http://localhost:8085/downloadInvoice/',
+  getAllParentCatalogs:'http://localhost:8085/api/getAllParentCatalogs'
    
 
 };
