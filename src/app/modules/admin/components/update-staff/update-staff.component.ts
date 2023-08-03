@@ -27,36 +27,37 @@ export class UpdateStaffComponent implements OnInit {
     this.staffCd=data.staffCd
     console.log('staffCd',this.staffCd);
     
-    this.UpdateStaffform=new FormGroup({
-      staffName:new FormControl(),
-      emailId: new FormControl(),
-      mobileNo: new FormControl(),                                  
-      dob: new FormControl(),
-      area: new FormControl(),
-      city: new FormControl(),
-      state: new FormControl(),
-      pincode: new FormControl(),
-      startDt: new FormControl(),
-      endDt: new FormControl(),
-      opStaffId:new FormControl(),
-      staffCd:new FormControl()
-    })
-    // this.UpdateStaffform=this.formbuilder.group({
-    //   staffName:['',Validators.compose ([Validators.required])],
-    //    emailId: ['',Validators.compose ([Validators.required, Validators.email])],
-    //    emailId:['',[Validators.required, Validators.pattern(/^[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/)]],
-    //   mobileNo: ['', [Validators.required,  Validators.maxLength(10),Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]],      
-    //   dob: ['', [Validators.required,Validators.pattern(/^[0-9]*$/)]],
-    //     area: ['', Validators.required],
-    //     city: ['', Validators.required],
-    //     state: ['', Validators.required],
-    //      pincode: ['', [Validators.required,Validators.maxLength(6),Validators.minLength(6),Validators.pattern(/^[0-9]*$/)]],
-    //    startDt: ['', [Validators.required ,Validators.pattern(/^[0-9]*$/)]],
-    //    endDt: ['', Validators.required,Validators.pattern(/^[0-9]*$/)],
-    //    opStaffId:new FormControl(''),
-    //      staffCd:new FormControl('')
-    
+    // this.UpdateStaffform=new FormGroup({
+    //   staffName:new FormControl(),
+    //   emailId: new FormControl(),
+    //   mobileNo: new FormControl(),                                  
+    //   dob: new FormControl(),
+    //   area: new FormControl(),
+    //   city: new FormControl(),
+    //   state: new FormControl(),
+    //   pincode: new FormControl(),
+    //   startDt: new FormControl(),
+    //   endDt: new FormControl(),
+    //   opStaffId:new FormControl(),
+    //   staffCd:new FormControl()
     // })
+
+    this.UpdateStaffform=this.formbuilder.group({
+      staffName:['',Validators.compose ([Validators.required])],
+      //  emailId: ['',Validators.compose ([Validators.required, Validators.email])],
+       emailId:['',[Validators.required, Validators.pattern(/^[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/)]],
+      mobileNo: ['', [Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]],      
+      dob: ['', [Validators.required,Validators.pattern(/^[0-9]*$/)]],
+        area: ['', Validators.required],
+        city: ['', Validators.required],
+        state: ['', Validators.required],
+         pincode: ['', [Validators.required,Validators.maxLength(6),Validators.minLength(6),Validators.pattern(/^[0-9]*$/)]],
+       startDt: ['', [Validators.required,Validators.pattern(/^[0-9]*$/)]],
+       endDt: ['', [Validators.required,Validators.pattern(/^[0-9]*$/)]],
+       opStaffId:new FormControl(''),
+         staffCd:new FormControl('')
+    
+    })
   }
 
   ngOnInit(): void {
@@ -70,7 +71,7 @@ this.staffdataservice.getStaffByStaffCd(this.staffCd).subscribe(data=>{
 }
 
 saveUpdateStaff(){
- 
+
   this.staffdataservice.updateStaffByid(this.staffCd,this.staffdata).subscribe((data=>{
     console.log(data);
     alert('Successfully Updated');
@@ -78,20 +79,13 @@ saveUpdateStaff(){
 }
 
   onSubmit(){
-    
-    if(this.UpdateStaffform.valid){
-      this.submitted=true;
-       this.saveUpdateStaff()
-    }
+    console.log(this.UpdateStaffform.value);
+    this.submitted=true;
      
- else{
-  if(this.UpdateStaffform.invalid){
-    window.alert('Form Is Invalid Please Check it Once');
-  }
+    this.saveUpdateStaff()
+     
+      
  }
-
- 
-  }
 
  
 
