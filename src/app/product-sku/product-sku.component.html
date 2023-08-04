@@ -1,125 +1,97 @@
-<form class="row  g-3" class="box" [formGroup]="AddproductSkuform">
-
-    <div class="row">
 
 
-        <div class="col-2">
-            <label class="form-label">Price:</label>
-            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="productSku.price"
-                formControlName="price">
-            <div
-                *ngIf="AddproductSkuform.controls['price'].touched && AddproductSkuform.controls['price'] ?.['errors']">
-                <span *ngIf="form ['price'].getError('required')!=null" class="invalid"> enter price</span>
+
+
+
+<h1 mat-dialog-title style="margin-left: 430px;">Add New ProductSKu</h1>
+<div mat-dialog-content class="dialog-content" id="form">
+    <form [formGroup]="AddproductSkuform">
+        <div>
+            <div>
+                <mat-form-field class="catalogName">
+                    <mat-label>price </mat-label>
+                    <input matInput formControlName="price" [(ngModel)]="productSku.price">
+                    <div *ngIf="submitted && AddproductSkuform.get('price').invalid">
+                    </div>
+                </mat-form-field>
+
+
+                <mat-form-field class="catalogDesc">
+                    <mat-label>Skucode</mat-label>
+                    <input matInput formControlName="Skucode" [(ngModel)]="productSku.productSkuCd">
+                    <div *ngIf="submitted && AddproductSkuform.get('Skucode').invalid">
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field class="mobileNo">
+                    <mat-label>count</mat-label>
+                    <input matInput formControlName="count" [(ngModel)]="productSku.count">
+                    <div *ngIf="submitted && AddproductSkuform.get('count').invalid">
+                    </div>
+                </mat-form-field>
+
+
+                <mat-form-field class="pincode">
+                    <mat-label>Discount</mat-label>
+                    <input matInput formControlName="Discount" [(ngModel)]="productSku.discount">
+                    <div *ngIf="submitted && AddproductSkuform.get('Discount').invalid">
+                    </div>
+                </mat-form-field>
             </div>
-            
-        </div>
+            <div>
+                <mat-form-field class="area">
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="Description" [(ngModel)]="productSku.skuDescription">
+                    <div *ngIf="submitted && AddproductSkuform.get('Description').invalid">
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="city">
+                    <mat-label>barcode</mat-label>
+                    <input matInput formControlName="barcode" [(ngModel)]="productSku.barCode">
+                    <div *ngIf="submitted && AddproductSkuform.get('barcode').invalid">
+                    </div>
+                </mat-form-field>
 
 
-        <div class="col-2">
-            <label class="form-label">SkuCode:</label>
-            <input type="text" class="form-control" id="productSkuCd" name="productSkuCd"
-                [(ngModel)]="productSku.productSkuCd" formControlName="Skucode">
-            <div
-                *ngIf="AddproductSkuform.controls['Skucode'].touched && AddproductSkuform.controls['Skucode'] ?.['errors']">
-                <span *ngIf="form ['Skucode'].getError('required')!=null" class="invalid"> enter Skucode</span>
-            </div>
-        </div>
+                <mat-form-field class="state">
+                    <mat-label>selfLocCd</mat-label>
+                    <input matInput formControlName="selfLocCd" [(ngModel)]="productSku.selfLocCd">
+                    <div *ngIf="submitted && AddproductSkuform.get('selfLocCd').invalid">
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="state" style="cursor: not-allowed;">
+                    <mat-label>productId</mat-label>
+                    <input matInput formControlName="productId" placeholder="{{productSku.productId}}"
+                        [(ngModel)]="productSku.productId" readonly>
+                    <div *ngIf="submitted && AddproductSkuform.get('productId').invalid">
+                    </div>
+                </mat-form-field>
 
-        <div class="col-2">
-            <label class="form-label">Quantity:</label>
-            <input type="text" class="form-control" id="inputAddress" formControlName="count"
-                [(ngModel)]="productSku.count">
-            <div
-                *ngIf="AddproductSkuform.controls['count'].touched && AddproductSkuform.controls['count'] ?.['errors']">
-                <span *ngIf="form ['count'].getError('required')!=null" class="invalid"> enter count</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-2">
-            <label class="form-label">Discount%:</label>
-
-            <input type="text" class="form-control" id="discount" name="discount" [(ngModel)]="productSku.discount"
-                formControlName="Discount">
-            <div
-                *ngIf="AddproductSkuform.controls['Discount'].touched && AddproductSkuform.controls['Discount'] ?.['errors']">
-                <span *ngIf="form ['Discount'].getError('required')!=null" class="invalid"> enter Discount</span>
-            </div>
-        </div>
-        <div class="col-2">
-            <label class="form-label">barcode:</label>
-            <input type="text" class="form-control" id="barCode" name="barCode" [(ngModel)]="productSku.barCode"
-                formControlName="barcode">
-
-            <div
-                *ngIf="AddproductSkuform.controls['barcode'].touched && AddproductSkuform.controls['barcode'] ?.['errors']">
-                <span *ngIf="form ['barcode'].getError('required')!=null" class="invalid"> enter barcode</span>
-                <span *ngIf="form ['barcode'].getError('minLength')!=null" class="invalid"> minimum length is
-                    6</span>
-
-            </div>
-        </div>
-
-
-        <div class="form-check form-switch" id="toggle">
-            <p class="select">Select Availablity Status:</p>
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
-                [(ngModel)]="productSku.status" formControlName="status">
-            <span>{{productSku.status? 'Available' : 'Not-Available'}}</span>
-        </div>
-
-    </div>
-
-
-
-    <div class="row">
-
-
-        <div class="col-2">
-            <label class="form-label">ProductId:</label>
-            <input type="text" class="form-control" id="barCode" placeholder={{productSku.productId}} name="productId"
-                [(ngModel)]="productSku.productId" formControlName="productId"
-                [attr.disabled]="isDisabled ? true : null">
-
-        </div>
-
-        <div class="col-2">
-            <label class="form-label">SelfLocation Code:</label>
-            <input type="text" class="form-control" id="barCode" name="barCode" [(ngModel)]="productSku.selfLocCd"
-                formControlName="selfLocCd">
-
-            <div
-                *ngIf="AddproductSkuform.controls['selfLocCd'].touched && AddproductSkuform.controls['selfLocCd'] ?.['errors']">
-                <span *ngIf="form ['selfLocCd'].getError('required')!=null" class="invalid"> enter SelfLocation
-                    Code</span>
-                <span *ngIf="form ['selfLocCd'].getError('minLength')!=null" class="invalid"> minimum length is
-                    6</span>
 
             </div>
-        </div>
 
-        <div class="form-group" class="col-2" class="textarea">
-            <label class="form-label">Description:</label>
-            <textarea class="form-control" rows="" id="skuDescription" name="skuDescription"
-                [(ngModel)]="productSku.skuDescription" formControlName="Description"></textarea>
 
-            <div
-                *ngIf="AddproductSkuform.controls['Description'].touched && AddproductSkuform.controls['Description'] ?.['errors']">
-                <span *ngIf="form ['Description'].getError('required')!=null" class="invalid"> enter Description</span>
+            <div class="form-check form-switch" id="toggle">
+                <p class="select">Select Availablity Status:</p>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+                    [(ngModel)]="productSku.status" formControlName="status">
+                <span>{{productSku.status? 'Available' : 'Not-Available'}}</span>
             </div>
+
+
+            <div>
+
+            </div>
+
+
         </div>
 
+        <div mat-dialog-action [align]="'center'">
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+            <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()"
+                >Submit</button>
 
-    </div>
-
-
-
-    <div class="col-3" class="button">
-        <button type="submit" class="btn btn-primary"
-            (click)=" onSubmit()" >Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
-        <div *ngIf="submitted && !AddproductSkuform.valid" class="text-danger">All fields are required.</div>
-    </div>
-</form>
+            <div *ngIf="submitted && !AddproductSkuform.valid" class="text-danger">All fields are required.</div>
+        </div>
+    </form>
+</div>

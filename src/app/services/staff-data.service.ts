@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Staffdata } from '../data/data-objects';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class StaffDataService {
   constructor(private httpclient:HttpClient) { }
 
 
-  getStaffList(){
+  getStaffList():Observable<any>{
     return this.httpclient.get<Staffdata>(environment.getstafflistUrl)
   }
 

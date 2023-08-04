@@ -4,9 +4,11 @@
  */
 import { BreakpointObserver, BreakpointState, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowLeft, faEdit, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Product } from 'src/app/data/data-objects';
+import { ProductSkuComponent } from 'src/app/product-sku/product-sku.component';
 
 import { ProductDataService } from 'src/app/services/product-data.service';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
@@ -33,15 +35,12 @@ export class ProductViewComponent implements OnInit {
     private router: Router,
     private productDataService: ProductDataService,
     private productSkuDataService: ProductSkuDataService,
-    public responsive: BreakpointObserver
+    public responsive: BreakpointObserver,
+    private dailog: MatDialog
 
   ) { }
 
-  onSelect() {
-    this.router.navigate(["/admin/product-view", this.id])
-    // this.router.navigate(["/admin/product-view",this.productSkuId])
 
-  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('productId');
@@ -74,6 +73,16 @@ export class ProductViewComponent implements OnInit {
     //     }
 
     //   });
+  }
+  onSelect(productId:any) {
+    // this.router.navigate(["/admin/product-view", this.id])
+    // this.router.navigate(["/admin/product-view",this.productSkuId])
+    const dialogRef = this.dailog.open(ProductSkuComponent, {
+
+      data: { productId:productId }
+    }).afterClosed().subscribe(result => { this.ngOnInit(); })
+
+
   }
 
 }

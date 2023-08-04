@@ -21,12 +21,12 @@ export class UpdateStaffComponent implements OnInit {
   staffdata:any;
   // isDisabled: boolean = true;
   submitted:boolean= false;
-
+  updateForm: FormGroup;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private staffdataservice:StaffDataService,private router:Router,private formbuilder:FormBuilder) { 
     this.staffCd=data.staffCd
     console.log('staffCd',this.staffCd);
-    
+   
     // this.UpdateStaffform=new FormGroup({
     //   staffName:new FormControl(),
     //   emailId: new FormControl(),
@@ -44,10 +44,9 @@ export class UpdateStaffComponent implements OnInit {
 
     this.UpdateStaffform=this.formbuilder.group({
       staffName:['',Validators.compose ([Validators.required])],
-      //  emailId: ['',Validators.compose ([Validators.required, Validators.email])],
-       emailId:['',[Validators.required, Validators.pattern(/^[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/)]],
-      mobileNo: ['', [Validators.required,Validators.maxLength(10),Validators.minLength(10),Validators.pattern(/^[0-9]*$/)]],      
-      dob: ['', [Validators.required,Validators.pattern(/^[0-9]*$/)]],
+      emailId:['',[Validators.required, Validators.pattern(/^[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/)]],
+     mobileNo: ['', [Validators.required,Validators.maxLength(6),Validators.minLength(6),Validators.pattern(/^[0-9]*$/)]],
+   dob: ['', [Validators.required,Validators.pattern(/^[0-9]*$/)]],
         area: ['', Validators.required],
         city: ['', Validators.required],
         state: ['', Validators.required],
@@ -56,8 +55,7 @@ export class UpdateStaffComponent implements OnInit {
        endDt: ['', [Validators.required,Validators.pattern(/^[0-9]*$/)]],
        opStaffId:new FormControl(''),
          staffCd:new FormControl('')
-    
-    })
+     })
   }
 
   ngOnInit(): void {
@@ -65,9 +63,9 @@ this.staffdataservice.getStaffByStaffCd(this.staffCd).subscribe(data=>{
   this.staffdata=data;
  
   console.log('StaffData',this.staffdata);
- 
 }) 
 // this.edit()
+
 }
 
 saveUpdateStaff(){
@@ -80,9 +78,13 @@ saveUpdateStaff(){
 
   onSubmit(){
     console.log(this.UpdateStaffform.value);
-    this.submitted=true;
-     
-    this.saveUpdateStaff()
+    //  if(this.UpdateStaffform.Valid){
+           
+    //   this.saveUpdateStaff()
+    //   window.location.reload();
+    // }
+    // this.submitted=true;
+     this.saveUpdateStaff()
      
       
  }
@@ -101,4 +103,5 @@ saveUpdateStaff(){
   
 //  }
 // }
+
 }

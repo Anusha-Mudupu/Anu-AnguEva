@@ -17,6 +17,7 @@ import { ProductSkuDataService } from 'src/app/services/productsku-data.service'
 export class AddNewOptionComponent implements OnInit {
   AddnewOptionform:FormGroup;
   submitted: boolean = false;
+  snackBar: any;
   constructor( private fb: FormBuilder,private http:HttpClient,private productskudataservice:ProductSkuDataService,private router:Router) { }
 
   ngOnInit(): void {
@@ -35,7 +36,14 @@ export class AddNewOptionComponent implements OnInit {
     console.log(res);
     alert('Successfully Added NewOption');
    })
-    
+
+   setTimeout(() => {
+    this.AddnewOptionform.reset();
+   this.snackBar.open('Form submitted successfully!', 'Close', {
+      duration: 4000,
+    });
+  }, 2000); 
+  
     }
    
   }

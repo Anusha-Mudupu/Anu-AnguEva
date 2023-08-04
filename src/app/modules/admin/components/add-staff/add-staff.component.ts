@@ -17,6 +17,7 @@ export class AddStaffComponent implements OnInit {
   addstaffform:any;
   submitted:boolean= false;
   staffdata:any
+  snackBar: any;
   constructor(private dialogRef: MatDialogRef<AddStaffComponent>,private formBuilder: FormBuilder,private staffservice:StaffDataService,private router:Router) {
     this.addstaffform=this.formBuilder.group({
       staffName:['',Validators.compose ([Validators.required])],
@@ -48,6 +49,13 @@ export class AddStaffComponent implements OnInit {
          alert('Staff Added Successfully');
       }))
     }
+    setTimeout(() => {
+      this.addstaffform.reset();
+     this.snackBar.open('Form submitted successfully!', 'Close', {
+        duration: 4000,
+      });
+    }, 2000); 
+    
     // this.router.navigate(['/admin/staff-list'])
   }
 

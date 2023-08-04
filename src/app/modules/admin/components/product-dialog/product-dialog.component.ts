@@ -27,6 +27,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-dialog.component.scss']
 })
 export class ProductDialogComponent implements OnInit {
+  snackBar: any;
  
 
 
@@ -161,7 +162,14 @@ constructor(
       
       });
       this.searchTags = []
-      this.router.navigate(['/admin/products'])
+      // this.router.navigate(['/admin/products'])
+      setTimeout(() => {
+        this.productForm.reset();
+       this.snackBar.open('Form submitted successfully!', 'Close', {
+          duration: 4000,
+        });
+      }, 2000); 
+      
     }
    
    

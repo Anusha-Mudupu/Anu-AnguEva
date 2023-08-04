@@ -32,10 +32,11 @@ export class UpdateProductComponent implements OnInit {
 
   manufacturerNames: string[] = [];
   manufacturerObject: any;
+  snackBar: any;
   constructor(private productservice: ProductDataService, @Inject(MAT_DIALOG_DATA) public data: any, private vendorservice: VendorDataService, private fb: FormBuilder) {
     this.updateproductform = this.fb.group({
       productName: new FormControl(''),
-      manufacturerId: new FormControl(''),
+      manufacturerId: new FormControl(),
       productId: new FormControl(''),
       productDesc: new FormControl(''),
       searchTag: new FormControl(''),
@@ -159,7 +160,11 @@ export class UpdateProductComponent implements OnInit {
 
 
   onSubmit() {
-    this.saveUpdateProduct();
+    
+      this.saveUpdateProduct();
+    
+   
+    
   }
 
 

@@ -1,89 +1,183 @@
-/*
- *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
- *   All rights reserved.
- */
+// /*
+//  *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+//  *   All rights reserved.
+//  */
 
   
 
-  .box{
-    margin-top: 50px;
-    margin-left: 350px;
+//   .box{
+//     margin-top: 50px;
+//     margin-left: 350px;
+// }
+//   .col-2{
+//     padding: 20px;
+//   }
+//   .textarea{
+//     width:300px;
+//     height: 10px;
+//     margin-top: 20px;
+//   }
+  
+//   .button{
+//     margin-left: 210px;
+//     margin-top: 50px;
+  
+//   }
+//   .invalid{
+//     color: red;
+//   }
+//   #toggle{
+//    margin-left: 510px;
+//    margin-top: -50px;
+//   }
+
+//   input[disabled] {
+ 
+//     cursor: not-allowed;
+//   }
+//   .select{
+//     font-size: medium;
+//     margin-left: -50px;
+//     margin-top: -10px;
+//   }
+  
+//    @media only screen and (max-width: 1200px) {
+   
+//     [class*="col-2"] {
+//       width: 60%;
+//       padding: 0px;
+//     }
+//     .button{
+//       margin-left: -200px;
+//       margin-top: -40px;
+    
+//     }
+//     .textarea{
+//       width:100px;
+//       height: 0px;
+//       margin-top: 5px;
+//     }
+
+// }
+
+
+// @media screen and (min-width: 500px) and (max-width: 1350px) {
+
+//   .button{
+//     margin-left: 170px;
+//     margin-top: 140px;
+  
+//   }
+//   .textarea{
+//     position: absolute;
+//     width:300px;
+//     height: 0px;
+//     margin-top: 130px;
+//   }
+
+//   .select{
+//     font-size: medium;
+//     // margin-left: -50px;
+//     // margin-top: -10px;
+//   }
+//   #toggle{
+//     position: absolute;
+//     margin-left: 100px;
+//     margin-top: 360px;
+//    }
+
+// }
+.catalogName {
+  font-size: large;
+  margin-left: 5%;
 }
-  .col-2{
-    padding: 20px;
+
+
+
+.catalogDesc {
+  font-size: medium;
+  margin-left: 7%;
+}
+.dob {
+  // font-size: medium;
+  margin-left: 5%;
+  height: 10px;
+  margin-top: -20px;
+
+}
+#calicon{
+  margin-left: 150px;
+}
+.area {
+  font-size: large;
+  margin-left: 6%;
+}
+.city {
+  font-size: large;
+  margin-left: 6%;
+}
+.state {
+  font-size: large;
+  margin-left: 6%;
+}
+.mobileNo {
+  font-size: large;
+  margin-left: 7%;
+}
+
+.dialog-content {
+  height: 700px;
+  width: 1100px;
+}
+
+button {
+  font-size: large;
+  margin-top: 100px;
+}
+.startdt{
+  font-size: large;
+  margin-left: 7%; 
+  margin-top: -20px;
+  
+}
+
+.enddt{
+  font-size: large;
+  margin-left: 9%; 
+
+}
+.pincode{
+  font-size: large;
+  margin-left: 5%; 
+  margin-top: 10px;
+
+}
+#toggle{
+  margin-left: 100px;
+  margin-top: 20px;
+}
+.select{
+  margin-left: -30px;
+  font-size: 18px;
+}
+
+@media screen and (min-width:360px) and (max-width:1400px){
+  .dialog-content {
+      height: auto;
+      width: auto;
+  } 
+  .mat-dialog-title{
+  margin-left: 300px;
   }
-  .textarea{
-    width:300px;
-    height: 10px;
+  
+  
+  #toggle{
+    margin-left: 100px;
     margin-top: 20px;
   }
-  
-  .button{
-    margin-left: 210px;
-    margin-top: 50px;
-  
-  }
-  .invalid{
-    color: red;
-  }
-  #toggle{
-   margin-left: 510px;
-   margin-top: -50px;
-  }
-
-  input[disabled] {
- 
-    cursor: not-allowed;
-  }
   .select{
-    font-size: medium;
-    margin-left: -50px;
-    margin-top: -10px;
+    margin-left: -30px;
+    font-size: 18px;
   }
-  
-   @media only screen and (max-width: 1200px) {
-   
-    [class*="col-2"] {
-      width: 60%;
-      padding: 0px;
-    }
-    .button{
-      margin-left: -200px;
-      margin-top: -40px;
-    
-    }
-    .textarea{
-      width:100px;
-      height: 0px;
-      margin-top: 5px;
-    }
-
 }
 
-
-@media screen and (min-width: 500px) and (max-width: 1350px) {
-
-  .button{
-    margin-left: 170px;
-    margin-top: 140px;
-  
-  }
-  .textarea{
-    position: absolute;
-    width:300px;
-    height: 0px;
-    margin-top: 130px;
-  }
-
-  .select{
-    font-size: medium;
-    // margin-left: -50px;
-    // margin-top: -10px;
-  }
-  #toggle{
-    position: absolute;
-    margin-left: 100px;
-    margin-top: 360px;
-   }
-
-}

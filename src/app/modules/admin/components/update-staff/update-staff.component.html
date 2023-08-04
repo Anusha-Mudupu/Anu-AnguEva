@@ -74,7 +74,7 @@
         <div class="col-3">
             <label class="form-label">Mobile No:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.mobileNo" formControlName="mobileNo">
-            <div *ngIf="submitted && UpdateStaffform.get('mobileNo').invalid">
+             <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
             </div>
             <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern') && UpdateStaffform.get('mobileNo').touched"
                 class="text-danger">
@@ -126,21 +126,7 @@
             </div>
         </div>
 
-        <!-- <div class="col-3">
-            <label class="form-label">End Date:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
-                placeholder="{{staffdata.endDt}}">
-            <div *ngIf="submitted && UpdateStaffform.get('endDt').invalid">
-            </div>
-            <div *ngIf="UpdateStaffform.get('endDt').hasError('required') && UpdateStaffform.get('endDt').touched"
-                class="text-danger">
-                Please Enter End Date
-            </div>
-            <div *ngIf="UpdateStaffform.get('endDt').hasError('pattern') && UpdateStaffform.get('endDt').touched"
-                class="text-danger">
-                Enter Valid End Date.
-            </div>
-        </div> -->
+   
 
 
 
@@ -216,4 +202,5 @@
             <div *ngIf="submitted && !UpdateStaffform.valid" class="text-danger">All fields are required.</div>
         </div>
     </div>
+    
 </form>

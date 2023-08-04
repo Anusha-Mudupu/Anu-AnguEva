@@ -17,6 +17,7 @@ export class AddNewCatalogComponent implements OnInit {
   addnewcatalogform:any
   submitted: boolean = false;
   parentcatalogdata:any
+  snackBar: any;
   constructor(  private dialogRef: MatDialogRef<AddNewCatalogComponent>,private vendorservice:VendorDataService,private formBuilder: FormBuilder) {
 
 this.addnewcatalogform = this.formBuilder.group({
@@ -55,6 +56,12 @@ this.addnewcatalogform = this.formBuilder.group({
             console.log(data);
             alert('Catalog added Successflly');
           })
+          setTimeout(() => {
+            this.addnewcatalogform.reset();
+           this.snackBar.open('Form submitted successfully!', 'Close', {
+              duration: 4000,
+            });
+          }, 2000); 
         }
        }
 
