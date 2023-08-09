@@ -6,7 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import {  OrderDetails, ProductSku} from '../data/data-objects';
+import {  OrderDetails, ProductSku, option} from '../data/data-objects';
 import { ProductSkudetails } from '../data/productskudetail';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class ProductSkuDataService {
     return this.httpclient.get<any>(environment.getAllProductskusIdURL + id)
   }
   getProductSkuByID(id: number): Observable<any> {
-    return this.httpclient.get<any>(environment.getproductSkuById + id)
+    return this.httpclient.get<ProductSku>(environment.getproductSkuById + id)
   }
 
   upDateProductSkuById(id: any, productSku: ProductSku) {
@@ -38,9 +38,9 @@ export class ProductSkuDataService {
   deleteImgByImgId(productSkuImageId: number) {
     return this.httpclient.delete<any>(environment.deleteImgByImgId + productSkuImageId)
   }
-  getAllOptions() {    
-    return this.httpclient.get(`${this.getoptions}`)
-  }
+  // getAllOptions() {    
+  //   return this.httpclient.get(`${this.getoptions}`)
+  // }
 
   // addOptionsValues(productSkuOptions:any){
   //   // const httpOptions = {
@@ -97,6 +97,10 @@ export class ProductSkuDataService {
   updateOrderStatus(orderstatus:OrderDetails) {
     return this.httpclient.post(environment.updateOrderStatus,orderstatus); 
 
+  }
+
+  getAllOptions(){
+   return this.httpclient.get<option>(environment.getAllOptionsdata);
   }
 
  

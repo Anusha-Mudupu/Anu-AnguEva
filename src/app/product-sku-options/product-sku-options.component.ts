@@ -1,8 +1,12 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductSkuDataService } from '../services/productsku-data.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ProductSkuOptions } from '../data/data-objects';
+// import { ProductSkuOptions } from '../data/data-objects';
 @Component({
   selector: 'app-product-sku-options',
   templateUrl: './product-sku-options.component.html',

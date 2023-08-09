@@ -160,16 +160,18 @@ constructor(
         console.log(res);
          alert('Product Added Successfully');
       
+      },errorMsg=>{
+        alert('Something Went Wrong');
       });
       this.searchTags = []
       // this.router.navigate(['/admin/products'])
-      setTimeout(() => {
-        this.productForm.reset();
-       this.snackBar.open('Form submitted successfully!', 'Close', {
-          duration: 4000,
-        });
-      }, 2000); 
-      
+      // setTimeout(() => {
+      //   this.productForm.reset();
+      //  this.snackBar.open('Form submitted successfully!', 'Close', {
+      //     duration: 4000,
+      //   });
+      // }, 2000); 
+      this.dialogRef.close();
     }
    
    

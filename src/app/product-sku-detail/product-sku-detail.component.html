@@ -136,38 +136,49 @@
 
 
     </div>
+    <div>
 
-    <div id="Gst">
-        <h1 style="font-size:bold;">GST Info:</h1>
-        <p class="gstcd">GST Code:{{productSku.gstCode}}</p>
-        <p class="gstcd" id="gstPercentage">Percentage:{{productSku.igst}}%</p>
+        <div id="Gst">
+            <h1 style="font-size:bold;">GST Info:</h1>
+            <p class="gstcd">GST Code:{{productSku.gstCode}}</p>
+            <p class="gstcd" id="gstPercentage">Percentage:{{productSku.igst}}%</p>
+            <div id="plusicon">
+                <button (click)="button()" class="btn btn-primary" id="gsteditbtn">Edit</button>
 
-
-
-
-        <div id="plusicon">
-
-           
-            <button (click)="button()" class="btn btn-primary" id="gsteditbtn">Edit</button>
-
+            </div>
+            <p></p>
         </div>
-        <p></p>
+        <div class="form-check form-switch" id="toggle">
+            <p class="select">Select Status:</p>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
+                [(ngModel)]="productSku.status" formControlName="status">
+            <span>{{productSku.status ? 'Available':'Not-Available'}}</span>
+        </div>
+
+        <div formArrayName="option" id="selectoptions">
+            <div>
+                <mat-form-field>
+                    <mat-label>Select Option Name:</mat-label>
+                    <mat-select [(value)]="selectedOptionName">
+                        <mat-option [value]="null">Select an option</mat-option>
+                        <mat-option *ngFor="let option of alloptionsData;let i=index" [value]="option.optionName"
+                            (click)="filterOptions(i)">{{ option.optionName }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div *ngIf="filteredOptions.length > 0">
+                <mat-form-field>
+                    <mat-label>Select Option Value:</mat-label>
+                    <mat-select [(value)]="selectedOptionValue">
+                        <mat-option>Select an option value</mat-option>
+                        <mat-option *ngFor="let option of filteredOptions ;let i=index" [value]="option.optionValue" (click)="currentSelectedOptionValue(i)">{{
+                            option.optionValue }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
     </div>
-
-    <div class="form-check form-switch" id="toggle">
-        <p class="select">Select Status:</p>
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
-            [(ngModel)]="productSku.status" formControlName="status">
-        <span>{{productSku.status ? 'Available':'Not-Available'}}</span>
-    </div>
-
-
-   
-
-
-
-
-
     <div class="col-3" class="button">
         <button type="submit" class="btn btn-success"
             (click)=" onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

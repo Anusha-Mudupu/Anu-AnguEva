@@ -5,7 +5,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { StaffDataService } from 'src/app/services/staff-data.service';
 
@@ -23,7 +23,7 @@ export class UpdateStaffComponent implements OnInit {
   submitted:boolean= false;
   updateForm: FormGroup;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private staffdataservice:StaffDataService,private router:Router,private formbuilder:FormBuilder) { 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private staffdataservice:StaffDataService,private router:Router,private formbuilder:FormBuilder, public dialogRef: MatDialogRef<UpdateStaffComponent>) { 
     this.staffCd=data.staffCd
     console.log('staffCd',this.staffCd);
    
@@ -73,17 +73,15 @@ saveUpdateStaff(){
   this.staffdataservice.updateStaffByid(this.staffCd,this.staffdata).subscribe((data=>{
     console.log(data);
     alert('Successfully Updated');
-  }))
+    this.dialogRef.close();
+  }),errorMsg=>{
+    alert('Something Went Wrong');
+  })
 }
 
   onSubmit(){
     console.log(this.UpdateStaffform.value);
-    //  if(this.UpdateStaffform.Valid){
-           
-    //   this.saveUpdateStaff()
-    //   window.location.reload();
-    // }
-    // this.submitted=true;
+  
      this.saveUpdateStaff()
      
       

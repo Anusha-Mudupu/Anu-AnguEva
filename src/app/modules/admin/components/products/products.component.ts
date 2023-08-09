@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 import {Component, OnInit} from '@angular/core';
 import { Product } from 'src/app/data/data-objects';
 import { ProductDataService } from 'src/app/services/product-data.service';
@@ -48,7 +52,7 @@ export class ProductsComponent implements OnInit{
   openUpdateProduct(productId:any){
     const dialogRef =this.dialog.open( UpdateProductComponent,{
       data: { productId:productId}
-    })
+    }).afterClosed().subscribe(result=>{this.ngOnInit()});
   }
 
   GotoProduct(productId: number){

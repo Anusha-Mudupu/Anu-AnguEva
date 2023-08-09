@@ -36,36 +36,44 @@ productId:number;
 productSkuCd:string;
 listPrice:number;
 barCode:string;
-selfLocCd:string
+selfLocCd:string;
+option:option[];
+
 }
 
-export interface ProductSkuOptions{
-  optionTypeName:string;
-  optionTypeId:number;
- optionTypeFor:string
-  theOption:theOption[];
+export interface option{
+  optionName: string,
+  optionValue: string,
+  optionId: number,
+  productSkuOptionsId:number;
 }
-export interface theOption{
-  optionId: number;
-  optionTypeId: number;
-  optionValue: string;
-  productSkuId:number
-}
+// export interface ProductSkuOptions{
+//   optionTypeName:string;
+//   optionTypeId:number;
+//  optionTypeFor:string
+//   theOption:theOption[];
+// }
+// export interface theOption{
+//   optionId: number;
+//   optionTypeId: number;
+//   optionValue: string;
+//   productSkuId:number
+// }
  
 
-export interface Options{
+// export interface Options{
   
-    optionId: number;
-    optionName: string;
-    optionValue: string;
-    productSkuOptions:productSkuOptions[]
-}
+//     optionId: number;
+//     optionName: string;
+//     optionValue: string;
+//     productSkuOptions:productSkuOptions[]
+// }
 
-export interface productSkuOptions{
-  optionId: number,
-  productSkuId: number,
-  productSkuOptionsId: number
-}
+// export interface productSkuOptions{
+//   optionId: number,
+//   productSkuId: number,
+//   productSkuOptionsId: number
+// }
 
 export interface OrderDetails{
   orderId: number,

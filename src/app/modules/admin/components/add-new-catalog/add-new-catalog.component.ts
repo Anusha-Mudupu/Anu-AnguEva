@@ -55,14 +55,18 @@ this.addnewcatalogform = this.formBuilder.group({
           this.vendorservice.addNewCatalog(this.addnewcatalogform.value).subscribe(data=>{
             console.log(data);
             alert('Catalog added Successflly');
+          },errorMsg=>{
+            window.alert('Something Went Wrong');
           })
-          setTimeout(() => {
-            this.addnewcatalogform.reset();
-           this.snackBar.open('Form submitted successfully!', 'Close', {
-              duration: 4000,
-            });
-          }, 2000); 
+          // setTimeout(() => {
+          //   this.addnewcatalogform.reset();
+          //  this.snackBar.open('Form submitted successfully!', 'Close', {
+          //     duration: 4000,
+          //   });
+          // }, 2000); 
+          this.dialogRef.close();
         }
+        
        }
 
 }

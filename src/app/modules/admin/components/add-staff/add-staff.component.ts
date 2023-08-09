@@ -48,13 +48,14 @@ export class AddStaffComponent implements OnInit {
         console.log(data)
          alert('Staff Added Successfully');
       }))
+      this.dialogRef.close();
     }
-    setTimeout(() => {
-      this.addstaffform.reset();
-     this.snackBar.open('Form submitted successfully!', 'Close', {
-        duration: 4000,
-      });
-    }, 2000); 
+    // setTimeout(() => {
+    //   this.addstaffform.reset();
+    //  this.snackBar.open('Form submitted successfully!', 'Close', {
+    //     duration: 4000,
+    //   });
+    // }, 2000); 
     
     // this.router.navigate(['/admin/staff-list'])
   }

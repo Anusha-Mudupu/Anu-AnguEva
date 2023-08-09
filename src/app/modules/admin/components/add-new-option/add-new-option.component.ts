@@ -15,37 +15,40 @@ import { ProductSkuDataService } from 'src/app/services/productsku-data.service'
   styleUrls: ['./add-new-option.component.scss']
 })
 export class AddNewOptionComponent implements OnInit {
-  AddnewOptionform:FormGroup;
+  AddnewOptionform: FormGroup;
   submitted: boolean = false;
   snackBar: any;
-  constructor( private fb: FormBuilder,private http:HttpClient,private productskudataservice:ProductSkuDataService,private router:Router) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private productskudataservice: ProductSkuDataService, private router: Router, public dialogRef: MatDialogRef<AddNewOptionComponent>,) { }
 
   ngOnInit(): void {
-   this.AddnewOptionform=this.fb.group({
-    // optionName:new FormControl(''),
-    optionName: ['', Validators.compose([Validators.required])],
-    optionValue: ['', Validators.compose([Validators.required])],
-    // optionValue:new FormControl('')
+    this.AddnewOptionform = this.fb.group({
+      // optionName:new FormControl(''),
+      optionName: ['', Validators.compose([Validators.required])],
+      optionValue: ['', Validators.compose([Validators.required])],
+      // optionValue:new FormControl('')
     })
   }
 
-  addNewOption(){
-    this.submitted=true
-    if(this.AddnewOptionform.valid){
-   this.productskudataservice.addNewOption(this.AddnewOptionform.value).subscribe((res:any)=>{
-    console.log(res);
-    alert('Successfully Added NewOption');
-   })
+  addNewOption() {
+    this.submitted = true
+    if (this.AddnewOptionform.valid) {
+      this.productskudataservice.addNewOption(this.AddnewOptionform.value).subscribe((res: any) => {
+        console.log(res);
+        alert('Successfully Added NewOption');
+      },errorMsg=>{
+        window.alert('Something Went Wrong');
+      })
 
-   setTimeout(() => {
-    this.AddnewOptionform.reset();
-   this.snackBar.open('Form submitted successfully!', 'Close', {
-      duration: 4000,
-    });
-  }, 2000); 
-  
+      // setTimeout(() => {
+      //   this.AddnewOptionform.reset();
+      //   this.snackBar.open('Form submitted successfully!', 'Close', {
+      //     duration: 4000,
+      //   });
+      // }, 2000);
+      this.dialogRef.close();
     }
-   
+  
+
   }
 
 
@@ -53,5 +56,4 @@ export class AddNewOptionComponent implements OnInit {
   //   this.router.navigate(['/admin/product-view/:productId/:productSkuId'])
   // }
 }
-       
-   
+

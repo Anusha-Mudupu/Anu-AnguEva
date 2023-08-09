@@ -69,7 +69,7 @@
 
         <mat-label>Select Catalog</mat-label>
         <mat-select multiple [(value)]="selectedCatalogVals">
-          <mat-option *ngFor="let item of AllcatalogData; let a=index;" [value]="item" (click)="onSelectCatalogs(a)">
+          <mat-option *ngFor="let item of AllcatalogData; let i=index;" [value]="item" (click)="onSelectCatalogs(i)">
             {{item.catalogName}}
 
           </mat-option>

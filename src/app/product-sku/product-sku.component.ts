@@ -66,7 +66,9 @@ export class ProductSkuComponent implements OnInit {
 
       alert('product Sku added successfully')
     },
-      error => console.log(error));
+      error => {
+        window.alert('Something Went Wrong');
+      });
 
 
   }
@@ -82,13 +84,15 @@ export class ProductSkuComponent implements OnInit {
     this.submitted = true;
     if (this.AddproductSkuform.valid) {
       this.saveProductSku()
-      setTimeout(() => {
-        this.AddproductSkuform.reset();
-       this.snackBar.open('Form submitted successfully!', 'Close', {
-          duration: 4000,
-        });
-      }, 2000); 
+      // setTimeout(() => {
+      //   this.AddproductSkuform.reset();
+      //  this.snackBar.open('Form submitted successfully!', 'Close', {
+      //     duration: 4000,
+      //   });
+      // }, 2000); 
+      this.dialogRef.close();
     }
+    
   }
 //  this.router.navigate(['/admin/products/:productId', this.productSku])
   // cancel() {
