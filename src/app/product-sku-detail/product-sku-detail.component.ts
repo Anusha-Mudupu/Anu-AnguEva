@@ -156,7 +156,7 @@ optionValues:any[]=[];
         this.productSku.status = 'Not-Available'
       }
     this.saveUpdateProductSku();
-    window.location.reload();
+     window.location.reload();
     // this.saveUploadImage();
     //  this.router.navigate(['/admin/products/:productId',this.productSku]);
 
