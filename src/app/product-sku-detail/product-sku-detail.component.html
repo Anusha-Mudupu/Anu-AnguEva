@@ -171,10 +171,10 @@
                     <mat-label>Select Option Value:</mat-label>
                     <mat-select [(value)]="selectedOptionValue">
                         <mat-option>Select an option value</mat-option>
-                        <mat-option *ngFor="let option of filteredOptions ;let i=index" [value]="option.optionValue" (click)="currentSelectedOptionValue(i)">{{
-                            option.optionValue }}</mat-option>
+                        <mat-option *ngFor="let option of optionValues ;let i=index" [value]="option.optionId" (click)="currentSelectedOptionValue(i)">{{option.optionValue}}</mat-option>
                     </mat-select>
                 </mat-form-field>
+                <span *ngIf="selectedOptionValue" class="clear-icon" (click)="clearSelection()">clear</span>
             </div>
         </div>
 

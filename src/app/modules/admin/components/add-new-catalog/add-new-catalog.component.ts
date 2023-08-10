@@ -22,8 +22,8 @@ export class AddNewCatalogComponent implements OnInit {
 
 this.addnewcatalogform = this.formBuilder.group({
   // catalogId: ['', Validators.compose([Validators.required])],
-  parentCatalogId: ['', Validators.compose([Validators.required])],
-  catalogLevel: ['',Validators.compose([Validators.required])],
+   parentCatalogId: ['', Validators.compose([Validators.required])],
+  // catalogLevel: ['',Validators.compose([Validators.required])],
   catalogName: ['', Validators.compose([Validators.required])],
   catalogDesc: ['', Validators.compose([Validators.required])],
   storeId: ['1', Validators.compose([Validators.required])],

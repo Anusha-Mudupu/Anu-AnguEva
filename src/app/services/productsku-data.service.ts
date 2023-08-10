@@ -100,7 +100,7 @@ export class ProductSkuDataService {
   }
 
   getAllOptions(){
-   return this.httpclient.get<option>(environment.getAllOptionsdata);
+   return this.httpclient.get<any>(environment.getAllOptionsdata);
   }
 
  

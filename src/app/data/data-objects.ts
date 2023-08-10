@@ -145,7 +145,7 @@ export interface AddNewCatalog{
   
   catalogId: number,
   parentCatalogId: number,
-  catalogLevel: number,
+  // catalogLevel: number,
   catalogName: string,
   catalogDesc: string,
   storeId: number

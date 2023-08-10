@@ -26,13 +26,15 @@ export class UpdateProductComponent implements OnInit {
   filteredcatalogdata: any;
   selectedcatalogid: any
   currentcatalogs: any
-  catalogItems: any
+  catalogItems: any;
+  v1:any;
   selectedvendors: any;
   filtervendordata: any;
-
+  vendorData1: any
   manufacturerNames: string[] = [];
   manufacturerObject: any;
   snackBar: any;
+  abc:any;
   constructor(private productservice: ProductDataService, @Inject(MAT_DIALOG_DATA) public data: any, private vendorservice: VendorDataService, private fb: FormBuilder, public dialogRef: MatDialogRef<UpdateProductComponent>,) {
     this.updateproductform = this.fb.group({
       productName: new FormControl('', [Validators.required]),
@@ -56,7 +58,8 @@ export class UpdateProductComponent implements OnInit {
       this.productdata = res;
       this.catalogsdata = this.productdata.catalog;
       console.log(this.productdata);
-
+      this.manufacturerObject = this.productdata.manufacturerName;
+      console.log(this.manufacturerObject)
       this.manufacturerObject = { manufacturerId: this.productdata.manufacturerId, manufacturerName: this.productdata.manufacturerName };
       this.manufacturerNames.push(this.manufacturerObject);
       console.log('manufacturerNames', this.manufacturerNames);
@@ -87,22 +90,22 @@ export class UpdateProductComponent implements OnInit {
 
     this.vendorservice.getVendors().subscribe((res: any) => {
       this.vendorData = res;
-      this.vendorData = this.vendorData.filter((item: any) => {
+      this.vendorData1 = this.vendorData.filter((item: any) => {
         return this.manufacturerNames.some((fiteritem: any) => {
           return fiteritem.manufacturerId === item.manufacturerId
         })
 
       })
-      this.selectedvendors = this.vendorData;
-
-
-      console.log();
+      this.selectedvendors = this.vendorData1;
+      this.v1 = this.selectedvendors.map((item: any) => {
+        return this.updateproductform.push(this.fb.group({
+          manufacturerId: item.manufacturerId,
+         
+        }));
+      });
       console.log('filtervendordata', this.selectedvendors);
-
+      console.log(this.updateproductform.value);
     })
-
-
-
   }
 
 
@@ -117,9 +120,6 @@ export class UpdateProductComponent implements OnInit {
     console.log("onSelectCatalogs Called", this.selectedCatalogVals);
     console.log('selectedcatalogid', this.selectedcatalogid = this.AllcatalogData[i].catalogId);
     this.currentcatalogs = this.selectedCatalogVals.filter((item: any) => item.catalogId !== this.selectedcatalogid);
-
-
-
     if (this.selectedCatalogVals >= this.catalogsdata) {
       this.catalog.push(this.fb.group({
         catalogId: this.selectedcatalogid,
@@ -144,10 +144,18 @@ export class UpdateProductComponent implements OnInit {
       }
     }
     console.log(this.updateproductform.value)
+}
+
+selectVendorname(i:any){
+  this.abc=this.selectedvendors[i].manufacturerId
+console.log('abc',this.abc);
+this.updateproductform.push(this.fb.group({
+  manufacturerId:this.abc
+}))
 
 
-  }
-
+console.log('form',this.updateproductform.value);
+}
   saveUpdateProduct() {
 
     this.productservice.updateProductById(this.productId, this.updateproductform.value).subscribe((data => {
@@ -156,9 +164,9 @@ export class UpdateProductComponent implements OnInit {
       this.dialogRef.close();
       alert('Product Successfully Updated');
     })
-    ,errorMsg=>{
-      alert('Something Went Wrong')
-    })
+      , errorMsg => {
+        alert('Something Went Wrong')
+      })
 
   }
 
@@ -166,11 +174,12 @@ export class UpdateProductComponent implements OnInit {
 
   onSubmit() {
     this.saveUpdateProduct();
-      }
+  }
 
 
 
 
+  
 
 
 

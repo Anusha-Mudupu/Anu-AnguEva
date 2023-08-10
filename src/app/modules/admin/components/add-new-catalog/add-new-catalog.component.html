@@ -21,23 +21,17 @@
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field class="catalogLevel" appearance="fill">
+                <!-- <mat-form-field class="catalogLevel" appearance="fill">
                     <mat-label>catalogLevel</mat-label>
                     <input matInput type="number" formControlName="catalogLevel">
                     <div *ngIf="submitted && addnewcatalogform.get('catalogLevel').invalid">
-                        <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
-                    </div>
-                </mat-form-field>
-
-
-
-                <!-- <mat-form-field class="parentCatalogId" appearance="fill">
-                    <mat-label>parentCatalogId</mat-label>
-                    <input matInput type="number" formControlName="parentCatalogId">
-                    <div *ngIf="submitted && addnewcatalogform.get('parentCatalogId').invalid">
-
+                        
                     </div>
                 </mat-form-field> -->
+
+
+
+              
                 <mat-form-field class="parentCatalogId" appearance="fill">
                     <mat-label>Select ParentCatalog</mat-label>
                     <mat-select formControlName="parentCatalogId">
@@ -45,8 +39,8 @@
                         {{item.catalogName}}
                       </mat-option>
             
-                      <div *ngIf="submitted && addnewcatalogform.get('catalogId').invalid">
-                        <!-- <div *ngIf="productForm.get('manufacturerId').errors.required"> Select Vendor Name.</div> -->
+                      <div *ngIf="submitted && addnewcatalogform.get('parentCatalogId').invalid">
+                         <!-- <div *ngIf="addnewcatalogform.get('parentCatalogId').errors.required"> Select Vendor Name.</div> -->
                       </div>
                     </mat-select>
                   </mat-form-field>

@@ -39,7 +39,7 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   updateproduct:'http://localhost:8085/api/updateProduct?productId=',
   downloadinvoice:'http://localhost:8085/downloadInvoice/',
   getAllParentCatalogs:'http://localhost:8085/api/getParentCatalogs',
-  getAllOptionsdata:'http://localhost:8085/api/getOptions'
+  getAllOptionsdata:'http://192.168.0.183:8085/api/getOptions'
    
 
 };

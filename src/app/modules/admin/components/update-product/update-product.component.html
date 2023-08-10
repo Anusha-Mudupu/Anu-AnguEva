@@ -2,6 +2,7 @@
 <div mat-dialog-content class="dialog-content">
   <form [formGroup]="updateproductform" id="form">
     <div class="container">
+      
       <div class="row">
 
         <div class="col-3">
@@ -27,18 +28,16 @@
 
       <div class="row">
         <div class="col-3">
+          
           <mat-form-field>
-
-            <mat-label>Select Vendor</mat-label>
-            <mat-select [(ngModel)]="selectedvendors" formControlName="manufacturerId">
-              <mat-option *ngFor="let vendor of vendorData; let a=index;" [value]="vendor.manufacturerId">
-                {{vendor.manufacturerName}}
-
+            <mat-label>Select Vendors</mat-label>
+            <mat-select name="selectedvendors" id="aantal" [(ngModel)]="selectedvendors"  formControlName="manufacturerId">
+              <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor.manufacturerId" (click)="selectVendorname(i)">
+                {{ vendor.manufacturerName }}
               </mat-option>
-
             </mat-select>
-
           </mat-form-field>
+          
         </div>
 
 
@@ -79,13 +78,7 @@
       </mat-form-field>
 
     </div>
-
-
-
-
-
-
-    <div mat-dialog-action [align]="'center'" id="buttons">
+  <div mat-dialog-action [align]="'center'" id="buttons">
       <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
       <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
 
@@ -93,3 +86,18 @@
 
   </form>
 </div>
+
+
+
+
+<!-- <mat-form-field class="col-4">
+  <mat-label>Select Vendors</mat-label>
+  <mat-select name="selectedvendors" id="aantal" [(ngModel)]="selectedvendors" multiple>
+    <mat-option *ngFor="let vendor of vendorData" [value]="vendor">
+      {{ vendor.manufacturerName }}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+
+
