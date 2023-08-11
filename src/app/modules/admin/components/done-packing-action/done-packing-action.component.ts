@@ -65,15 +65,15 @@ export class DonePackingActionComponent implements OnInit {
 
 
 
-  packingDone(event: any) {
-    this.currentstatus = event.target.value;
-    console.log(this.currentstatus)
+  packingDone(value: any) {
+    
+    console.log('value',value)
 
   }
 
 
   submit() {
-    this.packingDone(event)
+    this.packingDone(this.packingdone)
 
     if (this.OrderStatus.status == 'SUCCESS') {
       this.firstformdisable = false;

@@ -55,11 +55,11 @@
     <div id="submittedbtns">
 
 
-        <button (click)="packingDone($event)"  [value]="packingdone"  (click)="submit()" mat-raised-button color="primary" 
+        <button (click)="packingDone('packingdone')"    (click)="submit()" mat-raised-button color="primary" 
             style="margin-left:10px;width: 90px;" [disabled]="firstformdisable">Confirm</button>
-        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus"
+        <input type="text" placeholder="{{packingdone}}" formControlName="statusCd" [(ngModel)]="packingdone"
             hidden>
-        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;" >Cancel</button>
     </div>
 
 </form>

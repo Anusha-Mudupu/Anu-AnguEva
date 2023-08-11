@@ -57,15 +57,15 @@ export class FinishShippingActionComponent implements OnInit {
 
   
   
-  finishShipping(event:any){
-    this.currentstatus=event.target.value;
-    console.log(this.currentstatus)
+  finishShipping(value:any){
+   
+    console.log('value',value);
 
     }
  
       
      submit(){
-     this.finishShipping(event)
+     this.finishShipping(this.finishshipping)
    
       if (this.OrderStatus.status == 'SUCCESS') {
         this.firstformdisable = false;

@@ -5,6 +5,11 @@
 .box{
    
     margin-top: 70px;
+    margin-left: 80px;
+   border-style: ridge;
+   width:1700px ;
+   height: auto;
+   border-radius: 10px;
 
 }
 
@@ -12,30 +17,34 @@
     margin-left: 200px;
 
 }
-  .col-2{
+  .col-3{
     padding: 0px;
-    margin-left: 80px;
+    margin-left: 50px;
+    margin-top: 10px;
   }
   
   .textarea{
-    width: 280px;
-    margin-left: 50px;
+    width: 410px;
+    height: auto;
+    margin-left: 30px;
   }
   .button{
-    margin-left: 600px;
-    margin-top: 40px;
+    margin-left: 650px;
+    margin-top: 100px;
     width: 500px;
+  
   
   }
   .invalid{
     color: red;
   }
   #toggle{
-   margin-left:830px;
-   margin-top: -80px;
+   margin-left:100px;
+   margin-top: 10px;
   }
   .select{
-    font-size: medium;
+    font-weight: bolder;
+    font-size: 21px;
     margin-left: -50px;
     margin-top: 0px;
   }
@@ -50,6 +59,7 @@
    .images{
     display:inline-flex;
     margin-left: -250px;
+    margin-top: 10px;
     
    }
    .img1{
@@ -64,47 +74,54 @@
   #editbtn{
   margin-left: 900px;
   width: 100px;
-  margin-top: -35px;
+  margin-top: 10px;
   position: absolute;
 }
 #addoptbtn{
   margin-left: 1050px;
-  width: 160px;
-  margin-top: -35px;
+  width: 150px;
+  margin-top: 10px;
   position: absolute;
 }
 
-#plusicon{
-  margin-left: 760px;
-  width: 160px;
+// #plusicon{
+//   margin-left: 760px;
+//   width: 160px;
   
-  position: absolute;
- }
+//   position: absolute;
+//  }
 
   .labelforoptions{
-    font-size: 20px;
+    font-size: 21px;
+    font-weight: bolder;
+    margin-top: 10px;
    
   }
   #labelforoptionsvalues{
-    font-size: 20px;
+    font-size: 21px;
+    font-weight: bolder;
+    margin-top: 10px;
    
   }
   .para{
-    font-size: 20px;
+    font-size: 21px;
+    font-weight: bolder;
      
   }
-  #trashbin{
-    margin-left: 10px;
-    color: red;
-  }
+  // #trashbin{
+  //   margin-left: 10px;
+  //   color: red;
+  // }
  .optionsize{
-  font-size: 18px;
+  font-size: 20px;
+  font-family: initial;
+  margin-top: 10px;
  }
 
- #plusicon{
-  margin-left: 40px;
-  margin-top: -40px;
- }
+//  #plusicon{
+//   margin-left: 40px;
+//   margin-top: -40px;
+//  }
  .gstcd{
   font-size: 20px;
   display:inline-flex;
@@ -165,26 +182,28 @@
 }
 #gstPercentage{
   font-size: 20px;
-  margin-left:150px;
+  margin-left:50px;
 }
 #Gst{
-  margin-left: 270px;
-
-  margin-top: 10px;
+  margin-left:950px;
+position: absolute;
+   margin-top: 10px;
   border-style: ridge;
-  width: 500px;
+  width: 400px;
+  height: 100px;
 }
 #gsteditbtn{
-  margin-top: -50px;
-  margin-left: 150px;
+  margin-top: -150px;
+  margin-left: 120px;
   font-size: 10px;
 
 }
-#lastrow{
-  margin-left: 220px;
-}
+// #lastrow{
+//   margin-left: 220px;
+// }
 #productId{
-  margin-left: 20px;
+  margin-left: 5px;
+  cursor: not-allowed;
 }
 .form-label{
   font-size: 18px;
@@ -194,13 +213,13 @@
 #productSkuId{
   cursor: not-allowed;
 }
-#productId{
-  cursor: not-allowed;
-}
-  #selectoptions{
-    margin-left: 1000px;
-    margin-top: -60px;
-  }
+// #productId{
+//   cursor: not-allowed;
+// }
+  // #selectoptions{
+  //   margin-left: 1000px;
+  //   margin-top: -60px;
+  // }
   .clear-icon {
     cursor: pointer;
     font-size: 16px;

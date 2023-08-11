@@ -54,9 +54,9 @@
     <div id="submittedbtns">
 
 
-        <button (click)="startPacking($event);" [value]="startpacking" class="btn btn-success" (click)="submit()"
+        <button (click)="startPacking('startpacking');"  class="btn btn-success" (click)="submit()"
             style="margin-left:10px;width: 90px;" [disabled]="firstformdisable">Start</button>
-        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus"
+        <input type="text" placeholder="{{startpacking}}" formControlName="statusCd" [(ngModel)]="startpacking"
             hidden>
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
     </div>

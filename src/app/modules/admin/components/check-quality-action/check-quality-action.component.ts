@@ -73,15 +73,15 @@ export class CheckQualityActionComponent implements OnInit {
 
 
 
-  checkQuality(event:any){
-    this.currentstatus=event.target.value;
-    console.log(this.currentstatus)
+  checkQuality(value:any){
+    // this.currentstatus=event.target.value;
+    console.log('value',value);
 
     }
   
   
       submit(){
-         this.checkQuality(event)
+         this.checkQuality(this.checkquality)
        
         if (this.OrderStatus.status == 'SUCCESS') {
           this.firstformdisable = false;

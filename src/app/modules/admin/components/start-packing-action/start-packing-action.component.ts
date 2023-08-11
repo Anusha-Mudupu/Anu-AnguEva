@@ -61,13 +61,9 @@ export class StartPackingActionComponent implements OnInit {
     });
   }
 
-  startPacking(event: any) {
-
-    this.currentstatus = event.target.value;
-    console.log(this.currentstatus)
-   
-
-  }
+  startPacking(value: any) {
+ console.log('value',value)
+   }
   saveOrderWithUpdatedStatus() {
     this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
       this.OrderStatus = data;
@@ -76,7 +72,7 @@ export class StartPackingActionComponent implements OnInit {
   }
 
   submit() {
-    this.startPacking(event)
+    this.startPacking(this.startpacking)
     
     if (this.OrderStatus.status == 'SUCCESS') {
       this.firstformdisable = false;

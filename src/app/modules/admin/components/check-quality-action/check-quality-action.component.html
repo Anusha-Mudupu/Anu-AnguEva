@@ -33,8 +33,8 @@
     </div>
     <div id="submittedbtns">
         
-        <button (click)="checkQuality($event)" [value]="checkquality" (click)="submit()" style="width: 90px;"  class="btn btn-success"[disabled]="firstformdisable" >Start</button>
-        <input type="text" placeholder="{{currentstatus}}"  formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
+        <button (click)="checkQuality('checkquality')"  (click)="submit()" style="width: 90px;"  class="btn btn-success"[disabled]="firstformdisable" >Start</button>
+        <input type="text" placeholder="{{checkquality}}"  formControlName="statusCd" [(ngModel)]="checkquality" hidden>
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
         
     </div>

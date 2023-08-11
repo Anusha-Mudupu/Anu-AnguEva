@@ -55,9 +55,9 @@
     <div id="submittedbtns">
 
 
-        <button (click)="finishShipping($event)"  [value]="finishshipping" (click)="submit()"  mat-raised-button color="primary" 
+        <button (click)="finishShipping('finishshipping')" (click)="submit()"  mat-raised-button color="primary" 
             style="margin-left:10px;width: 90px;">Start</button>
-        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus" hidden>
+        <input type="text" placeholder="{{finishshipping}}" formControlName="statusCd" [(ngModel)]="finishshipping" hidden>
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
     </div>
    

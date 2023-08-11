@@ -130,9 +130,7 @@ export class UpdateProductComponent implements OnInit {
     }
     else {
       if (this.selectedCatalogVals < this.catalogsdata) {
-
-
-        this.catalog.clear()
+         this.catalog.clear()
         this.currentcatalogs.forEach((item: any) => {
           this.catalog.push(this.fb.group({
             catalogId: new FormControl(item.catalogId),
@@ -146,16 +144,16 @@ export class UpdateProductComponent implements OnInit {
     console.log(this.updateproductform.value)
 }
 
-selectVendorname(i:any){
-  this.abc=this.selectedvendors[i].manufacturerId
-console.log('abc',this.abc);
-this.updateproductform.push(this.fb.group({
-  manufacturerId:this.abc
-}))
+// selectVendorname(i:any){
+//   this.abc=this.selectedvendors[i].manufacturerId
+// console.log('abc',this.abc);
+// this.updateproductform.push(this.fb.group({
+//   manufacturerId:this.abc
+// }))
 
 
-console.log('form',this.updateproductform.value);
-}
+// console.log('form',this.updateproductform.value);
+// }
   saveUpdateProduct() {
 
     this.productservice.updateProductById(this.productId, this.updateproductform.value).subscribe((data => {

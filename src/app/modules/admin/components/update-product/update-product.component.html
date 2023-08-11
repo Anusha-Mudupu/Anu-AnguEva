@@ -32,7 +32,7 @@
           <mat-form-field>
             <mat-label>Select Vendors</mat-label>
             <mat-select name="selectedvendors" id="aantal" [(ngModel)]="selectedvendors"  formControlName="manufacturerId">
-              <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor.manufacturerId" (click)="selectVendorname(i)">
+              <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor.manufacturerId">
                 {{ vendor.manufacturerName }}
               </mat-option>
             </mat-select>
@@ -99,5 +99,12 @@
   </mat-select>
 </mat-form-field> -->
 
-
+<!-- <mat-form-field>
+  <mat-label>Select Vendors</mat-label>
+  <mat-select name="selectedvendors" id="aantal" [(ngModel)]="selectedvendors"  formControlName="manufacturerId">
+    <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor.manufacturerId" (click)="selectVendorname(i)">
+      {{ vendor.manufacturerName }}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
 

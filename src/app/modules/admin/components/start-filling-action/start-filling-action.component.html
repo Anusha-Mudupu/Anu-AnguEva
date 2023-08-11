@@ -29,14 +29,12 @@
             </tbody>
         </table>
     </div>
-    <div id="submittedbtns">
+    <div id="submittedbtns" *ngIf="startfilling">
 
-        <button (click)="filling($event)" [value]="startfilling" mat-raised-button color="primary" (click)="startfillingaction()">Start</button>
-        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus"
-            hidden>
+        <button (click)="filling('startfilling')" mat-raised-button color="primary"
+            (click)="startfillingaction()">Start</button>
+        <input type="text" placeholder="{{startfilling}}" formControlName="statusCd" [(ngModel)]="startfilling" hidden>
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
-
-
     </div>
 </form>
 
@@ -47,7 +45,7 @@
             <div class="col-3">
 
                 <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                    placeholder="{{Orderdetails.orderId}}"  hidden>
+                    placeholder="{{Orderdetails.orderId}}" hidden>
 
             </div>
             <label id="enterstafflablel">Enter Staff Code: </label>

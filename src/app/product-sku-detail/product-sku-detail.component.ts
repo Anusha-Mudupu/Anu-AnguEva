@@ -46,7 +46,7 @@ export class ProductSkuDetailComponent implements OnInit {
  currentOptionValueId: any;
  currentOptionName:any;
  optionsDetails:any;
-optionValues:any[]=[];
+optionValues:any;
 
   constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService, private dialog: MatDialog, private fb: FormBuilder) {
     this.Updateform = this.fb.group({
@@ -54,9 +54,9 @@ optionValues:any[]=[];
       price: new FormControl('', Validators.compose([Validators.required])),
       productSkuCd: new FormControl('', Validators.compose([Validators.required])),
       count: new FormControl('', Validators.compose([Validators.required])),
-      Discount: new FormControl('', Validators.compose([Validators.required])),
-      barcode: new FormControl('', Validators.compose([Validators.required])),
-      Description: new FormControl('', Validators.compose([Validators.required])),
+      discount: new FormControl('', Validators.compose([Validators.required])),
+      barCode: new FormControl('', Validators.compose([Validators.required])),
+      skuDescription: new FormControl('', Validators.compose([Validators.required])),
       productId: new FormControl('', Validators.compose([Validators.required])),
       status: new FormControl('', Validators.compose([Validators.required])),
       profile: new FormControl('', Validators.compose([Validators.required])),
@@ -108,7 +108,7 @@ optionValues:any[]=[];
     if (this.selectedOptionName) {
       this.filteredOptions = this.alloptionsData.filter((option: any) => option.optionName === this.selectedOptionName);
       console.log('filteredoptiondata', this.filteredOptions);
-      this.currentOptionName = this.filteredOptions[i].optionValue;
+      // this.currentOptionName = this.filteredOptions[i].optionValue;
      }
      this.filteredOptionValuesArray=this.filteredOptions.find((item:any)=>item.optionValue)
      this.optionValues=this.filteredOptionValuesArray.optionValue;
@@ -144,6 +144,7 @@ optionValues:any[]=[];
     }
     );
     console.log(this.Updateform.value)
+   
   }
 
   onSubmit() {
@@ -156,7 +157,7 @@ optionValues:any[]=[];
         this.productSku.status = 'Not-Available'
       }
     this.saveUpdateProductSku();
-     window.location.reload();
+    window.location.reload();
     // this.saveUploadImage();
     //  this.router.navigate(['/admin/products/:productId',this.productSku]);
 

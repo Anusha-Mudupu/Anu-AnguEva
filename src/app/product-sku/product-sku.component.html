@@ -76,6 +76,9 @@
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
                     [(ngModel)]="productSku.status" formControlName="status">
                 <span>{{productSku.status? 'Available' : 'Not-Available'}}</span>
+                <div *ngIf="submitted && AddproductSkuform.get('status').invalid" class="text-danger">
+                    Please Select Status
+                </div>
             </div>
 
 

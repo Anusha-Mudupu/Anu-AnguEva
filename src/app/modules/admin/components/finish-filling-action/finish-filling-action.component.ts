@@ -130,7 +130,21 @@ export class FinishFillingActionComponent implements OnInit {
   }
   fillingFailed() {
     this.failed(event);
-    this.saveOrderWithUpdatedStatus();
+    // this.saveOrderWithUpdatedStatus();
+    if (this.OrderStatus.status == 'SUCCESS') {
+      this.firstformdisable = false;
+      this.secondFormPopupVisible = false;
+      alert('SUCCESSFULLY FILLED');
+
+    }
+    else {
+      if (this.OrderStatus.status == 'FAILURE') {
+        this.firstformdisable = true;
+        this.secondFormPopupVisible = true;
+        window.alert('VERIFY THE STAFF FIRST');
+      }
+
+    }
   }
 
   submitSecondForm() {

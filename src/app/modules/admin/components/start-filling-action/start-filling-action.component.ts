@@ -14,26 +14,27 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./start-filling-action.component.scss']
 })
 export class StartFillingActionComponent implements OnInit {
-   orderId:any  
+  orderId: any
   Orderdetails: any;
   orderItemDetails: any;
   OrderStatus: any;
-  startFillingform:any;
+  startFillingform: any;
   imageBaseUrl: any;
-  currentstatus:any
-startfilling='FILLING IN PROGRESS'
-firstformdisable: boolean = false;
+  currentstatus: any
+  public startfilling = 'FILLING IN PROGRESS'
+
+  firstformdisable: boolean = false;
   secondFormPopupVisible: boolean = false;
-  errorMessage:any
-  constructor(private dialogRef: MatDialogRef<StartFillingActionComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private productskudataservice:ProductSkuDataService ) { 
-    this.orderId=data.orderId
+  errorMessage: any
+  constructor(private dialogRef: MatDialogRef<StartFillingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
+    this.orderId = data.orderId
 
 
-    this.startFillingform=new FormGroup({
-      statusCd:new FormControl(),
-      orderId:new FormControl(),
+    this.startFillingform = new FormGroup({
+      statusCd: new FormControl(),
+      orderId: new FormControl(),
       staffCd: new FormControl()
-     
+
     })
   }
   public config = {
@@ -45,16 +46,17 @@ firstformdisable: boolean = false;
     // styles: ['td { border: 1px solid black; color: green;margin-top:400px;position:absolute }', 'table { border: 1px solid black; }', 'header, table, footer { margin-top:100px text-align: center; }']
 
   }
- 
- 
+
+
   ngOnInit(): void {
-    this.imageBaseUrl=environment.imagesBaseUrl
-    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data=>{
-      this.Orderdetails=data;
-      this.orderItemDetails=this.Orderdetails.orderItems
-     console.log(data)
-     });
-     this.productskudataservice.updateOrderStatus(this.startFillingform.value).subscribe((data:any) => {
+    console.log(this.startfilling);
+    this.imageBaseUrl = environment.imagesBaseUrl
+    this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data => {
+      this.Orderdetails = data;
+      this.orderItemDetails = this.Orderdetails.orderItems
+      console.log(data)
+    });
+    this.productskudataservice.updateOrderStatus(this.startFillingform.value).subscribe((data: any) => {
       this.OrderStatus = data;
       console.log(this.OrderStatus);
       this.errorMessage = this.OrderStatus.message
@@ -66,28 +68,35 @@ firstformdisable: boolean = false;
 
 
   }
-  filling(event:any){
-  this.currentstatus=event.target.value;
-  console.log(this.currentstatus)
+  //   buttonClicked(value: string) {
+
+  //     console.log('Button clicked with value:', value);
+  // }
+
+
+  filling(value: any) {
+
+    console.log('button clicked with:', value);
   }
 
- 
-  startfillingaction(){
-  this.filling(event);
-  if (this.OrderStatus.status == 'SUCCESS') {
-    this.firstformdisable = false;
-    this.secondFormPopupVisible = false;
-    alert('SHIPPING IN PROGRESS');
 
-  }
-  else {
-    if (this.OrderStatus.status == 'FAILURE') {
-      this.firstformdisable = true;
-      this.secondFormPopupVisible = true;
-      window.alert('VERIFY THE STAFF FIRST');
+  startfillingaction() {
+    this.filling(this.startfilling)
+
+    if (this.OrderStatus.status == 'SUCCESS') {
+      this.firstformdisable = false;
+      this.secondFormPopupVisible = false;
+      alert('SHIPPING IN PROGRESS');
+
     }
+    else {
+      if (this.OrderStatus.status == 'FAILURE') {
+        this.firstformdisable = true;
+        this.secondFormPopupVisible = true;
+        window.alert('VERIFY THE STAFF FIRST');
+      }
 
-  }
+    }
 
   }
 
@@ -112,7 +121,7 @@ firstformdisable: boolean = false;
       }
 
     })
-   }
-    
+  }
+
 
 }
