@@ -2,6 +2,7 @@
 
 
     <h1 id="headding"> Start Shipping</h1>
+    <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
     <div id="printbtns">
 
         <button [print]="['printstartshippingform', config]" id="printbtn1">Print</button>
@@ -59,7 +60,7 @@
             color="primary" style="margin-left:10px;width: 90px;" [disabled]="firstformdisable">Start</button>
         <input type="text" placeholder="{{StartShipping}}" formControlName="statusCd" [(ngModel)]="StartShipping"
             hidden>
-        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+       
     </div>
 
 </form>
@@ -81,7 +82,7 @@
 
             <div class="col-3" id="sbmtbtn">
                 <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-
+                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
             </div>
         </div>
 

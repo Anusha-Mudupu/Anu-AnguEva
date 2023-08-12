@@ -1,6 +1,7 @@
 <button [print]="['printstartfillingform', config]" id="printbtn">Print</button>
 
 <form [formGroup]="startFillingform" id="form">
+    <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
     <h1>Fill Order</h1>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
@@ -32,9 +33,9 @@
     <div id="submittedbtns" *ngIf="startfilling">
 
         <button (click)="filling('startfilling')" mat-raised-button color="primary"
-            (click)="startfillingaction()">Start</button>
+            (click)="startfillingaction()" [disabled]="firstformdisable">Start</button>
         <input type="text" placeholder="{{startfilling}}" formControlName="statusCd" [(ngModel)]="startfilling" hidden>
-        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+        
     </div>
 </form>
 
@@ -55,7 +56,7 @@
 
             <div class="col-3" id="sbmtbtn">
                 <button type="submit" (click)="staffVerificationForm()" class="btn btn-success">Submit</button>
-
+                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
             </div>
         </div>
 

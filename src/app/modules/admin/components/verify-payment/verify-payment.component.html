@@ -1,7 +1,7 @@
 <button [print]="['printverifipaymentform', config]" id="printbtn">Print</button>
 <div id="maindiv">
     <form [formGroup]="verifypaymentform" id="form">
-
+        <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
 
         <h1>Verify Payment</h1>
 
@@ -60,7 +60,7 @@
             <input type="text" placeholder="{{paymentfail}}" formControlName="statusCd" [(ngModel)]="paymentfail"
                 hidden>
 
-            <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
+            
 
         </div>
     </form>
@@ -82,7 +82,7 @@
 
                 <div class="col-3" id="sbmtbtn">
                     <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-
+                    <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
                 </div>
             </div>
 

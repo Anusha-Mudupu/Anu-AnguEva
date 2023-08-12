@@ -4,6 +4,7 @@
 <button [print]="['printcheckqualityform', config]" id="printbtn">Print</button>
 <form [formGroup]="checkqualityform" id="form">
     <h1>Check Quality</h1>
+    <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
     <div id="table">
@@ -35,7 +36,7 @@
         
         <button (click)="checkQuality('checkquality')"  (click)="submit()" style="width: 90px;"  class="btn btn-success"[disabled]="firstformdisable" >Start</button>
         <input type="text" placeholder="{{checkquality}}"  formControlName="statusCd" [(ngModel)]="checkquality" hidden>
-        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+       
         
     </div>
 </form>
@@ -57,7 +58,7 @@
 
             <div class="col-3" id="sbmtbtn">  
                 <button type="submit" (click)="submitSecondForm()" class="btn btn-success" >Submit</button>
-
+                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
             </div>
         </div>
 

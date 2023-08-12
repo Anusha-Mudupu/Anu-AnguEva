@@ -3,6 +3,7 @@
 
 <form [formGroup]="packingdoneform" id="form">
 <h1 id="headding"> Packing Confirmation</h1>
+<button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
     <div id="printbtns">
         <!-- <button type="button" id="printbtn1">Print Label</button> -->
         <button [print]="['printdonepackingform', config]" id="printbtn1">Print</button>
@@ -59,7 +60,7 @@
             style="margin-left:10px;width: 90px;" [disabled]="firstformdisable">Confirm</button>
         <input type="text" placeholder="{{packingdone}}" formControlName="statusCd" [(ngModel)]="packingdone"
             hidden>
-        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;" >Cancel</button>
+       
     </div>
 
 </form>
@@ -81,7 +82,7 @@
 
             <div class="col-3" id="sbmtbtn">
                 <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-
+                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;" >Cancel</button>
             </div>
         </div>
 

@@ -1,19 +1,19 @@
 <form id="form" [formGroup]="AddnewOptionform">
+  <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
+  <h1>Add New Option</h1>
   <div class="row" id="main">
-
-
     <div class="col-5">
-      <label for="OptionName">OptionName:</label>
+      <label for="OptionName" style="margin-top: 10px;font-family: initial;font-weight: bolder;font-size:18px;">OptionName:</label>
       <input type="text" class="form-control" id="OptionName" formControlName="optionName">
-      <div *ngIf="AddnewOptionform.get('optionName')?.invalid && AddnewOptionform.get('optionName')?.touched">
+      <div *ngIf="AddnewOptionform.get('optionName')?.invalid && AddnewOptionform.get('optionName')?.touched" style="margin-top: 10px;">
         <div *ngIf="AddnewOptionform.get('optionName')?.errors?.['required']" style="color: red;">Name is required.
         </div>
       </div>
 
     </div>
     <div class="col-5">
-      <label for="OptionValue">OptionValue:</label>
-      <input type="text" class="form-control" id="OptionValue" formControlName="optionValue" required>
+      <label for="OptionValue"  style="margin-top: 10px;font-family: initial;font-weight: bolder;font-size:18px;">OptionValue:</label>
+      <input type="text" class="form-control" id="OptionValue" formControlName="optionValue" required style="margin-top: 10px;">
       <div *ngIf="AddnewOptionform.get('optionValue')?.invalid && AddnewOptionform.get('optionValue')?.touched">
         <div *ngIf="AddnewOptionform.get('optionValue')?.errors?.['required']" style="color: red;">Name is required.
         </div>

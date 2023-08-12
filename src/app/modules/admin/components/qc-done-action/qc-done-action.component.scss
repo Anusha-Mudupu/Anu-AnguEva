@@ -42,13 +42,13 @@ font-family:initial ;
 
 }
 h1{
-  margin-left: 450px;
+  margin-left: 480px;
   color: coral;
 }
 
 #submittedbtns{
     margin-top:30px;
-   margin-left: 400px;
+   margin-left: 500px;
   
   
 }
@@ -70,7 +70,7 @@ h1{
   border: ridge 10px;
 width: 800px;
 height: 200px;
-margin-top: 50px;
+margin-top: 20px;
 margin-left: 250px;
 }
 #staffcd{
@@ -88,4 +88,10 @@ margin-left: 250px;
   margin-top: 130px;
   margin-left: 20px;
   font-size: 18px;
+}
+#crossbtn{
+  margin-left: 1150px;
+  margin-top: -50px;
+  position: absolute;
+   color: red;
 }

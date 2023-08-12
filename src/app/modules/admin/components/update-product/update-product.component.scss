@@ -6,32 +6,51 @@
 .dialog-content{
     width: 1200px;
     height: 500px;
+    font-family: initial;
+
 }
 .col-3{
     margin-left: 50px;
+    font-family: initial;
 }
 .container{
     margin-top: 40px;
     margin-left: 90px;
+    font-family: initial;
 }
 #buttons{
     margin-top: 100px;
     margin-left: 500px;
     position: fixed;
+    font-family: initial;
 }
 
 
 .example-additional-selection {
     opacity: 0.75;
     font-size: 0.75em;
+    font-family: initial;
   }
 .product-catalog{
     margin-left: 150px;
     margin-top: 10px;
+    font-family: initial;
 }
 #productid{
     cursor: not-allowed;
+    font-family: initial;
 }
+.form-label{
+    font-weight: bolder;
+    font-size: 18px;
+    margin-top: 10px;
+}
+#crossbtn{
+    margin-left: 1100px;
+    margin-top: -50px;
+    color: red;
+    
+  }
 @media screen and (min-width: 500px) and (max-width: 1350px) {
 
     .dialog-content{
@@ -61,7 +80,10 @@
         margin-left: 100px;
         margin-top: 10px;
     }
- 
+    #crossbtn{
+        margin-left: 100px;
+        margin-top: -50px;
+      }
   }
 
 

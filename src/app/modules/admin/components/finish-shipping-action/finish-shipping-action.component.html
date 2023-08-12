@@ -6,6 +6,7 @@
 
 
     <h1 id="headding"> Finish Shipping</h1>
+    <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
  
     <div class="card" class="card1">
 
@@ -58,7 +59,7 @@
         <button (click)="finishShipping('finishshipping')" (click)="submit()"  mat-raised-button color="primary" 
             style="margin-left:10px;width: 90px;">Start</button>
         <input type="text" placeholder="{{finishshipping}}" formControlName="statusCd" [(ngModel)]="finishshipping" hidden>
-        <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+       
     </div>
    
 </form>
@@ -80,7 +81,7 @@
 
             <div class="col-3" id="sbmtbtn">
                 <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-
+                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
             </div>
         </div>
 

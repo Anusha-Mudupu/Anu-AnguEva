@@ -5,6 +5,7 @@
 .catalogName {
     font-size: large;
     margin-left: 5%;
+    font-family: initial;
 }
 
 
@@ -12,23 +13,41 @@
 .catalogDesc {
     font-size: large;
     margin-left: 5%;
+    font-family: initial;
 }
 .catalogLevel {
     font-size: large;
     margin-left: 5%;
+    font-family: initial;
 }
 .parentCatalogId {
     font-size: large;
     margin-left: 5%;
+    font-family: initial;
 }
 
 .dialog-content {
     height: 500px;
     width: 600px;
+    margin-top: 30px;
+    font-family: initial;
 }
 
 button {
     font-size: large;
     margin-top: 100px;
+    font-family: initial;
 }
 
+#crossbtn{
+    margin-left: 480px;
+    margin-top: -60px;
+    size: 10px;
+    color: red;
+  }
+  h1{
+    margin-left: 150px;
+    margin-top: -10px;
+    font-family: initial;
+    font-weight: bolder;
+  }

@@ -69,8 +69,8 @@ h1{
   border: ridge 10px;
 width: 800px;
 height: 200px;
-margin-top: 50px;
-margin-left: 250px;
+margin-top: 20px;
+margin-left: 210px;
 }
 #staffcd{
   margin-top: 120px;
@@ -87,4 +87,10 @@ margin-left: 250px;
   margin-top: 130px;
   margin-left: 20px;
   font-size: 18px;
+}
+#crossbtn{
+  margin-left: 1090px;
+  margin-top: -50px;
+  position: absolute;
+   color: red;
 }

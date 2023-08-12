@@ -189,11 +189,11 @@ h1{
 }
 
 #printbtn{
-  margin-left: 900px;
+  margin-left: 890px;
   width: 100px;
   height: 30px;
   color: cadetblue;
-  margin-top:5px;
+  margin-top:10px;
   position: absolute;
 }
 
@@ -205,8 +205,8 @@ h1{
   border: ridge 10px;
 width: 800px;
 height: 200px;
-margin-top: 50px;
-margin-left: 250px;
+margin-top: 40px;
+margin-left: 200px;
 }
 #staffcd{
   margin-top: 120px;
@@ -223,4 +223,9 @@ margin-left: 250px;
   margin-top: 130px;
   margin-left: 20px;
   font-size: 18px;
+}
+#crossbtn{
+  margin-left: 1040px;
+  margin-top: -50px;
+   color: red;
 }

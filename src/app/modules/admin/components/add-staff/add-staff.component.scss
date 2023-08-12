@@ -67,6 +67,12 @@ button {
     margin-top: 10px;
   
 }
+#crossbtn{
+    margin-left: 1000px;
+    margin-top: -60px;
+    position: absolute;
+     color: red;
+  }
 
 @media screen and (min-width:360px) and (max-width:1400px){
     .dialog-content {
