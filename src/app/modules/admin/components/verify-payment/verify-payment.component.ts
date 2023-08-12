@@ -91,7 +91,7 @@ export class VerifyPaymentComponent implements OnInit {
   failed(event: any) {
     this.paymentfail = event.target.value;
     console.log(this.paymentfail);
-    alert('Payment Failed')
+    // alert('Payment Failed')
 
   }
 
@@ -130,7 +130,21 @@ export class VerifyPaymentComponent implements OnInit {
 
   paymentFailed() {
     this.failed(event);
-    this.saveOrderWithUpdatedStatus();
+    if (this.OrderStatus.status == 'SUCCESS') {
+      this.firstformdisable = false;
+      this.secondFormPopupVisible = false;
+      alert('PAYMENT VERIFIED SCCESSFULLY');
+      console.log('Payment Verified Successful')
+    }
+    else {
+      if (this.OrderStatus.status == 'FAILURE') {
+        this.firstformdisable = true;
+        this.secondFormPopupVisible = true;
+        window.alert('VERIFY THE STAFF FIRST');
+      }
+
+    }
+    // this.saveOrderWithUpdatedStatus();
   }
 
 

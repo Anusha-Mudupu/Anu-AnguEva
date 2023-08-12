@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductSkuDataService } from '../services/productsku-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -21,8 +21,9 @@ export class SelectGstComponent implements OnInit {
   gstForm: FormGroup;
   gstid: any
   selectedGstCode: any
-  productskudetails: any
-  constructor(private productskudataservice: ProductSkuDataService, private router: Router, private activate: ActivatedRoute) { }
+  productskudetails: any;
+  submitted: boolean = false;
+  constructor(private productskudataservice: ProductSkuDataService, private router: Router, private activate: ActivatedRoute,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.productskudataservice.getAllGstCodes().subscribe((data: any) => {
@@ -37,8 +38,8 @@ export class SelectGstComponent implements OnInit {
       console.log(data);
       console.log(this.id)
     })
-    this.gstForm = new FormGroup({
-     gstId: new FormControl(''),
+    this.gstForm =this.formBuilder.group({
+     gstId: ['', Validators.required]
      
     })
 
@@ -62,10 +63,14 @@ export class SelectGstComponent implements OnInit {
   }
 
   onSubmit() {
+   
+  
+    
     this.saveUpdateGst()
     alert('successfully Updated')
     this.router.navigate(['/admin/product-view/:productId/:productSkuId', this.productskudetails])
-  }
+  
+}
   cancel() {
     this.router.navigate(['/admin/product-view/:productId/:productSkuId', this.productskudetails])
   }

@@ -84,7 +84,7 @@ export class QCDoneActionComponent implements OnInit {
   failed(event: any) {
     this.currentstatus = event.target.value;
     console.log(this.Qcfailed);
-    alert('Quality Check Failed')
+    // alert('Quality Check Failed')
 
   }
 
@@ -119,7 +119,21 @@ export class QCDoneActionComponent implements OnInit {
   }
   QcFailed() {
     this.failed(event);
-    this.saveOrderWithUpdatedStatus();
+    // this.saveOrderWithUpdatedStatus();
+    if (this.OrderStatus.status == 'SUCCESS') {
+      this.firstformdisable = false;
+      this.secondFormPopupVisible = false;
+      alert('QUALITY CHECK DONE');
+
+    }
+    else {
+      if (this.OrderStatus.status == 'FAILURE') {
+        this.firstformdisable = true;
+        this.secondFormPopupVisible = true;
+        window.alert('VERIFY THE STAFF FIRST');
+      }
+
+    }
   }
   submitSecondForm() {
     this.productskudataservice.updateOrderStatus(this.qualitcheckdoneform.value).subscribe(data => {

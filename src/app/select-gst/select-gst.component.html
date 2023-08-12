@@ -12,15 +12,12 @@
 
             <ng-container *ngFor="let code of Gstcode; let i = index">
               <mat-option [value]="code.gstId">{{code.gst_code}}</mat-option>
-
-
-            </ng-container>
+              </ng-container>
+              
           </mat-select>
+          
         </mat-form-field>
-
-
-
-
+       
       </div>
 
     </div>
@@ -28,6 +25,7 @@
   <div id="gstsavebtn">
     <button type="submit" class="btn btn-success"
       (click)="onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div *ngIf="submitted && !gstForm.valid" class="text-danger">All fields are required.</div>
     <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
   </div>

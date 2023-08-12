@@ -56,7 +56,7 @@
                 hidden>
 
             <button class="btn btn-primary" (click)="failed($event)" [value]="paymentfailed" (click)="paymentFailed()"
-                style="margin-left:20px;width:100px" >FAIL</button>
+                style="margin-left:20px;width:100px" [disabled]="firstformdisable">FAIL</button>
             <input type="text" placeholder="{{paymentfail}}" formControlName="statusCd" [(ngModel)]="paymentfail"
                 hidden>
 

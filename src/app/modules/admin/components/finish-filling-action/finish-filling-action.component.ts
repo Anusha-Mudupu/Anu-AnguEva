@@ -22,12 +22,12 @@ export class FinishFillingActionComponent implements OnInit {
   OrderStatus: any;
   finishfillingform: any
   finishfilling = 'FILLED'
-  fillingconformation = 'FILLED'
+  // fillingconformation = 'FILLED'
   confirmationfailed = 'CONFORMATION FAILED'
   fillingsuccess: any;
   fillingfailed: any
   imageBaseUrl: any;
-  errorMessage:any
+  errorMessage: any
 
   isCheckboxSelected = false;
   isSubmitDisabled = true;
@@ -39,7 +39,7 @@ export class FinishFillingActionComponent implements OnInit {
     this.finishfillingform = new FormGroup({
       statusCd: new FormControl(),
       orderId: new FormControl(),
-      staffCd:new FormControl()
+      staffCd: new FormControl()
 
     })
   }
@@ -64,11 +64,11 @@ export class FinishFillingActionComponent implements OnInit {
       this.OrderStatus = data;
       console.log(this.OrderStatus);
       this.errorMessage = this.OrderStatus.message
-     
+
       console.log(this.OrderStatus.message);
       console.log(this.OrderStatus.status);
     })
-   
+
   }
 
 
@@ -89,21 +89,22 @@ export class FinishFillingActionComponent implements OnInit {
   failed(event: any) {
     this.fillingfailed = event.target.value;
     console.log(this.fillingfailed);
-    alert('FILLING FAILED');
+    // alert('FILLING FAILED');
+    console.log(this.finishfillingform.value);
 
   }
 
   saveOrderWithUpdatedStatus() {
- 
-      this.productskudataservice.updateOrderStatus(this.finishfillingform.value).subscribe(data => {
-        this.OrderStatus = data;
-        console.log(this.OrderStatus);
-        this.errorMessage = this.OrderStatus.message
-       
-     })
-   
 
-    
+    this.productskudataservice.updateOrderStatus(this.finishfillingform.value).subscribe(data => {
+      this.OrderStatus = data;
+      console.log(this.OrderStatus);
+      this.errorMessage = this.OrderStatus.message
+
+    })
+
+
+
   }
 
 
@@ -112,7 +113,7 @@ export class FinishFillingActionComponent implements OnInit {
   fillingSuccess() {
     this.success(event);
     this.onCheckboxChange(event)
- 
+
     if (this.OrderStatus.status == 'SUCCESS') {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
@@ -130,7 +131,8 @@ export class FinishFillingActionComponent implements OnInit {
   }
   fillingFailed() {
     this.failed(event);
-    // this.saveOrderWithUpdatedStatus();
+    console.log('failed',this.failed(event))
+    //  this.saveOrderWithUpdatedStatus();
     if (this.OrderStatus.status == 'SUCCESS') {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
@@ -151,21 +153,21 @@ export class FinishFillingActionComponent implements OnInit {
     this.productskudataservice.updateOrderStatus(this.finishfillingform.value).subscribe(data => {
       this.OrderStatus = data;
       console.log(this.OrderStatus);
-  
-       if (this.OrderStatus.status == 'SUCCESS') {
-          this.firstformdisable = false;
-          this.secondFormPopupVisible = false;
-          alert('STAFF VERIFIED SUCCESSFULLY');
+      console.log(this.finishfillingform.value);
+      if (this.OrderStatus.status == 'SUCCESS') {
+        this.firstformdisable = false;
+        this.secondFormPopupVisible = false;
+        alert('STAFF VERIFIED SUCCESSFULLY');
 
+      }
+      else {
+        if (this.OrderStatus.status == 'FAILURE') {
+          window.alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
         }
-        else{
-          if(this.OrderStatus.status =='FAILURE'){
-            window.alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
-          }
-        }
-      })
-   
-}
+      }
+    })
 
-  
   }
+
+
+}

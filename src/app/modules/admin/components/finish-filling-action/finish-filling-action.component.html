@@ -44,16 +44,17 @@
 
     <div id="submittedbtns">
 
-        <button class="btn btn-success" (click)="success($event)" [value]="fillingconformation"
+        <button class="btn btn-success" (click)="success($event)" [value]="finishfilling"
             (click)="fillingSuccess()" style="width: 100px;" [disabled]="isSubmitDisabled" [disabled]="firstformdisable">DONE</button>
         <input type="text" placeholder="{{fillingsuccess}}" formControlName="statusCd" [(ngModel)]="fillingsuccess"
             hidden>
-
+      
         <button class="btn btn-primary" (click)="failed($event)" [value]="confirmationfailed" (click)="fillingFailed()"
-            style="margin-left:20px;width:100px">FAIL</button>
+            style="margin-left:20px;width:100px" [disabled]="firstformdisable">FAIL</button>
         <input type="text" placeholder="{{fillingfailed}}" formControlName="statusCd" [(ngModel)]="fillingfailed"
             hidden>
-
+        
+     
         <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
     </div>
 </form>

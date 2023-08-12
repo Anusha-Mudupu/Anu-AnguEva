@@ -215,7 +215,7 @@ optionValues:any;
   AddOptions() {
     // this.router.navigate(['/admin/addnewoption',this.id])
 
-    const dialogRef = this.dialog.open(AddNewOptionComponent, {})
+    const dialogRef = this.dialog.open(AddNewOptionComponent, {}).afterClosed().subscribe(result => { this.ngOnInit(); })
 
   }
 
@@ -225,7 +225,7 @@ optionValues:any;
 
 
   openModal(): void {
-    this.dialog.open(SelectGstComponent, this.id);
+    this.dialog.open(SelectGstComponent, this.id).afterClosed().subscribe(result => { this.ngOnInit(); });
   }
 
   button() {
