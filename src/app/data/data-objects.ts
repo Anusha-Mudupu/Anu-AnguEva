@@ -37,6 +37,9 @@ productSkuCd:string;
 listPrice:number;
 barCode:string;
 selfLocCd:string;
+gstId:number;
+gstCode:string;
+igst:number;
 option:option[];
 
 }
@@ -151,7 +154,7 @@ export interface AddNewCatalog{
   storeId: number
 }
 
-export interface Staffdata{
+export interface Staffdetails{
   opStaffId: number,
     staffCd: number,
     staffName:string,
@@ -163,7 +166,13 @@ export interface Staffdata{
     pincode: number,
     startDt:number,
     endDt: number,
-    dob: number
+    dob: number,
+    staffRole:staffRole[];
+}
+export interface staffRole{
+  opStaffId: number,
+  roleId: number,
+  staffRoleId: number
 }
 
 export interface parentCatalogData{
@@ -172,5 +181,8 @@ export interface parentCatalogData{
   catalogName:string
 }
 
-
+export interface StaffRoles{
+  roleId: number,
+  staffRole: string
+}
 

@@ -73,7 +73,11 @@ button {
     position: absolute;
      color: red;
   }
-
+#selectstaffrole{
+    margin-left: 800px;
+    margin-top: -55px;
+    position: absolute;
+}
 @media screen and (min-width:360px) and (max-width:1400px){
     .dialog-content {
         height: auto;

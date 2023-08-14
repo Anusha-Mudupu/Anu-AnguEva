@@ -1,5 +1,5 @@
 <h1 mat-dialog-title style="margin-left: 430px;">Add New Staff</h1>
-<button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
+<button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
 <div mat-dialog-content class="dialog-content" id="form">
     <form [formGroup]="addstaffform">
         <div>
@@ -53,6 +53,28 @@
                     <div *ngIf="submitted && addstaffform.get('state').invalid">
                     </div>
                 </mat-form-field>
+
+
+                <div formArrayName="staffRole" class="product-catalog" >
+                    <mat-form-field id="selectstaffrole">
+            
+                      <mat-label>Select Staff Role</mat-label>
+                      <mat-select multiple [(value)]="selectedstaffroles">
+            
+                       
+                        <mat-option *ngFor="let role of staffRoleData;let i=index" [value]="role" (click)="onSelectStaffRole(i)">
+                          {{role.staffRole}}
+            
+                        </mat-option>
+            
+                      </mat-select>
+            
+                    </mat-form-field>
+                    <div *ngIf="submitted && addstaffform.get('staffRole').invalid">
+                    </div>
+            
+                  </div>
+                
             </div>
             <div>
 

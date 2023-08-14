@@ -5,7 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { Staffdata } from 'src/app/data/data-objects';
+import { Staffdetails } from 'src/app/data/data-objects';
 import { StaffDataService } from 'src/app/services/staff-data.service';
 import { AddStaffComponent } from '../add-staff/add-staff.component';
 import { UpdateStaffComponent } from '../update-staff/update-staff.component';
@@ -20,7 +20,7 @@ export class StaffListComponent implements OnInit {
 staffdata:any
   constructor( private staffservice:StaffDataService, private dailog:MatDialog,private active:ActivatedRoute ) { }
   displayedColumns: string[] = ['staffCd', 'staffName', 'mobileNo','emailId','startDt','endDt','Actions'];
-  dataSource = new MatTableDataSource<Staffdata>();
+  dataSource = new MatTableDataSource<Staffdetails>();
 
 
   ngOnInit(): void {
@@ -36,10 +36,10 @@ staffdata:any
     const dialogRef =this.dailog.open( AddStaffComponent,{ }).afterClosed().subscribe((result:any)=>{
      this.ngOnInit();})
   }
-  updateStaff(staffCd:any){
+  updateStaff(opStaffId:any){
     const dialogRef =this.dailog.open( UpdateStaffComponent,{
           
-      data: { staffCd:staffCd}
+      data: { opStaffId:opStaffId}
     }).afterClosed().subscribe(result=>{
      
       this.ngOnInit();})

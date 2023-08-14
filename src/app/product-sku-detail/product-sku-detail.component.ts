@@ -47,7 +47,7 @@ export class ProductSkuDetailComponent implements OnInit {
  currentOptionName:any;
  optionsDetails:any;
 optionValues:any;
-
+loading: boolean = false;
   constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService, private dialog: MatDialog, private fb: FormBuilder) {
     this.Updateform = this.fb.group({
       productSkuId: new FormControl('', Validators.compose([Validators.required])),
@@ -61,12 +61,14 @@ optionValues:any;
       status: new FormControl('', Validators.compose([Validators.required])),
       profile: new FormControl('', Validators.compose([Validators.required])),
       selfLocCd: new FormControl('', Validators.compose([Validators.required])),
-      option: new FormArray([])
+      gstId:new FormControl(''),
+       option: new FormArray([])
 
     })
   }
 
   ngOnInit(): void {
+    
     this.edit()
     this.imageBaseUrl = environment.imagesBaseUrl
     this.id = this.route.snapshot.params['productSkuId']
@@ -136,13 +138,16 @@ optionValues:any;
   }
 
    saveUpdateProductSku() {
-    this.productSkuDataservice.upDateProductSkuById(this.id, this.Updateform.value).subscribe(data => {
+    
+    this.productSkuDataservice.upDateProductSkuById(this.id,this.Updateform.value).subscribe(data => {
       console.log(data);
-      alert('successfully updated');
+       alert('successfully updated');
     }, errormsg => {
       alert('Something Went wrong');
     }
-    );
+    ).add(() => {
+      this.loading = false;
+    });
     console.log(this.Updateform.value)
    
   }
@@ -150,16 +155,18 @@ optionValues:any;
   onSubmit() {
     console.log(this.Updateform.value);
     if (this.productSku.status === true) {
-      this.productSku.status = 'Available'
+      this.productSku.status = 'Available';
+    } else if (this.productSku.status === false) {
+      this.productSku.status = 'Not-Available';
     }
-    else
-      if (this.productSku.status === false) {
-        this.productSku.status = 'Not-Available'
-      }
+    this.Updateform.patchValue({
+      status: this.productSku.status
+    });
     this.saveUpdateProductSku();
-    window.location.reload();
-    // this.saveUploadImage();
-    //  this.router.navigate(['/admin/products/:productId',this.productSku]);
+    this.loading = true;
+     window.location.reload();
+    //  this.saveUploadImage();
+      
 
     const formData = new FormData();
     // for(let i=0;i<this.selectedFile.length;i++){
@@ -173,7 +180,9 @@ optionValues:any;
 
   }
 
-
+  goToProductView(){
+    this.router.navigate(['/admin/products/:productId',this.productSku]);
+  }
   cancel() {
     this.router.navigate(['/admin/products/:productId', this.productSku])
     alert('Youre Changes are not saved Do you Want to Cancel It ');
@@ -188,13 +197,16 @@ optionValues:any;
 
 
   deleteimage(productSkuImageId: number) {
+    this.loading = true;
     this.productSkuDataservice.deleteImgByImgId(productSkuImageId).subscribe(data => {
       console.log(data);
 
     }, message => {
       alert('Do you want to delete it');
     }
-    )
+    ).add(() => {
+      this.loading = false;
+    });
     window.location.reload();
     this.ngOnInit()
   }

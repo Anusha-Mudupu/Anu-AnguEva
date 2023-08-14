@@ -1,17 +1,25 @@
-
-
+<div id="left-arrow">
+    <i class="bi bi-arrow-left-circle"></i>
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="currentColor" class="bi bi-arrow-left-circle"
+        viewBox="0 0 16 16" (click)="goToProductView()">
+        <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+    </svg>
+</div>
 <form class="row  g-3" class="box" [formGroup]="Updateform">
     <div>
-        <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()" style="font-family: initial;">Edit</button>
-        <button type="button" id="addoptbtn" class="btn btn-primary" (click)="AddOptions()" style="font-family: initial;">Add NewOption</button>
-    
+        <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()"
+            style="font-family: initial;">Edit</button>
+        <button type="button" id="addoptbtn" class="btn btn-primary" (click)="AddOptions()"
+            style="font-family: initial;">Add NewOption</button>
+
     </div>
 
     <div class="img1">
         <div *ngFor="let img of image" class="images">
-            <i class="bi bi-file-excel" ></i>
+            <i class="bi bi-file-excel"></i>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-file-excel"
-                viewBox="0 0 16 16" (click)="deleteimage(img.productSkuImageId)" class="crossmark" >
+                viewBox="0 0 16 16" (click)="deleteimage(img.productSkuImageId)" class="crossmark">
                 <path
                     d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
                 <path
@@ -54,7 +62,7 @@
 
 
         <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;" >Quantity:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Quantity:</label>
             <input type="text" class="form-control" id="count" formControlName="count" [(ngModel)]="productSku.count">
 
         </div>
@@ -80,7 +88,8 @@
         <div class="form-group" class="col-3" class="textarea">
             <label class="form-label" style="font-family: initial;font-weight: bolder;">Description:</label>
             <textarea class="form-control" rows="" id="skuDescription" name="skuDescription"
-                [(ngModel)]="productSku.skuDescription" formControlName="skuDescription" style="font-family: initial;"></textarea>
+                [(ngModel)]="productSku.skuDescription" formControlName="skuDescription"
+                style="font-family: initial;"></textarea>
         </div>
 
 
@@ -102,6 +111,20 @@
 
 
     </div>
+
+    <div *ngIf="loading" class="spinner-overlay">
+        <div class="spinner">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="loading" class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div> -->
 
     <div class="row">
 
@@ -128,12 +151,14 @@
         </div>
         <div class="col-3" style="margin-left: 90px;margin-top: 20px;">
             <div formArrayName="option" id="selectoptions">
-                <label style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select Option</label>
+                <label style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
+                    Option</label>
                 <div>
                     <mat-form-field>
-                        <mat-label style="font-family: initial;font-weight: bolder;" >Select Option Name:</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;">Select Option Name:</mat-label>
                         <mat-select [(value)]="selectedOptionName" [disabled]="!isEditMode">
-                            <mat-option [value]="null" style="font-family: initial;font-weight: bolder;">Select an option</mat-option>
+                            <mat-option [value]="null" style="font-family: initial;font-weight: bolder;">Select an
+                                option</mat-option>
                             <mat-option *ngFor="let option of alloptionsData;let i=index" [value]="option.optionName"
                                 (click)="filterOptions(i)">{{ option.optionName }}</mat-option>
                         </mat-select>
@@ -141,7 +166,7 @@
                 </div>
                 <div *ngIf="filteredOptions.length > 0">
                     <mat-form-field>
-                        <mat-label style="font-family: initial;font-weight: bolder;" >Select Option Value:</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;">Select Option Value:</mat-label>
                         <mat-select [(value)]="selectedOptionValue">
                             <mat-option>Select an option value</mat-option>
                             <mat-option *ngFor="let option of optionValues ;let i=index" [value]="option.optionId"
@@ -164,34 +189,40 @@
             <p class="select" style="font-family: initial;font-weight: bolder;">Select Status:</p>
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
                 [(ngModel)]="productSku.status" formControlName="status">
-            <span style="font-size: 20px;font-family: initial;">{{productSku.status ? 'Available':'Not-Available'}}</span>
+            <span style="font-size: 20px;font-family: initial;">{{productSku.status ?
+                'Available':'Not-Available'}}</span>
         </div>
 
         <div class="col-2" style="margin-left:550px;margin-top:20px;position: absolute;">
-            <p class="para" style="font-family: initial;" >Upload Image:</p>
+            <p class="para" style="font-family: initial;">Upload Image:</p>
             <input type="file" (change)="onFileSelected($event)" id="imag_upload" style="display: '';visibility:'';"
                 class="choosefile" style="font-family: initial;" [disabled]="!isEditMode">
         </div>
 
-        <div id="Gst" >
+        <div id="Gst">
             <h1 style="font-weight:bolder;" style="font-family: initial;">GST Info:</h1>
             <p class="gstcd" style="font-family: initial;">GST Code:{{productSku.gstCode}}</p>
+            <input type="text" formControlName="gstId" placeholder="{{productSku.gstCode}}" [value]="productSku.gstId"
+                [(ngModel)]="productSku.gstId" hidden>
             <p class="gstcd" id="gstPercentage" style="font-family: initial;">Percentage:{{productSku.igst}}%</p>
+
             <div id="plusicon">
-                <button (click)="button()" class="btn btn-primary" id="gsteditbtn" [disabled]="!isEditMode">Edit</button>
+                <button (click)="button()" class="btn btn-primary" id="gsteditbtn"
+                    [disabled]="!isEditMode">Edit</button>
 
             </div>
 
         </div>
 
-       
+
 
 
     </div>
     <div class="col-3" class="button">
-        <button type="submit" class="btn btn-success"
-            (click)=" onSubmit()" style="width: 150px;height: 40px;" >Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-danger" (click)="cancel()"  style="width: 150px;height: 40px;">Cancel</button>
+        <button type="submit" class="btn btn-success" (click)=" onSubmit()"
+            style="width: 150px;height: 40px;">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-danger" (click)="cancel()"
+            style="width: 150px;height: 40px;">Cancel</button>
 
     </div>
 </form>

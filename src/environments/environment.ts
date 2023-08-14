@@ -34,12 +34,13 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   Addnewcatalog:'http://localhost:8085/addCatalog',
   getstafflistUrl:'http://localhost:8085/getStaff',
   addstaffurl:'http://localhost:8085/addStaff',
-  getstaffBystaffCd:'http://localhost:8085/getStaffByCd?staffCd=',
+  getstaffBystaffCd:'http://localhost:8085/getStaffById?staffId=',
   updateStaff:'http://localhost:8085/updateStaff?StaffCd=',
   updateproduct:'http://localhost:8085/api/updateProduct?productId=',
   downloadinvoice:'http://localhost:8085/downloadInvoice/',
   getAllParentCatalogs:'http://localhost:8085/api/getParentCatalogs',
-  getAllOptionsdata:'http://localhost:8085/api/getOptions'
+  getAllOptionsdata:'http://localhost:8085/api/getOptions',
+  getStaffRoles:'http://localhost:8085/getRoles'
    
 
 };

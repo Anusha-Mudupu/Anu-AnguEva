@@ -4,7 +4,7 @@
  */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Staffdata } from '../data/data-objects';
+import { StaffRoles,  Staffdetails } from '../data/data-objects';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -17,19 +17,23 @@ export class StaffDataService {
 
 
   getStaffList():Observable<any>{
-    return this.httpclient.get<Staffdata>(environment.getstafflistUrl)
+    return this.httpclient.get<Staffdetails>(environment.getstafflistUrl)
   }
 
- addStaff(addstaff:Staffdata){
-    return this.httpclient.post<Staffdata>(environment.addstaffurl,addstaff)
+ addStaff(addstaff:Staffdetails){
+    return this.httpclient.post<Staffdetails>(environment.addstaffurl,addstaff)
   }
 
 
   getStaffByStaffCd(staffCd:any){
-    return this.httpclient.get<Staffdata>(environment.getstaffBystaffCd +staffCd)
+    return this.httpclient.get<Staffdetails>(environment.getstaffBystaffCd +staffCd)
   }
 
-  updateStaffByid(staffid:any,staffdata:Staffdata){
+  updateStaffByid(staffid:any,staffdata:Staffdetails){
     return this.httpclient.put<any>(environment.updateStaff +staffid,staffdata)
+  }
+
+  getAllStaffRoles(){
+    return this.httpclient.get<StaffRoles>(environment.getStaffRoles);
   }
 }

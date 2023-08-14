@@ -2,7 +2,7 @@
     <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()">Edit</button>
 </div> -->
 <h1>Update Staff Form</h1>
-<button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
+<button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
 <form class="row  g-3" class="box" [formGroup]="UpdateStaffform">
     <div class="row">
         <div class="col-3">
@@ -75,7 +75,7 @@
         <div class="col-3">
             <label class="form-label">Mobile No:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.mobileNo" formControlName="mobileNo">
-             <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
+            <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
             </div>
             <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern') && UpdateStaffform.get('mobileNo').touched"
                 class="text-danger">
@@ -127,7 +127,7 @@
             </div>
         </div>
 
-   
+
 
 
 
@@ -193,6 +193,23 @@
                 Maximum length is 6 characters.
             </div>
         </div>
+        <div formArrayName="staffRole" class="product-catalog">
+            <mat-form-field id="selectstaffrole">
+    
+              <mat-label>Select Staff Role</mat-label>
+              <mat-select multiple [(value)]="selectedstaffroles">
+    
+               
+                <mat-option *ngFor="let role of staffRoleData;let i=index" [value]="role" (click)="onSelectStaffRole(i)">
+                  {{role.staffRole}}
+    
+                </mat-option>
+    
+              </mat-select>
+    
+            </mat-form-field>
+    
+          </div>
 
 
 
@@ -203,5 +220,5 @@
             <div *ngIf="submitted && !UpdateStaffform.valid" class="text-danger">All fields are required.</div>
         </div>
     </div>
-    
+
 </form>
