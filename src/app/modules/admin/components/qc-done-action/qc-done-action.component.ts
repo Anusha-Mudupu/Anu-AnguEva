@@ -106,7 +106,7 @@ export class QCDoneActionComponent implements OnInit {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
       alert('QUALITY CHECK DONE');
-
+        this.dialogRef.close();
     }
     else {
       if (this.OrderStatus.status == 'FAILURE') {
@@ -123,7 +123,8 @@ export class QCDoneActionComponent implements OnInit {
     if (this.OrderStatus.status == 'SUCCESS') {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
-      alert('QUALITY CHECK DONE');
+      alert('QUALITY CHECK FAILED');
+      this.dialogRef.close();
 
     }
     else {

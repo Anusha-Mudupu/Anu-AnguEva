@@ -87,7 +87,7 @@ export class CheckQualityActionComponent implements OnInit {
           this.firstformdisable = false;
           this.secondFormPopupVisible = false;
           alert('QC IN PROGRESS');
-    
+         this.dialogRef.close();
         }
         else {
           if (this.OrderStatus.status == 'FAILURE') {

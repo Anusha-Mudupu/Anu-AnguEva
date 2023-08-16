@@ -78,6 +78,7 @@ export class StartPackingActionComponent implements OnInit {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
       alert('PACKING IN PROGRESS');
+      this.dialogRef.close();
 
     }
     else {

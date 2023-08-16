@@ -172,7 +172,8 @@ export interface Staffdetails{
 export interface staffRole{
   opStaffId: number,
   roleId: number,
-  staffRoleId: number
+  staffRoleId: number,
+  roleName:string
 }
 
 export interface parentCatalogData{

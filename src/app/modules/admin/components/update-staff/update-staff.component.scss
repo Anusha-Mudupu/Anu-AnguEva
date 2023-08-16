@@ -28,6 +28,8 @@
   h1{
     margin-left: 500px;
     color:darkslategray;
+    font-family: initial;
+    font-weight: bolder;
   }
   #crossbtn{
     margin-left: 1190px;
@@ -35,15 +37,20 @@
     position: absolute;
      color: red;
   }
+  .select-role{
+    margin-left: 50px;
+    position: absolute;
+    margin-top: 90px;
+  }
 
-  @media only screen and (max-width: 800px) {
+//   @media only screen and (max-width: 800px) {
    
-    [class*="col-2"] {
-      width: 60%;
-      padding: 0px;
-    }
+//     [class*="col-2"] {
+//       width: 60%;
+//       padding: 0px;
+//     }
    
-}
+// }
 @media screen and (min-width:360px) and (max-width:1400px) {
 
   [class*="col-2"] {
@@ -52,10 +59,10 @@
   }
  
   .box{
-    width: auto;
+    width: 1250px;
     height: auto;
     margin-top: 50px;
-    overflow-y: scroll;
+   
  
  }
 
@@ -66,8 +73,18 @@
  
  }
  .button{
-  margin-left: 500px;
+  margin-left: 400px;
   margin-top: 80px;
+}
+#crossbtn{
+  margin-left: 880px;
+  margin-top: -60px;
+  position: absolute;
+   color: red;
+}
+.select-role{
+margin-left: 80px;
+position: absolute;
 }
 }
   

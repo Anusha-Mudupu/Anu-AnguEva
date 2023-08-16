@@ -118,7 +118,7 @@ export class FinishFillingActionComponent implements OnInit {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
       alert('SUCCESSFULLY FILLED');
-
+      this.dialogRef.close();
     }
     else {
       if (this.OrderStatus.status == 'FAILURE') {
@@ -136,7 +136,8 @@ export class FinishFillingActionComponent implements OnInit {
     if (this.OrderStatus.status == 'SUCCESS') {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
-      alert('SUCCESSFULLY FILLED');
+      alert(' FILLING FAILED');
+      this.dialogRef.close();
 
     }
     else {

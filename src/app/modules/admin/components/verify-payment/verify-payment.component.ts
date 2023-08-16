@@ -117,6 +117,7 @@ export class VerifyPaymentComponent implements OnInit {
       this.secondFormPopupVisible = false;
       alert('PAYMENT VERIFIED SCCESSFULLY');
       console.log('Payment Verified Successful')
+      this.dialogRef.close();
     }
     else {
       if (this.OrderStatus.status == 'FAILURE') {
@@ -133,8 +134,9 @@ export class VerifyPaymentComponent implements OnInit {
     if (this.OrderStatus.status == 'SUCCESS') {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
-      alert('PAYMENT VERIFIED SCCESSFULLY');
-      console.log('Payment Verified Successful')
+      alert('PAYMENT FAILED');
+      console.log('Payment Verified Successful');
+      this.dialogRef.close();
     }
     else {
       if (this.OrderStatus.status == 'FAILURE') {

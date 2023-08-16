@@ -79,7 +79,7 @@ export class DonePackingActionComponent implements OnInit {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
       alert('PACKING DONE');
-
+      this.dialogRef.close();
     }
     else {
       if (this.OrderStatus.status == 'FAILURE') {

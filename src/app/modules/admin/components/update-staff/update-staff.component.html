@@ -6,14 +6,14 @@
 <form class="row  g-3" class="box" [formGroup]="UpdateStaffform">
     <div class="row">
         <div class="col-3">
-            <label class="form-label">Staff Id:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Id:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.opStaffId" formControlName="opStaffId"
                 placeholder="{{staffdata.opStaffId}}" readonly>
 
         </div>
 
         <div class="col-3">
-            <label class="form-label">Staff Name:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Name:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.staffName" formControlName="staffName"
                 placeholder="{{staffdata.staffName}}">
             <div *ngIf="submitted && UpdateStaffform.get('staffName').invalid">
@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-3">
-            <label class="form-label">Staff Code:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Code:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.staffCd" formControlName="staffCd"
                 placeholder="{{staffdata.staffCd}}" readonly>
             <div *ngIf="UpdateStaffform.get('staffCd').hasError('required') && UpdateStaffform.get('staffCd').touched"
@@ -39,7 +39,7 @@
 
 
         <div class="col-3">
-            <label class="form-label">Email Id:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Email Id:</label>
             <input type="text" class="form-control" formControlName="emailId" [(ngModel)]="staffdata.emailId">
             <div *ngIf="submitted && UpdateStaffform.get('emailId').invalid">
             </div>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="col-3">
-            <label class="form-label">DOB:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">DOB:</label>
 
             <input type="text" class="form-control" [(ngModel)]="staffdata.dob" formControlName="dob">
             <div *ngIf="submitted && UpdateStaffform.get('dob').invalid">
@@ -73,7 +73,7 @@
 
 
         <div class="col-3">
-            <label class="form-label">Mobile No:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Mobile No:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.mobileNo" formControlName="mobileNo">
             <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
             </div>
@@ -97,7 +97,7 @@
 
     <div class="row" id="lastrow">
         <div class="col-3">
-            <label class="form-label">start Date:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">start Date:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.startDt" formControlName="startDt"
                 placeholder="{{staffdata.startDt}}">
             <div *ngIf="submitted && UpdateStaffform.get('startDt').invalid">
@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="col-3">
-            <label class="form-label">End Date:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">End Date:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
                 placeholder="{{staffdata.endDt}}">
             <div *ngIf="submitted && UpdateStaffform.get('endDt').invalid">
@@ -132,7 +132,7 @@
 
 
         <div class="col-3">
-            <label class="form-label">Area:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Area:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.area" formControlName="area"
                 placeholder="{{staffdata.area}}">
             <div *ngIf="submitted && UpdateStaffform.get('area').invalid">
@@ -148,7 +148,7 @@
 
     <div class="row" id="lastrow">
         <div class="col-3">
-            <label class="form-label">City:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">City:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.city" formControlName="city"
                 placeholder="{{staffdata.city}}">
             <div *ngIf="submitted && UpdateStaffform.get('city').invalid">
@@ -160,7 +160,7 @@
         </div>
 
         <div class="col-3">
-            <label class="form-label">State:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">State:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.state" formControlName="state"
                 placeholder="{{staffdata.state}}">
             <div *ngIf="submitted && UpdateStaffform.get('state').invalid">
@@ -174,7 +174,7 @@
 
 
         <div class="col-3">
-            <label class="form-label">Pincode:</label>
+            <label class="form-label" style="font-family: initial;font-weight: bolder;">Pincode:</label>
             <input type="text" class="form-control" [(ngModel)]="staffdata.pincode" formControlName="pincode"
                 placeholder="{{staffdata.pincode}}">
             <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
@@ -193,14 +193,14 @@
                 Maximum length is 6 characters.
             </div>
         </div>
-        <div formArrayName="staffRole" class="product-catalog">
+        <div formArrayName="staffRole" class="select-role">
             <mat-form-field id="selectstaffrole">
     
-              <mat-label>Select Staff Role</mat-label>
+              <mat-label style="font-family: initial;font-weight: bolder;">Select Staff Role</mat-label>
               <mat-select multiple [(value)]="selectedstaffroles">
     
                
-                <mat-option *ngFor="let role of staffRoleData;let i=index" [value]="role" (click)="onSelectStaffRole(i)">
+                <mat-option *ngFor="let role of AllStaffRoleData;let i=index" [value]="role" (click)="onSelectStaffRole(i)">
                   {{role.staffRole}}
     
                 </mat-option>
@@ -215,8 +215,8 @@
 
         <div class="col-3" class="button">
             <button type="submit" class="btn btn-success" (click)=" onSubmit()"
-                style="width: 100px;">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="submit" class="btn btn-danger" style="width: 100px;" mat-dialog-close>Cancel</button>
+                style="width: 100px;" style="font-family: initial;font-weight: bolder;">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-danger" style="width: 100px;" mat-dialog-close style="font-family: initial;font-weight: bolder;">Cancel</button>
             <div *ngIf="submitted && !UpdateStaffform.valid" class="text-danger">All fields are required.</div>
         </div>
     </div>

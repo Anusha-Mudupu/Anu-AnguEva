@@ -30,7 +30,7 @@ export class StaffDataService {
   }
 
   updateStaffByid(staffid:any,staffdata:Staffdetails){
-    return this.httpclient.put<any>(environment.updateStaff +staffid,staffdata)
+    return this.httpclient.put<Staffdetails>(environment.updateStaff +staffid,staffdata)
   }
 
   getAllStaffRoles(){

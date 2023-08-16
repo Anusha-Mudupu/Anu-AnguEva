@@ -86,15 +86,17 @@ margin-left: 300px;
     margin-top: -50px;
      color: red;
   }
-
+  #maindiv{
+    overflow: auto;
+}
 @media screen and (min-width:360px) and (max-width:1350px){
     #form{
-        width: auto;
+        width: 600px;
         height: auto;
-  
+        overflow: auto;
     }
   #printbtn{
-        margin-left: 100px;
+        margin-left: -800px;
         width: 100px;
         height: 30px;
         color: cadetblue;
@@ -109,6 +111,15 @@ margin-left: 300px;
     margin-left: 200px;
     }
     #maindiv{
-        overflow-y: scroll;
+        overflow: auto;
+    }
+    #crossbtn{
+        margin-left: 800px;
+        margin-top: -50px;
+         color: red;
+      }
+      .col-3{
+        margin-left: 60px;
+        margin-top: 50px;
     }
 }

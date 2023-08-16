@@ -39,13 +39,19 @@ input[disabled] {
   }
   #addnewproductskubtn{
     margin-left: 1400px;  
+    background-color: green;
+    margin-bottom: 40px;  
+    color: azure;   
   }
 
 
   @media screen and (min-width: 500px) and (max-width: 1350px) {
     #addnewproductskubtn {
     
-           margin-left: 450px;         
+           margin-left: 950px; 
+           background-color: green;
+           margin-bottom: 40px;  
+           color: azure;   
         }
   }
   

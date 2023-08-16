@@ -87,7 +87,7 @@ export class StartFillingActionComponent implements OnInit {
       this.firstformdisable = false;
       this.secondFormPopupVisible = false;
       alert('SHIPPING IN PROGRESS');
-
+     this.dialogRef.close();
     }
     else {
       if (this.OrderStatus.status == 'FAILURE') {

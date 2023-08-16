@@ -22,31 +22,20 @@ export class UpdateStaffComponent implements OnInit {
   staffdata: any;
   // isDisabled: boolean = true;
   submitted: boolean = false;
-  updateForm: FormGroup;
-  staffRoleData: any;
-  staffRole: any;
+
+ AllStaffRoleData: any;
+  // staffRole: any;
   selectedstaffroles: any;
   selectedStaffRoleId: any;
   currentStaffRoles: any;
   filteredStaffRole: any;
+  staffRoles:any;
+  existedStaffRole:any[]=[];
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private staffdataservice: StaffDataService, private router: Router, private formbuilder: FormBuilder, public dialogRef: MatDialogRef<UpdateStaffComponent>, private formBuilder: FormBuilder) {
     this.opStaffId = data.opStaffId
     console.log('opStaffId', this.opStaffId);
 
-    // this.UpdateStaffform=new FormGroup({
-    //   staffName:new FormControl(),
-    //   emailId: new FormControl(),
-    //   mobileNo: new FormControl(),                                  
-    //   dob: new FormControl(),
-    //   area: new FormControl(),
-    //   city: new FormControl(),
-    //   state: new FormControl(),
-    //   pincode: new FormControl(),
-    //   startDt: new FormControl(),
-    //   endDt: new FormControl(),
-    //   opStaffId:new FormControl(),
-    //   staffCd:new FormControl()
-    // })
+    
 
     this.UpdateStaffform = this.formbuilder.group({
       staffName: ['', Validators.compose([Validators.required])],
@@ -68,35 +57,49 @@ export class UpdateStaffComponent implements OnInit {
   ngOnInit(): void {
     this.staffdataservice.getStaffByStaffCd(this.opStaffId).subscribe(data => {
       this.staffdata = data;
+      this.existedStaffRole=this.staffdata.staffRole;
       console.log('StaffData', this.staffdata);
+    
     })
     // this.edit()
     this.staffdataservice.getAllStaffRoles().subscribe((data: any) => {
-      this.staffRoleData = data;
-      this.filteredStaffRole = this.staffRoleData.filter((item: any) => {
-        return this.staffRoleData.some((filteritem: any) => {
+      this.AllStaffRoleData = data;
+     
+      console.log('exist',this.existedStaffRole);
+      this.filteredStaffRole = this.AllStaffRoleData.filter((item: any) => {
+        return this.existedStaffRole.some((filteritem: any) => {
           return filteritem.roleId == item.roleId;
         })
+        
       })
       console.log('filtereddata',this.filteredStaffRole)
+      this.selectedstaffroles=this.filteredStaffRole;
+      this.staffRoles = this.selectedstaffroles.map((item: any) => {
+        return this.staffRole.push(this.formbuilder.group({
+          roleId: item.roleId,
+        }));
+      });
+     
     })
-
+      console.log(this.UpdateStaffform.value);
   }
 
   saveUpdateStaff() {
 
-    this.staffdataservice.updateStaffByid(this.opStaffId, this.staffdata).subscribe((data => {
+    this.staffdataservice.updateStaffByid(this.opStaffId,this.UpdateStaffform.value).subscribe((data => {
       console.log(data);
+      console.log(this.UpdateStaffform.value);
+
       alert('Successfully Updated');
       this.dialogRef.close();
     }), errorMsg => {
       alert('Something Went Wrong');
     })
+    console.log(this.UpdateStaffform.value);
   }
 
   onSubmit() {
-    console.log(this.UpdateStaffform.value);
-
+    
     this.saveUpdateStaff()
   }
   //  edit (){
@@ -110,20 +113,25 @@ export class UpdateStaffComponent implements OnInit {
 
   //  }
   // }
+  
+  get staffRole(): FormArray {
+    console.log('get selectedstaffrole called',this.selectedstaffroles);
+    return this.UpdateStaffform.get('staffRole') as FormArray;
+  }
   onSelectStaffRole(i: any) {
-    this.selectedStaffRoleId = this.staffRoleData[i].roleId
+    this.selectedStaffRoleId = this.AllStaffRoleData[i].roleId
     console.log(this.selectedStaffRoleId);
     this.currentStaffRoles = this.selectedstaffroles.filter((item: any) => item.roleId != this.selectedStaffRoleId);
     console.log('remove selected', this.currentStaffRoles);
-    if (this.selectedstaffroles > this.currentStaffRoles) {
+      if(this.selectedstaffroles>this.existedStaffRole){
       this.staffRole.push(this.formBuilder.group({
         roleId: this.selectedStaffRoleId
 
       }));
       console.log('if called')
       console.log(this.UpdateStaffform.value);
-    }
-    else {
+      }
+       else{
       if (this.currentStaffRoles <= this.currentStaffRoles) {
         this.staffRole.clear();
         this.currentStaffRoles.forEach((item: any) => {
@@ -134,8 +142,8 @@ export class UpdateStaffComponent implements OnInit {
         console.log('else called');
         console.log(this.UpdateStaffform.value);
       }
+    
     }
-
   }
 
 }
