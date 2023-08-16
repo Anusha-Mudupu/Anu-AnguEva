@@ -21,13 +21,13 @@
 
     <ng-container matColumnDef="lastUpdate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Last Updated Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> Null </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.lastUpdateDtTm | date}} </mat-cell>
     </ng-container>
 
 
     <ng-container matColumnDef="orderSubmitDtTm">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Order Submitted Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.orderSubmitDtTm}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.orderSubmitDtTm | date}} </mat-cell>
     </ng-container>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <ng-container matColumnDef="status">

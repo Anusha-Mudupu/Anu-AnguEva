@@ -4,7 +4,7 @@
  */
 
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { NgxPrintElementService } from 'ngx-print-element';
@@ -34,13 +34,13 @@ export class VerifyPaymentComponent implements OnInit {
   paymentfailed = 'PAYMENT FAILED'
   errorMessage: any;
 
-  constructor(private print: NgxPrintElementService, private dialogRef: MatDialogRef<VerifyPaymentComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private print: NgxPrintElementService, private dialogRef: MatDialogRef<VerifyPaymentComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any,private fb: FormBuilder) {
     this.orderId = data.orderId;
 
     console.log(this.orderId);
 
 
-    this.verifypaymentform = new FormGroup({
+    this.verifypaymentform = this.fb.group({
       orderId: new FormControl(''),
       statusCd: new FormControl(''),
       staffCd: new FormControl('')

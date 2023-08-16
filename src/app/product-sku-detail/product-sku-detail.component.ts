@@ -208,7 +208,7 @@ loading: boolean = false;
       this.loading = false;
     });
     window.location.reload();
-    this.ngOnInit()
+    // this.ngOnInit()
   }
 
 
