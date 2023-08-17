@@ -44,7 +44,17 @@ input[disabled] {
     color: azure;   
   }
 
-
+span{
+    text-align: center;
+}
+h1{
+    margin-left: 500px;
+    font-weight: bolder;
+    font-family: initial;
+}
+#ProductDetails{
+    margin-left: 130px;
+}
   @media screen and (min-width: 500px) and (max-width: 1350px) {
     #addnewproductskubtn {
     

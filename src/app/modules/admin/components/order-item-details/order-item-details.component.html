@@ -74,10 +74,10 @@
             <br>#{{Orderdetails.orderId}}
           </li>
           <li><b>Submit Date</b>
-            <br>{{Orderdetails.statusCd}}
+            <br>{{Orderdetails.orderSubmitDtTm |date}}
           </li>
           <li><b>Expected Date</b>
-            <br>{{Orderdetails.orderSubmitDtTm}}
+            <br>{{Orderdetails.estimatedTime | date}}
           </li>
           <li><b>Total Amount</b>
             <br>₹{{Orderdetails.totalAmount}}.00

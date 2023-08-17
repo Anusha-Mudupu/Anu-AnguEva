@@ -54,50 +54,50 @@
         <!-- <div *ngIf="element.status=='OPEN'">
           <button>NO-ACTION</button>
         </div> -->
-
+       
 
         <div *ngIf="element.statusCd=='PAID'">
-          <button class="btn btn-outline-primary" (click)="openDialog('verifypayment',element.orderId)">VERIFY
+          <button class="btn btn-outline-primary" (click)="openDialog('verifypayment',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Verify Payment">VERIFY
             PAYMENT</button>
           <!-- (click)="dynamicComponentLoading('verifyPayment',i)" -->
         </div>
         <div *ngIf="element.statusCd=='PAYMENT VERIFIED'">
-          <button class="btn btn-outline-primary" (click)="openDialog('start-filling',element.orderId)">START
+          <button class="btn btn-outline-primary" (click)="openDialog('start-filling',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Filling">START
             FILLING</button>
         </div>
         <div *ngIf="element.statusCd=='FILLING IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('finish-filling',element.orderId)">FINISH
+          <button class="btn btn-outline-primary" (click)="openDialog('finish-filling',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Filling">FINISH
             FILLING</button>
         </div>
         <div *ngIf="element.statusCd=='FILLED'">
-          <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)">CHECK
+          <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CHECK
             QUALITY</button>
         </div>
         <div *ngIf="element.statusCd=='QC IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('QC-Success',element.orderId)">QC DONE</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('QC-Success',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="QC Done">QC DONE</button>
         </div>
         <div *ngIf="element.statusCd=='QC SUCCESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('start-packing',element.orderId)">START
+          <button class="btn btn-outline-primary" (click)="openDialog('start-packing',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Packing">START
             PACKING</button>
         </div>
         <div *ngIf="element.statusCd=='PACKING IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('done-packing',element.orderId)">DONE
+          <button class="btn btn-outline-primary" (click)="openDialog('done-packing',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Done Packing">DONE
             PACKING</button>
         </div>
         <div *ngIf="element.statusCd=='PACKING DONE'">
-          <button class="btn btn-outline-primary" (click)="openDialog('start-shipping',element.orderId)">START
+          <button class="btn btn-outline-primary" (click)="openDialog('start-shipping',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Shipping">START
             SHIPPING</button>
         </div>
         <div *ngIf="element.statusCd=='SHIPPING IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('finish-shipping',element.orderId)">FINISH
+          <button class="btn btn-outline-primary" (click)="openDialog('finish-shipping',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Shipping">FINISH
             SHIPPING</button>
         </div>
 
-
+       
 
         &nbsp;
-        <div>
-          <i class="bi bi-card-list"></i>
+        <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Order Details" style="cursor: pointer;">
+          <i class="bi bi-card-list" ></i>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-card-list"
             viewBox="0 0 16 16" (click)="viewOrderItemDetails(element.orderId)" id="view-icon">
             <path
@@ -107,7 +107,7 @@
           </svg>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
+        <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Order History" style="cursor: pointer;">
           <i class="bi bi-building-add"></i>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-building-add"
             viewBox="0 0 16 16" style="color:darkkhaki" (click)="viewOrderHistoryPage(element.orderId)">
@@ -120,7 +120,7 @@
           </svg>
         </div>
 
-        <div>
+        <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Invoice" style="cursor: pointer;">
           <i class="bi bi-receipt-cutoff"></i>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
             class="bi bi-receipt-cutoff" viewBox="0 0 16 16" (click)="downloadInvoice(element.orderId)">

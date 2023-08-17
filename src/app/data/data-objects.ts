@@ -97,6 +97,7 @@ export interface OrderDetails{
   lastUpdateDtTm:number,
   emailId:string
   staffCd:number;
+  estimatedTime:number
   orderItemdetails:orderItems[]
 }
 

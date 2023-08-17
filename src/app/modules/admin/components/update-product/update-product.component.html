@@ -34,8 +34,8 @@
           
           <mat-form-field>
             <mat-label>Select Vendors</mat-label>
-            <mat-select name="selectedvendors" id="aantal" [(ngModel)]="selectedvendors"  formControlName="manufacturerId">
-              <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor.manufacturerId">
+            <mat-select name="selectedvendors" id="aantal" [(value)]="selectedvendors"  multiple>
+              <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor" (click)="onSelectVendor(i)">
                 {{ vendor.manufacturerName }}
               </mat-option>
             </mat-select>
@@ -110,4 +110,6 @@
     </mat-option>
   </mat-select>
 </mat-form-field> -->
+
+
 

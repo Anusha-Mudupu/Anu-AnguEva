@@ -11,13 +11,14 @@
         <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()"
             style="font-family: initial;">Edit</button>
         <button type="button" id="addoptbtn" class="btn btn-primary" (click)="AddOptions()"
-            style="font-family: initial;">Add NewOption</button>
+            style="font-family: initial;" [disabled]="!isEditMode">Add NewOption</button>
 
     </div>
 
     <div class="img1">
         <div *ngFor="let img of image" class="images">
-            <i class="bi bi-file-excel"></i>
+           
+            <i class="bi bi-file-excel" ></i>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-file-excel"
                 viewBox="0 0 16 16" (click)="deleteimage(img.productSkuImageId)" class="crossmark">
                 <path
@@ -27,6 +28,7 @@
             </svg>
             <img src={{imageBaseUrl}}{{img.productSkuImage}} alt="no" width="100px" height="70px" class="Skuimgs"
                 [ngClass]="{'primary-image': isPrimary}">
+          
             <!-- <button (click)="setPrimary()">Set as primary</button> -->
         </div>
     </div>
@@ -220,9 +222,9 @@
     </div>
     <div class="col-3" class="button">
         <button type="submit" class="btn btn-success" (click)=" onSubmit()"
-            style="width: 150px;height: 40px;">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            style="width: 150px;height: 40px;" [disabled]="!isEditMode">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="submit" class="btn btn-danger" (click)="cancel()"
-            style="width: 150px;height: 40px;">Cancel</button>
+            style="width: 150px;height: 40px;" >Cancel</button>
 
     </div>
 </form>

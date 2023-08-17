@@ -2,7 +2,7 @@
   <div class="container-fluid mt-3">
     <div>
       <a routerLink="../" style="color: black;"><fa-icon [icon]="faArrowLeft" size="2x"
-          class="fa-regular"></fa-icon></a>
+          class="fa-regular" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Back" style="cursor: pointer;"></fa-icon></a>
       <fa-icon [icon]="faSave" size="2x" class="fal" style="margin-left: 20px;"></fa-icon>
     </div>
 
@@ -15,7 +15,7 @@
       <div class="col-sm-4 p-3" style="background-color:rgb(218, 136, 35);">
         <div class="form-group">
           <fieldset>
-            <h1>Product Details</h1>
+            <h1 id="ProductDetails">Product Details</h1>
             <label class="form-label field-labels" for="readOnlyInput">Product Name</label>
             <input class="form-control product_name" id="readOnlyInput" type="text"
               placeholder={{productData.productName}} readonly="">
@@ -35,9 +35,9 @@
 
       </div>
       <div class="col-sm-8 p-3 sku-section">
-        <h1>Product SKUs</h1>
+        <h1 >Product SKUs</h1>
         <table class="table table-hover">
-          <thead>
+          <thead style="text-align: center; font-size: medium">
             <tr>
               <th scope="col">SKU Code</th>
               <th scope="col">Quantity</th>
@@ -48,30 +48,29 @@
           <tbody>
             <tr class="table-light" *ngFor="let sku of skuData">
               <td>
-                <input class="form-control" style="width: auto" type="text" class="form-control"
-                  value={{sku.productSkuCd}} [attr.disabled]="isDisabled ? true : null">
+                <!-- <input class="form-control" style="width: auto" type="text" class="form-control"
+                  value={{sku.productSkuCd}} [attr.disabled]="isDisabled ? true : null"> -->
+                  <span >{{sku.productSkuCd}}</span>
 
               </td>
 
 
               <td style="text-align: center; font-size: medium">
                 <div class="form-outline">
-                  <input type="number" class="form-control" style="width: auto;" value={{sku.count}}
-                    [attr.disabled]="isDisabled ? true : null">
+                  <!-- <input type="number" class="form-control" style="width: auto;" value={{sku.count}}
+                    [attr.disabled]="isDisabled ? true : null"> -->
+                    <span >{{sku.count}}</span>
                 </div>
               </td>
-              <td style="vertical-align: middle; align-items: center;">
-
-
-
-                <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status}}</span>
+              <td style="text-align: center; font-size: medium">
+             <span style="margin-left: 10px; font-size: medium; margin-top: auto;">{{sku.status}}</span>
               </td>
 
 
 
 
-              <td style="text-align: center; vertical-align: middle;">
-                <a [routerLink]="['/admin/product-view',id,sku.productSkuId]">
+              <td style="text-align: center; font-size: medium" data-bs-toggle="tooltip" data-bs-placement="bottom" title="ProductSku Details" style="cursor: pointer;">
+                <a [routerLink]="['/admin/product-view',id,sku.productSkuId]" style="margin-left: 50px;">
                   <fa-icon [icon]="faEdit"></fa-icon> </a>
                 <!-- (click)="goToProductSkuDetails(sku.productSkuId)" -->
               </td>

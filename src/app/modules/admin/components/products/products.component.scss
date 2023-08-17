@@ -101,6 +101,11 @@ table {
     margin-left: 20px;
     margin-top: -10px;
   }
+  span:hover{
+    color:green;
+    transition: 1s;
+    cursor: pointer;
+  }
 
   @media screen and (min-width: 500px) and (max-width: 1350px) {
     #addnewproductbtn {

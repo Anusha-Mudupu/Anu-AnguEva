@@ -56,8 +56,11 @@ export class AddStaffComponent implements OnInit {
         console.log(this.addstaffform.value);
         console.log(data)
         alert('Staff Added Successfully');
-      }))
-      this.dialogRef.close();
+        this.dialogRef.close();
+      }),errorMsg=>{
+        alert('Something Went Wrong');
+      })
+      
     }
     // setTimeout(() => {
     //   this.addstaffform.reset();
@@ -80,8 +83,8 @@ export class AddStaffComponent implements OnInit {
     console.log('remove selected', this.currentStaffRoles);
     if (this.selectedstaffroles>this.currentStaffRoles) {
       this.staffRole.push(this.formBuilder.group({
-        roleId: this.selectedStaffRoleId
-
+        roleId: this.selectedStaffRoleId,
+        opStaffId:new FormControl()
       }));
       console.log('if called')
       console.log(this.addstaffform.value);
@@ -91,7 +94,8 @@ export class AddStaffComponent implements OnInit {
         this.staffRole.clear();
         this.currentStaffRoles.forEach((item: any) => {
           this.staffRole.push(this.formBuilder.group({
-            roleId: item.roleId
+            roleId: item.roleId,
+            opStaffId:new FormControl()
           }))
         })
         console.log('else called');
