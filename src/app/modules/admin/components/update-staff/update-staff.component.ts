@@ -5,7 +5,7 @@
 import { DatePipe } from '@angular/common';
 import { ReturnStatement } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { StaffDataService } from 'src/app/services/staff-data.service';
@@ -40,14 +40,16 @@ export class UpdateStaffComponent implements OnInit {
     this.UpdateStaffform = this.formbuilder.group({
       staffName: ['', Validators.compose([Validators.required])],
       emailId: ['', [Validators.required, Validators.pattern(/^[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/)]],
-      mobileNo: ['', [Validators.required, Validators.maxLength(6), Validators.minLength(6), Validators.pattern(/^[0-9]*$/)]],
-      dob: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      // mobileNo: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]*$/)]],
+      mobileNo: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      // dob: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      dob: ['', [Validators.required, this.validateDateOfBirth]],
       area: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
       pincode: ['', [Validators.required, Validators.maxLength(6), Validators.minLength(6), Validators.pattern(/^[0-9]*$/)]],
-      startDt: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
-      endDt: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      startDt: ['', [Validators.required,this.validateDateOfBirth]],
+      endDt: ['', [Validators.required, this.validateDateOfBirth]],
       opStaffId: new FormControl(''),
       staffCd: new FormControl(''),
       staffRole: new FormArray([])
@@ -145,5 +147,28 @@ export class UpdateStaffComponent implements OnInit {
     
     }
   }
+  validateDateOfBirth(control: AbstractControl): ValidationErrors | null {
+    const dob = new Date(control.value);
+    const currentDate = new Date();
+
+    if (isNaN(dob.getTime())) {
+      return { invalidDate: true };
+    }
+
+    if (dob >= currentDate) {
+      return { futureDate: true };
+    }
+
+    // Additional validation logic can be added here, such as checking age restrictions
+
+    return null;
+  }
+
+
+
+
+
+
+ 
 
 }

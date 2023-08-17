@@ -58,17 +58,12 @@
         <div class="col-3">
             <label class="form-label" style="font-family: initial;font-weight: bolder;">DOB:</label>
 
-            <input type="text" class="form-control" [(ngModel)]="staffdata.dob" formControlName="dob">
+            <input type="date" class="form-control" [(ngModel)]="staffdata.dob" formControlName="dob">
             <div *ngIf="submitted && UpdateStaffform.get('dob').invalid">
             </div>
-            <div *ngIf="UpdateStaffform.get('dob').hasError('required') && UpdateStaffform.get('dob').touched"
-                class="text-danger">
-                Enter Date of Birth.
-            </div>
-            <div *ngIf="UpdateStaffform.get('dob').hasError('pattern') && UpdateStaffform.get('dob').touched"
-                class="text-danger">
-                Enter valid DOB.
-            </div>
+          
+            <div *ngIf="UpdateStaffform.get('dob').hasError('invalidDate')" class="text-danger">Invalid date format.</div>
+            <div *ngIf="UpdateStaffform.get('dob').hasError('futureDate')" class="text-danger">Date of birth cannot be in the future.</div>
         </div>
 
 
@@ -77,18 +72,10 @@
             <input type="text" class="form-control" [(ngModel)]="staffdata.mobileNo" formControlName="mobileNo">
             <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
             </div>
-            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern') && UpdateStaffform.get('mobileNo').touched"
-                class="text-danger">
-                Please Enter Valid Mobile number.
-            </div>
-            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('minlength') && UpdateStaffform.get('mobileNo').touched"
-                class="text-danger">
-                Minimum length is 10 characters.
-            </div>
-            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('maxlength') && UpdateStaffform.get('mobileNo').touched"
-                class="text-danger">
-                Maximum length is 10 characters.
-            </div>
+          
+            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('required')" class="text-danger">Phone number is required.</div>
+            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern')" class="text-danger">Invalid phone number format.</div>
+           
         </div>
 
 
@@ -98,33 +85,24 @@
     <div class="row" id="lastrow">
         <div class="col-3">
             <label class="form-label" style="font-family: initial;font-weight: bolder;">start Date:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.startDt" formControlName="startDt"
+            <input type="date" class="form-control" [(ngModel)]="staffdata.startDt" formControlName="startDt"
                 placeholder="{{staffdata.startDt}}">
             <div *ngIf="submitted && UpdateStaffform.get('startDt').invalid">
             </div>
-            <div *ngIf="UpdateStaffform.get('startDt').hasError('required') && UpdateStaffform.get('startDt').touched"
-                class="text-danger">
-                Please Enter Start Date
-            </div>
-            <div *ngIf="UpdateStaffform.get('startDt').hasError('pattern') && UpdateStaffform.get('startDt').touched"
-                class="text-danger">
-                Enter Valid Start Date.
-            </div>
+           
+            <div *ngIf="UpdateStaffform.get('startDt').hasError('invalidDate')" class="text-danger">Invalid date format.</div>
+            <div *ngIf="UpdateStaffform.get('startDt').hasError('futureDate')" class="text-danger">Start Date cannot be in the future.</div>
         </div>
         <div class="col-3">
             <label class="form-label" style="font-family: initial;font-weight: bolder;">End Date:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
+            <input type="date" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
                 placeholder="{{staffdata.endDt}}">
             <div *ngIf="submitted && UpdateStaffform.get('endDt').invalid">
             </div>
-            <div *ngIf="UpdateStaffform.get('endDt').hasError('required') && UpdateStaffform.get('endDt').touched"
-                class="text-danger">
-                Please Enter End Date
-            </div>
-            <div *ngIf="UpdateStaffform.get('endDt').hasError('pattern') && UpdateStaffform.get('endDt').touched"
-                class="text-danger">
-                Enter Valid End Date.
-            </div>
+            
+            <div *ngIf="UpdateStaffform.get('endDt').hasError('invalidDate')" class="text-danger">Invalid date format.</div>
+            <!-- <div *ngIf="UpdateStaffform.get('endDt').hasError('futureDate')" class="text-danger">Start Date cannot be in the future.</div> -->
+            
         </div>
 
 
@@ -220,5 +198,6 @@
             <div *ngIf="submitted && !UpdateStaffform.valid" class="text-danger">All fields are required.</div>
         </div>
     </div>
+   
 
 </form>
