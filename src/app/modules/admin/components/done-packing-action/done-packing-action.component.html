@@ -1,9 +1,6 @@
-
-
-
 <form [formGroup]="packingdoneform" id="form">
-<h1 id="headding"> Packing Confirmation</h1>
-<button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
+    <h1 id="headding"> Packing Confirmation</h1>
+    <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
     <div id="printbtns">
         <!-- <button type="button" id="printbtn1">Print Label</button> -->
         <button [print]="['printdonepackingform', config]" id="printbtn1">Print</button>
@@ -15,9 +12,11 @@
         <div class="card-body" class="card-body1" id="printdonepackingform">
             <div class="row">
                 <div>
-                   
+
                     <b>OrderId:</b>
-                    <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}" [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}" readonly></p> 
+                    <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}"
+                            [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"
+                            readonly></p>
                     <b>Name
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
                     <p>{{Orderdetails.firstName}}</p>
@@ -56,36 +55,10 @@
     <div id="submittedbtns">
 
 
-        <button (click)="packingDone('packingdone')"    (click)="submit()" mat-raised-button color="primary" 
-            style="margin-left:10px;width: 90px;" [disabled]="firstformdisable">Confirm</button>
-        <input type="text" placeholder="{{packingdone}}" formControlName="statusCd" [(ngModel)]="packingdone"
-            hidden>
-       
+        <button (click)="submit()" mat-raised-button color="primary"
+            style="margin-left:10px;width: 90px;">Confirm</button>
+
+            <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
     </div>
 
 </form>
-
-<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
-
-    <form [formGroup]="packingdoneform" id="secondform">
-        <div class="row">
-            <div class="col-3">
-
-                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                    placeholder="{{Orderdetails.orderId}}" hidden>
-
-            </div>
-            <label id="enterstafflablel">Enter Staff Code: </label>
-            <div class="col-3" id="staffcd">
-                <input type="number" formControlName="staffCd" class="form-control">
-            </div>
-
-            <div class="col-3" id="sbmtbtn">
-                <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;" >Cancel</button>
-            </div>
-        </div>
-
-
-    </form>
-</div>

@@ -4,9 +4,10 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 import { environment } from 'src/environments/environment';
+import { StaffVerificationComponent } from '../staff-verification/staff-verification.component';
 
 @Component({
   selector: 'app-done-packing-action',
@@ -18,22 +19,16 @@ export class DonePackingActionComponent implements OnInit {
   imageBaseUrl: any;
   Orderdetails: any;
   orderItemDetails: any;
-  currentstatus: any;
+ 
   OrderStatus: any;
   packingdoneform: any
   packingdone = 'PACKING DONE'
   shouldHideBorder: boolean = true;
-  firstformdisable: boolean = false;
-  secondFormPopupVisible: boolean = false;
+ 
   errorMessage: any;
-  constructor(private dialogRef: MatDialogRef<DonePackingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
+  constructor(private dialogRef: MatDialogRef<DonePackingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService,private dailog:MatDialog) {
     this.orderId = data.orderId
-    this.packingdoneform = new FormGroup({
-      statusCd: new FormControl(),
-      orderId: new FormControl(),
-      staffCd: new FormControl()
-
-    })
+  
   }
   public config = {
     printMode: 'template-popup',
@@ -52,64 +47,21 @@ export class DonePackingActionComponent implements OnInit {
       this.orderItemDetails = this.Orderdetails.orderItems
       console.log(data)
     });
-    this.productskudataservice.updateOrderStatus(this.packingdoneform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(data);
-
-      this.errorMessage = this.OrderStatus.message
-      console.log(this.OrderStatus.message);
-      console.log(this.OrderStatus.status);
-
-    })
+   
   }
 
 
 
-  packingDone(value: any) {
-    
-    console.log('value',value)
-
-  }
-
+ 
 
   submit() {
-    this.packingDone(this.packingdone)
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
 
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('PACKING DONE');
-      this.dialogRef.close();
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        window.alert('VERIFY THE STAFF FIRST');
-      }
+      data: { orderId: this.orderId,status:this.packingdone }
+    }).afterClosed().subscribe((result:any) => {
 
-    }
-  }
-
-  submitSecondForm() {
-    this.productskudataservice.updateOrderStatus(this.packingdoneform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(data);
-
-
-      if (this.OrderStatus.status == 'SUCCESS') {
-        this.firstformdisable = false;
-        this.secondFormPopupVisible = false;
-        alert('STAFF VERIFIED SUCCESSFULLY');
-
-      }
-      else {
-        if (this.OrderStatus.status === 'FAILURE') {
-          window.alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
-        }
-      }
-    });
-
+      this.ngOnInit();
+    })
   }
 
 }

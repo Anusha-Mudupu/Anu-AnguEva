@@ -4,10 +4,11 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 import { environment } from 'src/environments/environment';
+import { StaffVerificationComponent } from '../staff-verification/staff-verification.component';
 
 @Component({
   selector: 'app-finish-filling-action',
@@ -22,26 +23,19 @@ export class FinishFillingActionComponent implements OnInit {
   OrderStatus: any;
   finishfillingform: any
   finishfilling = 'FILLED'
-  // fillingconformation = 'FILLED'
+
   confirmationfailed = 'CONFORMATION FAILED'
-  fillingsuccess: any;
-  fillingfailed: any
+
   imageBaseUrl: any;
   errorMessage: any
 
   isCheckboxSelected = false;
   isSubmitDisabled = true;
 
-  firstformdisable: boolean = false;
-  secondFormPopupVisible: boolean = false;
-  constructor(private dialogRef: MatDialogRef<FinishFillingActionComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.orderId = data.orderId;
-    this.finishfillingform = new FormGroup({
-      statusCd: new FormControl(),
-      orderId: new FormControl(),
-      staffCd: new FormControl()
 
-    })
+  constructor(private dialogRef: MatDialogRef<FinishFillingActionComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any, private dailog: MatDialog) {
+    this.orderId = data.orderId;
+
   }
   public config = {
     printMode: 'template-popup',
@@ -60,14 +54,7 @@ export class FinishFillingActionComponent implements OnInit {
       this.orderItemDetails = this.Orderdetails.orderItems
       console.log(data)
     });
-    this.productskudataservice.updateOrderStatus(this.finishfillingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(this.OrderStatus);
-      this.errorMessage = this.OrderStatus.message
 
-      console.log(this.OrderStatus.message);
-      console.log(this.OrderStatus.status);
-    })
 
   }
 
@@ -76,99 +63,28 @@ export class FinishFillingActionComponent implements OnInit {
     this.isCheckboxSelected = event.target.checked;
     this.isSubmitDisabled = !this.isCheckboxSelected;
   }
+  fillingSuccess() {
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
 
+      data: { orderId: this.orderId, status: this.finishfilling }
+    }).afterClosed().subscribe((result: any) => {
 
-  success(event: any) {
-    this.fillingsuccess = event.target.value;
-
-    console.log(this.fillingsuccess);
-    //  alert('FILLING SUCCESS')
-
-  }
-
-  failed(event: any) {
-    this.fillingfailed = event.target.value;
-    console.log(this.fillingfailed);
-    // alert('FILLING FAILED');
-    console.log(this.finishfillingform.value);
-
-  }
-
-  saveOrderWithUpdatedStatus() {
-
-    this.productskudataservice.updateOrderStatus(this.finishfillingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(this.OrderStatus);
-      this.errorMessage = this.OrderStatus.message
-
+      this.ngOnInit();
     })
 
-
-
-  }
-
-
-
-
-  fillingSuccess() {
-    this.success(event);
-    this.onCheckboxChange(event)
-
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('SUCCESSFULLY FILLED');
-      this.dialogRef.close();
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        window.alert('VERIFY THE STAFF FIRST');
-      }
-
-    }
   }
   fillingFailed() {
-    this.failed(event);
-    console.log('failed',this.failed(event))
-    //  this.saveOrderWithUpdatedStatus();
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert(' FILLING FAILED');
-      this.dialogRef.close();
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
 
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        window.alert('VERIFY THE STAFF FIRST');
-      }
+      data: { orderId: this.orderId, status: this.confirmationfailed }
+    }).afterClosed().subscribe(result => {
 
-    }
-  }
-
-  submitSecondForm() {
-    this.productskudataservice.updateOrderStatus(this.finishfillingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(this.OrderStatus);
-      console.log(this.finishfillingform.value);
-      if (this.OrderStatus.status == 'SUCCESS') {
-        this.firstformdisable = false;
-        this.secondFormPopupVisible = false;
-        alert('STAFF VERIFIED SUCCESSFULLY');
-
-      }
-      else {
-        if (this.OrderStatus.status == 'FAILURE') {
-          window.alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
-        }
-      }
+      this.ngOnInit();
     })
 
   }
+
+
 
 
 }

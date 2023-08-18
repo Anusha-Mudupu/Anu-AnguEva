@@ -1,7 +1,7 @@
 <button [print]="['printqcdoneform', config]" id="printbtn">Print</button>
 <form [formGroup]="qualitcheckdoneform" id="form">
     <h1>QC Conformation</h1>
-    <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
+    <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
     <div id="table">
@@ -43,44 +43,14 @@
     </div>
     <div id="submittedbtns">
 
-        <button class="btn btn-success" (click)="success($event)" [value]="Qcsuccess" (click)="QcSuccess()"
-            style="width: 100px;" [disabled]="isSubmitDisabled" [disabled]="firstformdisable">DONE</button>
-        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus"
-            hidden>
+        <button class="btn btn-success" (click)="QcSuccess()" style="width: 100px;"
+            [disabled]="isSubmitDisabled">DONE</button>
 
-        <button class="btn btn-primary" (click)="failed($event)" [value]="Qcfailed" (click)="QcFailed()"
-            style="margin-left:20px;width:100px" [disabled]="firstformdisable">FAIL</button>
-        <input type="text" placeholder="{{currentstatus}}" formControlName="statusCd" [(ngModel)]="currentstatus"
-            hidden>
 
-        
-
+        <button class="btn btn-primary" (click)="QcFailed()" style="margin-left:20px;width:100px">FAIL</button>
+        <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
     </div>
 
 
 </form>
 
-<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
-
-    <form [formGroup]="qualitcheckdoneform" id="secondform">
-        <div class="row">
-            <div class="col-3">
-
-                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                    placeholder="{{Orderdetails.orderId}}" hidden>
-
-            </div>
-            <label id="enterstafflablel">Enter Staff Code: </label>
-            <div class="col-3" id="staffcd">
-                <input type="number" formControlName="staffCd" class="form-control">
-            </div>
-
-            <div class="col-3" id="sbmtbtn">
-                <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-                <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
-            </div>
-        </div>
-
-
-    </form>
-</div>

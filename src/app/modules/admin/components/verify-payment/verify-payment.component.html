@@ -1,7 +1,7 @@
-<button [print]="['printverifipaymentform', config]" id="printbtn">Print</button>
+<button [print]="['printverifipaymentform', config]" id="printbtn" style="font-family: initial;">Print</button>
 <div id="maindiv">
-    <form [formGroup]="verifypaymentform" id="form">
-        <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
+    <form  id="form">
+        <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
 
         <h1>Verify Payment</h1>
 
@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-3">
                         <label class="lables">OrderId:</label>
-                        <input type="text" formControlName="orderId" class="form-control"
+                        <input type="text"  class="form-control"
                             [(ngModel)]="Orderdetails.orderId" placeholder="{{Orderdetails.orderId}}"
                             [attr.disabled]="isDisabled ? true : null">
 
@@ -33,7 +33,7 @@
                     <div class="col-3">
                         <label class="lables">Order Submitted Date:</label>
                         <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
-                            placeholder="{{Orderdetails.orderSubmitDtTm}}" [attr.disabled]="isDisabled ? true : null">
+                            placeholder="{{Orderdetails.orderSubmitDtTm |date}}" [attr.disabled]="isDisabled ? true : null">
                     </div>
                     <div class="col-3">
                         <label class="lables">Total Amount:</label>
@@ -50,43 +50,11 @@
         </div>
         <div id="submittedbtns">
 
-            <button class="btn btn-success" (click)="success($event)" [value]="paymentverified"
-                (click)="paymentSuccess()" style="width: 100px;" [disabled]="firstformdisable">PASS</button>
-            <input type="text" placeholder="{{paymentsuccess}}" formControlName="statusCd" [(ngModel)]="paymentsuccess"
-                hidden>
+            <button class="btn btn-success" (click)="paymentSuccess(orderId)" style="width: 100px;">PASS</button>
 
-            <button class="btn btn-primary" (click)="failed($event)" [value]="paymentfailed" (click)="paymentFailed()"
-                style="margin-left:20px;width:100px" [disabled]="firstformdisable">FAIL</button>
-            <input type="text" placeholder="{{paymentfail}}" formControlName="statusCd" [(ngModel)]="paymentfail"
-                hidden>
-
-            
-
+            <button class="btn btn-primary" (click)="paymentFailed()" style="margin-left:20px;width:100px">FAIL</button>
+            <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
         </div>
     </form>
 
-    <div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
-
-        <form [formGroup]="verifypaymentform" id="secondform">
-            <div class="row">
-                <div class="col-3">
-
-                    <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                        placeholder="{{Orderdetails.orderId}}" [attr.disabled]="isDisabled ? true : null" hidden>
-
-                </div>
-                <label style="font-size: 18px; margin-top:80px;margin-left: 20px;">Enter Staff Code: </label>
-                <div class="col-3" id="staffcd">
-                    <input type="number" formControlName="staffCd" class="form-control">
-                </div>
-
-                <div class="col-3" id="sbmtbtn">
-                    <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-                    <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
-                </div>
-            </div>
-
-
-        </form>
-    </div>
 </div>

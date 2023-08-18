@@ -5,10 +5,13 @@
 
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { NgxPrintElementService } from 'ngx-print-element';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
+
+
+import { StaffVerificationComponent } from '../staff-verification/staff-verification.component';
 
 
 @Component({
@@ -24,27 +27,17 @@ export class VerifyPaymentComponent implements OnInit {
   OrderStatus: any;
   orderItemDetails: any
 
-  paymentsuccess: any;
-  paymentfail: any
-  @Input() datafromparent: any
+
   isDisabled: boolean = true;
-  firstformdisable: boolean = false;
-  secondFormPopupVisible: boolean = false;
+
   paymentverified = 'PAYMENT VERIFIED'
   paymentfailed = 'PAYMENT FAILED'
   errorMessage: any;
 
-  constructor(private print: NgxPrintElementService, private dialogRef: MatDialogRef<VerifyPaymentComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any,private fb: FormBuilder) {
+  constructor(private print: NgxPrintElementService, private dialogRef: MatDialogRef<VerifyPaymentComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private dailog: MatDialog) {
     this.orderId = data.orderId;
 
     console.log(this.orderId);
-
-
-    this.verifypaymentform = this.fb.group({
-      orderId: new FormControl(''),
-      statusCd: new FormControl(''),
-      staffCd: new FormControl('')
-    });
 
   }
 
@@ -70,105 +63,35 @@ export class VerifyPaymentComponent implements OnInit {
       this.orderItemDetails = this.Orderdetails.orderItems
       console.log(data)
     });
-    this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
-      this.OrderStatus = data;
-      this.errorMessage = this.OrderStatus.message
-      console.log(data);
-      console.log(this.OrderStatus.message);
-      console.log(this.OrderStatus.status);
-    })
-
-  }
-
-  success(event: any) {
-    this.paymentsuccess = event.target.value;
-
-    console.log(this.paymentsuccess);
 
 
   }
-
-  failed(event: any) {
-    this.paymentfail = event.target.value;
-    console.log(this.paymentfail);
-    // alert('Payment Failed')
-
-  }
-
-  saveOrderWithUpdatedStatus() {
-    this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
-      this.OrderStatus = data;
-      this.errorMessage = this.OrderStatus.message
-      console.log(data);
-      console.log(this.OrderStatus.message);
-      console.log(this.OrderStatus.status);
-
-
-    })
-  }
-
-
-
-  paymentSuccess() {
-    this.success(event);
-
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('PAYMENT VERIFIED SCCESSFULLY');
-      console.log('Payment Verified Successful')
-      this.dialogRef.close();
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        window.alert('VERIFY THE STAFF FIRST');
+  paymentSuccess(orderId: any) {
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
+      data: {
+        orderId: orderId,
+        status: this.paymentverified
       }
+    }).afterClosed().subscribe(result => {
+      this.ngOnInit();
+    })
 
-    }
   }
 
   paymentFailed() {
-    this.failed(event);
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('PAYMENT FAILED');
-      console.log('Payment Verified Successful');
-      this.dialogRef.close();
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        window.alert('VERIFY THE STAFF FIRST');
-      }
 
-    }
-    // this.saveOrderWithUpdatedStatus();
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
+
+      data: { orderId: this.orderId, status: this.paymentfailed }
+    }).afterClosed().subscribe(result => {
+
+      this.ngOnInit();
+    })
+
+
+
   }
 
 
-  submitSecondForm() {
-    this.productskudataservice.updateOrderStatus(this.verifypaymentform.value).subscribe(data => {
-      this.OrderStatus = data;
-      this.errorMessage = this.OrderStatus.message
 
-      if (this.OrderStatus.status == 'SUCCESS') {
-        this.firstformdisable = false;
-        this.secondFormPopupVisible = false;
-        alert('STAFF VERIFIED SUCCESSFULLY');
-
-      }
-      else {
-        if (this.OrderStatus.status == 'FAILURE') {
-          this.firstformdisable = true;
-          this.secondFormPopupVisible = true;
-        }
-        window.alert('STAFF IS UNAHUTORIZED PLEASE TRY AGAIN');
-      }
-
-    })
-   }
 }

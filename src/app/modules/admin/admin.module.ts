@@ -54,6 +54,8 @@ import { UpdateStaffComponent } from './components/update-staff/update-staff.com
 import { NgxPrintElementModule } from 'ngx-print-element';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 
+import { StaffVerificationComponent } from './components/staff-verification/staff-verification.component';
+
 
 
 @NgModule({
@@ -82,6 +84,8 @@ import { UpdateProductComponent } from './components/update-product/update-produ
     AddStaffComponent,
     UpdateStaffComponent,
     UpdateProductComponent,
+ 
+    StaffVerificationComponent,
   
    
     

@@ -4,9 +4,10 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 import { environment } from 'src/environments/environment';
+import { StaffVerificationComponent } from '../staff-verification/staff-verification.component';
 
 @Component({
   selector: 'app-start-packing-action',
@@ -18,21 +19,16 @@ export class StartPackingActionComponent implements OnInit {
   imageBaseUrl: any;
   Orderdetails: any;
   orderItemDetails: any;
-  currentstatus: any;
+  
   OrderStatus: any;
   startpackingform: any
   startpacking = 'PACKING IN PROGRESS'
   shouldHideBorder: boolean = true;
-  firstformdisable: boolean = false;
-  secondFormPopupVisible: boolean = false;
+ 
   errorMessage: any;
-  constructor(private dialogRef: MatDialogRef<StartPackingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
+  constructor(private dialogRef: MatDialogRef<StartPackingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService,private dailog:MatDialog) {
     this.orderId = data.orderId
-    this.startpackingform = new FormGroup({
-      statusCd: new FormControl(),
-      orderId: new FormControl(),
-      staffCd: new FormControl()
-    })
+   
   }
   public config = {
     printMode: 'template-popup',
@@ -52,65 +48,25 @@ export class StartPackingActionComponent implements OnInit {
 
       console.log(data)
     });
-    this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(data);
-      this.errorMessage = this.OrderStatus.message
-      console.log(this.OrderStatus.message);
-      console.log(this.OrderStatus.status);
-    });
-  }
-
-  startPacking(value: any) {
- console.log('value',value)
-   }
-  saveOrderWithUpdatedStatus() {
-    this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(data);
-     })
-  }
-
-  submit() {
-    this.startPacking(this.startpacking)
-    
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('PACKING IN PROGRESS');
-      this.dialogRef.close();
-
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        window.alert('VERIFY THE STAFF FIRST');
-      }
-
-    }
-
-  }
-  submitSecondForm() {
-    this.productskudataservice.updateOrderStatus(this.startpackingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(data);
-  
-     if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('STAFF VERIFIED SUCCESSFULLY');
-
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-       
-        window.alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
-      }
-
-    }
-  });
    
   }
+
+  
+  submit() {
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
+
+      data: { orderId: this.orderId,status:this.startpacking }
+    }).afterClosed().subscribe((result:any) => {
+
+      this.ngOnInit();
+    })
+    
+
+    
+
+  }
+ 
+   
+  
 
 }

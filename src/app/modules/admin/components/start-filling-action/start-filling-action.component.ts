@@ -4,9 +4,10 @@
  */
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 import { environment } from 'src/environments/environment';
+import { StaffVerificationComponent } from '../staff-verification/staff-verification.component';
 
 @Component({
   selector: 'app-start-filling-action',
@@ -20,22 +21,16 @@ export class StartFillingActionComponent implements OnInit {
   OrderStatus: any;
   startFillingform: any;
   imageBaseUrl: any;
-  currentstatus: any
+ 
   public startfilling = 'FILLING IN PROGRESS'
 
-  firstformdisable: boolean = false;
-  secondFormPopupVisible: boolean = false;
+ 
   errorMessage: any
-  constructor(private dialogRef: MatDialogRef<StartFillingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
+  constructor(private dialogRef: MatDialogRef<StartFillingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService,private dailog:MatDialog) {
     this.orderId = data.orderId
 
 
-    this.startFillingform = new FormGroup({
-      statusCd: new FormControl(),
-      orderId: new FormControl(),
-      staffCd: new FormControl()
-
-    })
+   
   }
   public config = {
     printMode: 'template-popup',
@@ -56,72 +51,30 @@ export class StartFillingActionComponent implements OnInit {
       this.orderItemDetails = this.Orderdetails.orderItems
       console.log(data)
     });
-    this.productskudataservice.updateOrderStatus(this.startFillingform.value).subscribe((data: any) => {
-      this.OrderStatus = data;
-      console.log(this.OrderStatus);
-      this.errorMessage = this.OrderStatus.message
-      console.log(data);
-      console.log(this.OrderStatus.message);
-      console.log(this.OrderStatus.status);
-    })
+   
 
 
 
   }
-  //   buttonClicked(value: string) {
-
-  //     console.log('Button clicked with value:', value);
-  // }
+  
 
 
-  filling(value: any) {
-
-    console.log('button clicked with:', value);
-  }
+  
 
 
   startfillingaction() {
-    this.filling(this.startfilling)
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
 
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('SHIPPING IN PROGRESS');
-     this.dialogRef.close();
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        window.alert('VERIFY THE STAFF FIRST');
-      }
+      data: { orderId: this.orderId,status:this.startfilling}
+    }).afterClosed().subscribe(result => {
 
-    }
-
-  }
-
-
-  staffVerificationForm() {
-    this.productskudataservice.updateOrderStatus(this.startFillingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      this.errorMessage = this.OrderStatus.message
-
-      if (this.OrderStatus.status == 'SUCCESS') {
-        this.firstformdisable = false;
-        this.secondFormPopupVisible = false;
-        alert('STAFF VERIFIED SUCCESSFULLY');
-
-      }
-      else {
-        if (this.OrderStatus.status == 'FAILURE') {
-          this.firstformdisable = true;
-          this.secondFormPopupVisible = true;
-        }
-        window.alert('STAFF IS UNAHUTORIZED PLEASE TRY AGAIN');
-      }
-
+      this.ngOnInit();
     })
+   
+
   }
 
+
+ 
 
 }

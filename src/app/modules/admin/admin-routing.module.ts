@@ -35,6 +35,8 @@ import { AddStaffComponent } from './components/add-staff/add-staff.component';
 import { UpdateStaffComponent } from './components/update-staff/update-staff.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 
+import { StaffVerificationComponent } from './components/staff-verification/staff-verification.component';
+
 
 
 
@@ -73,6 +75,8 @@ const routes: Routes = [
     {path:'add-staff',component:AddStaffComponent},
      {path:'updatestaff',component:UpdateStaffComponent},
      {path:'update-product/:productId',component:UpdateProductComponent},
+    
+     {path:'staff-verification',component:StaffVerificationComponent},
 
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],

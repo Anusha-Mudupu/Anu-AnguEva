@@ -4,10 +4,11 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { window } from 'rxjs';
 import { ProductSkuDataService } from 'src/app/services/productsku-data.service';
 import { environment } from 'src/environments/environment';
+import { StaffVerificationComponent } from '../staff-verification/staff-verification.component';
 @Component({
   selector: 'app-start-shipping-action',
   templateUrl: './start-shipping-action.component.html',
@@ -18,22 +19,16 @@ export class StartShippingActionComponent implements OnInit {
   imageBaseUrl: any;
   Orderdetails: any;
   orderItemDetails: any;
-  currentstatus: any;
+
   OrderStatus: any;
   startshippingform: any
   StartShipping = 'SHIPPING IN PROGRESS'
   shouldHideBorder: boolean = true;
-  firstformdisable: boolean = false;
-  secondFormPopupVisible: boolean = false;
+  
   errorMessage: any;
-  constructor(private dialogRef: MatDialogRef<StartShippingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService) {
+  constructor(private dialogRef: MatDialogRef<StartShippingActionComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private productskudataservice: ProductSkuDataService,private dailog:MatDialog) {
     this.orderId = data.orderId
-    this.startshippingform = new FormGroup({
-      statusCd: new FormControl(),
-      orderId: new FormControl(),
-      staffCd: new FormControl()
-
-    })
+    
   }
   public config = {
     printMode: 'template-popup',
@@ -53,59 +48,24 @@ export class StartShippingActionComponent implements OnInit {
      console.log(data);
     })
 
-     this.productskudataservice.updateOrderStatus(this.startshippingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(data);
-      this.errorMessage = this.OrderStatus.message
-      console.log(this.OrderStatus.message);
-      console.log(this.OrderStatus.status);
-     });
+    
   
-  }
-  packingDone(value: any) {
-   
-    console.log('value',value)
- 
   }
 
 
   submit() {
-    this.packingDone(this.StartShipping)
+    const dialogRef = this.dailog.open(StaffVerificationComponent, {
 
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('SHIPPING IN PROGRESS');
-      this.dialogRef.close();
-    }
-    else {
-      if (this.OrderStatus.status == 'FAILURE') {
-        this.firstformdisable = true;
-        this.secondFormPopupVisible = true;
-        alert('VERIFY THE STAFF FIRST');
-      }
+      data: { orderId: this.orderId,status:this.StartShipping }
+    }).afterClosed().subscribe((result:any) => {
 
-    }
-  }
+      this.ngOnInit();
+    })
+   
 
-  submitSecondForm() {
-    this.productskudataservice.updateOrderStatus(this.startshippingform.value).subscribe(data => {
-      this.OrderStatus = data;
-      console.log(data);
-
-    if (this.OrderStatus.status == 'SUCCESS') {
-      this.firstformdisable = false;
-      this.secondFormPopupVisible = false;
-      alert('STAFF VERIFIED SUCCESSFULLY');
-
-    }
-    else{
-      if(this.OrderStatus.status==='FAILURE'){
-      alert('STAFF IS UNAUTHORIZED PLEASE TRY AGAIN');
-      }
-    }
-  });
    
   }
+
+
 
 }

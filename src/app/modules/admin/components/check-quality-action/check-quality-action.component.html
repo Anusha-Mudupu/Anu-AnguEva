@@ -2,7 +2,7 @@
 
 
 <button [print]="['printcheckqualityform', config]" id="printbtn">Print</button>
-<form [formGroup]="checkqualityform" id="form">
+<form  id="form">
     <h1>Check Quality</h1>
     <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
@@ -34,34 +34,8 @@
     </div>
     <div id="submittedbtns">
         
-        <button (click)="checkQuality('checkquality')"  (click)="submit()" style="width: 90px;"  class="btn btn-success"[disabled]="firstformdisable" >Start</button>
-        <input type="text" placeholder="{{checkquality}}"  formControlName="statusCd" [(ngModel)]="checkquality" hidden>
-       
-        
-    </div>
+        <button   (click)="submit()" style="width: 90px;"  class="btn btn-success" >Start</button>
+        <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+ </div>
 </form>
 
-<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
-
-    <form [formGroup]="checkqualityform" id="secondform">
-        <div class="row">
-            <div class="col-3">
-
-                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                    placeholder="{{Orderdetails.orderId}}" hidden>
-
-            </div>
-            <label id="enterstafflablel">Enter Staff Code: </label>
-            <div class="col-3" id="staffcd">
-                <input type="number" formControlName="staffCd" class="form-control">
-            </div>
-
-            <div class="col-3" id="sbmtbtn">  
-                <button type="submit" (click)="submitSecondForm()" class="btn btn-success" >Submit</button>
-                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
-            </div>
-        </div>
-
-
-    </form>
-</div>

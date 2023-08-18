@@ -1,6 +1,6 @@
 <form [formGroup]="startpackingform" id="form">
     <h1 id="headding">Start Packing</h1>
-    <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
+    <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
     <div id="printbtns">
 
         <button [print]="['printstartpackingform', config]" id="printbtn1">Print</button>
@@ -13,14 +13,15 @@
             <div class="row">
                 <div>
 
-                    <b>OrderId:</b>
+                    <b>OrderId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
                     <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}"
-                            [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}" readonly></p>
+                            [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"
+                            readonly></p>
                     <b>Name
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
                     <p>{{Orderdetails.firstName}}</p>
-                    <b>Mobile Number &nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.mobileNumber}}</p>
+                    <!-- <b>Mobile Number &nbsp;&nbsp;&nbsp;:</b>
+                    <p>{{Orderdetails.mobileNumber}}</p> -->
 
                 </div>
                 <div>
@@ -36,7 +37,7 @@
                     <p>{{Orderdetails.city}}</p>
                     <b>LandMark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
                     <p>{{Orderdetails.landmark}}</p>
-                    <b>Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    <b>Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
                     <p>{{Orderdetails.mobileNo}}</p>
                     <b>State
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
@@ -55,35 +56,8 @@
     <div id="submittedbtns">
 
 
-        <button (click)="startPacking('startpacking');"  class="btn btn-success" (click)="submit()"
-            style="margin-left:10px;width: 90px;" [disabled]="firstformdisable">Start</button>
-        <input type="text" placeholder="{{startpacking}}" formControlName="statusCd" [(ngModel)]="startpacking"
-            hidden>
-        
+        <button class="btn btn-success" (click)="submit()" style="margin-left:10px;width: 90px;">Start</button>
+
+        <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
     </div>
 </form>
-
-<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
-
-    <form [formGroup]="startpackingform" id="secondform">
-        <div class="row">
-            <div class="col-3">
-
-                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                    placeholder="{{Orderdetails.orderId}}" hidden>
-
-            </div>
-            <label id="enterstafflablel">Enter Staff Code: </label>
-            <div class="col-3" id="staffcd">
-                <input type="number" formControlName="staffCd" class="form-control">
-            </div>
-
-            <div class="col-3" id="sbmtbtn">
-                <button type="submit" (click)="submitSecondForm()" class="btn btn-success">Submit</button>
-                <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
-            </div>
-        </div>
-
-
-    </form>
-</div>

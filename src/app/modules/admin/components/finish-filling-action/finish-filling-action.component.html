@@ -45,43 +45,16 @@
 
     <div id="submittedbtns">
 
-        <button class="btn btn-success" (click)="success($event)" [value]="finishfilling"
-            (click)="fillingSuccess()" style="width: 100px;" [disabled]="isSubmitDisabled" [disabled]="firstformdisable">DONE</button>
-        <input type="text" placeholder="{{fillingsuccess}}" formControlName="statusCd" [(ngModel)]="fillingsuccess"
-            hidden>
+        <button class="btn btn-success"
+            (click)="fillingSuccess()" style="width: 100px;" [disabled]="isSubmitDisabled" >DONE</button>
+       
       
-        <button class="btn btn-primary" (click)="failed($event)" [value]="confirmationfailed" (click)="fillingFailed()"
-            style="margin-left:20px;width:100px" [disabled]="firstformdisable">FAIL</button>
-        <input type="text" placeholder="{{fillingfailed}}" formControlName="statusCd" [(ngModel)]="fillingfailed"
-            hidden>
-        
-     
+        <button class="btn btn-primary"  (click)="fillingFailed()"
+            style="margin-left:20px;width:100px">FAIL</button>
+      
+            <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
        
     </div>
 </form>
 
 
-<div *ngIf="secondFormPopupVisible" id="secondformmaindiv">
-
-    <form [formGroup]="finishfillingform" id="secondform">
-        <div class="row">
-            <div class="col-3">
-
-                <input type="text" formControlName="orderId" class="form-control" [(ngModel)]="Orderdetails.orderId"
-                    placeholder="{{Orderdetails.orderId}}" hidden>
-
-            </div>
-            <label id="enterstafflablel">Enter Staff Code: </label>
-            <div class="col-3" id="staffcd">
-                <input type="number" formControlName="staffCd" class="form-control">
-            </div>
-
-            <div class="col-3" id="sbmtbtn">  
-                <button type="submit" (click)="submitSecondForm()" class="btn btn-success" >Submit</button>
-                <button mat-raised-button color="warn" mat-dialog-close style="margin-left:20px">Cancel</button>
-            </div>
-        </div>
-
-
-    </form>
-</div>
