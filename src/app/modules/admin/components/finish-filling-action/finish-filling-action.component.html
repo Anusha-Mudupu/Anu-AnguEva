@@ -25,17 +25,40 @@
                     <td>{{item.productName}}
 
                     </td>
-                    <td>{{item.productSku}}</td>
+                    <td>{{item.productSkuId}}</td>
                     <td>12345678</td>
                     <td>{{item.quantity}}</td>
-
-                    <label style="margin-top: 50px; font-size: 20px;">
-                        <input type="checkbox" (change)="onCheckboxChange($event)" style="width: 25px;height: 25px;">
+                    <div id="checkboxes">
+                    <label style="margin-top: 50px; font-size: 20px;font-family: initial;">
+                        <input type="checkbox" (change)="onCheckboxChange($event)" style="width: 25px;height: 25px;"[disabled]="firstCheckbox">
                         Yes
                     </label>
 
+                    <label style="margin-top: 50px; font-size: 20px;font-family: initial;">
+                        <input type="checkbox" (change)="onCheckboxChange2($event)" style="width: 25px;height: 25px;" [disabled]="isDisable">
+                        Partially Filled
+                    </label>
+                </div>
 
 
+
+
+                <!-- <label style="margin-top: 50px; font-size: 20px; font-family: initial;">
+                    <input type="checkbox"
+                           (change)="onCheckboxChange($event)"
+                           style="width: 25px; height: 25px;"
+                           [disabled]="firstCheckbox">
+                    Yes
+                  </label>
+                  
+                  <label style="margin-top: 50px; font-size: 20px; font-family: initial;">
+                    <input type="checkbox"
+                           (change)="onCheckboxChange2($event)"
+                           style="width: 25px; height: 25px;"
+                           [disabled]="isDisable">
+                    Partially Filled
+                  </label> -->
+                  
 
                 </tr>
 
@@ -46,11 +69,11 @@
     <div id="submittedbtns">
 
         <button class="btn btn-success"
-            (click)="fillingSuccess()" style="width: 100px;" [disabled]="isSubmitDisabled" >DONE</button>
+            (click)="fillingSuccess()" style="width: 100px;font-family: initial;" [disabled]="isSubmitDisabled" >DONE</button>
        
       
         <button class="btn btn-primary"  (click)="fillingFailed()"
-            style="margin-left:20px;width:100px">FAIL</button>
+            style="margin-left:20px;width:150px;font-family: initial;">Partially Filled</button>
       
             <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
        

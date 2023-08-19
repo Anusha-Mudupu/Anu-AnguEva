@@ -101,8 +101,11 @@ export class UpdateStaffComponent implements OnInit {
   }
 
   onSubmit() {
-    
-    this.saveUpdateStaff()
+    this.submitted=true;
+    if(this.UpdateStaffform.valid){
+      
+    this.saveUpdateStaff();
+    }
   }
   //  edit (){
   //  this.isEditMode=!this.isEditMode

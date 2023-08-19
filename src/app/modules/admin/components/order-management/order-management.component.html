@@ -73,6 +73,16 @@
           <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CHECK
             QUALITY</button>
         </div>
+        <div *ngIf="element.statusCd=='PARTIALLY FILLED'">
+          <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CHECK
+            QUALITY</button>
+        </div>
+
+
+
+
+
+
         <div *ngIf="element.statusCd=='QC IN PROGRESS'">
           <button class="btn btn-outline-primary" (click)="openDialog('QC-Success',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="QC Done">QC DONE</button>
         </div>

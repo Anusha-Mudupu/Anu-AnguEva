@@ -24,15 +24,16 @@ export class FinishFillingActionComponent implements OnInit {
   finishfillingform: any
   finishfilling = 'FILLED'
 
-  confirmationfailed = 'CONFORMATION FAILED'
+  partaillyFilled = 'PARTIALLY FILLED'
 
   imageBaseUrl: any;
   errorMessage: any
 
   isCheckboxSelected = false;
+  isCheckboxSelected2 = false;
   isSubmitDisabled = true;
-
-
+  isDisable=false;
+  firstCheckbox=false;
   constructor(private dialogRef: MatDialogRef<FinishFillingActionComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any, private dailog: MatDialog) {
     this.orderId = data.orderId;
 
@@ -62,7 +63,31 @@ export class FinishFillingActionComponent implements OnInit {
   onCheckboxChange(event: any) {
     this.isCheckboxSelected = event.target.checked;
     this.isSubmitDisabled = !this.isCheckboxSelected;
+    this.isDisable=!this.isCheckboxSelected;
   }
+  onCheckboxChange2(event:any){
+  this.isCheckboxSelected2=event.target.checked;
+  this.firstCheckbox=this.isCheckboxSelected2;
+  this.isSubmitDisabled=!this.isCheckboxSelected2;
+ }
+
+
+//  onCheckboxChange(event: any) {
+//   this.isDisable = event.target.checked;
+//   this.isSubmitDisabled = !this.isDisable;
+// }
+
+// onCheckboxChange2(event: any) {
+//   this.firstCheckbox = event.target.checked;
+//   this.firstCheckbox=!this.firstCheckbox;
+// }
+
+
+
+
+
+
+
   fillingSuccess() {
     const dialogRef = this.dailog.open(StaffVerificationComponent, {
 
@@ -76,7 +101,7 @@ export class FinishFillingActionComponent implements OnInit {
   fillingFailed() {
     const dialogRef = this.dailog.open(StaffVerificationComponent, {
 
-      data: { orderId: this.orderId, status: this.confirmationfailed }
+      data: { orderId: this.orderId, status: this.partaillyFilled }
     }).afterClosed().subscribe(result => {
 
       this.ngOnInit();

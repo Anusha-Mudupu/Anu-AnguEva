@@ -7,8 +7,8 @@
 
 
 #form{
-    width:1200px;
-    height: auto;
+    width:1300px;
+    height: 700px;
     overflow: auto;
   //  border: ridge 3px;
 }
@@ -46,6 +46,9 @@ font-family:initial ;
 h1{
   margin-left: 450px;
   color: coral;
+  font-family: intial;
+  font-weight: bolder;
+  margin-left: 550px;
 }
 
 #submittedbtns{
@@ -94,4 +97,7 @@ margin-left: 210px;
   margin-top: -50px;
   position: absolute;
    color: red;
+}
+#checkboxes{
+  display: inline;
 }
