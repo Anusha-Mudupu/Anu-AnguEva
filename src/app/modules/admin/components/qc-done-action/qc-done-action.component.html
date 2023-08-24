@@ -1,7 +1,7 @@
-<button [print]="['printqcdoneform', config]" id="printbtn">Print</button>
+<!-- <button [print]="['printqcdoneform', config]" id="printbtn">Print</button> -->
 <form [formGroup]="qualitcheckdoneform" id="form">
     <h1>QC Conformation</h1>
-    <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
+    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
     <div id="table">
@@ -24,19 +24,15 @@
                     <td>{{item.productName}}
 
                     </td>
-                    <td>{{item.productSku}}</td>
+                    <td>{{item.productSkuId}}</td>
                     <td>12345678</td>
                     <td>{{item.quantity}}</td>
 
-                    <label style="margin-top: 50px; font-size: 20px;">
+                    <label style="margin-top: 50px; font-size: 20px;" id="checkbox">
                         <input type="checkbox" (change)="onCheckboxChange($event)" style="width: 25px;height: 25px;">
                         Yes
                     </label>
-
-
-
-
-                </tr>
+                 </tr>
 
             </tbody>
         </table>

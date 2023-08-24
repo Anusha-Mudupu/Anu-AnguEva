@@ -1,12 +1,320 @@
+// /*
+//  *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+//  *   All rights reserved.
+//  */
+
+// #form{
+//     width: 1000px;
+//     height:550px;
+//      border: ridge 3px;
+//      overflow: hidden;
+// }
+// .card1{
+//     height: 200px;
+//     margin-top: 50px;
+// }
+// .card-body1{
+//     display: inline-flex;
+
+//     // margin-top: 50px;
+// }
+// .lables{
+//     font-size: 15px;
+//     font-weight: bold;
+//     margin-left: 18px;
+//     margin-top: 20px;
+  
+// }
+// #submittedbtns{
+//       margin-top:200px;
+//     margin-left: 360px;
+   
+   
+// }
+
+
+// #printbtn1{
+//     // margin-left: 990px;
+//     width: 100px;
+//     height: 30px;
+//   color: black;
+//     // margin-top: -200px;
+// }
+// .printbtn2{
+//     // margin-left: 1100px;
+//     width: 100px;
+//     height: 30px;
+//     color:black;
+//      margin-top: 10px;
+//      margin-left: -20px;
+//      position: relative;
+// }
+// #printbtns{
+//     margin-left: 800px;
+//     margin-top: 40px;
+//     position: absolute;
+// }
+
+// p{
+//     margin-top: -20px;
+//    margin-left: 400px;
+//    font-size: 18px;
+//    font-family: initial;
+// }
+// b{
+//     font-size: 20px;
+//     margin-left: 200px;
+//     font-family: initial;
+// }
+// #addrress{
+//     margin-left: 200px;
+//     font-family: initial;
+//     font-weight: bold;
+// }
+// #headding{
+//     margin-left: 460px;
+//     color:coral
+// }
+
+
+// .hide-input-border {
+//     border: none;
+//     outline: none;
+//   }
+
+
+//   #printbtn{
+//     margin-left: 1000px;
+//     width: 100px;
+//     height: 30px;
+//     color: cadetblue;
+//     margin-top:100px;
+//     position: absolute;
+//   }
+
+
+//  #crossbtn{
+//     margin-left: 995px;
+//     margin-top: -68px;
+//     position: absolute;
+//      color: red;
+//      border: solid black 1px;
+//      padding: 5px;
+
+//   }
+//   @media screen and (min-width:360px) and (max-width:1360px){
+//     #form{
+//       width: 900px;
+//       height:500px;
+//        border: ridge 3px;
+//        overflow: hidden;
+//   }
+//   .card1{
+//       height: 200px;
+//       margin-top: 50px;
+//   }
+//   .card-body1{
+//       display: inline-flex;
+  
+//       // margin-top: 50px;
+//   }
+//   .lables{
+//       font-size: 15px;
+//       font-weight: bold;
+//       margin-left: 18px;
+//       margin-top: 20px;
+    
+//   }
+//   #submittedbtns{
+//         margin-top:170px;
+//       margin-left: 360px;
+     
+     
+//   }
+  
+  
+//   #printbtn1{
+//       // margin-left: 990px;
+//       width: 100px;
+//       height: 30px;
+//     color: black;
+//       // margin-top: -200px;
+//   }
+//   .printbtn2{
+//       // margin-left: 1100px;
+//       width: 100px;
+//       height: 30px;
+//       color:black;
+//        margin-top: 10px;
+//        margin-left: -20px;
+//        position: relative;
+//   }
+//   #printbtns{
+//       margin-left: 700px;
+//       margin-top: 40px;
+//       position: absolute;
+//   }
+  
+//   p{
+//       margin-top: -20px;
+//      margin-left: 400px;
+//      font-size: 18px;
+//      font-family: initial;
+//   }
+//   b{
+//       font-size: 20px;
+//       margin-left: 200px;
+//       font-family: initial;
+//   }
+//   #addrress{
+//       margin-left: 200px;
+//       font-family: initial;
+//       font-weight: bold;
+//   }
+//   #headding{
+//       margin-left: 390px;
+//       color:coral
+//   }
+  
+  
+//   .hide-input-border {
+//       border: none;
+//       outline: none;
+//     }
+  
+  
+//     #printbtn{
+//       margin-left: 1000px;
+//       width: 100px;
+//       height: 30px;
+//       color: cadetblue;
+//       margin-top:100px;
+//       position: absolute;
+//     }
+  
+  
+//    #crossbtn{
+//       margin-left: 895px;
+//       margin-top: -68px;
+//       position: absolute;
+//        color: red;
+//        border: solid black 1px;
+//        padding: 5px;
+  
+//     }
+    
+//   }
+
 /*
  *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
  *   All rights reserved.
  */
 
-#form{
-    width: 1300px;
-    height: 600px;
+ #form{
+  width: 1000px;
+  height:550px;
+   border: ridge 3px;
+   overflow: hidden;
+}
+.card1{
+  height: 200px;
+  margin-top: 50px;
+}
+.card-body1{
+  display: inline-flex;
+
+  // margin-top: 50px;
+}
+.lables{
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 18px;
+  margin-top: 20px;
+
+}
+#submittedbtns{
+    margin-top:200px;
+  margin-left: 360px;
+ 
+ 
+}
+
+
+#printbtn1{
+  // margin-left: 990px;
+  width: 100px;
+  height: 30px;
+color: black;
+  // margin-top: -200px;
+}
+.printbtn2{
+  // margin-left: 1100px;
+  width: 100px;
+  height: 30px;
+  color:black;
+   margin-top: 10px;
+   margin-left: -20px;
+   position: relative;
+}
+#printbtns{
+  margin-left: 800px;
+  margin-top: 40px;
+  position: absolute;
+}
+
+p{
+  margin-top: -20px;
+ margin-left: 400px;
+ font-size: 18px;
+ font-family: initial;
+}
+b{
+  font-size: 20px;
+  margin-left: 200px;
+  font-family: initial;
+}
+#addrress{
+  margin-left: 200px;
+  font-family: initial;
+  font-weight: bold;
+}
+#headding{
+  margin-left: 460px;
+  color:coral
+}
+
+
+.hide-input-border {
+  border: none;
+  outline: none;
+}
+
+
+#printbtn{
+  margin-left: 1000px;
+  width: 100px;
+  height: 30px;
+  color: cadetblue;
+  margin-top:100px;
+  position: absolute;
+}
+
+
+#crossbtn{
+  margin-left: 995px;
+  margin-top: -68px;
+  position: absolute;
+   color: red;
+   border: solid black 1px;
+   padding: 5px;
+
+}
+@media screen and (min-width:360px) and (max-width:1360px){
+  #form{
+    width: 900px;
+    height:500px;
      border: ridge 3px;
+     overflow: hidden;
 }
 .card1{
     height: 200px;
@@ -25,16 +333,12 @@
   
 }
 #submittedbtns{
-      margin-top:250px;
-    margin-left: 530px;
+      margin-top:170px;
+    margin-left: 360px;
    
    
 }
-#dropdown{
-  margin-top: 20px;
-  width: 300px;
-  height: 40px;
-}
+
 
 #printbtn1{
     // margin-left: 990px;
@@ -48,11 +352,13 @@
     width: 100px;
     height: 30px;
     color:black;
-     margin-top: 20px;
+     margin-top: 10px;
+     margin-left: -20px;
+     position: relative;
 }
 #printbtns{
-    margin-left: 1000px;
-    margin-top: 50px;
+    margin-left: 700px;
+    margin-top: 40px;
     position: absolute;
 }
 
@@ -73,7 +379,7 @@ b{
     font-weight: bold;
 }
 #headding{
-    margin-left: 550px;
+    margin-left: 390px;
     color:coral
 }
 
@@ -94,36 +400,14 @@ b{
   }
 
 
-  #secondform{
-    margin-top: -100px;
-  }
-  #secondformmaindiv{
-    border: ridge 10px;
-  width: 800px;
-  height: 200px;
-  margin-top: 30px;
-  margin-left: 250px;
-  }
-  #staffcd{
-    margin-top: 120px;
-    position: absolute;
-    margin-left: 160px;
-  }
-  
-  #sbmtbtn{
-    margin-top: 200px;
-    margin-left: 300px;
-    position: absolute;
-  }
-  #enterstafflablel{
-    margin-top: 130px;
-    margin-left: 20px;
-    font-size: 18px;
-  }
-  #crossbtn{
-    margin-left: 1230px;
+ #crossbtn{
+    margin-left: 895px;
     margin-top: -68px;
     position: absolute;
      color: red;
+     border: solid black 1px;
+     padding: 5px;
+
   }
   
+}

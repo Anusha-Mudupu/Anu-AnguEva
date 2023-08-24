@@ -1,61 +1,61 @@
-<button [print]="['printverifipaymentform', config]" id="printbtn" style="font-family: initial;font-weight: bolder;font-family: initial;">Print</button>
-<div id="maindiv">
-    <form  id="form">
-        <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
+<button [print]="['printverifipaymentform', config]" id="printbtn"
+    style="font-family: initial;font-weight: bolder;font-family: initial;">Print</button>
 
-        <h1>Verify Payment</h1>
+<form id="form">
+    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
 
-        <div class="card" class="card1">
+    <h1>Verify Payment</h1>
 
-            <div class="card-body" class="card-body1" id="printverifipaymentform">
-                <div class="row">
-                    <div class="col-3">
-                        <label class="lables">OrderId:</label>
-                        <input type="text"  class="form-control"
-                            [(ngModel)]="Orderdetails.orderId" placeholder="{{Orderdetails.orderId}}"
-                            [attr.disabled]="isDisabled ? true : null">
+    <div class="card" class="card1">
 
-                    </div>
+        <div class="card-body" class="card-body1" id="printverifipaymentform">
+            <div class="row">
+                <div class="col-3">
+                    <label class="lables">OrderId:</label>
+                    <input type="text" class="form-control" placeholder="{{Orderdetails.orderId}}"
+                        [attr.disabled]="isDisabled ? true : null">
 
-                    <div class="col-3">
-                        <label class="lables">Mobile number:</label>
-                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.mobileNumber"
-                            placeholder="{{Orderdetails.mobileNumber}}" [attr.disabled]="isDisabled ? true : null">
-                    </div>
-                    <div class="col-3">
-                        <label class="lables">Payment Id:</label>
-                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.pgRazorpayPaymentId"
-                            placeholder="{{Orderdetails.pgRazorpayPaymentId}}"
-                            [attr.disabled]="isDisabled ? true : null">
-                    </div>
-                </div>
-                <div class="row" id="secondrow">
-                    <div class="col-3">
-                        <label class="lables">Order Submitted Date:</label>
-                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.orderSubmitDtTm"
-                            placeholder="{{Orderdetails.orderSubmitDtTm |date}}" [attr.disabled]="isDisabled ? true : null">
-                    </div>
-                    <div class="col-3">
-                        <label class="lables">Total Amount:</label>
-                        <input type="text" class="form-control" [(ngModel)]="Orderdetails.totalAmount"
-                            placeholder="{{Orderdetails.totalAmount}}" [attr.disabled]="isDisabled ? true : null">
-                    </div>
-                   
                 </div>
 
-
-              
-
+                <div class="col-3">
+                    <label class="lables">Mobile number:</label>
+                    <input type="text" class="form-control" placeholder="{{Orderdetails.mobileNumber}}"
+                        [attr.disabled]="isDisabled ? true : null">
+                </div>
+                <div class="col-3">
+                    <label class="lables">Payment Id:</label>
+                    <input type="text" class="form-control" placeholder="{{Orderdetails.pgRazorpayPaymentId}}"
+                        [attr.disabled]="isDisabled ? true : null">
+                </div>
+            </div>
+            <div class="row" id="secondrow">
+                <div class="col-3">
+                    <label class="lables">Order Submitted Date:</label>
+                    <input type="text" class="form-control" placeholder="{{Orderdetails.orderSubmitDtTm |date}}"
+                        [attr.disabled]="isDisabled ? true : null">
+                </div>
+                <div class="col-3">
+                    <label class="lables">Total Amount:</label>
+                    <input type="text" class="form-control" placeholder="{{totalAmount}}"
+                        [attr.disabled]="isDisabled ? true : null">
+                </div>
 
             </div>
+
+
+
+
+
         </div>
-        <div id="submittedbtns">
+    </div>
+    <div id="submittedbtns">
 
-            <button class="btn btn-success" (click)="paymentSuccess(orderId)" style="width: 100px;font-weight: bolder;">PASS</button>
+        <button class="btn btn-success" (click)="paymentSuccess(orderId)"
+            style="width: 100px;font-weight: bolder;">PASS</button>
 
-            <button class="btn btn-primary" (click)="paymentFailed()" style="margin-left:20px;width:100px;font-weight: bolder;">FAIL</button>
-            <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
-        </div>
-    </form>
-
-</div>
+        <button class="btn btn-primary" (click)="paymentFailed()"
+            style="margin-left:20px;width:100px;font-weight: bolder;">FAIL</button>
+        <button type="submit" class="btn btn-danger" mat-dialog-close
+            style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+    </div>
+</form>

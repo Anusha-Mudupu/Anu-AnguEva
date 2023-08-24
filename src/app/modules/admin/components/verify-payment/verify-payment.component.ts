@@ -25,11 +25,9 @@ export class VerifyPaymentComponent implements OnInit {
   orderId: any
   Orderdetails: any;
   OrderStatus: any;
-  orderItemDetails: any
-
-
+  orderItemDetails: any;
   isDisabled: boolean = true;
-
+  totalAmount: any;
   paymentverified = 'PAYMENT VERIFIED'
   paymentfailed = 'PAYMENT FAILED'
   errorMessage: any;
@@ -39,6 +37,7 @@ export class VerifyPaymentComponent implements OnInit {
 
     console.log(this.orderId);
 
+  
   }
 
   public config = {
@@ -48,24 +47,18 @@ export class VerifyPaymentComponent implements OnInit {
     //templateString: '<header>I\'m part of the template header</header>{{printBody}}<footer>I\'m part of the template footer</footer>',
     stylesheets: [{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' }],
     styles: ['td { border: 1px solid black;}', 'table { border: 1px solid black; }', 'header, table, footer { margin-top:100px text-align: center; }']
-
   }
-
-
-
-
 
   ngOnInit(): void {
-
-
     this.productskudataservice.getOrderItemDetails(this.orderId).subscribe(data => {
       this.Orderdetails = data;
+      this.totalAmount = this.Orderdetails.totalAmount
       this.orderItemDetails = this.Orderdetails.orderItems
       console.log(data)
+      console.log(this.Orderdetails.totalAmount)
     });
-
-
   }
+
   paymentSuccess(orderId: any) {
     const dialogRef = this.dailog.open(StaffVerificationComponent, {
       data: {

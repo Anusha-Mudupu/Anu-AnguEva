@@ -1,7 +1,7 @@
-<button [print]="['printstartfillingform', config]" id="printbtn">Print</button>
+<!-- <button [print]="['printstartfillingform', config]" id="printbtn">Print</button> -->
 
 <form [formGroup]="startFillingform" id="form">
-    <button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
+    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
     <h1>Fill Order</h1>
     <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
         [(ngModel)]="Orderdetails.orderId" hidden>
@@ -32,10 +32,10 @@
     </div>
     <div id="submittedbtns" *ngIf="startfilling">
 
-        <button  mat-raised-button color="primary"
-            (click)="startfillingaction()" style="width: 100px;font-family: initial;font-weight: bolder;" >Start</button>
-      
-            <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+        <button mat-raised-button color="primary" (click)="startfillingaction()"
+            style="width: 100px;font-family: initial;font-weight: bolder;">Start</button>
+
+        <button type="submit" class="btn btn-danger" mat-dialog-close
+            style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
     </div>
 </form>
-

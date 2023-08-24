@@ -82,9 +82,9 @@
 
     </div>
   <div mat-dialog-action [align]="'center'" id="buttons">
-      <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    
       <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
-
+      <button mat-raised-button color="warn" mat-dialog-close style="margin-left:10px">Cancel</button>
     </div>
 
   </form>
@@ -93,23 +93,7 @@
 
 
 
-<!-- <mat-form-field class="col-4">
-  <mat-label>Select Vendors</mat-label>
-  <mat-select name="selectedvendors" id="aantal" [(ngModel)]="selectedvendors" multiple>
-    <mat-option *ngFor="let vendor of vendorData" [value]="vendor">
-      {{ vendor.manufacturerName }}
-    </mat-option>
-  </mat-select>
-</mat-form-field> -->
 
-<!-- <mat-form-field>
-  <mat-label>Select Vendors</mat-label>
-  <mat-select name="selectedvendors" id="aantal" [(ngModel)]="selectedvendors"  formControlName="manufacturerId">
-    <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor.manufacturerId" (click)="selectVendorname(i)">
-      {{ vendor.manufacturerName }}
-    </mat-option>
-  </mat-select>
-</mat-form-field> -->
 
 
 

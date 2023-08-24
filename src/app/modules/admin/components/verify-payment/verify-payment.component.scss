@@ -3,51 +3,40 @@
  *   All rights reserved.
  */
 #form{
-    width: 1400px;
-    height: 700px;
+    width: 1100px;
+    height: 550px;
+    overflow: hidden;
     
 }
 
 .card1{
-    height: 200px;
+    // height: 200px;
     margin-top: 50px;
     border: ridge 1px;
-    height: 500px;
+    height: 400px;
     border-color: black;
     border-radius: 15px;
-}
-h1{
-    font-family: initial;
-    font-weight: bolder;
-    margin-left: 60px;
-    font-size: 28px;
-}
-// .card-body1{
-//     // display: inline-flex;
 
-//     // margin-top: 50px;
-// }
+}
+
+
 .lables{
     font-size: 20px;
     font-weight: bolder;
     font-family: initial;
-    margin-left: 18px;
+    // margin-left: 18px;
     margin-top: 20px;
   
 }
 #submittedbtns{
-     margin-top:-200px;
-    margin-left: 500px;
+     margin-top:-80px;
+    margin-left: 350px;
    font-family: initial;
    
 }
-#dropdown{
-  margin-top: 20px;
-  width: 300px;
-  height: 40px;
-}
+
 h1{
-  margin-left: 600px;
+  margin-left: 500px;
   color:coral;
   margin-top: 30px;
   font-family: initial;
@@ -55,7 +44,7 @@ h1{
   
 }
 #printbtn{
-    margin-left: 1100px;
+    margin-left: 900px;
     width: 100px;
     height: 30px;
     color: cadetblue;
@@ -72,50 +61,88 @@ h1{
 }
 
 
-#staffcd{
-    margin-top: 120px;
-    position: absolute;
-    margin-left: 160px;
-}
-  
-#sbmtbtn{
-    margin-top: 200px;
-    margin-left: 200px;
-    position: absolute;
-}
+
 #crossbtn{
-    margin-left: 1310px;
-    margin-top: -50px;
+    margin-left: 1070px;
+    margin-top: -10px;
      color: red;
+     font-size: 20px;
+     border: solid black 1px;
+     padding: 5px;
+     position: absolute;
   }
-//   #maindiv{
-//     overflow: auto;
-// }
-@media screen and (min-width:360px) and (max-width:1350px){
-    #form{
-        width: 600px;
-        height: auto;
-        overflow: auto;
+
+@media screen and (min-width:360px) and (max-width:1400px){
+    // [class*="col-3"] {
+    //     width: 30%;
+    //     padding: 0px;
+    //   }
+      #form{
+        width: 960px;
+        height: 530px;
+        overflow: hidden;
+        
     }
-  #printbtn{
-        margin-left: -800px;
+    
+    .card1{
+     
+        margin-top: 50px;
+        border: ridge 1px;
+        height: 400px;
+        border-color: black;
+        border-radius: 15px;
+    
+    }
+    
+    
+    .lables{
+        font-size: 20px;
+        font-weight: bolder;
+        font-family: initial;
+        // margin-left: 18px;
+        margin-top: 20px;
+      
+    }
+    #submittedbtns{
+         margin-top:-80px;
+        margin-left: 330px;
+       font-family: initial;
+       
+    }
+    
+    h1{
+      margin-left: 450px;
+      color:coral;
+      margin-top: 30px;
+      font-family: initial;
+      font-weight: bolder;
+      
+    }
+    #printbtn{
+        margin-left: 800px;
         width: 100px;
         height: 30px;
         color: cadetblue;
         margin-top: 60px;
         position: absolute;
     }
-   
-    // #maindiv{
-    //     overflow: auto;
-    // }
-    #crossbtn{
-        margin-left: 800px;
-        margin-top: -50px;
-         color: red;
-      }
-      .col-3{
+    
+    .col-3{
         margin-left: 60px;
         margin-top: 50px;
     }
+    #secondrow{
+        margin-top: -50px;
+    }
+    
+    #crossbtn{
+        margin-left: 950px;
+        margin-top: -10px;
+         color: red;
+         font-size: 20px;
+         border: solid black 1px;
+         padding: 5px;
+         position: absolute;
+      }
+    
 }

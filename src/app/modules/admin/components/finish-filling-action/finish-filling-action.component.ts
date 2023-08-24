@@ -29,10 +29,10 @@ export class FinishFillingActionComponent implements OnInit {
   imageBaseUrl: any;
   errorMessage: any
 
-  isCheckboxSelected = false;
-  isCheckboxSelected2 = false;
+  isCheckboxSelected: any;
+  isCheckboxSelected2 :any;
   isSubmitDisabled = true;
-  isDisable=false;
+  isDisable:any=false;
   firstCheckbox=false;
   constructor(private dialogRef: MatDialogRef<FinishFillingActionComponent>, private productskudataservice: ProductSkuDataService, private activated: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any, private dailog: MatDialog) {
     this.orderId = data.orderId;
@@ -47,6 +47,7 @@ export class FinishFillingActionComponent implements OnInit {
     // styles: ['td { border: 1px solid black; color: green;margin-top:400px;position:absolute }', 'table { border: 1px solid black; }', 'header, table, footer { margin-top:100px text-align: center; }']
 
   }
+  
 
   ngOnInit(): void {
     this.imageBaseUrl = environment.imagesBaseUrl
@@ -58,29 +59,39 @@ export class FinishFillingActionComponent implements OnInit {
 
 
   }
+  
 
 
-  onCheckboxChange(event: any) {
-    this.isCheckboxSelected = event.target.checked;
-    this.isSubmitDisabled = !this.isCheckboxSelected;
-    this.isDisable=!this.isCheckboxSelected;
+//   onCheckboxChange(event: any) {
+//     this.isCheckboxSelected = event.target.checked;
+//     this.isSubmitDisabled = !this.isCheckboxSelected;
+//     this.isDisable=!this.isCheckboxSelected;
+//   }
+//   onCheckboxChange2(event:any){
+//   this.isCheckboxSelected2=event.target.checked;
+//   this.firstCheckbox=this.isCheckboxSelected2;
+//   this.isSubmitDisabled=!this.isCheckboxSelected2;
+//  }
+
+
+ onCheckboxChange(event: any,i:any,action:any) {
+  if(action==='Yes' && this.orderItemDetails[i].orderItemId){
+    this.isCheckboxSelected= event.target.checked;
+  this.isDisable=this.isCheckboxSelected;
+  this.isSubmitDisabled = !this.isCheckboxSelected; 
+  console.log('if called',this.orderItemDetails[i])
   }
-  onCheckboxChange2(event:any){
-  this.isCheckboxSelected2=event.target.checked;
-  this.firstCheckbox=this.isCheckboxSelected2;
-  this.isSubmitDisabled=!this.isCheckboxSelected2;
+ else {
+  if(action ==='Partially-Filled'&&this.orderItemDetails[i].orderItemId){
+    this.isCheckboxSelected2=event.target.checked;
+    this.firstCheckbox=this.isCheckboxSelected2;
+    this.isSubmitDisabled = !this.isCheckboxSelected2; 
+    console.log('else called')
+  }
  }
 
+}
 
-//  onCheckboxChange(event: any) {
-//   this.isDisable = event.target.checked;
-//   this.isSubmitDisabled = !this.isDisable;
-// }
-
-// onCheckboxChange2(event: any) {
-//   this.firstCheckbox = event.target.checked;
-//   this.firstCheckbox=!this.firstCheckbox;
-// }
 
 
 
@@ -109,7 +120,7 @@ export class FinishFillingActionComponent implements OnInit {
 
   }
 
-
+  
 
 
 }
