@@ -151,8 +151,8 @@
                 </svg> -->
             </p>
         </div>
-        <div class="col-3" style="margin-left: 90px;margin-top: 20px;">
-            <div formArrayName="option" id="selectoptions">
+        <div class="col-3"  id="selectoptions">
+            <div formArrayName="option" >
                 <label style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
                     Option</label>
                 <div>
@@ -195,7 +195,7 @@
                 'Available':'Not-Available'}}</span>
         </div>
 
-        <div class="col-2" style="margin-left:480px;margin-top:20px;position: absolute;">
+        <div class="col-2"  id="Uploadimg">
             <p class="para" style="font-family: initial;">Upload Image:</p>
             <input type="file" (change)="onFileSelected($event)" id="imag_upload" style="display: '';visibility:'';"
                 class="choosefile" style="font-family: initial;" [disabled]="!isEditMode">

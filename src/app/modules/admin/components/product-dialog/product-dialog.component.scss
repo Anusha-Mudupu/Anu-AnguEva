@@ -35,7 +35,9 @@ font-family: initial;
 
 .dialog-content {
     height: 400px;
+    width: 800px;
     font-family: initial;
+    overflow: hidden;
     
 }
 
@@ -50,12 +52,12 @@ button {
     font-family: initial;
 }
 #addnewcatalogbtn{
-    margin-left: 600px; 
+    margin-left: 550px; 
      margin-top: -100px;
      font-family: initial;
 }
 #selectcatalog{
-    margin-left: 5px;
+    margin-left: 45px;
     font-family: initial;
 }
 #search_tag{
@@ -63,36 +65,96 @@ button {
     font-family: initial;
 }
 #crossbtn{
-    margin-left: 980px;
-    margin-top: -50px;
+    margin-left: 780px;
+    margin-top: -20px;
     color: red;
+    border: solid black 1px;
+    padding: 7px;
+    position: absolute;
+    // position: sticky;
   }
   h1{
-    margin-left: 400px;
+    margin-left: 370px;
     font-family: initial;
     font-weight: bolder;
+    margin-top: -20px;
   }
 @media screen and (min-width: 360px) and (max-width: 1400px) {
-    #addnewcatalogbtn{
-        margin-left: 300px; 
-        margin-top: -280px;
-    }
-
-    #selectcatalog{
-        margin-left: 100px;
-    }
-
-    #crossbtn{
-        margin-left: 600px;
-        margin-top: -50px;
-      }
-      #search_tag{
-        margin-left: 40px;
+    .product-name {
+        font-size: large;
+        margin-left: 9%;
         font-family: initial;
     }
-    h1{
-        margin-left: 210px;
-        position: absolute;
-        margin-top: -30px;
+    
+    .vendor-select {
+        margin-left: 5%;
+        font-size: large;
+        font-family: initial;
     }
+    
+    .search-tag-list{
+        margin-left: 2%;
+        font-size: large;
+        font-family: initial;
+        
+    }
+    
+    .product-description {
+        font-size: large;
+        margin-left: 9%;
+        font-family: initial;
+    }
+    
+    .product-catalog{
+    margin-left: 38%;
+    margin-top: -170px;
+    font-family: initial;
+    }
+    
+    .dialog-content {
+        height: 400px;
+        width: auto;
+        font-family: initial;
+        overflow: hidden;
+        
+    }
+    
+    button {
+        font-size: large;
+        margin-top: 100px;
+        font-family: initial;
+    }
+    .ManufacturerId{
+        margin-left: 20px;
+        font-size: large;
+        font-family: initial;
+    }
+    #addnewcatalogbtn{
+        margin-left: 350px; 
+         margin-top: 40px;
+         font-family: initial;
+    }
+    #selectcatalog{
+        margin-left: 45px;
+        font-family: initial;
+       
+    }
+    #search_tag{
+        margin-left: 56px;
+        font-family: initial;
+    }
+    #crossbtn{
+        margin-left: 700px;
+        margin-top: -15px;
+        color: red;
+        border: solid black 1px;
+        padding: 7px;
+        position: absolute;
+      }
+      h1{
+        margin-left: 330px;
+        font-family: initial;
+        font-weight: bolder;
+        margin-top: -20px;
+      }
   }

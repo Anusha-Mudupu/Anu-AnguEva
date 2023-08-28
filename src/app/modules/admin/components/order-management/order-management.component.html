@@ -57,50 +57,35 @@
        
 
         <div *ngIf="element.statusCd=='PAID'">
-          <button class="btn btn-outline-primary" (click)="openDialog('verifypayment',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Verify Payment">VERIFY
-            PAYMENT</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('verifypayment',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Verify Payment">VP</button>
           <!-- (click)="dynamicComponentLoading('verifyPayment',i)" -->
         </div>
         <div *ngIf="element.statusCd=='PAYMENT VERIFIED'">
-          <button class="btn btn-outline-primary" (click)="openDialog('start-filling',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Filling">START
-            FILLING</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('start-filling',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Filling">SF</button>
         </div>
         <div *ngIf="element.statusCd=='FILLING IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('finish-filling',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Filling">FINISH
-            FILLING</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('finish-filling',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Filling">FF</button>
         </div>
         <div *ngIf="element.statusCd=='FILLED'">
-          <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CHECK
-            QUALITY</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CQ</button>
         </div>
         <div *ngIf="element.statusCd=='PARTIALLY FILLED'">
-          <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CHECK
-            QUALITY</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CQ</button>
         </div>
-
-
-
-
-
-
-        <div *ngIf="element.statusCd=='QC IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('QC-Success',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="QC Done">QC DONE</button>
+         <div *ngIf="element.statusCd=='QC IN PROGRESS'">
+          <button class="btn btn-outline-primary" (click)="openDialog('QC-Success',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="QC Done">QD</button>
         </div>
         <div *ngIf="element.statusCd=='QC SUCCESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('start-packing',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Packing">START
-            PACKING</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('start-packing',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Packing">SP</button>
         </div>
         <div *ngIf="element.statusCd=='PACKING IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('done-packing',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Done Packing">DONE
-            PACKING</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('done-packing',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Done Packing">DP</button>
         </div>
         <div *ngIf="element.statusCd=='PACKING DONE'">
-          <button class="btn btn-outline-primary" (click)="openDialog('start-shipping',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Shipping">START
-            SHIPPING</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('start-shipping',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Shipping">SS</button>
         </div>
         <div *ngIf="element.statusCd=='SHIPPING IN PROGRESS'">
-          <button class="btn btn-outline-primary" (click)="openDialog('finish-shipping',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Shipping">FINISH
-            SHIPPING</button>
+          <button class="btn btn-outline-primary" (click)="openDialog('finish-shipping',element.orderId)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Shipping">FS</button>
         </div>
 
        

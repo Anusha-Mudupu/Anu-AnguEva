@@ -40,10 +40,13 @@ button {
 }
 
 #crossbtn{
-    margin-left: 480px;
-    margin-top: -60px;
+    margin-left: 550px;
+    margin-top: -20px;
     size: 10px;
     color: red;
+    border: solid black 1px;
+    padding: 5px;
+    position: absolute;
   }
   h1{
     margin-left: 150px;

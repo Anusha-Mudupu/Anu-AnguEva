@@ -5,9 +5,9 @@
 .box{
    
     margin-top: 50px;
-    margin-left: 80px;
+    margin-left: 100px;
    border-style: ridge;
-   width:1450px ;
+   width:1200px ;
    height: auto;
    border-radius: 20px;
    
@@ -15,22 +15,22 @@
 }
 
   .row{
-    margin-left: 200px;
+    margin-left: 100px;
 
 }
   .col-3{
     padding: 0px;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-top: 10px;
   }
   
   .textarea{
-    width: 360px;
+    width: 340px;
     height: auto;
-    margin-left: 30px;
+    margin-left: 10px;
   }
   .button{
-    margin-left: 610px;
+    margin-left: 450px;
     margin-top: 60px;
     width: 500px;
   
@@ -59,12 +59,12 @@
    
    .images{
     display:inline-flex;
-    margin-left: -250px;
+    margin-left: -350px;
     margin-top: 10px;
     
    }
    .img1{
-    margin-left: 270px;
+    margin-left: 240px;
    }
   .crossmark{
     margin-left: 350px;
@@ -73,13 +73,13 @@
     position: absolute;
   }
   #editbtn{
-  margin-left: 900px;
+  margin-left: 800px;
   width: 100px;
   margin-top: 10px;
   position: absolute;
 }
 #addoptbtn{
-  margin-left: 1050px;
+  margin-left: 950px;
   width: 150px;
   margin-top: 10px;
   position: absolute;
@@ -186,7 +186,7 @@
   margin-left:50px;
 }
 #Gst{
-  margin-left:750px;
+  margin-left:700px;
 position: absolute;
    margin-top: 10px;
   border-style: ridge;
@@ -203,7 +203,7 @@ position: absolute;
 //   margin-left: 220px;
 // }
 #productId{
-  margin-left: 3px;
+  margin-left: 1px;
   cursor: not-allowed;
 }
 .form-label{
@@ -252,7 +252,11 @@ position: absolute;
     width: 64px;
     height: 64px;
   }
-  
+  #Uploadimg{
+    margin-left:450px;
+    margin-top:20px;
+    position: absolute;
+  }
   
   // @media only screen and (max-width: 800px) {
    
@@ -262,21 +266,274 @@ position: absolute;
   //   }
   // }
     @media screen and (min-width: 360px) and (max-width: 1350px) {
-      [class*="col-3"] {
-        width: 30%;
-        padding: 0px;
-      }
+      // [class*="col-3"] {
+      //   width: 30%;
+      //   padding: 0px;
+      // }
       .box{
    
-        margin-top: 70px;
+        margin-top: 50px;
         margin-left: 80px;
        border-style: ridge;
-       width:1100px ;
+       width:1150px ;
        height: auto;
-       border-radius: 10px;
-       overflow-y: auto;
+       border-radius: 20px;
+       
     
     }
+    
+      .row{
+        margin-left: 50px;
+    
+    }
+      .col-3{
+        padding: 0px;
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+      
+      .textarea{
+        width: 320px;
+        height: auto;
+        margin-left: 5px;
+      }
+      .button{
+        margin-left: 460px;
+        margin-top: 60px;
+        width: 500px;
+      
+      
+      }
+      .invalid{
+        color: red;
+      }
+      #toggle{
+       margin-left:100px;
+       margin-top: 10px;
+      }
+      .select{
+        font-weight: bolder;
+        font-size: 21px;
+        margin-left: -50px;
+        margin-top: 0px;
+      }
+      input[disabled] {
+      cursor: not-allowed;
+      }
+      .Skuimgs{
+          margin-left: 260px;
+        // margin-top: 30px;
+       }
+       
+       .images{
+        display:inline-flex;
+        margin-left: -390px;
+        margin-top: 10px;
+        
+       }
+       .img1{
+        margin-left: 270px;
+       }
+      .crossmark{
+        margin-left: 350px;
+        // margin-top: 10px;
+        color: aqua;
+        position: absolute;
+      }
+      #editbtn{
+      margin-left: 700px;
+      width: 100px;
+      margin-top: 10px;
+      position: absolute;
+    }
+    #addoptbtn{
+      margin-left: 900px;
+      width: 150px;
+      margin-top: 10px;
+      position: absolute;
+    }
+    
+    // #plusicon{
+    //   margin-left: 760px;
+    //   width: 160px;
+      
+    //   position: absolute;
+    //  }
+    
+      .labelforoptions{
+        font-size: 21px;
+        font-weight: bolder;
+        margin-top: 10px;
+       
+      }
+      #labelforoptionsvalues{
+        font-size: 21px;
+        font-weight: bolder;
+        margin-top: 10px;
+       
+      }
+      .para{
+        font-size: 21px;
+        font-weight: bolder;
+         
+      }
+      // #trashbin{
+      //   margin-left: 10px;
+      //   color: red;
+      // }
+     .optionsize{
+      font-size: 20px;
+      font-family: initial;
+      margin-top: 10px;
+     }
+    
+    //  #plusicon{
+    //   margin-left: 40px;
+    //   margin-top: -40px;
+    //  }
+     .gstcd{
+      font-size: 20px;
+      display:inline-flex;
+     }
+    
+    
+    
+    
+    #select{
+      width: 160px;
+      margin-left: -200px;
+    }
+    #slecet1{
+     margin-top: -60px;
+    }
+    
+    #selectors{
+      display: flex;
+      margin-left: 30px;
+    }
+    .slector1{
+      margin-left: 20px;
+      width: 200px;
+    }
+    .slector2{
+      margin-left: 20px;
+      width: 200px;
+    }
+    
+    #gstform{
+      margin-left: 1200px;
+      margin-top: -380px;
+      border-style: ridge;width: 400px;
+      height: 400px;
+    }
+    
+    
+    .addlabel{
+      font-size: 20px;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    #gstrow{
+      // margin-left: 200px;
+      display: flex;
+    }
+    #labelforgsttype{
+      font-size: 20px;
+      margin-left: 260px;
+      margin-top: 15px;
+    }
+    
+    
+    
+    #gstType{
+      font-size: 20px;
+      margin-left: 268px;
+    }
+    #gstPercentage{
+      font-size: 20px;
+      margin-left:50px;
+    }
+    #Gst{
+      margin-left:610px;
+    position: absolute;
+       margin-top: 10px;
+      border-style: ridge;
+      width: 400px;
+      height: 100px;
+    }
+    #gsteditbtn{
+      margin-top: -150px;
+      margin-left: 120px;
+      font-size: 10px;
+    
+    }
+    // #lastrow{
+    //   margin-left: 220px;
+    // }
+    #productId{
+      margin-left: 1px;
+      cursor: not-allowed;
+    }
+    .form-label{
+      font-size: 18px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+    #productSkuId{
+      cursor: not-allowed;
+    }
+    // #productId{
+    //   cursor: not-allowed;
+    // }
+      // #selectoptions{
+      //   margin-left: 1000px;
+      //   margin-top: -60px;
+      // }
+      .clear-icon {
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 5px;
+      }
+      #left-arrow{
+        margin-top: 70px;
+        margin-left: 20px;
+        position: absolute;
+      }
+    
+    
+    
+    
+      .spinner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      
+      .spinner {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+      }
+      
+     #selectoptions{
+      margin-left: 680px;
+      margin-top: -40px;
+      // margin-left: 90px;
+      // margin-top: 20px;
+     }
+     #Uploadimg{
+      margin-left:420px;
+      margin-top:20px;
+      position: absolute;
+    }
+    
+      
      }
     
   

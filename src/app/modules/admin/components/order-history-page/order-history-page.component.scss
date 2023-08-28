@@ -32,14 +32,14 @@ font-family:initial ;
 }
 .custom-table{
     width: 1000px;
-   height:600px;
+   height:400px;
    overflow-y: auto;
    border: ridge 2px;
   
 }
 
  #table{
-  height: 600px;
+  height: 450px;
   overflow-y: auto;
  }
 
@@ -68,20 +68,67 @@ p{
 #crossbtn{
   margin-left: 1000px;
   margin-top: -50px;
+  border: solid black 1px;
+  color: red;
+  padding: 5px;
 }
 
 
 @media screen and (min-width: 500px) and (max-width: 1350px) {
 #crossbtn{
-  margin-left: auto;
+  margin-left: 930px;
+  border: solid 1px black;
+  color: red;
+  padding: 6px;
+  position: absolute;
+  margin-top: -21px;
 }
 
 .custom-table{
   width: auto;
- height:600px;
- overflow-y: auto;
+ height:400px;
+overflow: hidden;
  border: ridge 2px;
 
+}
+.custom-table{
+  width: 1000px;
+ height:400px;
+  overflow: hidden;
+ border: ridge 2px;
+
+}
+
+#table{
+height: 500px;
+ overflow: hidden;
+}
+
+.custom-table th{
+font-size: 20px;
+font-family:initial ;
+border-bottom: 1px solid black;
+padding-left: 50px;
+ overflow: hidden;
+
+}
+
+
+h1{
+margin-left: 410px;
+color: rgb(62, 8, 199);
+font-weight: bold;
+font-family: initial;
+}
+p{
+  font-size: 20px;
+  font-weight:bold;
+  margin-left: 20px;
+  font-family: initial;
+}
+#form{
+  height: 500px;
+  overflow: auto;
 }
  
 }
