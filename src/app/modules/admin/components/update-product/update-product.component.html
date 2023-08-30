@@ -72,7 +72,7 @@
         <mat-label class="form-label" style="font-weight: bolder;" >Select Catalog</mat-label>
         <mat-select multiple [(value)]="selectedCatalogVals">
           <mat-option *ngFor="let item of AllcatalogData; let i=index;" [value]="item" (click)="onSelectCatalogs(i)">
-            {{item.catalogName}}
+           {{item.parent}}/{{item.catalogName}}
 
           </mat-option>
 

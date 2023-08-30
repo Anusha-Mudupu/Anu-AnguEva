@@ -7,6 +7,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { MatDialogRef } from '@angular/material/dialog';
 import { AddNewCatalog } from 'src/app/data/data-objects';
 import { VendorDataService } from 'src/app/services/vendor-data.service';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-add-new-catalog',
@@ -18,7 +19,7 @@ export class AddNewCatalogComponent implements OnInit {
   submitted: boolean = false;
   parentcatalogdata:any
   snackBar: any;
-  constructor(  private dialogRef: MatDialogRef<AddNewCatalogComponent>,private vendorservice:VendorDataService,private formBuilder: FormBuilder) {
+  constructor(  private dialogRef: MatDialogRef<AddNewCatalogComponent>,private vendorservice:VendorDataService,private formBuilder: FormBuilder,public themeservice:ThemeService) {
 
 this.addnewcatalogform = this.formBuilder.group({
   // catalogId: ['', Validators.compose([Validators.required])],

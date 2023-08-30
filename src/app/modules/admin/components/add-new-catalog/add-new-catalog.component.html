@@ -1,29 +1,29 @@
- 
- <span mat-raised-button color="" mat-dialog-close  id="crossbtn">X</span>
- <h1 mat-dialog-title>Add New Catalog</h1>
-<div mat-dialog-content class="dialog-content">
-    <form [formGroup]="addnewcatalogform">
-        <div>
+<div class="container1" [ngClass]="{'dark':themeservice.isDark}">
+    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
+    <h1 mat-dialog-title>Add New Catalog</h1>
+    <div mat-dialog-content class="dialog-content">
+        <form [formGroup]="addnewcatalogform">
             <div>
-                <mat-form-field class="catalogName" appearance="fill">
-                    <mat-label>Catalog Name</mat-label>
-                    <input matInput formControlName="catalogName">
-                    <div *ngIf="submitted && addnewcatalogform.get('catalogName').invalid">
-                        <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
-                    </div>
-                </mat-form-field>
+                <div>
+                    <mat-form-field class="catalogName" appearance="fill">
+                        <mat-label>Catalog Name</mat-label>
+                        <input matInput formControlName="catalogName">
+                        <div *ngIf="submitted && addnewcatalogform.get('catalogName').invalid">
+                            <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
+                        </div>
+                    </mat-form-field>
 
 
-                <mat-form-field class="catalogDesc" appearance="fill">
-                    <mat-label>catalogDesc</mat-label>
-                    <input matInput formControlName="catalogDesc">
-                    <div *ngIf="submitted && addnewcatalogform.get('catalogDesc').invalid">
-                        <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
-                    </div>
-                </mat-form-field>
-            </div>
-            <div>
-                <!-- <mat-form-field class="catalogLevel" appearance="fill">
+                    <mat-form-field class="catalogDesc" appearance="fill">
+                        <mat-label>catalogDesc</mat-label>
+                        <input matInput formControlName="catalogDesc">
+                        <div *ngIf="submitted && addnewcatalogform.get('catalogDesc').invalid">
+                            <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <!-- <mat-form-field class="catalogLevel" appearance="fill">
                     <mat-label>catalogLevel</mat-label>
                     <input matInput type="number" formControlName="catalogLevel">
                     <div *ngIf="submitted && addnewcatalogform.get('catalogLevel').invalid">
@@ -33,31 +33,32 @@
 
 
 
-              
-                <mat-form-field class="parentCatalogId" appearance="fill">
-                    <mat-label>Select ParentCatalog</mat-label>
-                    <mat-select formControlName="parentCatalogId">
-                      <mat-option *ngFor="let item of parentcatalogdata" [value]="item.catalogId">
-                        {{item.catalogName}}
-                      </mat-option>
-            
-                      <div *ngIf="submitted && addnewcatalogform.get('parentCatalogId').invalid">
-                         <!-- <div *ngIf="addnewcatalogform.get('parentCatalogId').errors.required"> Select Vendor Name.</div> -->
-                      </div>
-                    </mat-select>
-                  </mat-form-field>
+
+                    <mat-form-field class="parentCatalogId" appearance="fill">
+                        <mat-label>Select ParentCatalog</mat-label>
+                        <mat-select formControlName="parentCatalogId">
+                            <mat-option *ngFor="let item of parentcatalogdata" [value]="item.catalogId">
+                                {{item.catalogName}}
+                            </mat-option>
+
+                            <div *ngIf="submitted && addnewcatalogform.get('parentCatalogId').invalid">
+                                <!-- <div *ngIf="addnewcatalogform.get('parentCatalogId').errors.required"> Select Vendor Name.</div> -->
+                            </div>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+
             </div>
 
+            <div mat-dialog-action [align]="'center'">
 
-
-        </div>
-
-        <div mat-dialog-action [align]="'center'">
-           
-            <button type="submit" style="margin-left:10px" mat-raised-button color="primary"
-                (click)="addNewCatalog(addnewcatalogform)">Submit</button>
+                <button type="submit" style="margin-left:10px" mat-raised-button color="primary"
+                    (click)="addNewCatalog(addnewcatalogform)">Submit</button>
                 <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
-            <div *ngIf="submitted && !addnewcatalogform.valid">All fields are required.</div>
-        </div>
-    </form>
-</div>
+                <div *ngIf="submitted && !addnewcatalogform.valid">All fields are required.</div>
+            </div>
+        </form>
+    </div>
+ </div> 

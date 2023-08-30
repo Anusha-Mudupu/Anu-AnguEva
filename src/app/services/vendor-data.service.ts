@@ -3,7 +3,7 @@
  *   All rights reserved.
  */
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { AddNewCatalog, Catalog,Vendor, parentCatalogData } from '../data/data-objects';
 import { environment } from 'src/environments/environment';
@@ -22,7 +22,18 @@ abc='http://localhost:8085/api/getAllCatalog'
 
   }
   getAllCatalogs():Observable<any>{
-    return this.httpclient.get<Catalog>(environment.getAllcatalogs)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<Catalog>(environment.getAllcatalogs,httpOptions)
   }
 
   getData(): Observable<any> {

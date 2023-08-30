@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 export class ProductSku {
 productSkuId: number;
 productSkuImag: any;

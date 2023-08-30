@@ -6,6 +6,8 @@
     font-size: large;
     margin-left: 5%;
     font-family: initial;
+    background-color:var(--toast-background);
+    color:var(--toast-text);   
 }
 
 
@@ -14,16 +16,22 @@
     font-size: large;
     margin-left: 5%;
     font-family: initial;
+    background-color:var(--toast-background);
+    color:var(--toast-text);   
 }
 .catalogLevel {
     font-size: large;
     margin-left: 5%;
     font-family: initial;
+    background-color:var(--toast-background);
+    color:var(--toast-text);   
 }
 .parentCatalogId {
     font-size: large;
     margin-left: 5%;
     font-family: initial;
+    background-color:var(--toast-background);
+    color:var(--toast-text);   
 }
 
 .dialog-content {
@@ -31,26 +39,37 @@
     width: 600px;
     margin-top: 30px;
     font-family: initial;
+    background-color:var(--toast-background);
+    color:var(--toast-text);   
 }
 
 button {
     font-size: large;
     margin-top: 100px;
     font-family: initial;
+    
 }
 
 #crossbtn{
     margin-left: 550px;
-    margin-top: -20px;
+    margin-top: -10px;
     size: 10px;
     color: red;
     border: solid black 1px;
     padding: 5px;
     position: absolute;
+    background-color:var(--toast-background);
+    color:var(--toast-text); 
   }
   h1{
     margin-left: 150px;
     margin-top: -10px;
     font-family: initial;
     font-weight: bolder;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+  }
+  #container1{
+    background-color:var(--toast-background);
+    color:var(--toast-text); 
   }
