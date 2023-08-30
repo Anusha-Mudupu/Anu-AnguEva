@@ -1,35 +1,35 @@
-  <form id="form">
-  <span mat-raised-button color="" mat-dialog-close  id="crossbtn">X</span>
-  
-  <h1>Order Status History</h1>
-<p> Order Id:#{{Orderhistory.orderId}}</p>
+<form id="form">
+    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
 
-<div id="table">
+    <h1>Order Status History</h1>
+    <p> Order Id:#{{Orderhistory.orderId}}</p>
 
-    <table class="custom-table">
-        <thead>
-            <tr>
+    <div id="table">
 
-                <th>STATUS</th>
-                <th>DATE & TIME</th>
-                <th>STAFF CODE</th>
-                <th>STAFF NAME</th>
-                <!-- <th>QUANTITY</th> -->
-            </tr>
-        </thead>
-        <tbody>
-          
-            <tr *ngFor="let item of Orderstatuces">
+        <table class="custom-table">
+            <thead>
+                <tr>
 
-               
-                <td>{{item.statusCd}}</td>
-                <td>{{item.lastUpdateDtTm}}</td>
-                <td>{{item.staffCd}}</td>
-                <td>{{item.staffName}}</td>
+                    <th>STATUS</th>
+                    <th>DATE & TIME</th>
+                    <th>STAFF CODE</th>
+                    <th>STAFF NAME</th>
+                    <!-- <th>QUANTITY</th> -->
+                </tr>
+            </thead>
+            <tbody>
 
-            </tr>
+                <tr *ngFor="let item of Orderstatuces">
 
-        </tbody>
-    </table>
-</div>
+
+                    <td>{{item.statusCd}}</td>
+                    <td>{{item.lastUpdateDtTm}}</td>
+                    <td>{{item.staffCd}}</td>
+                    <td>{{item.staffName}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 </form>

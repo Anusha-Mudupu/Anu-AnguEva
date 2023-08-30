@@ -1316,6 +1316,8 @@ color:black;
   width: 800px;
   position: relative;
   left:140px;
+  background-color:var(--toast-background);
+  color:var(--toast-text);
 }
 
 .card {
@@ -1326,13 +1328,17 @@ color:black;
   padding: 10px;
   margin-left: 100px;
   height: auto;
+  background-color:var(--toast-background);
+  color:var(--toast-text);
 }
 h1{
   margin-left: 680px;
 }
 .card-header {
   font-weight: bold;
-  background-color:lightskyblue;
+  background-color:#87cefa;
+  background-color:var(--Oitemdetail);
+  color:var(--toast-text);
 }
 
 .card-body {

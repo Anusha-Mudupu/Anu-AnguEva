@@ -18,25 +18,68 @@ export class ProductDataService {
   constructor(private httpclient:HttpClient) { }
 
   getProducts(): Observable<Product[]>{
-    return this.httpclient.get<Product[]>(environment.getAllProductsURL)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<Product[]>(environment.getAllProductsURL,httpOptions)
   }
 
 
 
   addProduct(productForm: any):Observable<any>{
    
-    
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
     // const headers = new HttpHeaders()
     // .set('Authorization', 'my-auth-token')
     // .set('content-Type', 'application/json');
-    return this.httpclient.post<Product>('http://localhost:8085/ecomm/addProduct',productForm);
+    return this.httpclient.post<Product>('http://localhost:8085/ecomm/addProduct',productForm,httpOptions);
   }
 
   getProductById(id: number): Observable<any>{
-    return this.httpclient.get<any>(environment.getProductByIdURL + id)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<any>(environment.getProductByIdURL + id,httpOptions)
   }
   updateProductById(id:number,product:Product){
-    return this.httpclient.put<any>(environment.updateproduct + id,product)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.put<any>(environment.updateproduct + id,product,httpOptions);
   }
  
 }

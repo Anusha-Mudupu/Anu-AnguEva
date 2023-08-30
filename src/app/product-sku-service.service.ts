@@ -2,7 +2,7 @@
  *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
  *   All rights reserved.
  */
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductSku } from './product-sku';
@@ -21,11 +21,33 @@ export class ProductSkuServiceService {
 
   constructor(private http: HttpClient) { }
   createProductSku(productSku: ProductSku): Observable<Object> {
-    return this.http.post(`${this.addProductSku}`, productSku);
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.http.post(`${this.addProductSku}`, productSku,httpOptions);
   }
 
   addImageToProduSku(_productSkuImage: ProductSkuImage): Observable<Object> {
-    return this.http.post(`${this.addProductSkuImage}`, _productSkuImage);
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.http.post(`${this.addProductSkuImage}`, _productSkuImage,httpOptions);
   }
 
 

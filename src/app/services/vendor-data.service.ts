@@ -18,7 +18,18 @@ abc='http://localhost:8085/api/getAllCatalog'
   constructor(private httpclient:HttpClient) { }
 
   getVendors(): Observable<Vendor[]>{
-    return this.httpclient.get<Vendor[]>(environment.getAllVendorsURL)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<Vendor[]>(environment.getAllVendorsURL,httpOptions)
 
   }
   getAllCatalogs():Observable<any>{
@@ -41,11 +52,33 @@ abc='http://localhost:8085/api/getAllCatalog'
   }
 
   addNewCatalog(addnewcatalog:AddNewCatalog){
-    return this.httpclient.post<AddNewCatalog>(environment.Addnewcatalog ,addnewcatalog)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.post<AddNewCatalog>(environment.Addnewcatalog ,addnewcatalog,httpOptions)
   }
 
 getAllParentCatalogs():Observable<any>{
-  return this.httpclient.get<any>(environment.getAllParentCatalogs)
+  const httpOptions = {
+    headers :new HttpHeaders({
+      'Content-Type':'application/json',
+      'Accept':'application/json',
+      'responseType':'text,application/json',              
+      'Access-Control-Allow-Origin':'http://localhost:8085',
+      'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+      'Access-Control-Allow-Headers':'Content-Type,application/json',
+      'Authorization':'my-auth-token' 
+    })
+  };
+  return this.httpclient.get<any>(environment.getAllParentCatalogs,httpOptions);
 }
 
 }

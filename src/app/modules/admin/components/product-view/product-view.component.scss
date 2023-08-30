@@ -4,8 +4,7 @@
  */
 .sku-desc {
     height: 100%;
-    background-color:var(--toast-background);
-    color:var(--toast-text);
+    
 }
 
 .product_name {
@@ -16,16 +15,15 @@
 }
 
 .sku-section {
-    background-color: antiquewhite;
+    // background-color: #f5d1a1;
     border-left: solid;
-    background-color:var(--toast-background);
-    color:var(--toast-text);
+    background-color:var(--skubg);
+     color:var(--toast-text);
 }
 
 .field-labels {
     font-size: large;
-    background-color:var(--toast-background);
-    color:var(--toast-text);
+ 
 }
 
 table, th, td {
@@ -38,8 +36,7 @@ table, th, td {
 .form-check-input {
     width: 40px;
     height: 20px;
-    background-color:var(--toast-background);
-    color:var(--toast-text);
+  
 }
 input[disabled] {
  
@@ -56,44 +53,48 @@ input[disabled] {
     background-color: green;
     margin-bottom: 40px;  
     color: azure;  
-    // background-color:var(--toast-background);
-    // color:var(--toast-text); 
+    background-color:var(--addNewPskuBtn);
+    color:var(--toast-text); 
   }
 
 span{
     text-align: center;
-    background-color:var(--toast-background);
-    color:var(--toast-text);
+    // background-color:var(--toast-background);
+    // color:var(--toast-text);
 }
 h1{
     margin-left: 500px;
     font-weight: bolder;
     font-family: initial;
-    background-color:var(--toast-background);
-    color:var(--toast-text);
+    // background-color:var(--toast-background);
+    // color:var(--toast-text);
 }
 #ProductDetails{
     margin-left: 130px;
-    background-color:var(--toast-background);
-    color:var(--toast-text);
+    // background-color:var(--toast-background);
+    // color:var(--toast-text);
 }
 
 #container{
+   
     background-color:var(--toast-background);
     color:var(--toast-text);
 }
 #productbg{
-    background-color:#e18f2a;
-    // background-color:var(--toast-background);
+    // background-color:#e18f2a;
+    background-color:var(--link-color);
     // color:var(--toast-text);
 }
+
   @media screen and (min-width: 360px) and (max-width: 1350px) {
     #addnewproductskubtn {
     
             margin-left: 1000px; 
-           background-color: green;
+           background-color: #008000;
            margin-bottom: 40px;  
-           color: azure; 
+           color: azure;
+           background-color:var(--addNewPskuBtn);
+           color:var(--toast-text); 
            
         }
   }

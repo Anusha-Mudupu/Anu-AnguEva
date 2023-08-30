@@ -36,21 +36,22 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const storedTheme=localStorage.getItem('theme');
-    if(storedTheme&&this.darkModeFlag)
-    {
-      this.selectedTheme=storedTheme;
-      this.setThemeControlss(this.selectedTheme)
-    }
-    this.themeControl=new FormControl();
-    this.themeControl.valueChanges.subscribe((data:any)=>{
-      if(data){
-        this.themeService.toggleDark()
-      }
-      // else{
-      //   this.themeService.toggleLight();
-      // }
-    })
+    // const storedTheme=localStorage.getItem('theme');
+    // if(storedTheme&&this.darkModeFlag)
+    // {
+    //   this.selectedTheme=storedTheme;
+    //   this.setThemeControlss(this.selectedTheme)
+    // }
+    // this.themeControl=new FormControl();
+    // this.themeControl.valueChanges.subscribe((data:any)=>{
+    //   if(data){
+    //     this.themeService.toggleDark()
+    //   }
+    //   // else{
+    //   //   this.themeService.toggleLight();
+    //   // }
+    // })
+       this.themeService.toggleLight();
 
   }
 

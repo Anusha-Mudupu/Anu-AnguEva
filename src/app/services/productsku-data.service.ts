@@ -24,19 +24,63 @@ export class ProductSkuDataService {
   ) { }
 
   getAllProductSkus(id: number): Observable<any> {
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
 
-    return this.httpclient.get<any>(environment.getAllProductskusIdURL + id)
+    return this.httpclient.get<any>(environment.getAllProductskusIdURL + id,httpOptions)
   }
   getProductSkuByID(id: number): Observable<any> {
-    return this.httpclient.get<ProductSku>(environment.getproductSkuById + id)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<ProductSku>(environment.getproductSkuById + id,httpOptions)
   }
 
   upDateProductSkuById(id: any, productSku: ProductSku) {
-    return this.httpclient.put(environment.updateProductSku + id, productSku)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.put(environment.updateProductSku + id, productSku,httpOptions)
   }
 
   deleteImgByImgId(productSkuImageId: number) {
-    return this.httpclient.delete<any>(environment.deleteImgByImgId + productSkuImageId)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.delete<any>(environment.deleteImgByImgId + productSkuImageId,httpOptions)
   }
   // getAllOptions() {    
   //   return this.httpclient.get(`${this.getoptions}`)
@@ -57,7 +101,18 @@ export class ProductSkuDataService {
   //   return this.httpclient.post<any>(environment.addOptionsValues,productSkuOptions)
   // }
   addNewOption(SkuOptions: any) {
-    return this.httpclient.post<any>(environment.addNewOption, SkuOptions)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.post<any>(environment.addNewOption, SkuOptions,httpOptions)
 
   }
 
@@ -78,29 +133,95 @@ export class ProductSkuDataService {
 
 
   getAllGstCodes(){
-    return this .httpclient.get<any>(`${this.test}`)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this .httpclient.get<any>(`${this.test}`,httpOptions)
   }
 
   getAllOrders(){
-    return this.httpclient.get<any>(environment.getAllOrders);
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<any>(environment.getAllOrders,httpOptions);
   }
 
   getOrderItemDetails(orderId:OrderDetails){
- return this.httpclient.get<any>(environment.getOrderItemDetails +orderId)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+ return this.httpclient.get<any>(environment.getOrderItemDetails +orderId,httpOptions)
   }
 
 
   getOrderStatusHistoryByOrderId(orderId:any){
-    return this.httpclient.get<any>(environment.Orderstatushistory +orderId)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<any>(environment.Orderstatushistory +orderId,httpOptions)
   }
 
   updateOrderStatus(orderstatus:OrderDetails) {
-    return this.httpclient.post(environment.updateOrderStatus,orderstatus); 
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.post(environment.updateOrderStatus,orderstatus,httpOptions); 
 
   }
 
   getAllOptions(){
-   return this.httpclient.get<any>(environment.getAllOptionsdata);
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+   return this.httpclient.get<any>(environment.getAllOptionsdata,httpOptions);
   }
 
  

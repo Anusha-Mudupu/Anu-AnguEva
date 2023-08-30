@@ -59,7 +59,9 @@
   }
  
   .mat-header-row {
-    background-color: hsl(203, 80%, 61%);
+    // background-color: #4caeeb;
+    background-color:var(--opbg);
+    color:var(--toast-text);
   }
 
   // .mat-header-cell.mat-column-orderId {

@@ -2,7 +2,7 @@
  *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
  *   All rights reserved.
  */
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { StaffRoles,  Staffdetails } from '../data/data-objects';
 import { environment } from 'src/environments/environment';
@@ -17,23 +17,78 @@ export class StaffDataService {
 
 
   getStaffList():Observable<any>{
-    return this.httpclient.get<Staffdetails>(environment.getstafflistUrl)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<Staffdetails>(environment.getstafflistUrl,httpOptions)
   }
 
  addStaff(addstaff:Staffdetails){
-    return this.httpclient.post<Staffdetails>(environment.addstaffurl,addstaff)
+  const httpOptions = {
+    headers :new HttpHeaders({
+      'Content-Type':'application/json',
+      'Accept':'application/json',
+      'responseType':'text,application/json',              
+      'Access-Control-Allow-Origin':'http://localhost:8085',
+      'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+      'Access-Control-Allow-Headers':'Content-Type,application/json',
+      'Authorization':'my-auth-token' 
+    })
+  };
+    return this.httpclient.post<Staffdetails>(environment.addstaffurl,addstaff,httpOptions)
   }
 
 
   getStaffByStaffCd(staffCd:any){
-    return this.httpclient.get<Staffdetails>(environment.getstaffBystaffCd +staffCd)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<Staffdetails>(environment.getstaffBystaffCd +staffCd,httpOptions)
   }
 
   updateStaffByid(staffid:any,staffdata:Staffdetails){
-    return this.httpclient.put<Staffdetails>(environment.updateStaff +staffid,staffdata)
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.put<Staffdetails>(environment.updateStaff +staffid,staffdata,httpOptions)
   }
 
   getAllStaffRoles(){
-    return this.httpclient.get<StaffRoles>(environment.getStaffRoles);
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<StaffRoles>(environment.getStaffRoles,httpOptions);
   }
 }
