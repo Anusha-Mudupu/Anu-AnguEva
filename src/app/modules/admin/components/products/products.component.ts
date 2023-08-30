@@ -12,6 +12,7 @@ import { ProductDialogComponent } from '../product-dialog/product-dialog.compone
 
 import { Router } from '@angular/router';
 import { UpdateProductComponent } from '../update-product/update-product.component';
+import { ThemeService } from 'src/app/theme.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -21,7 +22,8 @@ export class ProductsComponent implements OnInit{
   data: Product[] = [];
   selection = new SelectionModel<Product>(true, []);
   dataSource: any;
-  constructor(private productDataService: ProductDataService, private dialog: MatDialog, private router: Router) { }
+  constructor(private productDataService: ProductDataService, private dialog: MatDialog, private router: Router,public themeService:ThemeService
+    ) { }
 
   ngOnInit() {
     this.productDataService.getProducts().subscribe((response) =>{ 

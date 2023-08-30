@@ -4,30 +4,42 @@
  */
 .sku-desc {
     height: 100%;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 
 .product_name {
     width: 90% !important;
     max-width: 400px !important; 
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 
 .sku-section {
     background-color: antiquewhite;
-    border-left: solid
+    border-left: solid;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 
 .field-labels {
     font-size: large;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 
 .form-check-input {
     width: 40px;
     height: 20px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 input[disabled] {
  
@@ -36,24 +48,44 @@ input[disabled] {
 
   #prodDesc{
     width: 400px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
   #addnewproductskubtn{
     margin-left: 1150px;  
     background-color: green;
     margin-bottom: 40px;  
-    color: azure;   
+    color: azure;  
+    // background-color:var(--toast-background);
+    // color:var(--toast-text); 
   }
 
 span{
     text-align: center;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 h1{
     margin-left: 500px;
     font-weight: bolder;
     font-family: initial;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 }
 #ProductDetails{
     margin-left: 130px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+}
+
+#container{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+}
+#productbg{
+    background-color:rgb(218, 136, 35);
+    // background-color:var(--toast-background);
+    // color:var(--toast-text);
 }
   @media screen and (min-width: 360px) and (max-width: 1350px) {
     #addnewproductskubtn {

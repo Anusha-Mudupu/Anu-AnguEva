@@ -1,0 +1,6 @@
+[ansible]
+localhost
+#172.31.86.105
+
+[kubernetes]
+localhost

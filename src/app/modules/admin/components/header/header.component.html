@@ -3,7 +3,19 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Dmantz</span>
+  <div class="form-check form-switch" (change)='setThemeControlss($event.target)' [ngModel]="selectedTheme" style="margin-left: 20px;">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked >
+    
+    <label>{{darkModeFlag? 'Darkmode': 'LightMode'}}</label>
+  </div>
   <div class="menu-container"></div>
+
+  <!-- <select class="pointer"(change)='setThemeControlss($event.target)'>
+    <option *ngFor="let theme of themes" value={{theme.code}} [selected]="theme.code==selectedTheme">{{theme.name}}</option>
+  </select> -->
+  
+
+
   <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./home"
     routerLinkActive="active-button">Home</a>
   <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./products"

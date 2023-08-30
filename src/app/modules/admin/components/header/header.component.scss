@@ -4,6 +4,9 @@
  */
 .menu-container {
     flex: 1 1 auto;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+    
 }
 
 .active-button {
@@ -11,15 +14,24 @@
 }
 
 #admin:hover {
-    background-color: darkcyan
+    background-color: rgb(215, 17, 37)
+}
+#navbar {
+    width: auto;
+    //  background-color:var(--toast-background);
+    //  color:var(--toast-text);
 }
 
 @media screen and (min-width: 500px) and (max-width: 1350px) {
     .menu-container {
         flex: 1 1 auto;
+        background-color:var(--toast-background);
+        color:var(--toast-text);
     }
 
-    #navbar {
-        width: auto;
-    }
+    // #navbar {
+    //     width: auto;
+    //     background-color:var(--toast-background);
+    //     color:var(--toast-text);
+    // }
 }

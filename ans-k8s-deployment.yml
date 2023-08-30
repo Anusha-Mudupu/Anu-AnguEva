@@ -1,0 +1,14 @@
+---
+# - name: Create pods using deployment 
+- hosts: kubernetes   
+  # become: true  
+  user: root   
+  tasks: 
+  - name: Copy files into kubernetes    
+    copy: 
+      src: /var/lib / jenkins / workspace / Inventory - ui - app / deployment.yml      
+      dest: /opt/kubernetes 
+  - name: create a deployment    
+    command: kubectl apply - f / opt / kubernetes / deployment.yml          
+    # - name: update deployment with new pods if image updated in docker hub  
+    #  command: kubectl rollout restart deployment.v1.apps / inventoryui - docker - container

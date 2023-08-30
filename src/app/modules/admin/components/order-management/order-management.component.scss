@@ -13,12 +13,15 @@
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 30px;
+    
   }
   
   .example-header {
     min-height: 64px;
     // padding: 8px 24px 0;
     margin-left: 40px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
   
   .mat-form-field {
@@ -29,6 +32,8 @@
   .mat-table {
     overflow: auto;
     // max-height: 500px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
   .mat-header-cell{
     font-size: 18px;
@@ -38,8 +43,9 @@
   .mat-cell{
     align-items: center;
     font-size: 18px;
-  
-    justify-content: center;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+   justify-content: center;
   }
   .mat-header-cell.mat-sort-header-sorted {
     color:black;

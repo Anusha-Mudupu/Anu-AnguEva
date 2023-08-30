@@ -5,17 +5,28 @@
 table {
     width: 80%;
     margin-left: 10%;
+    // background-color:var(--toast-background);
+    // color:var(--toast-text);
+   
   }
 
-  .mat-header-row {
-    background-color: rgb(116, 116, 227);
+  .mat-header-cell {
+    background-color: #7474e3;
+    //  background-color:var(--link-color);
+    color:var(--toast-text);
+  }
+ 
+  .mat-cell{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
 
   .buttons-area {
     margin: auto;
     flex: 1 1 0;
     width: 80%;
-    
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
 
   .add-button{
@@ -23,26 +34,35 @@ table {
     font-size: 20px;
     margin-left:10%;
     margin-bottom: 10px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
 
   .filter-button {
     size: 60px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
 
   b {
     color: rgb(255, 255, 255);
+    
+    color:var(--toast-text);
   }
 
   .spacer > div {
     height: 80px;
     width: 100%;
     text-align: center;
+   
+   
   }
   .mat-column-select{
     width: 60px;
     border-right: 1px solid currentColor;
     border-left: 2px solid currentColor;
     align-items: center;
+  
   }
   .mat-column-position{
     width: 100px;
@@ -50,6 +70,7 @@ table {
     border-left: 1px solid currentColor;
     text-align: center;
     font-size: medium;
+    
   }
  
 
@@ -58,6 +79,7 @@ table {
     border-right: 1px solid currentColor;
     text-align: center;
     font-size: medium;
+   
   }
 
   .mat-column-manufacturerName{
@@ -65,6 +87,7 @@ table {
     border-right: 1px solid currentColor;
     text-align: center;
     font-size: medium;
+ 
   }
 
   .mat-column-productDesc{
@@ -72,6 +95,7 @@ table {
     border-right: 2px solid currentColor;
     text-align: center;
     font-size: medium;
+   
   }
 
   .mat-column-actions{
@@ -79,40 +103,65 @@ table {
     border-right: 2px solid currentColor;
     text-align: center;
     font-size: medium;
+  
   }
 
   .product-heading {
     margin-top: 10px;
     font-weight: 500;
     text-shadow: 1px 1px 1px rgb(63, 51, 51);
+   
+    
   }
 
   .example-header {
-     min-height: 200px;
+    //  min-height: 200px;
     // padding: 8px 24px 0;
     margin-left: 260px;
     position: absolute;
     width: 500px;
     margin-top: -60px;
     font-size: 18px;
+   
 
   }
   #edibtn{
     margin-left: 20px;
     margin-top: -10px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
   span:hover{
     color:green;
     transition: 1s;
     cursor: pointer;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
+
+ 
+  #searchbar{
+
+    background-color:var(--link-color);
+    color:var(--toast-text);
+    color: azure;
+  
+  }
+#arrowbtn{
+  background-color:var(--toast-background);
+    color:var(--toast-text);
+}
 
   @media screen and (min-width: 500px) and (max-width: 1350px) {
     #addnewproductbtn {
     
-           margin-left: 500px;         
+           margin-left: 500px;  
+           background-color:var(--toast-background);
+           color:var(--toast-text);       
         }
         #searchbar{
           margin-left: 180px;
+          background-color:var(--toast-background);
+          color:var(--toast-text);
         }
   }

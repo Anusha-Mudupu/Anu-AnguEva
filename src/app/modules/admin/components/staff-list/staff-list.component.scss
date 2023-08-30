@@ -10,11 +10,13 @@
      font-family: initial;
      overflow-y: auto;
      height: 700px;
-    
+     background-color:var(--toast-background);
+     color:var(--toast-text);
   }
   
   .demo-button-container {
     padding-bottom: 16px;
+   
   }
   
   .demo-button  {
@@ -30,14 +32,20 @@
     color: black;
     justify-content: center;
     font-weight: bold;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
   .mat-cell{
     font-size: 18px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
 
   }
   .mat-table {
     overflow: auto;
     // max-height: 500px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
   h1{
     margin-left: 610px;

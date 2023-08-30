@@ -32,12 +32,12 @@ export class AppComponent {
   ]
 
   filteredOptions!: Observable<any[]>;
-  ngOnInIt(){
+  ngOnInIt() {
     this.filteredOptions = this.searchTextboxControl.valueChanges
-    .pipe(
-      startWith<string>(''),
-      map(name => this._filter(name))
-    );
+      .pipe(
+        startWith<string>(''),
+        map(name => this._filter(name))
+      );
 
   }
 
@@ -49,13 +49,13 @@ export class AppComponent {
     let filteredList = this.data.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
     return filteredList;
   }
-  selectionChange(event:any) {
+  selectionChange(event: any) {
     if (event.isUserInput && event.source.selected == false) {
       let index = this.selectedValues.indexOf(event.source.value as never);
       this.selectedValues.splice(index, 1)
     }
   }
-  openedChange(e:any) {
+  openedChange(e: any) {
     // Set search textbox value as empty while opening selectbox 
     this.searchTextboxControl.patchValue('');
     // Focus to search textbox while clicking on selectbox
@@ -63,7 +63,7 @@ export class AppComponent {
       this.searchTextBox.nativeElement.focus();
     }
   }
-  clearSearch(event:any) {
+  clearSearch(event: any) {
     event.stopPropagation();
     this.searchTextboxControl.patchValue('');
   }
@@ -77,6 +77,5 @@ export class AppComponent {
       });
     }
   }
-  
   
 }

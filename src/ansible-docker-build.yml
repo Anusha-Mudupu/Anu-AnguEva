@@ -1,0 +1,10 @@
+--- 
+- hosts: ansible  
+  #ansadmin doesn't need root access to create an image   
+  become: true   
+  #user: root   
+  tasks:   
+  - name: building docker image     
+    command: "docker build -t inventoyui-docker-container  /var/lib/jenkins/workspace/Inventory-ui-app"      
+    args:       
+    chdir: /opt/kubernetes
