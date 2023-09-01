@@ -53,6 +53,7 @@ export class HeaderComponent implements OnInit {
     //   // }
     // })
        this.themeService.toggleLight();
+     
 
   }
 
