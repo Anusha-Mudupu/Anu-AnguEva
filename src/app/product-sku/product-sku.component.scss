@@ -91,12 +91,15 @@
   font-size: large;
   margin-left: 5%;
   font-weight: bolder;font-family: initial;
+
 }
 
 #crossbtn{
   margin-left: 1000px;
   margin-top: -50px;
   color: red;
+  background-color: var(--toast-background);
+  color: var(--toast-text),
 }
 
 .catalogDesc {
@@ -178,6 +181,10 @@ button {
   font-size: 18px;
   font-weight: bolder;font-family: initial;
 }
+body{
+  background-color:var(--toast-background);
+   color:var(--toast-text); 
+}
 
 @media screen and (min-width:360px) and (max-width:1400px){
   .dialog-content {
@@ -200,6 +207,10 @@ button {
   .select{
     margin-left: -30px;
     font-size: 18px;
+  }
+  body{
+    background-color:var(--toast-background);
+     color:var(--toast-text); 
   }
 }
 

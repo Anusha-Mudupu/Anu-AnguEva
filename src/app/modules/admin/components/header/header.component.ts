@@ -30,11 +30,12 @@ export class HeaderComponent implements OnInit {
   themeControl: any;
   selectedTheme: any;
   darkModeFlag: any=false;
-
+  storedTheme:any;
   constructor(private auth: AuthService,private  themeService:ThemeService) { }
  
 
   ngOnInit(): void {
+    
 
     // const storedTheme=localStorage.getItem('theme');
     // if(storedTheme&&this.darkModeFlag)
@@ -76,10 +77,11 @@ export class HeaderComponent implements OnInit {
       this.themeService.toggleDark();
       this.darkModeFlag=!this.darkModeFlag
     }
-     localStorage.setItem('theme',this.darkModeFlag);
-    console.log("setItem",localStorage.getItem('darkModeFlag'))
+     localStorage.setItem('darkModeFlag',this.darkModeFlag);
+    console.log("setItem",localStorage.getItem(this.darkModeFlag))
   }
-
+ 
+  
 
 
 

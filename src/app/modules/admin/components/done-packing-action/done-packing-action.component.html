@@ -1,64 +1,72 @@
-<form [formGroup]="packingdoneform" id="form">
-    <h1 id="headding"> Packing Confirmation</h1>
-    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
-    <div id="printbtns">
-        <!-- <button type="button" id="printbtn1">Print Label</button> -->
-        <button [print]="['printdonepackingform', config]" id="printbtn1">Print</button>
-        <br>
-        <button type="button" class="printbtn2" style="margin-left: 10px;">Print Invoice</button>
-    </div>
-    <div class="card" class="card1">
+<html>
 
-        <div class="card-body" class="card-body1" id="printdonepackingform">
-            <div class="row">
-                <div>
+<body>
+    <form [formGroup]="packingdoneform" id="form">
+        <h1 id="headding"> Packing Confirmation</h1>
+        <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
+        <div id="printbtns">
+            <!-- <button type="button" id="printbtn1">Print Label</button> -->
+            <button [print]="['printdonepackingform', config]" id="printbtn1">Print</button>
+            <br>
+            <button type="button" class="printbtn2" style="margin-left: 10px;">Print Invoice</button>
+        </div>
+        <div class="card" class="card1">
 
-                    <b>OrderId &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}"
-                            [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"
-                            readonly></p>
-                    <b>Name
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.firstName}}</p>
-                    <b>Mobile Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.mobileNumber}}</p>
+            <div class="card-body" class="card-body1" id="printdonepackingform">
+                <div class="row">
+                    <div>
+
+                        <b>OrderId
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}"
+                                [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"
+                                readonly [ngStyle]=" getInputStyles()"></p>
+                        <b>Name
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.firstName}}</p>
+                        <b>Mobile Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.mobileNumber}}</p>
+
+                    </div>
+                    <div>
+                        <h1 id="addrress">Address &nbsp;&nbsp;:</h1>
+                        <b>Flat NO
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.flatNO}}</p>
+                        <b>Area
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.area}}</p>
+                        <b>City
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.city}}</p>
+                        <b>LandMark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.landmark}}</p>
+                        <b>Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.mobileNo}}</p>
+                        <b>State
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.state}}</p>
+                        <b>PinCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.pincode}}</p>
+
+                    </div>
 
                 </div>
-                <div>
-                    <h1 id="addrress">Address &nbsp;&nbsp;:</h1>
-                    <b>Flat NO
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.flatNO}}</p>
-                    <b>Area
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.area}}</p>
-                    <b>City
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.city}}</p>
-                    <b>LandMark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.landmark}}</p>
-                    <b>Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.mobileNo}}</p>
-                    <b>State
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.state}}</p>
-                    <b>PinCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.pincode}}</p>
 
-                </div>
 
             </div>
-
-
         </div>
-    </div>
-    <div id="submittedbtns">
+        <div id="submittedbtns">
 
 
-        <button (click)="submit()" mat-raised-button color="primary"
-            style="margin-left:10px;width: 90px;">Confirm</button>
+            <button (click)="submit()" mat-raised-button color="primary"
+                style="margin-left:10px;width: 90px;">Confirm</button>
 
-            <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
-    </div>
+            <button type="submit" class="btn btn-danger" mat-dialog-close
+                style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+        </div>
 
-</form>
+    </form>
+</body>
+
+</html>

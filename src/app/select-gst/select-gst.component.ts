@@ -74,7 +74,14 @@ export class SelectGstComponent implements OnInit {
   cancel() {
     this.router.navigate(['/admin/product-view/:productId/:productSkuId', this.productskudetails])
   }
-
+  getInputStyles() {
+    return {
+      'background-color': 'var(--toast-background)',
+      'color': 'var(--toast-text)',
+      // ... other styling properties
+    };
+  
+    }
 
 }
 

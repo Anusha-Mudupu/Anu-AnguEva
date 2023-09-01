@@ -1,17 +1,19 @@
+<html>
+  <body>
+
+
+
 <form id="gstform" [formGroup]="gstForm">
-
-
-
   <div class="container">
     <div class="row" id="dropdownrows">
       <div class="2">
-        <mat-form-field>
-          <mat-label> select Gstcode</mat-label>
+        <mat-form-field >
+          <mat-label [ngStyle]="getInputStyles()"> select Gstcode</mat-label>
           <mat-select formControlName="gstId" (selectionChange)="onSelectedGstCode($event)"
-            [(ngModel)]="productskudetails.gstId">
+            [(ngModel)]="productskudetails.gstId"  [ngStyle]="getInputStyles()">
 
             <ng-container *ngFor="let code of Gstcode; let i = index">
-              <mat-option [value]="code.gstId">{{code.gst_code}}</mat-option>
+              <mat-option [value]="code.gstId"[ngStyle]="getInputStyles()" >{{code.gst_code}}</mat-option>
               </ng-container>
               
           </mat-select>
@@ -29,6 +31,6 @@
     <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
   </div>
-
-
 </form>
+</body>
+</html>

@@ -1,38 +1,49 @@
-<mat-toolbar color="primary" class="mat-elevation-z8" id="navbar">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Dmantz</span>
-  <div class="form-check form-switch" (change)='setThemeControlss($event.target)' [ngModel]="selectedTheme" style="margin-left: 20px;">
-    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked >
-    
-    <label>{{darkModeFlag? 'Darkmode': 'LightMode'}}</label>
-  </div>
-  <div class="menu-container"></div>
+<html>
 
-  <!-- <select class="pointer"(change)='setThemeControlss($event.target)'>
+<body>
+
+
+
+  <mat-toolbar color="primary" class="mat-elevation-z8" id="navbar">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Dmantz</span>
+    <div class="form-check form-switch" (change)='setThemeControlss($event.target)' [ngModel]="storedTheme"
+      style="margin-left: 20px;">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked >
+
+      <label >{{darkModeFlag? 'Darkmode': 'LightMode'}}</label>
+    </div>
+    <div class="menu-container"></div>
+
+    <!-- <select class="pointer"(change)='setThemeControlss($event.target)'>
     <option *ngFor="let theme of themes" value={{theme.code}} [selected]="theme.code==selectedTheme">{{theme.name}}</option>
   </select> -->
-  
 
 
-  <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./home"
-    routerLinkActive="active-button">Home</a>
-  <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./products"
-    routerLinkActive="active-button">Inventory</a>
-  <!-- <a mat-flat-button color="primary" style="size: medium; font-size:larger;" routerLink="./vendors" routerLinkActive="active-button">Vendor Mgmt</a> -->
-  <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./order-management"
-    routerLinkActive="active-button">Operations</a>
-  <a mat-flat-button color="primary" style="font-size:larger;" routerLinkActive="active-button"
-    [matMenuTriggerFor]="menu" id="admin">Admin</a>
-  <!-- <button mat-button [matMenuTriggerFor]="menu">Hover Me</button> -->
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="./staff-list">Staff Management</button>
-    <button mat-menu-item routerLink="./vendors">Vendor Management</button>
-    <button mat-menu-item></button>
-  </mat-menu>
 
-  <button mat-icon-button class="account-icon" (click)="Logout()">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-</mat-toolbar>
+    <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./home"
+      routerLinkActive="active-button">Home</a>
+    <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./products"
+      routerLinkActive="active-button">Inventory</a>
+    <!-- <a mat-flat-button color="primary" style="size: medium; font-size:larger;" routerLink="./vendors" routerLinkActive="active-button">Vendor Mgmt</a> -->
+    <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./order-management"
+      routerLinkActive="active-button">Operations</a>
+    <a mat-flat-button color="primary" style="font-size:larger;" routerLinkActive="active-button"
+      [matMenuTriggerFor]="menu" id="admin">Admin</a>
+    <!-- <button mat-button [matMenuTriggerFor]="menu">Hover Me</button> -->
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="./staff-list">Staff Management</button>
+      <button mat-menu-item routerLink="./vendors">Vendor Management</button>
+      <button mat-menu-item></button>
+    </mat-menu>
+
+    <button mat-icon-button class="account-icon" (click)="Logout()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+
+</body>
+
+</html>

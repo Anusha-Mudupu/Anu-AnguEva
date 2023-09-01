@@ -173,7 +173,14 @@ export class OrderManagementComponent implements OnInit {
     console.log("orderId is. ", orderId);
     this.productskudataservice.downloadInvoice(orderId).subscribe((data: any) => saveAs(data, `invoice.pdf`));
   }
-
+  getInputStyles() {
+    return {
+      // 'background-color': 'var(--toast-background)',
+      'color': 'var(--toast-text)',
+      // ... other styling properties
+    };
+  
+    }
 
 }
 

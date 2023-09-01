@@ -8,6 +8,10 @@
     color:var(--toast-text);
     
 }
+body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);  
+}
 
 .active-button {
     background-color: rgb(215, 17, 37);

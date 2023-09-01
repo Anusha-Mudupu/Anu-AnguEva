@@ -34,6 +34,8 @@
     position: absolute;
     border: solid black 1px;
     padding: 7px;
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }
   h1{
     margin-left: 320px;
@@ -45,4 +47,12 @@
   .col-5{
     margin-left: 20px;
     margin-top: 20px;
+  }
+  body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+  }
+  ::ng-deep .mat-dialog-container {
+    background-color: var(--toast-background); // Use your custom color here
+    color: var(--toast-text); // Use your custom text color here
   }

@@ -20,3 +20,11 @@ border-color:skyblue;
     margin-left: 240px;
     margin-top: -30px;
 }
+body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+  }
+  ::ng-deep .mat-dialog-container {
+    background-color: var(--toast-background); // Use your custom color here
+    color: var(--toast-text); // Use your custom text color here
+  }

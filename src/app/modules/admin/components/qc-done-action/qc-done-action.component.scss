@@ -175,6 +175,14 @@ position: absolute;
   margin-left: -30px;
   display: inline-flex;
 }
+body{
+  background-color:var(--toast-background);
+  color:var(--toast-text);
+}
+::ng-deep .mat-dialog-container {
+  background-color: var(--toast-background); // Use your custom color here
+  color: var(--toast-text); // Use your custom text color here
+}
 @media screen and (min-width:360px) and (max-width:1400px) {
 #form{
 width:auto;

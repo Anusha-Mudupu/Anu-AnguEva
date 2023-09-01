@@ -1,3 +1,9 @@
+
+<html>
+    <body>
+
+
+
 <div class="container1" [ngClass]="{'dark':themeservice.isDark}">
     <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
     <h1 mat-dialog-title>Add New Catalog</h1>
@@ -6,7 +12,7 @@
             <div>
                 <div>
                     <mat-form-field class="catalogName" appearance="fill">
-                        <mat-label>Catalog Name</mat-label>
+                        <mat-label [ngStyle]="getInputStyles()">Catalog Name</mat-label>
                         <input matInput formControlName="catalogName">
                         <div *ngIf="submitted && addnewcatalogform.get('catalogName').invalid">
                             <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
@@ -15,7 +21,7 @@
 
 
                     <mat-form-field class="catalogDesc" appearance="fill">
-                        <mat-label>catalogDesc</mat-label>
+                        <mat-label [ngStyle]="getInputStyles()">catalogDesc</mat-label>
                         <input matInput formControlName="catalogDesc">
                         <div *ngIf="submitted && addnewcatalogform.get('catalogDesc').invalid">
                             <!-- <div *ngIf="productForm.get('productName').errors.required"> Product Name is required.</div> -->
@@ -35,9 +41,9 @@
 
 
                     <mat-form-field class="parentCatalogId" appearance="fill">
-                        <mat-label>Select ParentCatalog</mat-label>
+                        <mat-label [ngStyle]="getInputStyles()">Select ParentCatalog</mat-label>
                         <mat-select formControlName="parentCatalogId">
-                            <mat-option *ngFor="let item of parentcatalogdata" [value]="item.catalogId">
+                            <mat-option *ngFor="let item of parentcatalogdata" [value]="item.catalogId" [ngStyle]="getInputStyles()">
                                 {{item.catalogName}}
                             </mat-option>
 
@@ -62,3 +68,5 @@
         </form>
     </div>
  </div> 
+</body>
+</html>

@@ -64,4 +64,14 @@ export class DonePackingActionComponent implements OnInit {
     })
   }
 
+  getInputStyles() {
+    return {
+      'background-color': 'var(--toast-background)',
+      'color': 'var(--toast-text)',
+      // ... other styling properties
+    };
+  
+    }
+
+
 }

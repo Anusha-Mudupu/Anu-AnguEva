@@ -1,3 +1,8 @@
+
+<html>
+    <body>
+
+
 <form [formGroup]="finishshippingform" id="form">
 
 
@@ -17,7 +22,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
                     <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}"
                             [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"
-                            readonly></p>
+                            readonly [ngStyle]="getInputStyles()"></p>
                     <b>Name
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
                     <p>{{Orderdetails.firstName}}</p>
@@ -64,3 +69,5 @@
 
 </form>
 
+    </body>
+</html>

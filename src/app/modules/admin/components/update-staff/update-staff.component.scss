@@ -31,6 +31,7 @@
     color:darkslategray;
     font-family: initial;
     font-weight: bolder;
+    color:var(--toast-text)!important;
   }
   #crossbtn{
     margin-left: 1050px;
@@ -52,6 +53,14 @@
 //     }
    
 // }
+body{
+  background-color:var(--toast-background);
+  color:var(--toast-text);
+}
+::ng-deep .mat-dialog-container {
+  background-color: var(--toast-background); // Use your custom color here
+  color: var(--toast-text); // Use your custom text color here
+}
 @media screen and (min-width:360px) and (max-width:1400px) {
 
   [class*="col-2"] {

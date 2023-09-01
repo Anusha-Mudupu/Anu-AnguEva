@@ -1,10 +1,16 @@
+
+<html>
+  <body>
+
+
+
 <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
 <h1 mat-dialog-title >Add New Product</h1>
 <div mat-dialog-content class="dialog-content">
   <form [formGroup]="productForm">
     <div>
       <mat-form-field class="product-name" appearance="fill">
-        <mat-label>Product Name</mat-label>
+        <mat-label [ngStyle]="getInputStyles()">Product Name</mat-label>
         <input matInput formControlName="productName">
 
         <div *ngIf="submitted && productForm.get('productName').invalid">
@@ -15,9 +21,9 @@
 
 
       <mat-form-field class="vendor-select" appearance="fill">
-        <mat-label>Vendor Name</mat-label>
+        <mat-label [ngStyle]="getInputStyles()">Vendor Name</mat-label>
         <mat-select formControlName="manufacturerId">
-          <mat-option *ngFor="let vendor of vendorData" [value]="vendor.manufacturerId">
+          <mat-option *ngFor="let vendor of vendorData" [value]="vendor.manufacturerId" [ngStyle]="getInputStyles()">
             {{vendor.manufacturerName}}
           </mat-option>
 
@@ -29,7 +35,7 @@
 
 
       <mat-form-field class="search-tag_-list" appearance="fill" id="search_tag">
-        <mat-label>Search Tags</mat-label>
+        <mat-label [ngStyle]="getInputStyles()">Search Tags</mat-label>
         <mat-chip-list #chipList aria-label="Searchtag selection">
           <mat-chip *ngFor="let tag of searchTags" (removed)="removeTag(tag)">
             {{tag}}
@@ -49,7 +55,7 @@
     </div>
     <div>
       <mat-form-field class="product-description" appearance="fill">
-        <mat-label>Product Description</mat-label>
+        <mat-label [ngStyle]="getInputStyles()">Product Description</mat-label>
         <textarea formControlName="productDesc" matInput placeholder="Type Here..."></textarea>
 
         <div *ngIf="submitted && productForm.get('productDesc').invalid">
@@ -63,11 +69,11 @@
       <div formArrayName="catalog" class="product-catalog">
         <mat-form-field id="selectcatalog">
 
-          <mat-label>Select Catalog</mat-label>
+          <mat-label [ngStyle]="getInputStyles()">Select Catalog</mat-label>
           <mat-select multiple [(value)]="selectedCatalogVals">
 
             <!-- <mat-select multiple [(value)]="selectedmanufactureId" formControlName="selectedCatalogs"> -->
-            <mat-option *ngFor="let item of Catalogsdata;let i=index" [value]="item" (click)="onSelectCatalogs(i)">
+            <mat-option *ngFor="let item of Catalogsdata;let i=index" [value]="item" (click)="onSelectCatalogs(i)" [ngStyle]="getInputStyles()">
               {{item.parent}}/{{item.catalogName}}
 
             </mat-option>
@@ -95,3 +101,5 @@
 
   </form>
 </div>
+</body>
+</html>

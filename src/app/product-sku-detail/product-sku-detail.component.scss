@@ -266,6 +266,11 @@ position: absolute;
   //     padding: 0px;
   //   }
   // }
+
+  body{
+    background-color:var(--toast-background);
+     color:var(--toast-text); 
+  }
     @media screen and (min-width: 360px) and (max-width: 1350px) {
       // [class*="col-3"] {
       //   width: 30%;
@@ -533,7 +538,10 @@ position: absolute;
       margin-top:20px;
       position: absolute;
     }
-    
+    body{
+      background-color:var(--toast-background);
+       color:var(--toast-text); 
+    }
       
      }
     

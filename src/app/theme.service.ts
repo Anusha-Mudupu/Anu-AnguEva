@@ -15,7 +15,8 @@ export const lightTheme =
 "link-color":"#e18f2a",
 "opbg":"#4caeeb",
 "Oitemdetail":"#87cefa",
-
+"stafflistbg":"#ffffff",
+"font-color":"#333333"
 }
 
 export const darkTheme=
@@ -30,9 +31,11 @@ export const darkTheme=
 "link-color":"#333333",
 "skubg":"#333333",
 "addNewPskuBtn":"#333333",
-"product-listbg":"#333333",
- "opbg":"#333333",
- "Oitemdetail":"#333333",
+"product-listbg":"#808080",
+ "opbg":"#C0C0C0",
+ "Oitemdetail":"#C0C0C0",
+ "stafflistbg":"#808080",
+ "font-color":"#333333"
 }
 
 @Injectable({

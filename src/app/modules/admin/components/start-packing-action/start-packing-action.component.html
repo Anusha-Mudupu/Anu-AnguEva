@@ -1,63 +1,71 @@
-<form [formGroup]="startpackingform" id="form">
-    <h1 id="headding">Start Packing</h1>
-    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
-    <div id="printbtns">
+<html>
 
-        <button [print]="['printstartpackingform', config]" id="printbtn1">Print</button>
-        <br>
-        <button type="button" class="printbtn2" style="margin-left: 10px;">Print Invoice</button>
-    </div>
-    <div class="card" class="card1">
+<body>
 
-        <div class="card-body" class="card-body1" id="printstartpackingform">
-            <div class="row">
-                <div>
+    <form [formGroup]="startpackingform" id="form">
+        <h1 id="headding">Start Packing</h1>
+        <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
+        <div id="printbtns">
 
-                    <b>OrderId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}"
-                            [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"
-                            readonly></p>
-                    <b>Name
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.firstName}}</p>
-                    <!-- <b>Mobile Number &nbsp;&nbsp;&nbsp;:</b>
+            <button [print]="['printstartpackingform', config]" id="printbtn1">Print</button>
+            <br>
+            <button type="button" class="printbtn2" style="margin-left: 10px;">Print Invoice</button>
+        </div>
+        <div class="card" class="card1">
+
+            <div class="card-body" class="card-body1" id="printstartpackingform">
+                <div class="row">
+                    <div>
+
+                        <b>OrderId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p><input type="text" formControlName="orderId" placeholder="{{Orderdetails.orderId}}"
+                                [(ngModel)]="Orderdetails.orderId" [ngClass]="{'hide-input-border': shouldHideBorder}"
+                                readonly [ngStyle]="getInputStyles()"></p>
+                        <b>Name
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.firstName}}</p>
+                        <!-- <b>Mobile Number &nbsp;&nbsp;&nbsp;:</b>
                     <p>{{Orderdetails.mobileNumber}}</p> -->
 
-                </div>
-                <div>
-                    <h1 id="addrress">Address &nbsp;&nbsp;:</h1>
-                    <b>Flat NO
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.flatNO}}</p>
-                    <b>Area
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.area}}</p>
-                    <b>City
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.city}}</p>
-                    <b>LandMark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.landmark}}</p>
-                    <b>Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.mobileNo}}</p>
-                    <b>State
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.state}}</p>
-                    <b>PinCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
-                    <p>{{Orderdetails.pincode}}</p>
+                    </div>
+                    <div>
+                        <h1 id="addrress">Address &nbsp;&nbsp;:</h1>
+                        <b>Flat NO
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.flatNO}}</p>
+                        <b>Area
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.area}}</p>
+                        <b>City
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.city}}</p>
+                        <b>LandMark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.landmark}}</p>
+                        <b>Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.mobileNo}}</p>
+                        <b>State
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.state}}</p>
+                        <b>PinCode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        <p>{{Orderdetails.pincode}}</p>
+
+                    </div>
 
                 </div>
+
 
             </div>
-
-
         </div>
-    </div>
 
-    <div id="submittedbtns">
+        <div id="submittedbtns">
 
 
-        <button class="btn btn-success" (click)="submit()" style="margin-left:10px;width: 90px;">Start</button>
+            <button class="btn btn-success" (click)="submit()" style="margin-left:10px;width: 90px;">Start</button>
 
-        <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
-    </div>
-</form>
+            <button type="submit" class="btn btn-danger" mat-dialog-close
+                style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+        </div>
+    </form>
+</body>
+
+</html>

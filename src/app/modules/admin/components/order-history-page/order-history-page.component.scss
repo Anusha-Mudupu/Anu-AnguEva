@@ -23,7 +23,10 @@ padding: 10px;
 
   
 }
-
+.mat-header-row{
+  background-color:var(--stafflistbg);
+  color:var(--font-color);
+}
 .custom-table td{
   font-size: 20px;
 font-family:initial ;
@@ -34,14 +37,14 @@ font-family:initial ;
 .custom-table{
     width: 1000px;
    height:400px;
-   overflow-y: auto;
-   border: ridge 2px;
+  border: ridge 2px;
   
 }
 
  #table{
   height: 450px;
-  overflow-y: auto;
+   overflow-y: auto;
+   overflow-x: hidden;
   background-color:var(--toast-background);
   color:var(--toast-text);
  }
@@ -51,9 +54,10 @@ font-family:initial ;
   font-family:initial ;
   border-bottom: 1px solid black;
  padding-left: 50px;
+ background-color:var(--stafflistbg);
+ color:var(--font-color);
 
- 
- }
+}
 
 
 h1{
@@ -61,8 +65,8 @@ h1{
   color: rgb(62, 8, 199);
   font-weight: bold;
   font-family: initial;
-  background-color:var(--toast-background);
-  color:var(--toast-text);
+  // background-color:var(--toast-background);
+  color:var(--toast-text) !important;
   
 }
 p{
@@ -80,12 +84,20 @@ p{
   position: absolute;
 }
 #form{
-  height: 500px;
-  overflow: auto;
+  height: 550px;
+  overflow: hidden;
   background-color:var(--toast-background);
   color:var(--toast-text);
 }
 
+body{
+  background-color:var(--toast-background);
+  color:var(--toast-text);
+}
+::ng-deep .mat-dialog-container {
+  background-color: var(--toast-background); // Use your custom color here
+  color: var(--toast-text); // Use your custom text color here
+}
 @media screen and (min-width: 500px) and (max-width: 1350px) {
 #crossbtn{
   margin-left: 930px;

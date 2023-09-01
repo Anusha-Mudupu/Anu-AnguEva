@@ -124,13 +124,15 @@
 
  #form{
   width: 1000px;
-  height:550px;
+   height:580px;
    border: ridge 3px;
    overflow: hidden;
 }
 .card1{
   height: 200px;
-  margin-top: 50px;
+  margin-top: 10px;
+
+  
 }
 .card-body1{
   display: inline-flex;
@@ -145,7 +147,7 @@
 
 }
 #submittedbtns{
-    margin-top:200px;
+    margin-top:280px;
   margin-left: 360px;
  
  
@@ -161,11 +163,11 @@ color: black;
 }
 .printbtn2{
   // margin-left: 1100px;
-  width: 100px;
+  width: 130px;
   height: 30px;
   color:black;
    margin-top: 10px;
-   margin-left: -20px;
+   margin-left: -10px;
    position: relative;
 }
 #printbtns{
@@ -181,7 +183,7 @@ p{
  font-family: initial;
 }
 b{
-  font-size: 20px;
+  // font-size: 20px;
   margin-left: 200px;
   font-family: initial;
 }
@@ -221,16 +223,25 @@ b{
    padding: 5px;
 
 }
+
+body{
+  background-color:var(--toast-background);
+  color:var(--toast-text);
+}
+::ng-deep .mat-dialog-container {
+  background-color: var(--toast-background); // Use your custom color here
+  color: var(--toast-text); // Use your custom text color here
+}
 @media screen and (min-width:360px) and (max-width:1360px){
   #form{
     width: 900px;
-    height:530px;
+    height:555px;
      border: ridge 3px;
      overflow: hidden;
 }
 .card1{
     height: 200px;
-    margin-top: 50px;
+    margin-top: -10px;
 }
 .card-body1{
     display: inline-flex;
@@ -245,7 +256,7 @@ b{
   
 }
 #submittedbtns{
-      margin-top:200px;
+      margin-top:280px;
     margin-left: 330px;
    
    
@@ -261,11 +272,11 @@ b{
 }
 .printbtn2{
     // margin-left: 1100px;
-    width: 100px;
+    width: 130px;
     height: 30px;
     color:black;
      margin-top: 10px;
-     margin-left: -20px;
+     margin-left: -10px;
      position: relative;
 }
 #printbtns{
@@ -281,7 +292,7 @@ p{
    font-family: initial;
 }
 b{
-    font-size: 20px;
+    // font-size: 20px;
     margin-left: 200px;
     font-family: initial;
 }

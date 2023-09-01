@@ -168,7 +168,14 @@ this.productservice.updateProductById(this.productId, this.updateproductform.val
 
 
 
-
+   getInputStyles() {
+    return {
+      'background-color': 'var(--toast-background)',
+      'color': 'var(--toast-text)',
+      // ... other styling properties
+    };
+  
+    }
 
 
 

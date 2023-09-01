@@ -85,6 +85,10 @@ h1{
     background-color:var(--link-color);
     // color:var(--toast-text);
 }
+body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+}
 
   @media screen and (min-width: 360px) and (max-width: 1350px) {
     #addnewproductskubtn {
@@ -96,6 +100,10 @@ h1{
            background-color:var(--addNewPskuBtn);
            color:var(--toast-text); 
            
+        }
+        body{
+            background-color:var(--toast-background);
+            color:var(--toast-text);
         }
   }
   

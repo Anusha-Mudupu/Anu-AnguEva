@@ -1,121 +1,133 @@
-<h1 mat-dialog-title style="margin-left: 430px;font-family: initial;font-weight: bolder;">Add New Staff</h1>
-<button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
-<div mat-dialog-content class="dialog-content" id="form">
-    <form [formGroup]="addstaffform">
-        <div>
+<html>
+
+<body>
+
+
+    <h1 mat-dialog-title style="margin-left: 430px;font-family: initial;font-weight: bolder;">Add New Staff</h1>
+    <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
+    <div mat-dialog-content class="dialog-content" id="form">
+        <form [formGroup]="addstaffform">
             <div>
-                <mat-form-field class="catalogName">
-                    <mat-label style="font-family: initial;font-weight: bolder;">Staff Name</mat-label>
-                    <input matInput formControlName="staffName">
-                    <div *ngIf="submitted && addstaffform.get('staffName').invalid">
-                    </div>
-                </mat-form-field>
-
-
-                <mat-form-field class="catalogDesc">
-                    <mat-label style="font-family: initial;font-weight: bolder;">Email Id</mat-label>
-                    <input matInput formControlName="emailId">
-                    <div *ngIf="submitted && addstaffform.get('emailId').invalid">
-                    </div>
-                </mat-form-field>
-
-                <mat-form-field class="mobileNo">
-                    <mat-label style="font-family: initial;font-weight: bolder;">Mobile Number</mat-label>
-                    <input matInput formControlName="mobileNo">
-                    <div *ngIf="submitted && addstaffform.get('mobileNo').invalid">
-                    </div>
-                </mat-form-field>
-
-
-                <mat-form-field class="pincode">
-                    <mat-label style="font-family: initial;font-weight: bolder;">Pincode</mat-label>
-                    <input matInput formControlName="pincode">
-                    <div *ngIf="submitted && addstaffform.get('pincode').invalid">
-                    </div>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field class="area">
-                    <mat-label style="font-family: initial;font-weight: bolder;">Area</mat-label>
-                    <input matInput formControlName="area">
-                    <div *ngIf="submitted && addstaffform.get('area').invalid">
-                    </div>
-                </mat-form-field>
-                <mat-form-field class="city">
-                    <mat-label style="font-family: initial;font-weight: bolder;">City</mat-label>
-                    <input matInput formControlName="city">
-                    <div *ngIf="submitted && addstaffform.get('city').invalid">
-                    </div>
-                </mat-form-field>
-                <mat-form-field class="state">
-                    <mat-label style="font-family: initial;font-weight: bolder;">State</mat-label>
-                    <input matInput formControlName="state">
-                    <div *ngIf="submitted && addstaffform.get('state').invalid">
-                    </div>
-                </mat-form-field>
-
-
-                <div formArrayName="staffRole" class="product-catalog" >
-                    <mat-form-field id="selectstaffrole">
-            
-                      <mat-label style="font-family: initial;font-weight: bolder;">Select Staff Role</mat-label>
-                      <mat-select multiple [(value)]="selectedstaffroles">
-            
-                       
-                        <mat-option *ngFor="let role of staffRoleData;let i=index" [value]="role" (click)="onSelectStaffRole(i)">
-                          {{role.staffRole}}
-            
-                        </mat-option>
-            
-                      </mat-select>
-            
+                <div>
+                    <mat-form-field class="catalogName">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Staff Name</mat-label>
+                        <input matInput formControlName="staffName">
+                        <div *ngIf="submitted && addstaffform.get('staffName').invalid">
+                        </div>
                     </mat-form-field>
-                    <div *ngIf="submitted && addstaffform.get('staffRole').invalid">
-                    </div>
-            
-                  </div>
-                
-            </div>
-            <div>
 
-                <mat-form-field class="dob">
-                    <mat-label style="font-family: initial;font-weight: bolder;">DOB</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="dob">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker" id="calicon"></mat-datepicker-toggle>
-                    <div *ngIf="submitted && addstaffform.get('dob').invalid">
-                    </div>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
 
-                <mat-form-field class="startdt">
-                    <mat-label style="font-family: initial;font-weight: bolder;">Start Date</mat-label>
-                    <input matInput [matDatepicker]="startdt" formControlName="startDt">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="startdt" id="calicon"></mat-datepicker-toggle>
-                    <div *ngIf="submitted && addstaffform.get('startDt').invalid">
-                    </div>
-                    <mat-datepicker #startdt></mat-datepicker>
-                </mat-form-field>
+                    <mat-form-field class="catalogDesc">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Email Id</mat-label>
+                        <input matInput formControlName="emailId">
+                        <div *ngIf="submitted && addstaffform.get('emailId').invalid">
+                        </div>
+                    </mat-form-field>
 
-                <mat-form-field class="enddt" style="height: 10px;">
-                    <mat-label style="font-family: initial;font-weight: bolder;">End Date</mat-label>
-                    <input matInput [matDatepicker]="enddt" formControlName="endDt">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="enddt" id="calicon"></mat-datepicker-toggle>
-                    <!-- <div *ngIf="submitted && addstaffform.get('endDt').invalid">
+                    <mat-form-field class="mobileNo">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Mobile Number</mat-label>
+                        <input matInput formControlName="mobileNo">
+                        <div *ngIf="submitted && addstaffform.get('mobileNo').invalid">
+                        </div>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="pincode">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Pincode</mat-label>
+                        <input matInput formControlName="pincode">
+                        <div *ngIf="submitted && addstaffform.get('pincode').invalid">
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="area">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Area</mat-label>
+                        <input matInput formControlName="area">
+                        <div *ngIf="submitted && addstaffform.get('area').invalid">
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="city">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">City</mat-label>
+                        <input matInput formControlName="city">
+                        <div *ngIf="submitted && addstaffform.get('city').invalid">
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="state">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">State</mat-label>
+                        <input matInput formControlName="state">
+                        <div *ngIf="submitted && addstaffform.get('state').invalid">
+                        </div>
+                    </mat-form-field>
+
+
+                    <div formArrayName="staffRole" class="product-catalog">
+                        <mat-form-field id="selectstaffrole">
+
+                            <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Select Staff Role</mat-label>
+                            <mat-select multiple [(value)]="selectedstaffroles">
+
+
+                                <mat-option *ngFor="let role of staffRoleData;let i=index" [value]="role"
+                                    (click)="onSelectStaffRole(i)" [ngStyle]="getInputStyles()">
+                                    {{role.staffRole}}
+
+                                </mat-option>
+
+                            </mat-select>
+
+                        </mat-form-field>
+                        <div *ngIf="submitted && addstaffform.get('staffRole').invalid">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div>
+
+                    <mat-form-field class="dob">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">DOB</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="dob">
+                        <mat-hint [ngStyle]="getInputStyles()">MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker" id="calicon" [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
+                        <div *ngIf="submitted && addstaffform.get('dob').invalid">
+                        </div>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="startdt">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Start Date</mat-label>
+                        <input matInput [matDatepicker]="startdt" formControlName="startDt">
+                        <mat-hint [ngStyle]="getInputStyles()">MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="startdt" id="calicon" [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
+                        <div *ngIf="submitted && addstaffform.get('startDt').invalid">
+                        </div>
+                        <mat-datepicker #startdt></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="enddt" style="height: 10px;">
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">End Date</mat-label>
+                        <input matInput [matDatepicker]="enddt" formControlName="endDt">
+                        <mat-hint [ngStyle]="getInputStyles()">MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="enddt" id="calicon" [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
+                        <!-- <div *ngIf="submitted && addstaffform.get('endDt').invalid">
                     </div> -->
-                    <mat-datepicker #enddt></mat-datepicker>
-                </mat-form-field>
+                        <mat-datepicker #enddt></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
             </div>
 
-        </div>
+            <div mat-dialog-action [align]="'center'">
+                <button style="margin-left:10px;font-family: initial;font-weight: bolder;" mat-raised-button
+                    color="primary" (click)="addSatff()">Submit</button>
+                <button mat-raised-button color="warn" mat-dialog-close
+                    style="font-family: initial;font-weight: bolder;margin-left:20px;">Cancel</button>
 
-        <div mat-dialog-action [align]="'center'">
-            <button style="margin-left:10px;font-family: initial;font-weight: bolder;" mat-raised-button color="primary" (click)="addSatff()">Submit</button>
-            <button mat-raised-button color="warn" mat-dialog-close style="font-family: initial;font-weight: bolder;margin-left:20px;">Cancel</button>
-           
-            <div *ngIf="submitted && !addstaffform.valid">All fields are required.</div>
-        </div>
-    </form>
-</div>
+                <div *ngIf="submitted && !addstaffform.valid">All fields are required.</div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

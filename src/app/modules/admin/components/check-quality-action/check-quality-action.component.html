@@ -1,41 +1,46 @@
+<html>
 
+<body>
 
+    <!-- <button [print]="['printcheckqualityform', config]" id="printbtn">Print</button> -->
+    <form id="form">
+        <h1>Check Quality</h1>
+        <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
+        <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
+            [(ngModel)]="Orderdetails.orderId" hidden>
+        <div id="table">
 
-<!-- <button [print]="['printcheckqualityform', config]" id="printbtn">Print</button> -->
-<form  id="form">
-    <h1>Check Quality</h1>
-    <span mat-raised-button color="" mat-dialog-close  id="crossbtn">X</span>
-    <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
-        [(ngModel)]="Orderdetails.orderId" hidden>
-    <div id="table">
+            <table class="custom-table" id="printcheckqualityform">
+                <thead>
+                    <tr>
+                        <th>IMAGE</th>
+                        <th>PRODUCT NAME</th>
+                        <th>PRODUCTSKU ID</th>
+                        <th>LOCATION</th>
+                        <th>QUANTITY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of orderItemDetails">
+                        <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px">
+                        </td>
+                        <td>{{item.productName}}</td>
+                        <td>{{item.productSkuId}}</td>
+                        <td>12345678</td>
+                        <td>{{item.quantity}}</td>
 
-        <table class="custom-table" id="printcheckqualityform">
-            <thead>
-                <tr>
-                    <th>IMAGE</th>
-                    <th>PRODUCT NAME</th>
-                    <th>PRODUCTSKU ID</th>
-                    <th>LOCATION</th>
-                    <th>QUANTITY</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of orderItemDetails">
-                    <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px"></td>
-                    <td>{{item.productName}}</td>
-                    <td>{{item.productSkuId}}</td>
-                    <td>12345678</td>
-                    <td>{{item.quantity}}</td>
+                    </tr>
 
-                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="submittedbtns">
 
-            </tbody>
-        </table>
-    </div>
-    <div id="submittedbtns">
-        
-        <button   (click)="submit()" style="width: 90px;"  class="btn btn-success" >Start</button>
-        <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
- </div>
-</form>
+            <button (click)="submit()" style="width: 90px;" class="btn btn-success">Start</button>
+            <button type="submit" class="btn btn-danger" mat-dialog-close
+                style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+        </div>
+    </form>
+</body>
 
+</html>

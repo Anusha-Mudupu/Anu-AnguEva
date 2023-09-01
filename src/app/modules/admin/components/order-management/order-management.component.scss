@@ -37,7 +37,7 @@
   }
   .mat-header-cell{
     font-size: 18px;
-    color: black;
+    // color: black;
     justify-content: center;
   }
   .mat-cell{
@@ -47,9 +47,9 @@
     color:var(--toast-text);
    justify-content: center;
   }
-  .mat-header-cell.mat-sort-header-sorted {
-    color:black;
-  }
+  // .mat-header-cell.mat-sort-header-sorted {
+  //   color:black;
+  // }
   #view-icon{
     color: green;
     // align-items: end;
@@ -71,4 +71,11 @@
   //  justify-content: center;
   // }
 
-
+  body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+  }
+  ::ng-deep .mat-dialog-container {
+    background-color: var(--toast-background); // Use your custom color here
+    color: var(--toast-text); // Use your custom text color here
+  }

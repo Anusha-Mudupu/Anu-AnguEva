@@ -1,203 +1,220 @@
 <!-- <div>
     <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()">Edit</button>
 </div> -->
-<h1>Update Staff Form</h1>
-<button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
-<form class="row  g-3" class="box" [formGroup]="UpdateStaffform">
-    <div class="row">
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Id:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.opStaffId" formControlName="opStaffId"
-                placeholder="{{staffdata.opStaffId}}" readonly>
+<html>
 
-        </div>
+<body>
 
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Name:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.staffName" formControlName="staffName"
-                placeholder="{{staffdata.staffName}}">
-            <div *ngIf="submitted && UpdateStaffform.get('staffName').invalid">
-            </div>
-            <div *ngIf="UpdateStaffform.get('staffName').hasError('required') && UpdateStaffform.get('staffName').touched"
-                class="text-danger">
-                Staff name is required.
-            </div>
-        </div>
 
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Code:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.staffCd" formControlName="staffCd"
-                placeholder="{{staffdata.staffCd}}" readonly>
-            <div *ngIf="UpdateStaffform.get('staffCd').hasError('required') && UpdateStaffform.get('staffCd').touched"
-                class="text-danger">
+    <h1>Update Staff Form</h1>
+    <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
+    <form class="row  g-3" class="box" [formGroup]="UpdateStaffform">
+        <div class="row">
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Id:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.opStaffId" formControlName="opStaffId"
+                    placeholder="{{staffdata.opStaffId}}" readonly>
 
             </div>
-        </div>
-    </div>
 
-    <div class="row">
-
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Email Id:</label>
-            <input type="text" class="form-control" formControlName="emailId" [(ngModel)]="staffdata.emailId">
-            <div *ngIf="submitted && UpdateStaffform.get('emailId').invalid">
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Name:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.staffName" formControlName="staffName"
+                    placeholder="{{staffdata.staffName}}">
+                <div *ngIf="submitted && UpdateStaffform.get('staffName').invalid">
+                </div>
+                <div *ngIf="UpdateStaffform.get('staffName').hasError('required') && UpdateStaffform.get('staffName').touched"
+                    class="text-danger">
+                    Staff name is required.
+                </div>
             </div>
 
-            <div *ngIf="UpdateStaffform.get('emailId').hasError('required') && UpdateStaffform.get('emailId').touched"
-                class="text-danger">
-                Enter Email Id
-            </div>
-            <div *ngIf="UpdateStaffform.get('emailId').hasError('pattern') && UpdateStaffform.get('emailId').touched"
-                class="text-danger">
-                Enter Valid Email Id.
-            </div>
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Staff Code:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.staffCd" formControlName="staffCd"
+                    placeholder="{{staffdata.staffCd}}" readonly>
+                <div *ngIf="UpdateStaffform.get('staffCd').hasError('required') && UpdateStaffform.get('staffCd').touched"
+                    class="text-danger">
 
-        </div>
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">DOB:</label>
-
-            <input type="date" class="form-control" [(ngModel)]="staffdata.dob" formControlName="dob">
-            <div *ngIf="submitted && UpdateStaffform.get('dob').invalid">
-            </div>
-          
-            <div *ngIf="UpdateStaffform.get('dob').hasError('invalidDate')" class="text-danger">Invalid date format.</div>
-            <div *ngIf="UpdateStaffform.get('dob').hasError('futureDate')" class="text-danger">Date of birth cannot be in the future.</div>
-        </div>
-
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Mobile No:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.mobileNo" formControlName="mobileNo">
-            <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
-            </div>
-          
-            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('required')" class="text-danger">Phone number is required.</div>
-            <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern')" class="text-danger">Invalid phone number format.</div>
-           
-        </div>
-
-
-    </div>
-
-
-    <div class="row" id="lastrow">
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">start Date:</label>
-            <input type="date" class="form-control" [(ngModel)]="staffdata.startDt" formControlName="startDt"
-                placeholder="{{staffdata.startDt}}">
-            <div *ngIf="submitted && UpdateStaffform.get('startDt').invalid">
-            </div>
-           
-            <div *ngIf="UpdateStaffform.get('startDt').hasError('invalidDate')" class="text-danger">Invalid date format.</div>
-            <div *ngIf="UpdateStaffform.get('startDt').hasError('futureDate')" class="text-danger">Start Date cannot be in the future.</div>
-        </div>
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">End Date:</label>
-            <input type="date" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
-                placeholder="{{staffdata.endDt}}">
-            <div *ngIf="submitted && UpdateStaffform.get('endDt').invalid">
-            </div>
-            
-            <div *ngIf="UpdateStaffform.get('endDt').hasError('invalidDate')" class="text-danger">Invalid date format.</div>
-            <!-- <div *ngIf="UpdateStaffform.get('endDt').hasError('futureDate')" class="text-danger">Start Date cannot be in the future.</div> -->
-            
-        </div>
-
-
-
-
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Area:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.area" formControlName="area"
-                placeholder="{{staffdata.area}}">
-            <div *ngIf="submitted && UpdateStaffform.get('area').invalid">
-            </div>
-            <div *ngIf="UpdateStaffform.get('area').hasError('required') && UpdateStaffform.get('area').touched"
-                class="text-danger">
-                Area name is required.
+                </div>
             </div>
         </div>
 
-    </div>
+        <div class="row">
 
 
-    <div class="row" id="lastrow">
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">City:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.city" formControlName="city"
-                placeholder="{{staffdata.city}}">
-            <div *ngIf="submitted && UpdateStaffform.get('city').invalid">
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Email Id:</label>
+                <input type="text" class="form-control" formControlName="emailId" [(ngModel)]="staffdata.emailId">
+                <div *ngIf="submitted && UpdateStaffform.get('emailId').invalid">
+                </div>
+
+                <div *ngIf="UpdateStaffform.get('emailId').hasError('required') && UpdateStaffform.get('emailId').touched"
+                    class="text-danger">
+                    Enter Email Id
+                </div>
+                <div *ngIf="UpdateStaffform.get('emailId').hasError('pattern') && UpdateStaffform.get('emailId').touched"
+                    class="text-danger">
+                    Enter Valid Email Id.
+                </div>
+
             </div>
-            <div *ngIf="UpdateStaffform.get('city').hasError('required') && UpdateStaffform.get('city').touched"
-                class="text-danger">
-                City name is required.
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">DOB:</label>
+
+                <input type="date" class="form-control" [(ngModel)]="staffdata.dob" formControlName="dob">
+                <div *ngIf="submitted && UpdateStaffform.get('dob').invalid">
+                </div>
+
+                <div *ngIf="UpdateStaffform.get('dob').hasError('invalidDate')" class="text-danger">Invalid date format.
+                </div>
+                <div *ngIf="UpdateStaffform.get('dob').hasError('futureDate')" class="text-danger">Date of birth cannot
+                    be in the future.</div>
+            </div>
+
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Mobile No:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.mobileNo" formControlName="mobileNo">
+                <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
+                </div>
+
+                <div *ngIf="UpdateStaffform.get('mobileNo').hasError('required')" class="text-danger">Phone number is
+                    required.</div>
+                <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern')" class="text-danger">Invalid phone
+                    number format.</div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row" id="lastrow">
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">start Date:</label>
+                <input type="date" class="form-control" [(ngModel)]="staffdata.startDt" formControlName="startDt"
+                    placeholder="{{staffdata.startDt}}">
+                <div *ngIf="submitted && UpdateStaffform.get('startDt').invalid">
+                </div>
+
+                <div *ngIf="UpdateStaffform.get('startDt').hasError('invalidDate')" class="text-danger">Invalid date
+                    format.</div>
+                <div *ngIf="UpdateStaffform.get('startDt').hasError('futureDate')" class="text-danger">Start Date cannot
+                    be in the future.</div>
+            </div>
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">End Date:</label>
+                <input type="date" class="form-control" [(ngModel)]="staffdata.endDt" formControlName="endDt"
+                    placeholder="{{staffdata.endDt}}">
+                <div *ngIf="submitted && UpdateStaffform.get('endDt').invalid">
+                </div>
+
+                <div *ngIf="UpdateStaffform.get('endDt').hasError('invalidDate')" class="text-danger">Invalid date
+                    format.</div>
+                <!-- <div *ngIf="UpdateStaffform.get('endDt').hasError('futureDate')" class="text-danger">Start Date cannot be in the future.</div> -->
+
+            </div>
+
+
+
+
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Area:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.area" formControlName="area"
+                    placeholder="{{staffdata.area}}">
+                <div *ngIf="submitted && UpdateStaffform.get('area').invalid">
+                </div>
+                <div *ngIf="UpdateStaffform.get('area').hasError('required') && UpdateStaffform.get('area').touched"
+                    class="text-danger">
+                    Area name is required.
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row" id="lastrow">
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">City:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.city" formControlName="city"
+                    placeholder="{{staffdata.city}}">
+                <div *ngIf="submitted && UpdateStaffform.get('city').invalid">
+                </div>
+                <div *ngIf="UpdateStaffform.get('city').hasError('required') && UpdateStaffform.get('city').touched"
+                    class="text-danger">
+                    City name is required.
+                </div>
+            </div>
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">State:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.state" formControlName="state"
+                    placeholder="{{staffdata.state}}">
+                <div *ngIf="submitted && UpdateStaffform.get('state').invalid">
+                </div>
+                <div *ngIf="UpdateStaffform.get('state').hasError('required') && UpdateStaffform.get('state').touched"
+                    class="text-danger">
+                    State is required.
+                </div>
+            </div>
+
+
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Pincode:</label>
+                <input type="text" class="form-control" [(ngModel)]="staffdata.pincode" formControlName="pincode"
+                    placeholder="{{staffdata.pincode}}">
+                <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
+                </div>
+                <div *ngIf="UpdateStaffform.get('pincode').hasError('pattern') && UpdateStaffform.get('pincode').touched"
+                    class="text-danger">
+                    Please Enter Valid Pincode.
+                </div>
+
+                <div *ngIf="UpdateStaffform.get('pincode').hasError('minlength') && UpdateStaffform.get('pincode').touched"
+                    class="text-danger">
+                    Minimum length is 6 characters.
+                </div>
+                <div *ngIf="UpdateStaffform.get('pincode').hasError('maxlength') && UpdateStaffform.get('pincode').touched"
+                    class="text-danger">
+                    Maximum length is 6 characters.
+                </div>
+            </div>
+            <div formArrayName="staffRole" class="select-role">
+                <mat-form-field id="selectstaffrole">
+
+                    <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Select Staff Role</mat-label>
+                    <mat-select multiple [(value)]="selectedstaffroles">
+
+
+                        <mat-option *ngFor="let role of AllStaffRoleData;let i=index" [value]="role"
+                            (click)="onSelectStaffRole(i)" [ngStyle]="getInputStyles()">
+                            {{role.staffRole}}
+
+                        </mat-option>
+
+                    </mat-select>
+
+                </mat-form-field>
+
+            </div>
+
+
+
+            <div class="col-3" class="button">
+                <button type="submit" class="btn btn-success" (click)=" onSubmit()" style="width: 100px;"
+                    style="font-family: initial;font-weight: bolder;">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="submit" class="btn btn-danger" style="width: 100px;" mat-dialog-close
+                    style="font-family: initial;font-weight: bolder;">Cancel</button>
+                <!-- <div *ngIf="submitted && !UpdateStaffform.valid" class="text-danger">Form Is Invalid.</div> -->
             </div>
         </div>
 
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">State:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.state" formControlName="state"
-                placeholder="{{staffdata.state}}">
-            <div *ngIf="submitted && UpdateStaffform.get('state').invalid">
-            </div>
-            <div *ngIf="UpdateStaffform.get('state').hasError('required') && UpdateStaffform.get('state').touched"
-                class="text-danger">
-                State is required.
-            </div>
-        </div>
 
+    </form>
+</body>
 
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Pincode:</label>
-            <input type="text" class="form-control" [(ngModel)]="staffdata.pincode" formControlName="pincode"
-                placeholder="{{staffdata.pincode}}">
-            <div *ngIf="submitted && UpdateStaffform.get('pincode').invalid">
-            </div>
-            <div *ngIf="UpdateStaffform.get('pincode').hasError('pattern') && UpdateStaffform.get('pincode').touched"
-                class="text-danger">
-                Please Enter Valid Pincode.
-            </div>
-
-            <div *ngIf="UpdateStaffform.get('pincode').hasError('minlength') && UpdateStaffform.get('pincode').touched"
-                class="text-danger">
-                Minimum length is 6 characters.
-            </div>
-            <div *ngIf="UpdateStaffform.get('pincode').hasError('maxlength') && UpdateStaffform.get('pincode').touched"
-                class="text-danger">
-                Maximum length is 6 characters.
-            </div>
-        </div>
-        <div formArrayName="staffRole" class="select-role">
-            <mat-form-field id="selectstaffrole">
-    
-              <mat-label style="font-family: initial;font-weight: bolder;">Select Staff Role</mat-label>
-              <mat-select multiple [(value)]="selectedstaffroles">
-    
-               
-                <mat-option *ngFor="let role of AllStaffRoleData;let i=index" [value]="role" (click)="onSelectStaffRole(i)">
-                  {{role.staffRole}}
-    
-                </mat-option>
-    
-              </mat-select>
-    
-            </mat-form-field>
-    
-          </div>
-
-
-
-        <div class="col-3" class="button">
-            <button type="submit" class="btn btn-success" (click)=" onSubmit()"
-                style="width: 100px;" style="font-family: initial;font-weight: bolder;">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="submit" class="btn btn-danger" style="width: 100px;" mat-dialog-close style="font-family: initial;font-weight: bolder;">Cancel</button>
-            <!-- <div *ngIf="submitted && !UpdateStaffform.valid" class="text-danger">Form Is Invalid.</div> -->
-        </div>
-    </div>
-   
-
-</form>
+</html>

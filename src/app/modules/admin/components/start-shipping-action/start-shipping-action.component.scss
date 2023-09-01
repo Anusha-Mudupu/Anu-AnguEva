@@ -121,86 +121,79 @@
  *   All rights reserved.
  */
 
-#form {
+ #form{
   width: 1000px;
-  height: 550px;
-  border: ridge 3px;
-  overflow: hidden;
+   height:580px;
+   border: ridge 3px;
+   overflow: hidden;
 }
-
-.card1 {
+.card1{
   height: 200px;
-  margin-top: 50px;
-}
+  margin-top: 10px;
 
-.card-body1 {
+  
+}
+.card-body1{
   display: inline-flex;
 
   // margin-top: 50px;
 }
-
-.lables {
+.lables{
   font-size: 15px;
   font-weight: bold;
   margin-left: 18px;
   margin-top: 20px;
 
 }
-
-#submittedbtns {
-  margin-top: 200px;
+#submittedbtns{
+    margin-top:280px;
   margin-left: 360px;
-
-
+ 
+ 
 }
 
 
-#printbtn1 {
+#printbtn1{
   // margin-left: 990px;
   width: 100px;
   height: 30px;
-  color: black;
+color: black;
   // margin-top: -200px;
 }
-
-.printbtn2 {
+.printbtn2{
   // margin-left: 1100px;
-  width: 100px;
+  width: 130px;
   height: 30px;
-  color: black;
-  margin-top: 10px;
-  margin-left: -20px;
-  position: relative;
+  color:black;
+   margin-top: 10px;
+   margin-left: -10px;
+   position: relative;
 }
-
-#printbtns {
+#printbtns{
   margin-left: 800px;
   margin-top: 40px;
   position: absolute;
 }
 
-p {
+p{
   margin-top: -20px;
-  margin-left: 400px;
-  font-size: 18px;
-  font-family: initial;
+ margin-left: 400px;
+ font-size: 18px;
+ font-family: initial;
 }
-
-b {
-  font-size: 20px;
+b{
+  // font-size: 20px;
   margin-left: 200px;
   font-family: initial;
 }
-
-#addrress {
+#addrress{
   margin-left: 200px;
   font-family: initial;
   font-weight: bold;
 }
-
-#headding {
+#headding{
   margin-left: 460px;
-  color: coral
+  color:coral
 }
 
 
@@ -210,37 +203,46 @@ b {
 }
 
 
-#printbtn {
+#printbtn{
   margin-left: 1000px;
   width: 100px;
   height: 30px;
   color: cadetblue;
-  margin-top: 100px;
+  margin-top:100px;
   position: absolute;
 }
 
 
-#crossbtn {
+#crossbtn{
   margin-left: 995px;
   margin-top: -68px;
   position: absolute;
-  color: red;
-  border: solid black 1px;
-  padding: 5px;
+   color: red;
+   border: solid black 1px;
+   padding: 5px;
 
+}
+
+body{
+  background-color:var(--toast-background);
+  color:var(--toast-text);
+}
+::ng-deep .mat-dialog-container {
+  background-color: var(--toast-background); // Use your custom color here
+  color: var(--toast-text); // Use your custom text color here
 }
 
 @media screen and (min-width:360px) and (max-width:1360px) {
   #form {
     width: 900px;
-    height: 520px;
+    height: 550px;
     border: ridge 3px;
     overflow: hidden;
   }
 
   .card1 {
     height: 200px;
-    margin-top: 50px;
+    margin-top: -10px;
   }
 
   .card-body1 {
@@ -258,7 +260,7 @@ b {
   }
 
   #submittedbtns {
-    margin-top: 190px;
+    margin-top: 280px;
     margin-left: 340px;
 
 
@@ -275,11 +277,11 @@ b {
 
   .printbtn2 {
     // margin-left: 1100px;
-    width: 100px;
+    width: 130px;
     height: 30px;
     color: black;
     margin-top: 10px;
-    margin-left: -20px;
+    margin-left: -10px;
     position: relative;
   }
 
@@ -297,7 +299,7 @@ b {
   }
 
   b {
-    font-size: 20px;
+    // font-size: 20px;
     margin-left: 200px;
     font-family: initial;
   }

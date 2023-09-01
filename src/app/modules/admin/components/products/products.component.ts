@@ -69,5 +69,12 @@ applyFilter(event: any) {
   filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
   this.dataSource.filter = filterValue;
 }
+getInputStyles() {
+  return {
+    'background-color': 'var(--toast-background)',
+    'color': 'var(--toast-text)',
+    // ... other styling properties
+  };
 
   }
+}

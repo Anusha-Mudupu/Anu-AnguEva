@@ -1,65 +1,73 @@
 <!-- <button [print]="['printfinishfillingform', config]" id="printbtn">Print</button> -->
+<html>
 
-<form [formGroup]="finishfillingform" id="form">
-    <h1>Fill Conformation</h1>
-    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
-    <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
-        [(ngModel)]="Orderdetails.orderId" hidden>
-    <div id="table">
-        <table class="custom-table" id="printfinishfillingform">
-            <thead>
-                <tr>
-                    <th>IMAGE</th>
-                    <th>PRODUCT NAME</th>
-                    <th>PRODUCTSKU ID</th>
-                    <th>LOCATION</th>
-                    <th>QUANTITY</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr *ngFor="let item of orderItemDetails;let i=index">
-
-                    <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px">
-                    </td>
-                    <td>{{item.productName}}
-
-                    </td>
-                    <td>{{item.productSkuId}}</td>
-                    <td>12345678</td>
-                    <td>{{item.quantity}}</td>
-                    <div id="checkboxes">
-                        <label style= "font-size: 20px;font-family: initial;">
-                            <input type="checkbox" (click)="onCheckboxChange($event,i,'Yes')"
-                                style="width: 25px;height: 25px;" [disabled]="firstCheckbox" value="item.orderItemId">
-                            Yes
-                        </label>
-
-                        <label style= "font-size: 20px;font-family: initial;margin-left: 5px;" class="checkboxlabel">
-                            <input type="checkbox" (click)="onCheckboxChange($event,i,'Partially-Filled')"
-                                style="width: 25px;height: 25px;" [disabled]="isDisable" value="item.orderItemId">
-                            Partially <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Filled
-                        </label>
-                      
-
-                    </div>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <div id="submittedbtns">
-
-        <button class="btn btn-success" (click)="fillingSuccess()" style="width: 100px;font-family: initial;"
-            [disabled]="isSubmitDisabled">DONE</button>
+<body>
 
 
-        <button class="btn btn-primary" (click)="fillingFailed()"
-            style="margin-left:20px;width:150px;font-family: initial;">Partially Filled</button>
+    <form [formGroup]="finishfillingform" id="form">
+        <h1>Fill Conformation</h1>
+        <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
+        <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
+            [(ngModel)]="Orderdetails.orderId" hidden>
+        <div id="table">
+            <table class="custom-table" id="printfinishfillingform">
+                <thead>
+                    <tr>
+                        <th>IMAGE</th>
+                        <th>PRODUCT NAME</th>
+                        <th>PRODUCTSKU ID</th>
+                        <th>LOCATION</th>
+                        <th>QUANTITY</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-        <button type="submit" class="btn btn-danger" mat-dialog-close
-            style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+                    <tr *ngFor="let item of orderItemDetails;let i=index">
 
-    </div>
-</form>
+                        <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px">
+                        </td>
+                        <td>{{item.productName}}
+
+                        </td>
+                        <td>{{item.productSkuId}}</td>
+                        <td>12345678</td>
+                        <td>{{item.quantity}}</td>
+                        <div id="checkboxes">
+                            <label style="font-size: 20px;font-family: initial;">
+                                <input type="checkbox" (click)="onCheckboxChange($event,i,'Yes')"
+                                    style="width: 25px;height: 25px;" [disabled]="firstCheckbox"
+                                    value="item.orderItemId">
+                                Yes
+                            </label>
+
+                            <label style="font-size: 20px;font-family: initial;margin-left: 5px;" class="checkboxlabel">
+                                <input type="checkbox" (click)="onCheckboxChange($event,i,'Partially-Filled')"
+                                    style="width: 25px;height: 25px;" [disabled]="isDisable" value="item.orderItemId">
+                                Partially <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Filled
+                            </label>
+
+
+                        </div>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div id="submittedbtns">
+
+            <button class="btn btn-success" (click)="fillingSuccess()" style="width: 100px;font-family: initial;"
+                [disabled]="isSubmitDisabled">DONE</button>
+
+
+            <button class="btn btn-primary" (click)="fillingFailed()"
+                style="margin-left:20px;width:150px;font-family: initial;">Partially Filled</button>
+
+            <button type="submit" class="btn btn-danger" mat-dialog-close
+                style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+
+        </div>
+    </form>
+</body>
+
+</html>

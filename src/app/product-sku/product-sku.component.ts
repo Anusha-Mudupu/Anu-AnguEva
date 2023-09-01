@@ -57,8 +57,15 @@ export class ProductSkuComponent implements OnInit {
 
 
     })
+    
   }
-
+  getInputStyles() {
+    return {
+      'background-color': 'var(--toast-background)',
+      'color': 'var(--toast-text)',
+      // ... other styling properties
+    };
+  }
 
   saveProductSku() {
     this.produSku.createProductSku(this.productSku).subscribe((data: any) => {

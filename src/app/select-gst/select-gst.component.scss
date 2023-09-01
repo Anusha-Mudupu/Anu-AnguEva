@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
+ *   All rights reserved.
+ */
 #gstform{
     width: 450px;
     height: 400px;
@@ -13,4 +17,8 @@
   #gstsavebtn{
     margin-left: 120px;
     margin-top: 170px;
+  }
+  body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
   }

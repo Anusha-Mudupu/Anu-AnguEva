@@ -66,11 +66,11 @@ button {
 }
 #crossbtn{
     margin-left: 780px;
-    margin-top: -20px;
+    margin-top: -6px;
     color: red;
     border: solid black 1px;
     padding: 7px;
-    position: absolute;
+    // position: absolute;
     // position: sticky;
   }
   h1{
@@ -79,6 +79,15 @@ button {
     font-weight: bolder;
     margin-top: -20px;
   }
+  body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+  }
+  ::ng-deep .mat-dialog-container {
+    background-color: var(--toast-background); // Use your custom color here
+    color: var(--toast-text); // Use your custom text color here
+  }
+  
 @media screen and (min-width: 360px) and (max-width: 1400px) {
     .product-name {
         font-size: large;
@@ -145,7 +154,7 @@ button {
     }
     #crossbtn{
         margin-left: 700px;
-        margin-top: -15px;
+        margin-top: -5px;
         color: red;
         border: solid black 1px;
         padding: 7px;
@@ -156,5 +165,10 @@ button {
         font-family: initial;
         font-weight: bolder;
         margin-top: -20px;
+      }
+
+      body{
+        background-color:var(--toast-background);
+        color:var(--toast-text);
       }
   }

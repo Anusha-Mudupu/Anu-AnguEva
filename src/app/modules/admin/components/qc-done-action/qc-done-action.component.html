@@ -1,52 +1,60 @@
 <!-- <button [print]="['printqcdoneform', config]" id="printbtn">Print</button> -->
-<form [formGroup]="qualitcheckdoneform" id="form">
-    <h1>QC Conformation</h1>
-    <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
-    <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
-        [(ngModel)]="Orderdetails.orderId" hidden>
-    <div id="table">
-        <table class="custom-table" id="printqcdoneform">
-            <thead>
-                <tr>
-                    <th>IMAGE</th>
-                    <th>PRODUCT NAME</th>
-                    <th>PRODUCTSKU ID</th>
-                    <th>LOCATION</th>
-                    <th>QUANTITY</th>
-                </tr>
-            </thead>
-            <tbody>
+<html>
 
-                <tr *ngFor="let item of orderItemDetails">
+<body>
+    <form [formGroup]="qualitcheckdoneform" id="form">
+        <h1>QC Conformation</h1>
+        <span mat-raised-button color="" mat-dialog-close id="crossbtn">X</span>
+        <input type="text" placeholder="{{Orderdetails.orderId}}" formControlName="orderId"
+            [(ngModel)]="Orderdetails.orderId" hidden>
+        <div id="table">
+            <table class="custom-table" id="printqcdoneform">
+                <thead>
+                    <tr>
+                        <th>IMAGE</th>
+                        <th>PRODUCT NAME</th>
+                        <th>PRODUCTSKU ID</th>
+                        <th>LOCATION</th>
+                        <th>QUANTITY</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                    <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px">
-                    </td>
-                    <td>{{item.productName}}
+                    <tr *ngFor="let item of orderItemDetails">
 
-                    </td>
-                    <td>{{item.productSkuId}}</td>
-                    <td>12345678</td>
-                    <td>{{item.quantity}}</td>
+                        <td> <img src="{{imageBaseUrl}}{{item.imageUrl}}" class="image" height="110px" width="110px">
+                        </td>
+                        <td>{{item.productName}}
 
-                    <label style="margin-top: 50px; font-size: 20px;" id="checkbox">
-                        <input type="checkbox" (change)="onCheckboxChange($event)" style="width: 25px;height: 25px;">
-                        Yes
-                    </label>
-                 </tr>
+                        </td>
+                        <td>{{item.productSkuId}}</td>
+                        <td>12345678</td>
+                        <td>{{item.quantity}}</td>
 
-            </tbody>
-        </table>
-    </div>
-    <div id="submittedbtns">
+                        <label style="margin-top: 50px; font-size: 20px;" id="checkbox">
+                            <input type="checkbox" (change)="onCheckboxChange($event)"
+                                style="width: 25px;height: 25px;">
+                            Yes
+                        </label>
+                    </tr>
 
-        <button class="btn btn-success" (click)="QcSuccess()" style="width: 100px;"
-            [disabled]="isSubmitDisabled">DONE</button>
+                </tbody>
+            </table>
+        </div>
+        <div id="submittedbtns">
 
-
-        <button class="btn btn-primary" (click)="QcFailed()" style="margin-left:20px;width:100px">FAIL</button>
-        <button type="submit" class="btn btn-danger"  mat-dialog-close style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
-    </div>
+            <button class="btn btn-success" (click)="QcSuccess()" style="width: 100px;"
+                [disabled]="isSubmitDisabled">DONE</button>
 
 
-</form>
+            <button class="btn btn-primary" (click)="QcFailed()" style="margin-left:20px;width:100px">FAIL</button>
+            <button type="submit" class="btn btn-danger" mat-dialog-close
+                style="font-family: initial;font-weight: bolder;width: 100px;margin-left: 20px;">Cancel</button>
+        </div>
 
+
+    </form>
+
+</body>
+
+</html>

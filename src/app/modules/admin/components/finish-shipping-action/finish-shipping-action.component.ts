@@ -59,6 +59,13 @@ export class FinishShippingActionComponent implements OnInit {
       })
    
     }
-
+    getInputStyles() {
+      return {
+        'background-color': 'var(--toast-background)',
+        'color': 'var(--toast-text)',
+        // ... other styling properties
+      };
+    
+      }
    
 }

@@ -122,14 +122,14 @@
 //   }
 #form {
   width: 1000px;
-  height: 550px;
+  height: 580px;
   border: ridge 3px;
   overflow: hidden;
 }
 
 .card1 {
   height: 200px;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .card-body1 {
@@ -147,7 +147,7 @@
 }
 
 #submittedbtns {
-  margin-top: 200px;
+  margin-top: 280px;
   margin-left: 360px;
 
 
@@ -186,7 +186,7 @@ p {
 }
 
 b {
-  font-size: 20px;
+  // font-size: 20px;
   margin-left: 200px;
   font-family: initial;
 }
@@ -229,21 +229,30 @@ b {
 
 }
 #scanner{
-    margin-left: 600px;
+    margin-left: 630px;
     margin-top: -10px;
     position: absolute;
 }
+body{
+  background-color:var(--toast-background);
+  color:var(--toast-text);
+}
+::ng-deep .mat-dialog-container {
+  background-color: var(--toast-background); // Use your custom color here
+  color: var(--toast-text); // Use your custom text color here
+}
+
 @media screen and (min-width:360px) and (max-width:1360px) {
   #form {
     width: 900px;
-    height: 520px;
+    height: 560px;
     border: ridge 3px;
     overflow: hidden;
   }
 
   .card1 {
     height: 200px;
-    margin-top: 50px;
+    margin-top: -10px;
   }
 
   .card-body1 {
@@ -261,7 +270,7 @@ b {
   }
 
   #submittedbtns {
-    margin-top: 190px;
+    margin-top: 280px;
     margin-left: 340px;
 
 
@@ -300,7 +309,7 @@ b {
   }
 
   b {
-    font-size: 20px;
+    // font-size: 20px;
     margin-left: 200px;
     font-family: initial;
   }
@@ -342,4 +351,10 @@ b {
     padding: 5px;
 
   }
+
+  #scanner{
+    margin-left: 630px;
+    margin-top: -10px;
+    position: absolute;
+}
 }

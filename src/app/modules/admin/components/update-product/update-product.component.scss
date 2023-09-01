@@ -20,7 +20,7 @@
     font-family: initial;
 }
 #buttons{
-    margin-top: 100px;
+    margin-top: 30px;
     margin-left: 450px;
     position: fixed;
     font-family: initial;
@@ -59,6 +59,18 @@
      font-family: initial;
     font-weight: bolder;
   }
+
+  body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+  }
+  ::ng-deep .mat-dialog-container {
+    background-color: var(--toast-background); // Use your custom color here
+    color: var(--toast-text); // Use your custom text color here
+  }
+
+
+
 @media screen and (min-width: 500px) and (max-width: 1350px) {
 
     .dialog-content{
@@ -74,8 +86,8 @@
         margin-left: 50px;
     }
     #buttons{
-        margin-top: 45px;
-        margin-left: 190px;
+        margin-top: 20px;
+        margin-left: 150px;
         // position: fixed;
         position: relative;
     }

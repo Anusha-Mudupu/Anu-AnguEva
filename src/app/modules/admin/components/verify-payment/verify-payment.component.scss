@@ -71,7 +71,14 @@ h1{
      padding: 5px;
      position: absolute;
   }
-
+  body{
+    background-color:var(--toast-background);
+    color:var(--toast-text);
+  }
+  ::ng-deep .mat-dialog-container {
+    background-color: var(--toast-background); // Use your custom color here
+    color: var(--toast-text); // Use your custom text color here
+  }
 @media screen and (min-width:360px) and (max-width:1400px){
     // [class*="col-3"] {
     //     width: 30%;

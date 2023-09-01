@@ -1,99 +1,97 @@
+<html>
+
+<body>
 
 
-<button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
-<h1 mat-dialog-title >Update Product</h1>
-<div mat-dialog-content class="dialog-content">
-  <form [formGroup]="updateproductform" id="form">
-    <div class="container">
-      
-      <div class="row">
+  <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
+  <h1 mat-dialog-title>Update Product</h1>
+  <div mat-dialog-content class="dialog-content">
+    <form [formGroup]="updateproductform" id="form">
+      <div class="container">
 
-        <div class="col-3">
-          <label class="form-label">productName:</label>
-          <input type="text" class="form-control" [(ngModel)]="productdata.productName" formControlName="productName"
-            placeholder="{{productdata.productName}}">
+        <div class="row">
+
+          <div class="col-3">
+            <label class="form-label" [ngStyle]="getInputStyles()">productName:</label>
+            <input type="text" class="form-control" [(ngModel)]="productdata.productName" formControlName="productName"
+              placeholder="{{productdata.productName}}">
+
+          </div>
+          <div class="col-3">
+            <label class="form-label" [ngStyle]="getInputStyles()">Product Id:</label>
+            <input type="text" class="form-control" [(ngModel)]="productdata.productId" formControlName="productId"
+              placeholder="{{productdata.productId}}" readonly id="productid">
+
+          </div>
+          <div class="col-3">
+            <label class="form-label" [ngStyle]="getInputStyles()">Product Des:</label>
+            <input type="text" class="form-control" [(ngModel)]="productdata.productDesc" formControlName="productDesc"
+              placeholder="{{productdata.productDesc}}">
+
+          </div>
 
         </div>
-        <div class="col-3">
-          <label class="form-label">Product Id:</label>
-          <input type="text" class="form-control" [(ngModel)]="productdata.productId" formControlName="productId"
-            placeholder="{{productdata.productId}}" readonly id="productid">
+
+        <div class="row">
+          <div class="col-3">
+
+            <mat-form-field>
+              <mat-label [ngStyle]="getInputStyles()">Select Vendors</mat-label>
+              <mat-select name="selectedvendors" id="aantal" [(value)]="selectedvendors" multiple>
+                <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor" (click)="onSelectVendor(i)" [ngStyle]="getInputStyles()">
+                  {{ vendor.manufacturerName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+
+
+
+
+
+          <div class="col-3">
+            <label class="form-label" [ngStyle]="getInputStyles()">Search Tag:</label>
+            <input type="text" class="form-control" [(ngModel)]="productdata.searchTag" formControlName="searchTag"
+              placeholder="{{productdata.searchTag}}">
+
+          </div>
+          <div class="col-3">
+            <label class="form-label" [ngStyle]="getInputStyles()">Stored Id:</label>
+            <input type="text" type="number" class="form-control" [(ngModel)]="productdata.storeId"
+              formControlName="storeId" placeholder="{{productdata.storeId}}">
+
+          </div>
 
         </div>
-        <div class="col-3">
-          <label class="form-label">Product Des:</label>
-          <input type="text" class="form-control" [(ngModel)]="productdata.productDesc" formControlName="productDesc"
-            placeholder="{{productdata.productDesc}}">
 
-        </div>
 
       </div>
 
-      <div class="row">
-        <div class="col-3">
-          
-          <mat-form-field>
-            <mat-label>Select Vendors</mat-label>
-            <mat-select name="selectedvendors" id="aantal" [(value)]="selectedvendors"  multiple>
-              <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor" (click)="onSelectVendor(i)">
-                {{ vendor.manufacturerName }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-        </div>
 
+      <div formArrayName="catalog" class="product-catalog">
+        <mat-form-field>
 
+          <mat-label class="form-label" style="font-weight: bolder;" [ngStyle]="getInputStyles()">Select Catalog</mat-label>
+          <mat-select multiple [(value)]="selectedCatalogVals">
+            <mat-option *ngFor="let item of AllcatalogData; let i=index;" [value]="item" (click)="onSelectCatalogs(i)" [ngStyle]="getInputStyles()">
+              {{item.parent}}/{{item.catalogName}}
 
+            </mat-option>
 
+          </mat-select>
 
-        <div class="col-3">
-          <label class="form-label">Search Tag:</label>
-          <input type="text" class="form-control" [(ngModel)]="productdata.searchTag" formControlName="searchTag"
-            placeholder="{{productdata.searchTag}}">
-
-        </div>
-        <div class="col-3">
-          <label class="form-label">Stored Id:</label>
-          <input type="text" type="number" class="form-control" [(ngModel)]="productdata.storeId"
-            formControlName="storeId" placeholder="{{productdata.storeId}}">
-
-        </div>
+        </mat-form-field>
 
       </div>
+      <div mat-dialog-action [align]="'center'" id="buttons">
 
+        <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button color="warn" mat-dialog-close style="margin-left:10px">Cancel</button>
+      </div>
 
-    </div>
+    </form>
+  </div>
+</body>
 
-
-    <div formArrayName="catalog" class="product-catalog">
-      <mat-form-field>
-
-        <mat-label class="form-label" style="font-weight: bolder;" >Select Catalog</mat-label>
-        <mat-select multiple [(value)]="selectedCatalogVals">
-          <mat-option *ngFor="let item of AllcatalogData; let i=index;" [value]="item" (click)="onSelectCatalogs(i)">
-           {{item.parent}}/{{item.catalogName}}
-
-          </mat-option>
-
-        </mat-select>
-
-      </mat-form-field>
-
-    </div>
-  <div mat-dialog-action [align]="'center'" id="buttons">
-    
-      <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
-      <button mat-raised-button color="warn" mat-dialog-close style="margin-left:10px">Cancel</button>
-    </div>
-
-  </form>
-</div>
-
-
-
-
-
-
-
-
+</html>
