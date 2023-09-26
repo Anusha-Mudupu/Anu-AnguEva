@@ -86,12 +86,14 @@ loading: boolean = false;
         console.log(this.productSku);
         console.log(this.OptionsData)
         //this.imageBaseUrl= environment.imagesBaseUrl + this.productSku.productSkuImage;
-        this.optionsDetails = this.OptionsData.map((item: any) => {
-          return this.option.push(this.fb.group({
-            optionId: item.optionId,
-            productSkuOptionsId: new FormControl()
-          }));
-        });
+
+        
+        // this.optionsDetails = this.OptionsData.map((item: any) => {
+        //   return this.option.push(this.fb.group({
+        //     optionId: item.optionId,
+        //     productSkuOptionsId: new FormControl()
+        //   }));
+        // });
       });
 
     this.productSkuDataservice.getAllOptions().subscribe((data: any) => {
@@ -164,7 +166,7 @@ loading: boolean = false;
     });
     this.saveUpdateProductSku();
     this.loading = true;
-     window.location.reload();
+    //  window.location.reload();
     //  this.saveUploadImage();
       
 
