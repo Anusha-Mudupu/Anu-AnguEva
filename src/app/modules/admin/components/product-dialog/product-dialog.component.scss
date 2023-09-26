@@ -14,11 +14,11 @@
     font-family: initial;
 }
 
-.search-tag-list{
+.search-tag-list {
     margin-left: 5%;
     font-size: large;
     font-family: initial;
-    
+
 }
 
 .product-description {
@@ -27,10 +27,10 @@
     font-family: initial;
 }
 
-.product-catalog{
-margin-left: 34%;
-margin-top: -100px;
-font-family: initial;
+.product-catalog {
+    margin-left: 34%;
+    margin-top: -100px;
+    font-family: initial;
 }
 
 .dialog-content {
@@ -38,7 +38,7 @@ font-family: initial;
     width: 800px;
     font-family: initial;
     overflow: hidden;
-    
+
 }
 
 button {
@@ -46,129 +46,144 @@ button {
     margin-top: 100px;
     font-family: initial;
 }
-.ManufacturerId{
+
+.ManufacturerId {
     margin-left: 20px;
     font-size: large;
     font-family: initial;
 }
-#addnewcatalogbtn{
-    margin-left: 550px; 
-     margin-top: -100px;
-     font-family: initial;
+
+#addnewcatalogbtn {
+    margin-left: 550px;
+    margin-top: -100px;
+    font-family: initial;
 }
-#selectcatalog{
+
+#selectcatalog {
     margin-left: 45px;
     font-family: initial;
 }
-#search_tag{
-    margin-left: 30px;
+
+#search_tag {
+    margin-left: 40px;
     font-family: initial;
+    position: absolute;
 }
-#crossbtn{
-    margin-left: 780px;
-    margin-top: -6px;
+
+#crossbtn {
+    margin-left: 840px;
+    margin-top: 0px;
     color: red;
     border: solid black 1px;
     padding: 7px;
-    // position: absolute;
-    // position: sticky;
-  }
-  h1{
+     position: absolute;
+    // position: fixed;
+}
+
+h1 {
     margin-left: 370px;
     font-family: initial;
     font-weight: bolder;
     margin-top: -20px;
-  }
-  body{
-    background-color:var(--toast-background);
-    color:var(--toast-text);
-  }
-  ::ng-deep .mat-dialog-container {
+}
+
+body {
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+::ng-deep .mat-dialog-container {
     background-color: var(--toast-background); // Use your custom color here
     color: var(--toast-text); // Use your custom text color here
-  }
-  
-@media screen and (min-width: 360px) and (max-width: 1400px) {
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
     .product-name {
         font-size: large;
         margin-left: 9%;
         font-family: initial;
     }
-    
+
     .vendor-select {
         margin-left: 5%;
         font-size: large;
         font-family: initial;
     }
-    
-    .search-tag-list{
+
+    .search-tag-list {
         margin-left: 2%;
         font-size: large;
         font-family: initial;
-        
+
     }
-    
+
     .product-description {
         font-size: large;
         margin-left: 9%;
         font-family: initial;
     }
-    
-    .product-catalog{
-    margin-left: 38%;
-    margin-top: -170px;
-    font-family: initial;
+
+    .product-catalog {
+        margin-left: 38%;
+        margin-top: -170px;
+        font-family: initial;
     }
-    
+
     .dialog-content {
         height: 400px;
         width: auto;
         font-family: initial;
         overflow: hidden;
-        
+
     }
-    
+
     button {
         font-size: large;
         margin-top: 100px;
         font-family: initial;
     }
-    .ManufacturerId{
+
+    .ManufacturerId {
         margin-left: 20px;
         font-size: large;
         font-family: initial;
     }
-    #addnewcatalogbtn{
-        margin-left: 350px; 
-         margin-top: 40px;
-         font-family: initial;
+
+    #addnewcatalogbtn {
+        margin-left: 350px;
+        margin-top: 40px;
+        font-family: initial;
     }
-    #selectcatalog{
+
+    #selectcatalog {
         margin-left: 45px;
         font-family: initial;
-       
+
     }
-    #search_tag{
+
+    #search_tag {
         margin-left: 56px;
         font-family: initial;
     }
-    #crossbtn{
+
+    #crossbtn {
         margin-left: 700px;
         margin-top: -5px;
         color: red;
         border: solid black 1px;
         padding: 7px;
         position: absolute;
-      }
-      h1{
+    }
+
+    h1 {
         margin-left: 330px;
         font-family: initial;
         font-weight: bolder;
         margin-top: -20px;
-      }
+    }
 
-      body{
-        background-color:var(--toast-background);
-        color:var(--toast-text);
-      }
-  }
+    body {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+    }
+}
