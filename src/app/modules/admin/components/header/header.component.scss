@@ -18,7 +18,11 @@ body{
 }
 
 #admin:hover {
-    background-color: rgb(215, 17, 37)
+    background-color: rgb(215, 17, 37);
+    display:active;
+}
+a.active{
+    background-color: rgb(215, 17, 37);
 }
 #navbar {
     width: auto;

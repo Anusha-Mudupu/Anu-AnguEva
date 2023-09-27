@@ -22,6 +22,7 @@ body{
   .mat-cell{
     background-color:var(--toast-background);
     color:var(--toast-text);
+   
   }
 
   .buttons-area {
@@ -94,16 +95,16 @@ body{
   }
 
   .mat-column-productDesc{
-    max-width: 100px;
-    border-right: 2px solid currentColor;
+    max-width: 220px;
+    border-right: 1px solid currentColor;
     text-align: center;
     font-size: medium;
-   
+    height: auto;
   }
 
   .mat-column-actions{
     width: auto;
-    border-right: 2px solid currentColor;
+    border-right: 1px solid currentColor;
     text-align: center;
     font-size: medium;
   
@@ -155,6 +156,9 @@ body{
     color:var(--toast-text);
 }
 
+.custom-column-productDesc{
+  height: auto;
+}
   @media screen and (min-width: 500px) and (max-width: 1350px) {
     #addnewproductbtn {
     

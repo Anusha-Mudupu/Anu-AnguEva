@@ -55,7 +55,7 @@
 
       <ng-container matColumnDef="productDesc">
         <th mat-header-cell *matHeaderCellDef><b>Product Description</b></th>
-        <td mat-cell *matCellDef="let element"> {{element.productDesc}} </td>
+        <td mat-cell *matCellDef="let element" [ngClass]="'custom-column-productDesc'"> {{element.productDesc}} </td>
       </ng-container>
 
 

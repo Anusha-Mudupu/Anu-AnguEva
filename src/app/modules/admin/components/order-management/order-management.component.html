@@ -17,133 +17,145 @@
 
       <ng-container matColumnDef="orderId">
         <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"> Order Id </mat-header-cell>
-        
-        <mat-cell *matCellDef="let element"> {{element.orderId}} </mat-cell>
+
+        <mat-cell *matCellDef="let element" style="margin-left: -10px;"> {{element.orderId}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="userId">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"> User Email Id </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.emailId}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"
+          [ngClass]="'custom-column-width-userId'"> User Email Id </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'custom-column-width-userId'"> {{element.emailId}} </mat-cell>
       </ng-container>
 
 
       <ng-container matColumnDef="lastUpdate">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"> Last Updated Date </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.lastUpdateDtTm | date}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"
+          [ngClass]="'custom-column-width-lastUpdateDtTm'"> Last Updated Date </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'custom-column-width-lastUpdateDtTm'"> {{element.lastUpdateDtTm |
+          date}} </mat-cell>
       </ng-container>
 
 
       <ng-container matColumnDef="orderSubmitDtTm">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"> Order Submitted Date </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.orderSubmitDtTm | date}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"
+          [ngClass]="'custom-column-width-orderSubmitDtTm'"> Order Submitted Date </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'custom-column-width-orderSubmitDtTm'"> {{element.orderSubmitDtTm
+          | date}} </mat-cell>
       </ng-container>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <ng-container matColumnDef="status">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()">Status </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.statusCd}} </mat-cell>
-
+        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"
+          [ngClass]="'custom-column-width-statusCd'">Status </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'custom-column-width-statusCd'" style="margin-left: 20px;"> {{element.statusCd}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="totalAmount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()">Total Amount </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.totalAmount}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"
+          [ngClass]="'custom-column-width-totalAmount'">Total Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'custom-column-width-totalAmount'"> {{element.totalAmount}}
+        </mat-cell>
 
       </ng-container>
 
       <ng-container matColumnDef="mobileNumber">
-        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()">Mobile Number </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.mobileNumber}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="getInputStyles()"
+          [ngClass]="'custom-column-width-mobileNumber'">Mobile Number </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'custom-column-width-mobileNumber'"> {{element.mobileNumber}}
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Actions">
-        <mat-header-cell *matHeaderCellDef [ngStyle]="getInputStyles()">Actions </mat-header-cell>
-        <mat-cell *matCellDef="let element">
+        <mat-header-cell *matHeaderCellDef [ngStyle]="getInputStyles()"
+          [ngClass]="'custom-column-width-Actions'">Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'custom-column-width-Actions'">
           <!-- let i = index;"  -->
           <!-- <div *ngIf="element.status=='OPEN'">
           <button>NO-ACTION</button>
         </div> -->
 
-
-          <div *ngIf="element.statusCd=='PAID'">
-            <button class="btn btn-outline-primary" (click)="openDialog('verifypayment',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Verify Payment">VP</button>
-            <!-- (click)="dynamicComponentLoading('verifyPayment',i)" -->
+          <div id="actionbtns">
+            <div *ngIf="element.statusCd=='PAID'">
+              <button class="btn btn-outline-primary" (click)="openDialog('verifypayment',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Verify Payment">Verify Payment</button>
+              <!-- (click)="dynamicComponentLoading('verifyPayment',i)" -->
+            </div>
+            <div *ngIf="element.statusCd=='PAYMENT VERIFIED'">
+              <button class="btn btn-outline-primary" (click)="openDialog('start-filling',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Filling">Start Filling</button>
+            </div>
+            <div *ngIf="element.statusCd=='FILLING IN PROGRESS'">
+              <button class="btn btn-outline-primary" (click)="openDialog('finish-filling',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Filling">Finish Filling</button>
+            </div>
+            <div *ngIf="element.statusCd=='FILLED'">
+              <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">Check Quality</button>
+            </div>
+            <div *ngIf="element.statusCd=='PARTIALLY FILLED'">
+              <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">Check Quality</button>
+            </div>
+            <div *ngIf="element.statusCd=='QC IN PROGRESS'">
+              <button class="btn btn-outline-primary" (click)="openDialog('QC-Success',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="QC Done">QC Done</button>
+            </div>
+            <div *ngIf="element.statusCd=='QC SUCCESS'">
+              <button class="btn btn-outline-primary" (click)="openDialog('start-packing',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Packing">Start Packing</button>
+            </div>
+            <div *ngIf="element.statusCd=='PACKING IN PROGRESS'">
+              <button class="btn btn-outline-primary" (click)="openDialog('done-packing',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Done Packing">Done Packing</button>
+            </div>
+            <div *ngIf="element.statusCd=='PACKING DONE'">
+              <button class="btn btn-outline-primary" (click)="openDialog('start-shipping',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Shipping">Start Shipping</button>
+            </div>
+            <div *ngIf="element.statusCd=='SHIPPING IN PROGRESS'">
+              <button class="btn btn-outline-primary" (click)="openDialog('finish-shipping',element.orderId)"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Shipping">Finish Shipping</button>
+            </div>
           </div>
-          <div *ngIf="element.statusCd=='PAYMENT VERIFIED'">
-            <button class="btn btn-outline-primary" (click)="openDialog('start-filling',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Filling">SF</button>
-          </div>
-          <div *ngIf="element.statusCd=='FILLING IN PROGRESS'">
-            <button class="btn btn-outline-primary" (click)="openDialog('finish-filling',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Filling">FF</button>
-          </div>
-          <div *ngIf="element.statusCd=='FILLED'">
-            <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CQ</button>
-          </div>
-          <div *ngIf="element.statusCd=='PARTIALLY FILLED'">
-            <button class="btn btn-outline-primary" (click)="openDialog('check-quality',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Check Quality">CQ</button>
-          </div>
-          <div *ngIf="element.statusCd=='QC IN PROGRESS'">
-            <button class="btn btn-outline-primary" (click)="openDialog('QC-Success',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="QC Done">QD</button>
-          </div>
-          <div *ngIf="element.statusCd=='QC SUCCESS'">
-            <button class="btn btn-outline-primary" (click)="openDialog('start-packing',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Packing">SP</button>
-          </div>
-          <div *ngIf="element.statusCd=='PACKING IN PROGRESS'">
-            <button class="btn btn-outline-primary" (click)="openDialog('done-packing',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Done Packing">DP</button>
-          </div>
-          <div *ngIf="element.statusCd=='PACKING DONE'">
-            <button class="btn btn-outline-primary" (click)="openDialog('start-shipping',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Start Shipping">SS</button>
-          </div>
-          <div *ngIf="element.statusCd=='SHIPPING IN PROGRESS'">
-            <button class="btn btn-outline-primary" (click)="openDialog('finish-shipping',element.orderId)"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="Finish Shipping">FS</button>
-          </div>
-
 
 
           &nbsp;
-          <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Order Details" style="cursor: pointer;">
-            <i class="bi bi-card-list"></i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-card-list"
-              viewBox="0 0 16 16" (click)="viewOrderItemDetails(element.orderId)" id="view-icon">
-              <path
-                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-              <path
-                d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Order History" style="cursor: pointer;">
-            <i class="bi bi-building-add"></i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-              class="bi bi-building-add" viewBox="0 0 16 16" style="color:darkkhaki"
-              (click)="viewOrderHistoryPage(element.orderId)">
-              <path
-                d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Z" />
-              <path
-                d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1V1Z" />
-              <path
-                d="M4.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z" />
-            </svg>
-          </div>
+          <div id="icons">
+            <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Order Details" style="cursor: pointer;">
+              <i class="bi bi-card-list"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-card-list"
+                viewBox="0 0 16 16" (click)="viewOrderItemDetails(element.orderId)" id="view-icon">
+                <path
+                  d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                <path
+                  d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+              </svg>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Order History" style="cursor: pointer;">
+              <i class="bi bi-building-add"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-building-add" viewBox="0 0 16 16" style="color:darkkhaki"
+                (click)="viewOrderHistoryPage(element.orderId)">
+                <path
+                  d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Z" />
+                <path
+                  d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1V1Z" />
+                <path
+                  d="M4.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z" />
+              </svg>
+            </div>
 
-          <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Invoice" style="cursor: pointer;"
-            style="margin-left: 10px;">
-            <i class="bi bi-receipt-cutoff"></i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-              class="bi bi-receipt-cutoff" viewBox="0 0 16 16" (click)="downloadInvoice(element.orderId)">
-              <path
-                d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zM11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
-              <path
-                d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293 2.354.646zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118l.137-.274z" />
-            </svg>
+            <div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Invoice" style="cursor: pointer;"
+              style="margin-left: 10px;">
+              <i class="bi bi-receipt-cutoff"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-receipt-cutoff" viewBox="0 0 16 16" (click)="downloadInvoice(element.orderId)">
+                <path
+                  d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zM11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                <path
+                  d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293 2.354.646zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118l.137-.274z" />
+              </svg>
+            </div>
           </div>
 
         </mat-cell>
