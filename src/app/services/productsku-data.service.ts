@@ -16,7 +16,7 @@ export class ProductSkuDataService {
   id: any;
   selectedFile: any;
 
-  getoptions = 'http://localhost:8085/api/getOptions';
+  // getoptions = 'http://localhost:8085/api/getOptions';
   test=' http://localhost:8085/getAllGstCode'
   erroMessagge: any;
   constructor(
@@ -209,7 +209,7 @@ export class ProductSkuDataService {
 
   }
 
-  getAllOptions(){
+  getAllOptions(productId:any){
     const httpOptions = {
       headers :new HttpHeaders({
         'Content-Type':'application/json',
@@ -221,7 +221,7 @@ export class ProductSkuDataService {
         'Authorization':'my-auth-token' 
       })
     };
-   return this.httpclient.get<any>(environment.getAllOptionsdata,httpOptions);
+   return this.httpclient.get<any>(environment.getOptionValuesByProductId +productId,httpOptions);
   }
 
  

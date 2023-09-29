@@ -37,17 +37,20 @@ export class ProductSkuDetailComponent implements OnInit {
   Gstpercentage: any
   productSkudetails: any
   alloptionsData: any;
-  filteredOptions: any[]=[];
-  filteredOptionValuesArray:any;
+  filteredOptions: any[] = [];
+  filteredOptionValuesArray: any;
   Updateform: any;
   currentOptionValue: any;
   selectedOptionValue: any;
   selectedOptionName: any;
- currentOptionValueId: any;
- currentOptionName:any;
- optionsDetails:any;
-optionValues:any;
-loading: boolean = false;
+  currentOptionValueId: any;
+  currentOptionName: any;
+  optionsDetails: any;
+  optionValues: any;
+  loading: boolean = false;
+  productId: any;
+  abc: any;
+  selectedOptionValueId:any;
   constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService, private dialog: MatDialog, private fb: FormBuilder) {
     this.Updateform = this.fb.group({
       productSkuId: new FormControl('', Validators.compose([Validators.required])),
@@ -61,23 +64,26 @@ loading: boolean = false;
       status: new FormControl('', Validators.compose([Validators.required])),
       profile: new FormControl('', Validators.compose([Validators.required])),
       selfLocCd: new FormControl('', Validators.compose([Validators.required])),
-      gstId:new FormControl(''),
-       option: new FormArray([])
+      gstId: new FormControl(''),
+      option: new FormArray([])
 
     })
   }
 
   ngOnInit(): void {
-    
+
     this.edit()
     this.imageBaseUrl = environment.imagesBaseUrl
-    this.id = this.route.snapshot.params['productSkuId']
+    this.id = this.route.snapshot.params['productSkuId'];
+    this.productId = this.route.snapshot.params['productId']
     console.log(this.id)
     this.productSkuDataservice.getProductSkuByID(this.id).subscribe(
       (response) => {
         console.log(response);
         console.log(this.productSku);
         this.productSku = response;
+        this.productId = this.productSku.productId;
+        console.log('productId', this.productId)
         this.image = this.productSku.image;
         this.OptionsData = this.productSku.option;
 
@@ -87,7 +93,7 @@ loading: boolean = false;
         console.log(this.OptionsData)
         //this.imageBaseUrl= environment.imagesBaseUrl + this.productSku.productSkuImage;
 
-        
+
         // this.optionsDetails = this.OptionsData.map((item: any) => {
         //   return this.option.push(this.fb.group({
         //     optionId: item.optionId,
@@ -96,54 +102,93 @@ loading: boolean = false;
         // });
       });
 
-    this.productSkuDataservice.getAllOptions().subscribe((data: any) => {
-      this.alloptionsData = data;
-      console.log('options data',this.alloptionsData);
-     });
-  
-   }
+    this.productSkuDataservice.getAllOptions(this.productId).subscribe((data: any) => {
+      this.alloptionsData = data.map((item: any) => item.optionValue);
+      //  this.abc=this.alloptionsData[0].optionValue
+
+      console.log(this.alloptionsData);
+    });
+
+  }
 
   get option(): FormArray {
     console.log('get selectedOptions called');
     return this.Updateform.get('option') as FormArray;
   }
 
-  filterOptions(i: any) {
-    if (this.selectedOptionName) {
-      this.filteredOptions = this.alloptionsData.filter((option: any) => option.optionName === this.selectedOptionName);
-      console.log('filteredoptiondata', this.filteredOptions);
-      // this.currentOptionName = this.filteredOptions[i].optionValue;
-     }
-     this.filteredOptionValuesArray=this.filteredOptions.find((item:any)=>item.optionValue)
-     this.optionValues=this.filteredOptionValuesArray.optionValue;
-     console.log('filteredOptionValues',this.filteredOptionValuesArray);
-     console.log('optionValues',this.optionValues);
-     }
- 
-  currentSelectedOptionValue(i:any) {
-    console.log('selectedoptionvalues', this.selectedOptionValue);
-    this.currentOptionValueId=this.optionValues[i].optionId;
-    console.log('currentoptionvalueid',this.currentOptionValueId);
-     if(this.selectedOptionValue){
+  // filterOptions(i: any) {
+  //   if (this.selectedOptionName) {
+  //     this.filteredOptions = this.alloptionsData.filter((option: any) => option.optionName === this.selectedOptionName);
+  //     console.log('filteredoptiondata', this.filteredOptions);
+  //     // this.currentOptionName = this.filteredOptions[i].optionValue;
+  //   }
+  //   this.filteredOptionValuesArray = this.filteredOptions.find((item: any) => item.optionValue)
+  //   this.optionValues = this.filteredOptionValuesArray.optionValue;
+  //   console.log('filteredOptionValues', this.filteredOptionValuesArray);
+  //   console.log('optionValues', this.optionValues);
+  // }
+
+  // currentSelectedOptionValue(index: number) {
+  //   console.log('selectedoptionvalues', this.selectedOptionValue);
+  //   this.currentOptionValueId = this.selectedOptionValue[index].optionId;
+  //   console.log('currentoptionvalueid', this.currentOptionValueId);
+  //   console.log('abc', this.abc)
+  //   if (this.selectedOptionValue[index]) {
+  //     this.option.push(this.fb.group({
+  //       optionId: this.currentOptionValueId,
+  //     }));
+  //   }
+
+  //   console.log('form', this.Updateform.value);
+  // }
+  currentSelectedOptionValue(i:any){
+    console.log("onSelectoptionName Called", this.selectedOptionValue);
+  
+    this.selectedOptionValueId = this.selectedOptionValue.find((item:any)=>item.optionId);
+    this.currentOptionValueId = this.selectedOptionValue.filter((item: any) => item.optionId !== this.selectedOptionValueId);
+    console.log('selectedOptionValueId', this.selectedOptionValueId)
+    if (this.selectedOptionValue > this.currentOptionValueId) {
+
+      this.option.push(this.fb.group({
+        optionId: this.selectedOptionValueId,
+      
+      }));
+      console.log('if part called');
+    }
+    else {
+      if (this.currentOptionValueId <= this.currentOptionValueId) {
+        this.option.clear();
+        this.currentOptionValueId.forEach((item: any) => {
           this.option.push(this.fb.group({
-            optionId: this.currentOptionValueId,
-           }));
-          }
-     
-      console.log('form', this.Updateform.value);
+            optionId: new FormControl(item.optionId),
+            
+
+          }))
+        })
+        console.log('else part called');
+      }
+
+    }
+    console.log('product form', this.Updateform.value)
+    
+
   }
+
+
+
+
 
   clearSelection() {
-   this.selectedOptionValue=null
+    this.selectedOptionValue = null
     this.option.clear();
-   console.log('form', this.Updateform.value);
+    console.log('form', this.Updateform.value);
   }
 
-   saveUpdateProductSku() {
-    
-    this.productSkuDataservice.upDateProductSkuById(this.id,this.Updateform.value).subscribe(data => {
+  saveUpdateProductSku() {
+
+    this.productSkuDataservice.upDateProductSkuById(this.id, this.Updateform.value).subscribe(data => {
       console.log(data);
-       alert('successfully updated');
+      alert('successfully updated');
     }, errormsg => {
       alert('Something Went wrong');
     }
@@ -151,7 +196,7 @@ loading: boolean = false;
       this.loading = false;
     });
     console.log(this.Updateform.value)
-   
+
   }
 
   onSubmit() {
@@ -166,9 +211,9 @@ loading: boolean = false;
     });
     this.saveUpdateProductSku();
     this.loading = true;
-    //  window.location.reload();
+      window.location.reload();
     //  this.saveUploadImage();
-      
+
 
     const formData = new FormData();
     // for(let i=0;i<this.selectedFile.length;i++){
@@ -182,8 +227,8 @@ loading: boolean = false;
 
   }
 
-  goToProductView(){
-    this.router.navigate(['/admin/products/:productId',this.productSku]);
+  goToProductView() {
+    this.router.navigate(['/admin/products/:productId', this.productSku]);
   }
   cancel() {
     this.router.navigate(['/admin/products/:productId', this.productSku])

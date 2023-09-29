@@ -68,7 +68,11 @@
     background-color: var(--toast-background); // Use your custom color here
     color: var(--toast-text); // Use your custom text color here
   }
-
+#selectOption{
+  margin-left: 290px;
+  margin-top: -70px;
+  position: absolute;
+}
 
 
 @media screen and (min-width: 500px) and (max-width: 1350px) {

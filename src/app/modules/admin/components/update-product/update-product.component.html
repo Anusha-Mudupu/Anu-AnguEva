@@ -84,6 +84,31 @@
         </mat-form-field>
 
       </div>
+
+
+      <div formArrayName="productOption" class="product-catalog">
+        <mat-form-field id="selectOption">
+
+          <mat-label class="form-label" style="font-weight: bolder;" [ngStyle]="getInputStyles()">Select Option Name</mat-label>
+          <mat-select multiple [(value)]="selectedOptionNames">
+            <mat-option *ngFor="let item of optionNamesdata; let i=index;" [value]="item" (click)="onSelectOptionName(i)" [ngStyle]="getInputStyles()">
+              {{item.optionName}}
+
+            </mat-option>
+
+          </mat-select>
+
+        </mat-form-field>
+
+      </div>
+
+
+
+
+
+
+
+
       <div mat-dialog-action [align]="'center'" id="buttons">
 
         <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>

@@ -159,7 +159,7 @@
         </div>
         <div class="col-3"  id="selectoptions">
             <div formArrayName="option" >
-                <label style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
+                <!-- <label style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
                     Option</label>
                 <div>
                     <mat-form-field>
@@ -171,18 +171,20 @@
                                 (click)="filterOptions(i)">{{ option.optionName }}</mat-option>
                         </mat-select>
                     </mat-form-field>
-                </div>
-                <div *ngIf="filteredOptions.length > 0">
-                    <mat-form-field>
+                </div> -->
+                <!-- <div *ngIf="filteredOptions.length > 0"> -->
+                    <mat-form-field >
                         <mat-label style="font-family: initial;font-weight: bolder;">Select Option Value:</mat-label>
-                        <mat-select [(value)]="selectedOptionValue">
-                            <mat-option>Select an option value</mat-option>
-                            <mat-option *ngFor="let option of optionValues ;let i=index" [value]="option.optionId"
+                        <mat-select [(value)]="selectedOptionValue" multiple>
+                            <!-- <mat-option>Select an option value</mat-option> -->
+                            <div  *ngFor="let optionValueArray of alloptionsData">
+                            <mat-option *ngFor="let option of optionValueArray;let i=index" [value]="option"
                                 (click)="currentSelectedOptionValue(i)">{{option.optionValue}}</mat-option>
+                            </div>
                         </mat-select>
                     </mat-form-field>
                     <span *ngIf="selectedOptionValue" class="clear-icon" (click)="clearSelection()">clear</span>
-                </div>
+                <!-- </div> -->
             </div>
 
         </div>

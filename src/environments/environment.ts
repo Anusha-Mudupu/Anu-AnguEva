@@ -39,9 +39,11 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   updateproduct:'http://localhost:8085/api/updateProduct?productId=',
   downloadinvoice:'http://localhost:8085/downloadInvoice/',
   getAllParentCatalogs:'http://localhost:8085/api/getParentCatalogs',
-  getAllOptionsdata:'http://localhost:8085/api/getOptions',
-  getStaffRoles:'http://localhost:8085/getRoles'
-   
+  // getAllOptionsdata:'http://localhost:8085/api/getOptions',
+  getOptionValuesByProductId:'http://localhost:8085/api/getOptions?productId=',
+  getStaffRoles:'http://localhost:8085/getRoles',
+ getOptionsOnProdcut:'http://localhost:8085/getOptions',
+ 
 
 };
 

@@ -12,7 +12,8 @@ export interface Product {
     manufacturerId: number;
     storeId: number;
     searchTag: string;
-    Catalogdetails:Catalog[]
+    Catalogdetails:Catalog[];
+    productOption:option[]
   }
 
 export interface Vendor {

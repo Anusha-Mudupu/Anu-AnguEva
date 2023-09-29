@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Product } from '../data/data-objects';
+import { Product, option } from '../data/data-objects';
 import { FormGroup } from '@angular/forms';
 
 @Injectable({
@@ -82,4 +82,20 @@ export class ProductDataService {
     return this.httpclient.put<any>(environment.updateproduct + id,product,httpOptions);
   }
  
+
+
+  getAllOptionNames(){
+    const httpOptions = {
+      headers :new HttpHeaders({
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'responseType':'text,application/json',              
+        'Access-Control-Allow-Origin':'http://localhost:8085',
+        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers':'Content-Type,application/json',
+        'Authorization':'my-auth-token' 
+      })
+    };
+    return this.httpclient.get<option>(environment.getOptionsOnProdcut,httpOptions);
+  }
 }
