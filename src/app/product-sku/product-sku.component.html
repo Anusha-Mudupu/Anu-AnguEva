@@ -1,106 +1,143 @@
-
 <html>
-    <body>
 
-  
+<body>
 
 
-<button mat-raised-button color="" mat-dialog-close  id="crossbtn">X</button>
-<h1 mat-dialog-title style="margin-left: 430px;font-weight: bolder;font-family: initial;">Add New ProductSKu</h1>
-<div mat-dialog-content class="dialog-content" id="form">
-    <form [formGroup]="AddproductSkuform">
-        <div>
+
+
+    <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
+    <h1 mat-dialog-title style="margin-left: 430px;font-weight: bolder;font-family: initial;">Add New ProductSKu</h1>
+    <div mat-dialog-content class="dialog-content" id="form">
+        <form [formGroup]="AddproductSkuform">
             <div>
-                <mat-form-field class="catalogName" [ngStyle]="getInputStyles()">
-                    <mat-label [ngStyle]="getInputStyles()">price </mat-label>
-                    <input matInput formControlName="price" [(ngModel)]="productSku.price" [ngStyle]="getInputStyles()" >
-                    <div *ngIf="submitted && AddproductSkuform.get('price').invalid">
-                    </div>
-                </mat-form-field>
+                <div>
+                    <mat-form-field class="catalogName" [ngStyle]="getInputStyles()">
+                        <mat-label [ngStyle]="getInputStyles()">price </mat-label>
+                        <input matInput formControlName="price" [(ngModel)]="productSku.price"
+                            [ngStyle]="getInputStyles()">
+                        <div *ngIf="submitted && AddproductSkuform.get('price').invalid">
+                        </div>
+                    </mat-form-field>
 
 
-                <mat-form-field class="catalogDesc">
-                    <mat-label [ngStyle]="getInputStyles()">Skucode</mat-label>
-                    <input matInput formControlName="Skucode" [(ngModel)]="productSku.productSkuCd">
-                    <div *ngIf="submitted && AddproductSkuform.get('Skucode').invalid">
-                    </div>
-                </mat-form-field>
+                    <mat-form-field class="catalogDesc">
+                        <mat-label [ngStyle]="getInputStyles()">Skucode</mat-label>
+                        <input matInput formControlName="Skucode" [(ngModel)]="productSku.productSkuCd">
+                        <div *ngIf="submitted && AddproductSkuform.get('Skucode').invalid">
+                        </div>
+                    </mat-form-field>
 
-                <mat-form-field class="mobileNo">
-                    <mat-label [ngStyle]="getInputStyles()">count</mat-label>
-                    <input matInput formControlName="count" [(ngModel)]="productSku.count">
-                    <div *ngIf="submitted && AddproductSkuform.get('count').invalid">
-                    </div>
-                </mat-form-field>
-
-
-                <mat-form-field class="pincode">
-                    <mat-label [ngStyle]="getInputStyles()">Discount</mat-label>
-                    <input matInput formControlName="Discount" [(ngModel)]="productSku.discount">
-                    <div *ngIf="submitted && AddproductSkuform.get('Discount').invalid">
-                    </div>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field class="area">
-                    <mat-label [ngStyle]="getInputStyles()">Description</mat-label>
-                    <input matInput formControlName="Description" [(ngModel)]="productSku.skuDescription">
-                    <div *ngIf="submitted && AddproductSkuform.get('Description').invalid">
-                    </div>
-                </mat-form-field>
-                <mat-form-field class="city">
-                    <mat-label [ngStyle]="getInputStyles()">barcode</mat-label>
-                    <input matInput formControlName="barcode" [(ngModel)]="productSku.barCode">
-                    <div *ngIf="submitted && AddproductSkuform.get('barcode').invalid">
-                    </div>
-                </mat-form-field>
+                    <mat-form-field class="mobileNo">
+                        <mat-label [ngStyle]="getInputStyles()">count</mat-label>
+                        <input matInput formControlName="count" [(ngModel)]="productSku.count">
+                        <div *ngIf="submitted && AddproductSkuform.get('count').invalid">
+                        </div>
+                    </mat-form-field>
 
 
-                <mat-form-field class="state">
-                    <mat-label [ngStyle]="getInputStyles()">selfLocCd</mat-label>
-                    <input matInput formControlName="selfLocCd" [(ngModel)]="productSku.selfLocCd">
-                    <div *ngIf="submitted && AddproductSkuform.get('selfLocCd').invalid">
-                    </div>
-                </mat-form-field>
-                <mat-form-field class="state" style="cursor: not-allowed;">
-                    <mat-label [ngStyle]="getInputStyles()">productId</mat-label>
-                    <input matInput formControlName="productId" placeholder="{{productSku.productId}}"
-                        [(ngModel)]="productSku.productId" readonly>
-                    <div *ngIf="submitted && AddproductSkuform.get('productId').invalid">
-                    </div>
-                </mat-form-field>
-
-
-            </div>
-
-
-            <div class="form-check form-switch" id="toggle">
-                <p class="select">Select Availablity Status:</p>
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
-                    [(ngModel)]="productSku.status" formControlName="status">
-                <span>{{productSku.status? 'Available' : 'Not-Available'}}</span>
-                <div *ngIf="submitted && AddproductSkuform.get('status').invalid" class="text-danger">
-                    Please Select Status
+                    <mat-form-field class="pincode">
+                        <mat-label [ngStyle]="getInputStyles()">Discount</mat-label>
+                        <input matInput formControlName="Discount" [(ngModel)]="productSku.discount">
+                        <div *ngIf="submitted && AddproductSkuform.get('Discount').invalid">
+                        </div>
+                    </mat-form-field>
                 </div>
-            </div>
+                <div>
+                    <mat-form-field class="area">
+                        <mat-label [ngStyle]="getInputStyles()">Description</mat-label>
+                        <input matInput formControlName="Description" [(ngModel)]="productSku.skuDescription">
+                        <div *ngIf="submitted && AddproductSkuform.get('Description').invalid">
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="city">
+                        <mat-label [ngStyle]="getInputStyles()">barcode</mat-label>
+                        <input matInput formControlName="barcode" [(ngModel)]="productSku.barCode">
+                        <div *ngIf="submitted && AddproductSkuform.get('barcode').invalid">
+                        </div>
+                    </mat-form-field>
 
 
+                    <mat-form-field class="state">
+                        <mat-label [ngStyle]="getInputStyles()">selfLocCd</mat-label>
+                        <input matInput formControlName="selfLocCd" [(ngModel)]="productSku.selfLocCd">
+                        <div *ngIf="submitted && AddproductSkuform.get('selfLocCd').invalid">
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="state" style="cursor: not-allowed;">
+                        <mat-label [ngStyle]="getInputStyles()">productId</mat-label>
+                        <input matInput formControlName="productId" placeholder="{{productSku.productId}}"
+                            [(ngModel)]="productSku.productId" readonly>
+                        <div *ngIf="submitted && AddproductSkuform.get('productId').invalid">
+                        </div>
+                    </mat-form-field>
+
+
+                </div>
+
+
+                <div class="form-check form-switch" id="toggle">
+                    <p class="select">Select Availablity Status:</p>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+                        [(ngModel)]="productSku.status" formControlName="status">
+                    <span>{{productSku.status? 'Available' : 'Not-Available'}}</span>
+                    <div *ngIf="submitted && AddproductSkuform.get('status').invalid" class="text-danger">
+                        Please Select Status
+                    </div>
+                </div>
+            
             <div>
+                <p>selected OptionName:{{currentOptionName}}</p>
+                <p>selected OptionValue:{{currentOptionValue}}</p>
 
             </div>
+       
 
 
-        </div>
 
-        <div mat-dialog-action [align]="'center'">
-          
-            <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()"
-                >Submit</button>
+
+
+
+                <div class="col-3"  id="selectoptions">
+                    <div formArrayName="options" >
+                        <label style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
+                            Option</label>
+                        <div>
+                            <mat-form-field>
+                                <mat-label style="font-family: initial;font-weight: bolder;">Select Option Name:</mat-label>
+                                <mat-select [(value)]="selectedOptionName" multiple>
+                                    <mat-option [value]="null" style="font-family: initial;font-weight: bolder;">Select an
+                                        option</mat-option>
+                                    <mat-option *ngFor="let option of alloptionsData;let i=index" [value]="option.optionName"
+                                        (click)="filterOptions(i)">{{ option.optionName }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="filteredOptions.length > 0">
+                            <mat-form-field>
+                                <mat-label style="font-family: initial;font-weight: bolder;">Select Option Value:</mat-label>
+                                <mat-select [(value)]="selectedOptionValue">
+                                    <mat-option>Select an option value</mat-option>
+                                    <mat-option *ngFor="let option of optionValues ;let i=index" [value]="option.optionId"
+                                        (click)="currentSelectedOptionValue(i)" >{{option.optionValue}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <span *ngIf="selectedOptionValue" class="clear-icon" (click)="clearSelection()">clear</span>
+                        </div>
+                    </div>
+        
+                </div>
+               
+ 
+            </div>
+             <div mat-dialog-action [align]="'center'">
+
+                <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
                 <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
 
-            <div *ngIf="submitted && !AddproductSkuform.valid" class="text-danger">All fields are required.</div>
-        </div>
-    </form>
-</div>
+                <div *ngIf="submitted && !AddproductSkuform.valid" class="text-danger">All fields are required.</div>
+            </div>
+             </form>
+    </div>
 </body>
+
 </html>

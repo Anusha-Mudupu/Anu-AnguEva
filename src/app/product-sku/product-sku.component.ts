@@ -6,7 +6,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProductSkuServiceService } from '../product-sku-service.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductDataService } from '../services/product-data.service';
 import { ProductSkuDataService } from '../services/productsku-data.service';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -26,6 +26,32 @@ export class ProductSkuComponent implements OnInit {
   // productSku: ProductSku = new ProductSku();
   productSku: any
   snackBar: any;
+  // AllOptionsdata:any;
+
+
+
+
+
+
+  alloptionsData: any;
+  filteredOptions: any[] = [];
+  filteredOptionValuesArray: any;
+  Updateform: any;
+  currentOptionValue: any;
+  selectedOptionValue: any;
+  selectedOptionName: any;
+  currentOptionValueId: any;
+  currentOptionName: any;
+  optionsDetails: any;
+  optionValues: any;
+
+
+
+
+
+
+
+
   constructor(private produSku: ProductSkuServiceService, private route: ActivatedRoute, private dialogRef: MatDialogRef<ProductSkuComponent>,
     private router: Router, private productdataservice: ProductDataService, private productSkudataservice: ProductSkuDataService, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) {
     console.log(this.id = data.productId)
@@ -41,6 +67,7 @@ export class ProductSkuComponent implements OnInit {
       productId: ['', Validators.required],
       status: ['', Validators.required],
       selfLocCd: ['', [Validators.required]],
+      options: new FormArray([])
     });
   }
 
@@ -54,11 +81,18 @@ export class ProductSkuComponent implements OnInit {
       this.productSku = data;
       console.log(data)
       console.log(this.productSku)
-
-
+    });
+    this.productSkudataservice.getAllOptions(this.id).subscribe((data: any) => {
+      this.alloptionsData = data;
+      console.log('alloptionsdata', this.alloptionsData)
     })
-    
+
   }
+
+
+
+
+
   getInputStyles() {
     return {
       'background-color': 'var(--toast-background)',
@@ -99,9 +133,9 @@ export class ProductSkuComponent implements OnInit {
       // }, 2000); 
       this.dialogRef.close();
     }
-    
+
   }
-//  this.router.navigate(['/admin/products/:productId', this.productSku])
+  //  this.router.navigate(['/admin/products/:productId', this.productSku])
   // cancel() {
   //   this.router.navigate(['/admin/products/:productId', this.productSku])
   // }
@@ -109,6 +143,52 @@ export class ProductSkuComponent implements OnInit {
     return this.AddproductSkuform.controls;
   };
 
+
+
+
+  get options(): FormArray {
+    console.log('get selectedOptions called');
+    return this.AddproductSkuform.get('options') as FormArray;
+  }
+
+  filterOptions(i: any) {
+    if (this.selectedOptionName) {
+      console.log('selectedoptionname',this.selectedOptionName)
+    this.filteredOptions = this.alloptionsData.filter((option: any) => option.optionName == this.selectedOptionName);
+    console.log('filteredoptiondata', this.filteredOptions);
+       this.currentOptionName = this.selectedOptionName;
+       console.log('currentOptionName', this.currentOptionName);
+     }
+    this.filteredOptionValuesArray = this.filteredOptions.find((item: any) => item.optionValue)
+    this.optionValues = this.filteredOptionValuesArray.optionValue;
+    //  this.currentOptionValue=this.optionValues[i].optionValue;
+    console.log('filteredOptionValues', this.filteredOptionValuesArray);
+    console.log('optionValues', this.optionValues);
+      
+
+  }
+
+  currentSelectedOptionValue(i: any) {
+    console.log('selectedoptionvalues', this.selectedOptionValue);
+    this.currentOptionValueId = this.optionValues[i].optionId;
+    console.log('currentoptionvalueid', this.currentOptionValueId);
+    if (this.selectedOptionValue) {
+      this.options.push(this.fb.group({
+        optionId: this.currentOptionValueId,
+      }));
+    }
+
+    console.log('form', this.AddproductSkuform.value);
+    // this.clearSelection();
+  }
+
+
+
+
+  clearSelection(){
+    this.selectedOptionName=null;
+    this.selectedOptionValue=null;
+  }
 }
 
 

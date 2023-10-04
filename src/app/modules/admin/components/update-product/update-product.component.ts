@@ -41,6 +41,7 @@ export class UpdateProductComponent implements OnInit {
   selectedOptionName: any;
   currentOptionName: any;
   optionNames: any;
+  
   constructor(private productservice: ProductDataService, @Inject(MAT_DIALOG_DATA) public data: any, private vendorservice: VendorDataService, private fb: FormBuilder, public dialogRef: MatDialogRef<UpdateProductComponent>,) {
     this.updateproductform = this.fb.group({
       productName: new FormControl('', [Validators.required]),
@@ -128,7 +129,7 @@ export class UpdateProductComponent implements OnInit {
 
   }
 
-
+  
 
   get catalog(): FormArray {
     console.log('get selectedCatalogs called');
@@ -172,6 +173,7 @@ export class UpdateProductComponent implements OnInit {
   }
 
   onSelectVendor(i: any) {
+  
     this.currentVendor = this.vendorData[i].manufacturerId
     console.log('currentVendor', this.currentVendor);
     this.updateproductform.patchValue({
@@ -179,6 +181,7 @@ export class UpdateProductComponent implements OnInit {
     });
     console.log('form', this.updateproductform.value);
   }
+  
 
   saveUpdateProduct() {
     this.productservice.updateProductById(this.productId, this.updateproductform.value).subscribe((data => {
