@@ -185,6 +185,12 @@ body{
   background-color:var(--toast-background);
    color:var(--toast-text); 
 }
+#selectoptions{
+  margin-left: 400px;
+  margin-top: -70px;
+  font-family: initial;
+  font-size: 15px;
+}
 
 @media screen and (min-width:360px) and (max-width:1400px){
   .dialog-content {

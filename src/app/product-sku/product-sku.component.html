@@ -22,8 +22,8 @@
 
                     <mat-form-field class="catalogDesc">
                         <mat-label [ngStyle]="getInputStyles()">Skucode</mat-label>
-                        <input matInput formControlName="Skucode" [(ngModel)]="productSku.productSkuCd">
-                        <div *ngIf="submitted && AddproductSkuform.get('Skucode').invalid">
+                        <input matInput formControlName="productSkuCd" [(ngModel)]="productSku.productSkuCd">
+                        <div *ngIf="submitted && AddproductSkuform.get('productSkuCd').invalid">
                         </div>
                     </mat-form-field>
 
@@ -45,8 +45,8 @@
                 <div>
                     <mat-form-field class="area">
                         <mat-label [ngStyle]="getInputStyles()">Description</mat-label>
-                        <input matInput formControlName="Description" [(ngModel)]="productSku.skuDescription">
-                        <div *ngIf="submitted && AddproductSkuform.get('Description').invalid">
+                        <input matInput formControlName="skuDescription" [(ngModel)]="productSku.skuDescription">
+                        <div *ngIf="submitted && AddproductSkuform.get('skuDescription').invalid">
                         </div>
                     </mat-form-field>
                     <mat-form-field class="city">
@@ -85,11 +85,7 @@
                     </div>
                 </div>
             
-            <div>
-                <p>selected OptionName:{{currentOptionName}}</p>
-                <p>selected OptionValue:{{currentOptionValue}}</p>
-
-            </div>
+           
        
 
 
@@ -104,10 +100,10 @@
                         <div>
                             <mat-form-field>
                                 <mat-label style="font-family: initial;font-weight: bolder;">Select Option Name:</mat-label>
-                                <mat-select [(value)]="selectedOptionName" multiple>
+                                <mat-select [(value)]="selectedOptionName">
                                     <mat-option [value]="null" style="font-family: initial;font-weight: bolder;">Select an
                                         option</mat-option>
-                                    <mat-option *ngFor="let option of alloptionsData;let i=index" [value]="option.optionName"
+                                    <mat-option *ngFor="let option of productOptionsdata;let i=index" [value]="option.optionName"
                                         (click)="filterOptions(i)">{{ option.optionName }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -122,6 +118,13 @@
                                 </mat-select>
                             </mat-form-field>
                             <span *ngIf="selectedOptionValue" class="clear-icon" (click)="clearSelection()">clear</span>
+                            <div *ngIf="errormsg" style="color: red;">
+                                <p>{{ errormsg }}</p>
+                            </div>
+                           
+                        </div>
+                        <div *ngIf="submitted && AddproductSkuform.get('options').invalid" class="text-danger">
+                            Please Select Options
                         </div>
                     </div>
         
@@ -133,6 +136,7 @@
 
                 <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
                 <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
+                <p *ngIf="errorMessageforoptions" style="color: red;">{{errorMessageforoptions}}</p>
 
                 <div *ngIf="submitted && !AddproductSkuform.valid" class="text-danger">All fields are required.</div>
             </div>

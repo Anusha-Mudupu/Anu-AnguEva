@@ -26,27 +26,23 @@ export class ProductSkuComponent implements OnInit {
   // productSku: ProductSku = new ProductSku();
   productSku: any
   snackBar: any;
-  // AllOptionsdata:any;
 
-
-
-
-
-
-  alloptionsData: any;
+  productOptionsdata: any;
   filteredOptions: any[] = [];
   filteredOptionValuesArray: any;
-  Updateform: any;
+
   currentOptionValue: any;
   selectedOptionValue: any;
   selectedOptionName: any;
   currentOptionValueId: any;
   currentOptionName: any;
-  optionsDetails: any;
   optionValues: any;
-
-
-
+  existingOptions: any;
+  errormsg: any;
+  existingSkuOptionsdata: any[] = [];
+  existingOptionsIds: any;
+  errorMessageforoptions: any;
+  allproductskudata: any;
 
 
 
@@ -59,15 +55,15 @@ export class ProductSkuComponent implements OnInit {
     this.AddproductSkuform = this.fb.group({
       Skuid: new FormControl(''),
       price: ['', Validators.compose([Validators.required, Validators.pattern(/^[0-9]*$/)])],
-      Skucode: ['', Validators.compose([Validators.required])],
+      productSkuCd: ['', Validators.compose([Validators.required])],
       count: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
       Discount: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
-      Description: ['', Validators.required],
+      skuDescription: ['', Validators.required],
       barcode: ['', [Validators.required]],
       productId: ['', Validators.required],
       status: ['', Validators.required],
       selfLocCd: ['', [Validators.required]],
-      options: new FormArray([])
+      options: new FormArray([], [Validators.required])
     });
   }
 
@@ -75,16 +71,24 @@ export class ProductSkuComponent implements OnInit {
 
   ngOnInit(): void {
     // this.id = this.route.snapshot.paramMap.get("productId");
-
     console.log(this.id);
     this.productdataservice.getProductById(this.id).subscribe(data => {
       this.productSku = data;
       console.log(data)
       console.log(this.productSku)
     });
+
     this.productSkudataservice.getAllOptions(this.id).subscribe((data: any) => {
-      this.alloptionsData = data;
-      console.log('alloptionsdata', this.alloptionsData)
+      this.productOptionsdata = data;
+      console.log('alloptionsdata', this.productOptionsdata)
+    });
+    this.productSkudataservice.getAllProductSkus(this.id).subscribe((data: any) => {
+      this.allproductskudata = data.map((id: any) => id.option);
+      this.existingSkuOptionsdata = this.allproductskudata.find((a: any) => a)
+      this.existingOptionsIds = this.existingSkuOptionsdata.map((id: any) => id.optionId);
+      console.log('existingOptionsIds', this.existingOptionsIds)
+      console.log('existingSkuOptionsdata', this.existingSkuOptionsdata)
+      console.log('allproductskus', this.allproductskudata);
     })
 
   }
@@ -102,7 +106,7 @@ export class ProductSkuComponent implements OnInit {
   }
 
   saveProductSku() {
-    this.produSku.createProductSku(this.productSku).subscribe((data: any) => {
+    this.produSku.createProductSku(this.AddproductSkuform.value).subscribe((data: any) => {
       console.log('add product sku', this.productSku);
 
       alert('product Sku added successfully')
@@ -123,16 +127,27 @@ export class ProductSkuComponent implements OnInit {
       }
     console.log(this.productSku);
     this.submitted = true;
-    if (this.AddproductSkuform.valid) {
+    if (this.AddproductSkuform.valid && this.existingOptionsIds.length == this.options.length) {
       this.saveProductSku()
-      // setTimeout(() => {
-      //   this.AddproductSkuform.reset();
-      //  this.snackBar.open('Form submitted successfully!', 'Close', {
-      //     duration: 4000,
-      //   });
-      // }, 2000); 
-      this.dialogRef.close();
     }
+    // setTimeout(() => {
+    //   this.AddproductSkuform.reset();
+    //  this.snackBar.open('Form submitted successfully!', 'Close', {
+    //     duration: 4000,
+    //   });
+    // }, 2000); 
+    // this.dialogRef.close();
+    else {
+      if (this.existingOptionsIds.length !== this.options.length) {
+        this.errorMessageforoptions = 'Error:must select all product options'
+
+      }
+      else {
+        this.errorMessageforoptions = '';
+      }
+    }
+    console.log('form', this.AddproductSkuform.value);
+
 
   }
   //  this.router.navigate(['/admin/products/:productId', this.productSku])
@@ -153,18 +168,18 @@ export class ProductSkuComponent implements OnInit {
 
   filterOptions(i: any) {
     if (this.selectedOptionName) {
-      console.log('selectedoptionname',this.selectedOptionName)
-    this.filteredOptions = this.alloptionsData.filter((option: any) => option.optionName == this.selectedOptionName);
-    console.log('filteredoptiondata', this.filteredOptions);
-       this.currentOptionName = this.selectedOptionName;
-       console.log('currentOptionName', this.currentOptionName);
-     }
+      console.log('selectedoptionname', this.selectedOptionName)
+      this.filteredOptions = this.productOptionsdata.filter((option: any) => option.optionName == this.selectedOptionName);
+      console.log('filteredoptiondata', this.filteredOptions);
+      this.currentOptionName = this.selectedOptionName;
+      console.log('currentOptionName', this.currentOptionName);
+    }
     this.filteredOptionValuesArray = this.filteredOptions.find((item: any) => item.optionValue)
     this.optionValues = this.filteredOptionValuesArray.optionValue;
     //  this.currentOptionValue=this.optionValues[i].optionValue;
     console.log('filteredOptionValues', this.filteredOptionValuesArray);
     console.log('optionValues', this.optionValues);
-      
+
 
   }
 
@@ -172,22 +187,41 @@ export class ProductSkuComponent implements OnInit {
     console.log('selectedoptionvalues', this.selectedOptionValue);
     this.currentOptionValueId = this.optionValues[i].optionId;
     console.log('currentoptionvalueid', this.currentOptionValueId);
-    if (this.selectedOptionValue) {
+    // if (this.selectedOptionValue) {
+    //   this.options.push(this.fb.group({
+    //     optionId: this.currentOptionValueId,
+    //   }));
+    // }
+
+
+    // this.clearSelection();
+    // Check if options already exist in any productSku
+    this.existingOptions = this.existingSkuOptionsdata.some((product: any) => product.optionId == this.currentOptionValueId);
+
+    if (this.existingOptions) {
+      this.errormsg = 'Error: Option already exist for another SKU'
+      console.log('if called,options already existed');
+    }
+
+    else {
+
       this.options.push(this.fb.group({
         optionId: this.currentOptionValueId,
       }));
-    }
 
+      this.errormsg = '';
+    }
     console.log('form', this.AddproductSkuform.value);
-    // this.clearSelection();
   }
 
 
 
 
-  clearSelection(){
-    this.selectedOptionName=null;
-    this.selectedOptionValue=null;
+  clearSelection() {
+    // this.selectedOptionName = null;
+    this.selectedOptionValue = null;
+    this.options.clear();
+    console.log('form', this.AddproductSkuform.value);
   }
 }
 

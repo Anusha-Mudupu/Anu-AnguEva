@@ -36,21 +36,11 @@ export class ProductSkuDetailComponent implements OnInit {
   GstTypes: any;
   Gstpercentage: any
   productSkudetails: any
-  alloptionsData: any;
-  filteredOptions: any[] = [];
-  filteredOptionValuesArray: any;
+
   Updateform: any;
-  currentOptionValue: any;
-  selectedOptionValue: any;
-  selectedOptionName: any;
-  currentOptionValueId: any;
-  currentOptionName: any;
-  optionsDetails: any;
-  optionValues: any;
   loading: boolean = false;
   productId: any;
-  abc: any;
-  selectedOptionValueId:any;
+
   constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService, private dialog: MatDialog, private fb: FormBuilder) {
     this.Updateform = this.fb.group({
       productSkuId: new FormControl('', Validators.compose([Validators.required])),
@@ -65,9 +55,7 @@ export class ProductSkuDetailComponent implements OnInit {
       profile: new FormControl('', Validators.compose([Validators.required])),
       selfLocCd: new FormControl('', Validators.compose([Validators.required])),
       gstId: new FormControl(''),
-      option: new FormArray([])
-
-    })
+     })
   }
 
   ngOnInit(): void {
@@ -102,88 +90,11 @@ export class ProductSkuDetailComponent implements OnInit {
         // });
       });
 
-    this.productSkuDataservice.getAllOptions(this.productId).subscribe((data: any) => {
-      this.alloptionsData = data.map((item: any) => item.optionValue);
-      //  this.abc=this.alloptionsData[0].optionValue
 
-      console.log(this.alloptionsData);
-    });
 
   }
 
-  get option(): FormArray {
-    console.log('get selectedOptions called');
-    return this.Updateform.get('option') as FormArray;
-  }
-
-  // filterOptions(i: any) {
-  //   if (this.selectedOptionName) {
-  //     this.filteredOptions = this.alloptionsData.filter((option: any) => option.optionName === this.selectedOptionName);
-  //     console.log('filteredoptiondata', this.filteredOptions);
-  //     // this.currentOptionName = this.filteredOptions[i].optionValue;
-  //   }
-  //   this.filteredOptionValuesArray = this.filteredOptions.find((item: any) => item.optionValue)
-  //   this.optionValues = this.filteredOptionValuesArray.optionValue;
-  //   console.log('filteredOptionValues', this.filteredOptionValuesArray);
-  //   console.log('optionValues', this.optionValues);
-  // }
-
-  // currentSelectedOptionValue(index: number) {
-  //   console.log('selectedoptionvalues', this.selectedOptionValue);
-  //   this.currentOptionValueId = this.selectedOptionValue[index].optionId;
-  //   console.log('currentoptionvalueid', this.currentOptionValueId);
-  //   console.log('abc', this.abc)
-  //   if (this.selectedOptionValue[index]) {
-  //     this.option.push(this.fb.group({
-  //       optionId: this.currentOptionValueId,
-  //     }));
-  //   }
-
-  //   console.log('form', this.Updateform.value);
-  // }
-  currentSelectedOptionValue(i:any){
-    console.log("onSelectoptionName Called", this.selectedOptionValue);
-  
-    this.selectedOptionValueId = this.selectedOptionValue.find((item:any)=>item.optionId);
-    this.currentOptionValueId = this.selectedOptionValue.filter((item: any) => item.optionId !== this.selectedOptionValueId);
-    console.log('selectedOptionValueId', this.selectedOptionValueId)
-    if (this.selectedOptionValue > this.currentOptionValueId) {
-
-      this.option.push(this.fb.group({
-        optionId: this.selectedOptionValueId,
-      
-      }));
-      console.log('if part called');
-    }
-    else {
-      if (this.currentOptionValueId <= this.currentOptionValueId) {
-        this.option.clear();
-        this.currentOptionValueId.forEach((item: any) => {
-          this.option.push(this.fb.group({
-            optionId: new FormControl(item.optionId),
-            
-
-          }))
-        })
-        console.log('else part called');
-      }
-
-    }
-    console.log('product form', this.Updateform.value)
-    
-
-  }
-
-
-
-
-
-  clearSelection() {
-    this.selectedOptionValue = null
-    this.option.clear();
-    console.log('form', this.Updateform.value);
-  }
-
+ 
   saveUpdateProductSku() {
 
     this.productSkuDataservice.upDateProductSkuById(this.id, this.Updateform.value).subscribe(data => {
@@ -211,7 +122,7 @@ export class ProductSkuDetailComponent implements OnInit {
     });
     this.saveUpdateProductSku();
     this.loading = true;
-      window.location.reload();
+    window.location.reload();
     //  this.saveUploadImage();
 
 
