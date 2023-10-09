@@ -182,12 +182,7 @@ export class ProductSkuDetailComponent implements OnInit {
       }
   }
 
-  AddOptions() {
-    // this.router.navigate(['/admin/addnewoption',this.id])
-
-    const dialogRef = this.dialog.open(AddNewOptionComponent, {}).afterClosed().subscribe(result => { this.ngOnInit(); })
-
-  }
+ 
 
   addNewGst() {
     this.router.navigate(['/admin/add-new-gst'])

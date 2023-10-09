@@ -20,6 +20,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
  */
 import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.component';
 import { Router } from '@angular/router';
+import { AddNewOptionComponent } from '../add-new-option/add-new-option.component';
 
 @Component({
   selector: 'app-product-dialog',
@@ -36,7 +37,7 @@ export class ProductDialogComponent implements OnInit {
     private productDataService: ProductDataService,
     private dialogRef: MatDialogRef<ProductDialogComponent>,
     private fb: FormBuilder,
-    private dailog: MatDialog,
+    private dialog: MatDialog,
     private router: Router
   ) { }
 
@@ -191,7 +192,7 @@ export class ProductDialogComponent implements OnInit {
 
   }
   addNewCatalog() {
-    const dialogRef = this.dailog.open(AddNewCatalogComponent, {})
+    const dialogRef = this.dialog.open(AddNewCatalogComponent, {})
   }
 
 
@@ -240,6 +241,12 @@ export class ProductDialogComponent implements OnInit {
 
   }
 
+  AddOptions() {
+    // this.router.navigate(['/admin/addnewoption',this.id])
+
+    const dialogRef = this.dialog.open(AddNewOptionComponent, {}).afterClosed().subscribe((result:any) => { this.ngOnInit(); })
+
+  }
 
 }
 

@@ -56,7 +56,7 @@ export class ProductsComponent implements OnInit{
       data: { productId:productId}
     }).afterClosed().subscribe(result=>{this.ngOnInit()});
   }
-
+ 
   GotoProduct(productId: number){
     this.router.navigate(["/admin/products",productId])
   }

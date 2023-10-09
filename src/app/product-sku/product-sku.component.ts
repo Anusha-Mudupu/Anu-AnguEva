@@ -53,6 +53,8 @@ export class ProductSkuComponent implements OnInit {
   optionIdsForEachArray: any;
   allOptionsMatched: any;
   allSkuOptionMatched: any;
+  abc: any;
+  raji: any;
   constructor(private produSku: ProductSkuServiceService, private route: ActivatedRoute, private dialogRef: MatDialogRef<ProductSkuComponent>,
     private router: Router, private productdataservice: ProductDataService, private productSkudataservice: ProductSkuDataService, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) {
     console.log(this.id = data.productId)
@@ -101,7 +103,7 @@ export class ProductSkuComponent implements OnInit {
 
   extarctingoptionIds() {
     this.extractOptionIds = (arrayOfObjects: any) => {
-      return arrayOfObjects.map((obj: any) => ({ optionValue: obj.optionValue, optionName: obj.optionName, optionId: obj.optionId }));
+      return arrayOfObjects.map((obj: any) => ({  optionId: obj.optionId }));
     };
     this.optionIdsForEachArray = this.allproductskudata.map((array: any) => this.extractOptionIds(array)).flat();
     console.log('test', this.optionIdsForEachArray)
@@ -131,16 +133,47 @@ export class ProductSkuComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.allOptionsMatched && !this.allSkuOptionMatched) {
+    const optionsArray = this.options.controls.map(control => control.value);
+    this.allOptionsMatched = true;
+    for (let option of optionsArray) {
+      console.log('allOptionsMatched', this.allOptionsMatched);
+      if (this.optionIdsForEachArray.some((skuOption: any) =>
+        Object.keys(option).every(key => skuOption[key] === option[key])
+      )) {
+        this.allOptionsMatched = false;
+        console.log('entered into otions for if', this.allOptionsMatched)
+        // break;  // No need to continue checking once a mismatch is found
+      }
+      else{
+        this.allOptionsMatched=true;
+      }
+    }
+    this.allSkuOptionMatched = true;
+    for (const skuOption of this.optionIdsForEachArray) {
+      console.log('allSkuOptionMatched', this.allSkuOptionMatched);
+      if (optionsArray.some((option: any) =>
+        Object.keys(option).every(key => skuOption[key] === option[key])
+      )) {
+        this.allSkuOptionMatched = false;
+        console.log('entered into sku for if', this.allSkuOptionMatched);
+        // break;  // No need to continue checking once a mismatch is found
+      }
+      else{
+        this.allSkuOptionMatched = true;
+      }
+    }
 
-      this.errormsg = 'Error: Option already exist for another SKU'
+    if (!this.allOptionsMatched && !this.allSkuOptionMatched) {
+      this.errormsg = 'Error: Options already exist for another SKU';
       this.options.clear();
     }
     else {
-      if (this.allOptionsMatched && this.allSkuOptionMatched) {
-        this.errormsg = ''
-      }
+       if (this.allOptionsMatched && this.allSkuOptionMatched) {
+      this.errormsg = '';
+      console.log('submit else called');
+       }
     }
+    console.log('Before Conditions:', this.allOptionsMatched, this.allSkuOptionMatched);
 
     if (this.productSku.status === true) {
       this.productSku.status = 'Available';
@@ -207,6 +240,7 @@ export class ProductSkuComponent implements OnInit {
   }
 
   currentSelectedOptionValue(i: any) {
+
     console.log('selectedoptionvalues', this.selectedOptionValue);
     this.currentOptionValueId = this.optionValues[i].optionId;
     this.currentOptionValue = this.optionValues[i].optionValue;
@@ -216,25 +250,7 @@ export class ProductSkuComponent implements OnInit {
 
     // Check if options already exist in any productSku
     // this.existingOptions = this.optionIdsForEachArray.some((product: any) => product == this.currentOptionValue);
-    let optionsArray = this.options.controls.map(control => control.value);
-    this.allOptionsMatched = true;
-    for (let option of optionsArray) {
-      if (this.optionIdsForEachArray.some((skuOption: any) =>
-        Object.keys(option).every(key => skuOption[key] === option[key])
-      )) {
-        this.allOptionsMatched = false;
-        break;  // No need to continue checking once a mismatch is found
-      }
-    }
-    this.allSkuOptionMatched = true;
-    for (const skuOption of this.optionIdsForEachArray) {
-      if (optionsArray.some((option: any) =>
-        Object.keys(option).every(key => skuOption[key] === option[key])
-      )) {
-        this.allSkuOptionMatched = false;
-        break;  // No need to continue checking once a mismatch is found
-      }
-    }
+
 
     this.options.push(this.fb.group({
       optionId: this.currentOptionValueId,
