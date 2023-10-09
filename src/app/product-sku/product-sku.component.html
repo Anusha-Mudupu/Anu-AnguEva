@@ -1,10 +1,6 @@
 <html>
 
 <body>
-
-
-
-
     <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
     <h1 mat-dialog-title style="margin-left: 430px;font-weight: bolder;font-family: initial;">Add New ProductSKu</h1>
     <div mat-dialog-content class="dialog-content" id="form">
@@ -84,55 +80,59 @@
                         Please Select Status
                     </div>
                 </div>
-            
-           
-       
 
 
-
-
-
-
-                <div class="col-3"  id="selectoptions">
-                    <div formArrayName="options" >
-                        <label style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
+                <div class="col-3" id="selectoptions">
+                    <div formArrayName="options">
+                        <label
+                            style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
                             Option</label>
                         <div>
                             <mat-form-field>
-                                <mat-label style="font-family: initial;font-weight: bolder;">Select Option Name:</mat-label>
+                                <mat-label style="font-family: initial;font-weight: bolder;">Select Option
+                                    Name:</mat-label>
                                 <mat-select [(value)]="selectedOptionName">
-                                    <mat-option [value]="null" style="font-family: initial;font-weight: bolder;">Select an
+                                    <mat-option [value]="null" style="font-family: initial;font-weight: bolder;">Select
+                                        an
                                         option</mat-option>
-                                    <mat-option *ngFor="let option of productOptionsdata;let i=index" [value]="option.optionName"
-                                        (click)="filterOptions(i)">{{ option.optionName }}</mat-option>
+                                    <mat-option *ngFor="let option of productOptionsdata;let i=index"
+                                        [value]="option.optionName" (click)="filterOptions(i)">{{ option.optionName
+                                        }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                         <div *ngIf="filteredOptions.length > 0">
                             <mat-form-field>
-                                <mat-label style="font-family: initial;font-weight: bolder;">Select Option Value:</mat-label>
+                                <mat-label style="font-family: initial;font-weight: bolder;">Select Option
+                                    Value:</mat-label>
                                 <mat-select [(value)]="selectedOptionValue">
                                     <mat-option>Select an option value</mat-option>
-                                    <mat-option *ngFor="let option of optionValues ;let i=index" [value]="option.optionId"
-                                        (click)="currentSelectedOptionValue(i)" >{{option.optionValue}}</mat-option>
+                                    <mat-option *ngFor="let option of optionValues ;let i=index"
+                                        [value]="option.optionId"
+                                        (click)="currentSelectedOptionValue(i)">{{option.optionValue}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                             <span *ngIf="selectedOptionValue" class="clear-icon" (click)="clearSelection()">clear</span>
                             <div *ngIf="errormsg" style="color: red;">
                                 <p>{{ errormsg }}</p>
                             </div>
-                           
+
                         </div>
                         <div *ngIf="submitted && AddproductSkuform.get('options').invalid" class="text-danger">
                             Please Select Options
                         </div>
                     </div>
-        
+
                 </div>
-               
- 
+
+                <div id="paraforSelectedopts">
+                    <p>Selected OptionName:&nbsp;&nbsp;&nbsp;{{selectedOptionName}}</p>
+                    <p>Selected OptionValue:&nbsp;&nbsp;&nbsp;{{currentOptionValue}}</p>
+                </div>
+
+
             </div>
-             <div mat-dialog-action [align]="'center'">
+            <div mat-dialog-action [align]="'center'">
 
                 <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
                 <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>
@@ -140,7 +140,7 @@
 
                 <div *ngIf="submitted && !AddproductSkuform.valid" class="text-danger">All fields are required.</div>
             </div>
-             </form>
+        </form>
     </div>
 </body>
 

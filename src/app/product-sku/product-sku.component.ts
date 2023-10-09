@@ -18,6 +18,12 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
   styleUrls: ['./product-sku.component.scss']
 })
 export class ProductSkuComponent implements OnInit {
+  //  existingSkuOptionsdata = [
+  //   [{ optionName: 'color', optionValue: 'red', optionId: 2089, productSkuOptionsId: 0 }],
+  //   // ... (other arrays)
+  //   [{ optionName: 'color', optionValue: 'pink', optionId: 2091, productSkuOptionsId: 0 },
+  //    { optionName: 'size', optionValue: 'm', optionId: 2092, productSkuOptionsId: 0 }]
+  // ];
 
   id: any;
   isDisabled: boolean = true;
@@ -39,15 +45,14 @@ export class ProductSkuComponent implements OnInit {
   optionValues: any;
   existingOptions: any;
   errormsg: any;
-  existingSkuOptionsdata: any[] = [];
+  existingSkuOptionsdata: any;
   existingOptionsIds: any;
   errorMessageforoptions: any;
   allproductskudata: any;
-
-
-
-
-
+  extractOptionIds: any
+  optionIdsForEachArray: any;
+  allOptionsMatched: any;
+  allSkuOptionMatched: any;
   constructor(private produSku: ProductSkuServiceService, private route: ActivatedRoute, private dialogRef: MatDialogRef<ProductSkuComponent>,
     private router: Router, private productdataservice: ProductDataService, private productSkudataservice: ProductSkuDataService, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) {
     console.log(this.id = data.productId)
@@ -70,7 +75,8 @@ export class ProductSkuComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.id = this.route.snapshot.paramMap.get("productId");
+
+    //  this.id = this.route.snapshot.paramMap.get("productId");
     console.log(this.id);
     this.productdataservice.getProductById(this.id).subscribe(data => {
       this.productSku = data;
@@ -84,16 +90,22 @@ export class ProductSkuComponent implements OnInit {
     });
     this.productSkudataservice.getAllProductSkus(this.id).subscribe((data: any) => {
       this.allproductskudata = data.map((id: any) => id.option);
-      this.existingSkuOptionsdata = this.allproductskudata.find((a: any) => a)
-      this.existingOptionsIds = this.existingSkuOptionsdata.map((id: any) => id.optionId);
-      console.log('existingOptionsIds', this.existingOptionsIds)
-      console.log('existingSkuOptionsdata', this.existingSkuOptionsdata)
+      //  this.existingSkuOptionsdata = this.allproductskudata.find((a: any) => a)
+      //  this.existingOptionsIds = this.existingSkuOptionsdata.map((id: any) => id.optionId);
+      // console.log('existingOptionsIds', this.existingOptionsIds)
+      // console.log('existingSkuOptionsdata', this.existingSkuOptionsdata)
       console.log('allproductskus', this.allproductskudata);
     })
 
   }
 
-
+  extarctingoptionIds() {
+    this.extractOptionIds = (arrayOfObjects: any) => {
+      return arrayOfObjects.map((obj: any) => ({ optionValue: obj.optionValue, optionName: obj.optionName, optionId: obj.optionId }));
+    };
+    this.optionIdsForEachArray = this.allproductskudata.map((array: any) => this.extractOptionIds(array)).flat();
+    console.log('test', this.optionIdsForEachArray)
+  }
 
 
 
@@ -119,6 +131,17 @@ export class ProductSkuComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.allOptionsMatched && !this.allSkuOptionMatched) {
+
+      this.errormsg = 'Error: Option already exist for another SKU'
+      this.options.clear();
+    }
+    else {
+      if (this.allOptionsMatched && this.allSkuOptionMatched) {
+        this.errormsg = ''
+      }
+    }
+
     if (this.productSku.status === true) {
       this.productSku.status = 'Available';
     } else
@@ -127,7 +150,7 @@ export class ProductSkuComponent implements OnInit {
       }
     console.log(this.productSku);
     this.submitted = true;
-    if (this.AddproductSkuform.valid && this.existingOptionsIds.length == this.options.length) {
+    if (this.AddproductSkuform.valid && this.productOptionsdata.length == this.options.length) {
       this.saveProductSku()
     }
     // setTimeout(() => {
@@ -138,7 +161,7 @@ export class ProductSkuComponent implements OnInit {
     // }, 2000); 
     // this.dialogRef.close();
     else {
-      if (this.existingOptionsIds.length !== this.options.length) {
+      if (this.productOptionsdata.length !== this.options.length) {
         this.errorMessageforoptions = 'Error:must select all product options'
 
       }
@@ -186,31 +209,38 @@ export class ProductSkuComponent implements OnInit {
   currentSelectedOptionValue(i: any) {
     console.log('selectedoptionvalues', this.selectedOptionValue);
     this.currentOptionValueId = this.optionValues[i].optionId;
+    this.currentOptionValue = this.optionValues[i].optionValue;
     console.log('currentoptionvalueid', this.currentOptionValueId);
-    // if (this.selectedOptionValue) {
-    //   this.options.push(this.fb.group({
-    //     optionId: this.currentOptionValueId,
-    //   }));
-    // }
+    console.log('currentoptionvalue', this.currentOptionValue);
+    this.extarctingoptionIds();
 
-
-    // this.clearSelection();
     // Check if options already exist in any productSku
-    this.existingOptions = this.existingSkuOptionsdata.some((product: any) => product.optionId == this.currentOptionValueId);
-
-    if (this.existingOptions) {
-      this.errormsg = 'Error: Option already exist for another SKU'
-      console.log('if called,options already existed');
+    // this.existingOptions = this.optionIdsForEachArray.some((product: any) => product == this.currentOptionValue);
+    let optionsArray = this.options.controls.map(control => control.value);
+    this.allOptionsMatched = true;
+    for (let option of optionsArray) {
+      if (this.optionIdsForEachArray.some((skuOption: any) =>
+        Object.keys(option).every(key => skuOption[key] === option[key])
+      )) {
+        this.allOptionsMatched = false;
+        break;  // No need to continue checking once a mismatch is found
+      }
+    }
+    this.allSkuOptionMatched = true;
+    for (const skuOption of this.optionIdsForEachArray) {
+      if (optionsArray.some((option: any) =>
+        Object.keys(option).every(key => skuOption[key] === option[key])
+      )) {
+        this.allSkuOptionMatched = false;
+        break;  // No need to continue checking once a mismatch is found
+      }
     }
 
-    else {
+    this.options.push(this.fb.group({
+      optionId: this.currentOptionValueId,
+    }));
 
-      this.options.push(this.fb.group({
-        optionId: this.currentOptionValueId,
-      }));
 
-      this.errormsg = '';
-    }
     console.log('form', this.AddproductSkuform.value);
   }
 
@@ -220,10 +250,12 @@ export class ProductSkuComponent implements OnInit {
   clearSelection() {
     // this.selectedOptionName = null;
     this.selectedOptionValue = null;
-    this.options.clear();
+    this.options.removeAt(this.selectedOptionValue)
     console.log('form', this.AddproductSkuform.value);
   }
 }
+
+
 
 
 
