@@ -2,7 +2,7 @@
  *   Copyright (c) 2023 Dmantz Technologies Pvt ltd
  *   All rights reserved.
  */
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProductSkuServiceService } from '../product-sku-service.service';
@@ -26,7 +26,7 @@ export class ProductSkuComponent implements OnInit {
   // ];
 
   id: any;
-  isDisabled: boolean = true;
+  isDisabled: boolean = false;
   AddproductSkuform: any;
   submitted: boolean = false;
   // productSku: ProductSku = new ProductSku();
@@ -53,10 +53,14 @@ export class ProductSkuComponent implements OnInit {
   optionIdsForEachArray: any;
   allOptionsMatched: any;
   allSkuOptionMatched: any;
-  abc: any;
-  raji: any;
+ 
+  note: any;
+  displayselectedOptionName: any=[];
+  displayselectedOpValue:any=[];
+  OPtionNameErrorMessage: any | null = null;
+   abc:any;
   constructor(private produSku: ProductSkuServiceService, private route: ActivatedRoute, private dialogRef: MatDialogRef<ProductSkuComponent>,
-    private router: Router, private productdataservice: ProductDataService, private productSkudataservice: ProductSkuDataService, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog) {
+    private router: Router, private productdataservice: ProductDataService, private productSkudataservice: ProductSkuDataService, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog,private cdr: ChangeDetectorRef) {
     console.log(this.id = data.productId)
 
     this.AddproductSkuform = this.fb.group({
@@ -103,7 +107,7 @@ export class ProductSkuComponent implements OnInit {
 
   extarctingoptionIds() {
     this.extractOptionIds = (arrayOfObjects: any) => {
-      return arrayOfObjects.map((obj: any) => ({  optionId: obj.optionId }));
+      return arrayOfObjects.map((obj: any) => ({ optionId: obj.optionId }));
     };
     this.optionIdsForEachArray = this.allproductskudata.map((array: any) => this.extractOptionIds(array)).flat();
     console.log('test', this.optionIdsForEachArray)
@@ -144,8 +148,8 @@ export class ProductSkuComponent implements OnInit {
         console.log('entered into otions for if', this.allOptionsMatched)
         // break;  // No need to continue checking once a mismatch is found
       }
-      else{
-        this.allOptionsMatched=true;
+      else {
+        this.allOptionsMatched = true;
       }
     }
     this.allSkuOptionMatched = true;
@@ -158,7 +162,7 @@ export class ProductSkuComponent implements OnInit {
         console.log('entered into sku for if', this.allSkuOptionMatched);
         // break;  // No need to continue checking once a mismatch is found
       }
-      else{
+      else {
         this.allSkuOptionMatched = true;
       }
     }
@@ -168,10 +172,10 @@ export class ProductSkuComponent implements OnInit {
       this.options.clear();
     }
     else {
-       if (this.allOptionsMatched && this.allSkuOptionMatched) {
-      this.errormsg = '';
-      console.log('submit else called');
-       }
+      if (this.allOptionsMatched && this.allSkuOptionMatched) {
+        this.errormsg = '';
+        console.log('submit else called');
+      }
     }
     console.log('Before Conditions:', this.allOptionsMatched, this.allSkuOptionMatched);
 
@@ -183,6 +187,8 @@ export class ProductSkuComponent implements OnInit {
       }
     console.log(this.productSku);
     this.submitted = true;
+
+
     if (this.AddproductSkuform.valid && this.productOptionsdata.length == this.options.length) {
       this.saveProductSku()
     }
@@ -235,7 +241,21 @@ export class ProductSkuComponent implements OnInit {
     //  this.currentOptionValue=this.optionValues[i].optionValue;
     console.log('filteredOptionValues', this.filteredOptionValuesArray);
     console.log('optionValues', this.optionValues);
+    if (i >= 0 && i < this.productOptionsdata.length) {
+      const selectedOption = this.productOptionsdata[i].optionName;
 
+      // Check for duplicates
+      if (!this.displayselectedOptionName.includes(selectedOption)) {
+        this.displayselectedOptionName.push(selectedOption);
+        this.OPtionNameErrorMessage = null; // Clear any previous error message
+        this.isDisabled = false;
+      } else {
+        this.OPtionNameErrorMessage = 'Error:OptionName Already Selected';
+        this.isDisabled = true;
+       
+      }
+     
+    }
 
   }
 
@@ -250,14 +270,19 @@ export class ProductSkuComponent implements OnInit {
 
     // Check if options already exist in any productSku
     // this.existingOptions = this.optionIdsForEachArray.some((product: any) => product == this.currentOptionValue);
-
-
     this.options.push(this.fb.group({
       optionId: this.currentOptionValueId,
     }));
-
-
     console.log('form', this.AddproductSkuform.value);
+    this.note = 'If you want to Change the selcted Option Value,then Click on the Clear button and Select Another option'
+    if (i >= 0 && i < this.optionValues.length) {
+      const selectedOptionValue= this.optionValues[i].optionValue;
+         
+      // Check for duplicates
+      if (!this.displayselectedOpValue.includes(selectedOptionValue)) {
+        this.displayselectedOpValue.push(selectedOptionValue);
+        }
+    }
   }
 
 
@@ -266,9 +291,20 @@ export class ProductSkuComponent implements OnInit {
   clearSelection() {
     // this.selectedOptionName = null;
     this.selectedOptionValue = null;
+  
     this.options.removeAt(this.selectedOptionValue)
     console.log('form', this.AddproductSkuform.value);
+    this.note = '';
+    
+    this.cdr.detectChanges();
   }
+  // clearoptionName() {
+  //   this.selectedOptionName = null;
+  //    this.isDisabled = false;
+  //   this.OPtionNameErrorMessage = ''
+
+  // }
+
 }
 
 

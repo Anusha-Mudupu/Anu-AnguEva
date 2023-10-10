@@ -190,12 +190,23 @@ body{
   margin-top: -70px;
   font-family: initial;
   font-size: 15px;
+  position: absolute;
 }
-#paraforSelectedopts{
+#displayselectedopts{
   margin-left: 700px;
-  margin-top: -80px;
+  margin-top: -90px;
   font-family: initial;
+  display:inline-flexbox;
+   position: relative;
+  //  position: static;
   
+}
+.display{
+  margin-left:10px;
+ margin-top: -18px;
+  
+  display: inline-flexbox;
+ position: relative;
 }
 
 @media screen and (min-width:360px) and (max-width:1400px){

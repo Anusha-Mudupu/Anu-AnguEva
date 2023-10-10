@@ -91,21 +91,26 @@
                             <mat-form-field>
                                 <mat-label style="font-family: initial;font-weight: bolder;">Select Option
                                     Name:</mat-label>
+
                                 <mat-select [(value)]="selectedOptionName">
                                     <mat-option [value]="null" style="font-family: initial;font-weight: bolder;">Select
-                                        an
-                                        option</mat-option>
+                                        an option</mat-option>
                                     <mat-option *ngFor="let option of productOptionsdata;let i=index"
-                                        [value]="option.optionName" (click)="filterOptions(i)">{{ option.optionName
-                                        }}</mat-option>
+                                        [value]="option.optionName" (click)="filterOptions(i)">{{
+                                        option.optionName}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
+                            <!-- <span *ngIf="selectedOptionName" class="clear-icon" (click)="clearoptionName()">clear</span> -->
+                            <div *ngIf="OPtionNameErrorMessage" class="error-message"
+                                style="color:red;font-size: 12px;margin-top: -10px;">
+                                {{ OPtionNameErrorMessage }}
+                            </div>
                         </div>
                         <div *ngIf="filteredOptions.length > 0">
                             <mat-form-field>
                                 <mat-label style="font-family: initial;font-weight: bolder;">Select Option
                                     Value:</mat-label>
-                                <mat-select [(value)]="selectedOptionValue">
+                                <mat-select [(value)]="selectedOptionValue" [disabled]="isDisabled">
                                     <mat-option>Select an option value</mat-option>
                                     <mat-option *ngFor="let option of optionValues ;let i=index"
                                         [value]="option.optionId"
@@ -113,6 +118,9 @@
                                 </mat-select>
                             </mat-form-field>
                             <span *ngIf="selectedOptionValue" class="clear-icon" (click)="clearSelection()">clear</span>
+                            <div *ngIf="note" style="font-size: 12px; color:olive;">
+                                <p>Note:{{note}}</p>
+                            </div>
                             <div *ngIf="errormsg" style="color: red;">
                                 <p>{{ errormsg }}</p>
                             </div>
@@ -125,12 +133,30 @@
 
                 </div>
 
-                <div id="paraforSelectedopts">
+                <!-- <div id="paraforSelectedopts">
                     <p>Selected OptionName:&nbsp;&nbsp;&nbsp;{{selectedOptionName}}</p>
                     <p>Selected OptionValue:&nbsp;&nbsp;&nbsp;{{currentOptionValue}}</p>
+                </div> -->
+            </div>
+            <div id="displayselectedopts">
+
+                <p>Selected OptionNames:</p>
+                <div *ngFor="let optName of displayselectedOptionName" >
+                    <p *ngIf="optName; else elseblock" class="display"> {{ optName }},</p>
+                    <ng-template #elseblock>
+                        <p>{{ '' }}</p>
+                    </ng-template>
                 </div>
 
 
+                <p>Selected OptionValue:</p>
+                <div *ngFor="let optValue of displayselectedOpValue">
+                    <p *ngIf="optValue; else elseblock"  class="display">{{ optValue }},</p>
+                    <ng-template #elseblock>
+                        <p>{{ '' }}</p>
+                    </ng-template>
+
+                </div>
             </div>
             <div mat-dialog-action [align]="'center'">
 
