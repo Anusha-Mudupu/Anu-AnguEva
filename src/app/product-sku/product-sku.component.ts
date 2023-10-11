@@ -295,7 +295,6 @@ export class ProductSkuComponent implements OnInit {
     this.options.removeAt(this.selectedOptionValue)
     console.log('form', this.AddproductSkuform.value);
     this.note = '';
-    
     this.cdr.detectChanges();
   }
   // clearoptionName() {

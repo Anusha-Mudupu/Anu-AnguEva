@@ -141,7 +141,7 @@
             <div id="displayselectedopts">
 
                 <p>Selected OptionNames:</p>
-                <div *ngFor="let optName of displayselectedOptionName" >
+                <div *ngFor="let optName of displayselectedOptionName">
                     <p *ngIf="optName; else elseblock" class="display"> {{ optName }},</p>
                     <ng-template #elseblock>
                         <p>{{ '' }}</p>
@@ -151,7 +151,7 @@
 
                 <p>Selected OptionValue:</p>
                 <div *ngFor="let optValue of displayselectedOpValue">
-                    <p *ngIf="optValue; else elseblock"  class="display">{{ optValue }},</p>
+                    <p *ngIf="optValue; else elseblock" class="display">{{ optValue }},</p>
                     <ng-template #elseblock>
                         <p>{{ '' }}</p>
                     </ng-template>
