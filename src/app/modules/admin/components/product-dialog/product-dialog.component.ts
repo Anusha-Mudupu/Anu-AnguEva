@@ -21,6 +21,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddNewCatalogComponent } from '../add-new-catalog/add-new-catalog.component';
 import { Router } from '@angular/router';
 import { AddNewOptionComponent } from '../add-new-option/add-new-option.component';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-product-dialog',
@@ -63,6 +64,19 @@ export class ProductDialogComponent implements OnInit {
    currentOptionsName:any;
 
   ngOnInit() {
+    forkJoin([
+     
+      this.vendorDataService.getAllCatalogs(),
+      this.vendorDataService.getVendors(),
+      this.productDataService.getAllOptionNames()
+    ]).subscribe(([ allCatalogData, vendorData, optionNamesData]) => {
+     
+
+      this.Catalogsdata = allCatalogData;
+      this.vendorData = vendorData;
+      this.optionsNameData = optionNamesData; 
+    });
+    
     this.vendorDataService.getVendors().subscribe((response) => {
       this.vendorData = response;
     })
@@ -80,8 +94,8 @@ export class ProductDialogComponent implements OnInit {
       productDesc: ['', Validators.compose([Validators.required])],
       searchTag: ['', Validators.compose([Validators.required])],
       storeId: [1],
-      catalog: new FormArray([]),
-      productOption:new FormArray([])
+      catalog: new FormArray([],Validators.required),
+      productOption:new FormArray([],Validators.required)
     });
   this.productDataService.getAllOptionNames().subscribe((data:any)=>{
     this.optionsNameData=data;

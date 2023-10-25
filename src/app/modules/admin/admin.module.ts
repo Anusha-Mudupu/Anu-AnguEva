@@ -55,6 +55,8 @@ import { NgxPrintElementModule } from 'ngx-print-element';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 import { StaffVerificationComponent } from './components/staff-verification/staff-verification.component';
+import { PurchaseManagementComponent } from './components/purchase-management/purchase-management.component';
+import { ReceiptManagementComponent } from './components/receipt-management/receipt-management.component';
 
 
 
@@ -86,6 +88,8 @@ import { StaffVerificationComponent } from './components/staff-verification/staf
     UpdateProductComponent,
  
     StaffVerificationComponent,
+       PurchaseManagementComponent,
+       ReceiptManagementComponent,
   
    
     

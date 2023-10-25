@@ -36,6 +36,8 @@ import { UpdateStaffComponent } from './components/update-staff/update-staff.com
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 import { StaffVerificationComponent } from './components/staff-verification/staff-verification.component';
+import { PurchaseManagementComponent } from './components/purchase-management/purchase-management.component';
+import { ReceiptManagementComponent } from './components/receipt-management/receipt-management.component';
 
 
 
@@ -77,6 +79,8 @@ const routes: Routes = [
      {path:'update-product/:productId',component:UpdateProductComponent},
     
      {path:'staff-verification',component:StaffVerificationComponent},
+     {path:'purchase-management',component:PurchaseManagementComponent},
+     {path:'receipt-management',component:ReceiptManagementComponent},
 
     {path: '', redirectTo: '/admin/home', pathMatch: 'full'}
   ],

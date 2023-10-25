@@ -36,10 +36,10 @@
           <div class="col-3">
 
             <mat-form-field>
-              <mat-label [ngStyle]="getInputStyles()">Select Vendors</mat-label>
+              <mat-label [ngStyle]="getInputStyles()">Select Vendor</mat-label>
               <mat-select name="selectedvendors" id="aantal" [(value)]="selectedvendors" multiple>
                 <mat-option *ngFor="let vendor of vendorData;let i=index" [value]="vendor" (click)="onSelectVendor(i)" [ngStyle]="getInputStyles()">
-                  {{ vendor.manufacturerName }}
+                  {{ vendor?.manufacturerName }}
                 </mat-option>
               </mat-select>
             </mat-form-field>

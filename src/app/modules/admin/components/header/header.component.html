@@ -9,11 +9,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span>Dmantz</span>
-    <div class="form-check form-switch" (change)='setThemeControlss($event.target)'
-      style="margin-left: 20px;">
-      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked >
+    <div class="form-check form-switch" (change)='setThemeControlss($event.target)' style="margin-left: 20px;">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
 
-      <label >{{darkModeFlag? 'Darkmode': 'LightMode'}}</label>
+      <label>{{darkModeFlag? 'Darkmode': 'LightMode'}}</label>
     </div>
     <div class="menu-container"></div>
 
@@ -38,6 +37,11 @@
       <button mat-menu-item routerLink="./vendors">Vendor Management</button>
       <button mat-menu-item></button>
     </mat-menu>
+    <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./purchase-management"
+      routerLinkActive="active-button">Purchase</a>
+      <a mat-flat-button color="primary" style="font-size:larger;" routerLink="./receipt-management"
+      routerLinkActive="active-button">Receipt</a>
+
 
     <button mat-icon-button class="account-icon" (click)="Logout()">
       <mat-icon>account_circle</mat-icon>

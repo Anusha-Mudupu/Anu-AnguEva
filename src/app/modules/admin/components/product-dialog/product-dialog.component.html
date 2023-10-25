@@ -82,7 +82,10 @@
             </mat-select>
 
           </mat-form-field>
-
+          <div *ngIf="submitted && productForm.get('catalog').invalid">
+            <div *ngIf="productForm.get('catalog').errors.required" style="color: red;"> select catalog is required.
+            </div>
+          </div>
         </div>
       </div>
 
@@ -101,19 +104,21 @@
               </mat-option>
 
             </mat-select>
-
+            <div *ngIf="submitted && productForm.get('productOption').invalid">
+              <div *ngIf="productForm.get('productOption').errors.required" style="color: red;">select option is required.</div>
+            </div>
           </mat-form-field>
 
         </div>
       </div>
 
-<div>
+      <div>
 
         <button type="button" (click)="addNewCatalog()" id="addnewcatalogbtn" class="btn btn-outline-primary">Add New
           Catalog</button>
       </div>
       <button type="button" id="addoptbtn" class="btn btn-outline-success" (click)="AddOptions()"
-      style="font-family: initial;">Add NewOption</button>
+        style="font-family: initial;">Add NewOption</button>
 
       <div mat-dialog-action [align]="'center'">
 
