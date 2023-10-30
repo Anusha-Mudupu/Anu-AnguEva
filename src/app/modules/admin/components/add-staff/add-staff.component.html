@@ -10,7 +10,8 @@
             <div>
                 <div>
                     <mat-form-field class="catalogName">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Staff Name</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Staff
+                            Name</mat-label>
                         <input matInput formControlName="staffName">
                         <div *ngIf="submitted && addstaffform.get('staffName').invalid">
                         </div>
@@ -18,22 +19,30 @@
 
 
                     <mat-form-field class="catalogDesc">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Email Id</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Email
+                            Id</mat-label>
                         <input matInput formControlName="emailId">
                         <div *ngIf="submitted && addstaffform.get('emailId').invalid">
                         </div>
                     </mat-form-field>
 
                     <mat-form-field class="mobileNo">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Mobile Number</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Mobile
+                            Number</mat-label>
                         <input matInput formControlName="mobileNo">
                         <div *ngIf="submitted && addstaffform.get('mobileNo').invalid">
                         </div>
+                        <div *ngIf="submitted && addstaffform.get('mobileNo').hasError('invalidMobileNumber')">
+                            <span id="erromsgformbl">Enter valid mobile number.
+                            </span>
+                        </div>
                     </mat-form-field>
+                   
 
 
                     <mat-form-field class="pincode">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Pincode</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;"
+                            [ngStyle]="getInputStyles()">Pincode</mat-label>
                         <input matInput formControlName="pincode">
                         <div *ngIf="submitted && addstaffform.get('pincode').invalid">
                         </div>
@@ -41,19 +50,22 @@
                 </div>
                 <div>
                     <mat-form-field class="area">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Area</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;"
+                            [ngStyle]="getInputStyles()">Area</mat-label>
                         <input matInput formControlName="area">
                         <div *ngIf="submitted && addstaffform.get('area').invalid">
                         </div>
                     </mat-form-field>
                     <mat-form-field class="city">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">City</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;"
+                            [ngStyle]="getInputStyles()">City</mat-label>
                         <input matInput formControlName="city">
                         <div *ngIf="submitted && addstaffform.get('city').invalid">
                         </div>
                     </mat-form-field>
                     <mat-form-field class="state">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">State</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;"
+                            [ngStyle]="getInputStyles()">State</mat-label>
                         <input matInput formControlName="state">
                         <div *ngIf="submitted && addstaffform.get('state').invalid">
                         </div>
@@ -63,7 +75,8 @@
                     <div formArrayName="staffRole" class="product-catalog">
                         <mat-form-field id="selectstaffrole">
 
-                            <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Select Staff Role</mat-label>
+                            <mat-label style="font-family: initial;font-weight: bolder;"
+                                [ngStyle]="getInputStyles()">Select Staff Role</mat-label>
                             <mat-select multiple [(value)]="selectedstaffroles">
 
 
@@ -85,30 +98,36 @@
                 <div>
 
                     <mat-form-field class="dob">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">DOB</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;"
+                            [ngStyle]="getInputStyles()">DOB</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="dob">
                         <mat-hint [ngStyle]="getInputStyles()">MM/DD/YYYY</mat-hint>
-                        <mat-datepicker-toggle matIconSuffix [for]="picker" id="calicon" [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker" id="calicon"
+                            [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
                         <div *ngIf="submitted && addstaffform.get('dob').invalid">
                         </div>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
 
                     <mat-form-field class="startdt">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Start Date</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">Start
+                            Date</mat-label>
                         <input matInput [matDatepicker]="startdt" formControlName="startDt">
                         <mat-hint [ngStyle]="getInputStyles()">MM/DD/YYYY</mat-hint>
-                        <mat-datepicker-toggle matIconSuffix [for]="startdt" id="calicon" [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconSuffix [for]="startdt" id="calicon"
+                            [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
                         <div *ngIf="submitted && addstaffform.get('startDt').invalid">
                         </div>
                         <mat-datepicker #startdt></mat-datepicker>
                     </mat-form-field>
 
                     <mat-form-field class="enddt" style="height: 10px;">
-                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">End Date</mat-label>
+                        <mat-label style="font-family: initial;font-weight: bolder;" [ngStyle]="getInputStyles()">End
+                            Date</mat-label>
                         <input matInput [matDatepicker]="enddt" formControlName="endDt">
                         <mat-hint [ngStyle]="getInputStyles()">MM/DD/YYYY</mat-hint>
-                        <mat-datepicker-toggle matIconSuffix [for]="enddt" id="calicon" [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconSuffix [for]="enddt" id="calicon"
+                            [ngStyle]="getInputStyles()"></mat-datepicker-toggle>
                         <!-- <div *ngIf="submitted && addstaffform.get('endDt').invalid">
                     </div> -->
                         <mat-datepicker #enddt></mat-datepicker>

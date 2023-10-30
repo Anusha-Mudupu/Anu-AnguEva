@@ -2,9 +2,15 @@
 
 <body>
 
+  <figure *ngIf="loading1">
+    <div class="dot white"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </figure>
 
-
-  <div class="example-container mat-elevation-z8">
+  <div class="example-container mat-elevation-z8" *ngIf="!loading1">
     <div class="example-header">
       <mat-form-field>
         <mat-label [ngStyle]="getInputStyles()">Search Here...</mat-label>

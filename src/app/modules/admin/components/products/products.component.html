@@ -2,8 +2,14 @@
 
 <body>
 
-
-  <div>
+  <figure *ngIf="loading1">
+    <div class="dot white"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </figure>
+  <div *ngIf="!loading1">
 
     <div class="spacer">
       <div>
@@ -21,8 +27,8 @@
 
     <div id="searchbar">
       <mat-form-field class="example-header">
-        <mat-label  [ngStyle]="getInputStyles()">Search Here...</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder=""  [ngStyle]="getInputStyles()">
+        <mat-label [ngStyle]="getInputStyles()">Search Here...</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" [ngStyle]="getInputStyles()">
       </mat-form-field>
     </div>
 

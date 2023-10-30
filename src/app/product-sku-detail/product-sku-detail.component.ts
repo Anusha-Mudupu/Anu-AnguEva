@@ -55,7 +55,7 @@ export class ProductSkuDetailComponent implements OnInit {
       profile: new FormControl('', Validators.compose([Validators.required])),
       selfLocCd: new FormControl('', Validators.compose([Validators.required])),
       gstId: new FormControl(''),
-     })
+    })
   }
 
   ngOnInit(): void {
@@ -94,7 +94,7 @@ export class ProductSkuDetailComponent implements OnInit {
 
   }
 
- 
+
   saveUpdateProductSku() {
 
     this.productSkuDataservice.upDateProductSkuById(this.id, this.Updateform.value).subscribe(data => {
@@ -182,7 +182,7 @@ export class ProductSkuDetailComponent implements OnInit {
       }
   }
 
- 
+
 
   addNewGst() {
     this.router.navigate(['/admin/add-new-gst'])

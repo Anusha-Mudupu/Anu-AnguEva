@@ -17,7 +17,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./staff-list.component.scss']
 })
 export class StaffListComponent implements OnInit {
-staffdata:any
+staffdata:any;
+loading1: boolean=true;
+loading = false;
   constructor( private staffservice:StaffDataService, private dailog:MatDialog,private active:ActivatedRoute ) { }
   displayedColumns: string[] = ['staffCd', 'staffName', 'mobileNo','emailId','startDt','endDt','Actions'];
   dataSource = new MatTableDataSource<Staffdetails>();
@@ -28,6 +30,9 @@ staffdata:any
   this.dataSource = new MatTableDataSource(data);
   this.staffdata=data;
   console.log('staffData',data);
+  setTimeout(()=>{
+    this.loading1=false
+  },1000);
  })
   }
 

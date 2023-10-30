@@ -50,17 +50,17 @@ export class ProductSkuComponent implements OnInit {
   errorMessageforoptions: any;
   allproductskudata: any;
   extractOptionIds: any
-  optionIdsForEachArray: any;
+  optionIdsForEachArray: any []=[];
   allOptionsMatched: any;
   allSkuOptionMatched: any;
- 
+
   note: any;
-  displayselectedOptionName: any=[];
-  displayselectedOpValue:any=[];
+  displayselectedOptionName: any = [];
+  displayselectedOpValue: any = [];
   OPtionNameErrorMessage: any | null = null;
-   abc:any;
+  abc: any;
   constructor(private produSku: ProductSkuServiceService, private route: ActivatedRoute, private dialogRef: MatDialogRef<ProductSkuComponent>,
-    private router: Router, private productdataservice: ProductDataService, private productSkudataservice: ProductSkuDataService, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog,private cdr: ChangeDetectorRef) {
+    private router: Router, private productdataservice: ProductDataService, private productSkudataservice: ProductSkuDataService, private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog, private cdr: ChangeDetectorRef) {
     console.log(this.id = data.productId)
 
     this.AddproductSkuform = this.fb.group({
@@ -145,7 +145,7 @@ export class ProductSkuComponent implements OnInit {
         Object.keys(option).every(key => skuOption[key] === option[key])
       )) {
         this.allOptionsMatched = false;
-        console.log('entered into otions for if', this.allOptionsMatched)
+        console.log('entered into options for if', this.allOptionsMatched)
         // break;  // No need to continue checking once a mismatch is found
       }
       else {
@@ -252,9 +252,9 @@ export class ProductSkuComponent implements OnInit {
       } else {
         this.OPtionNameErrorMessage = 'Error:OptionName Already Selected';
         this.isDisabled = true;
-       
+
       }
-     
+
     }
 
   }
@@ -276,12 +276,12 @@ export class ProductSkuComponent implements OnInit {
     console.log('form', this.AddproductSkuform.value);
     this.note = 'If you want to Change the selcted Option Value,then Click on the Clear button and Select Another option'
     if (i >= 0 && i < this.optionValues.length) {
-      const selectedOptionValue= this.optionValues[i].optionValue;
-         
+      const selectedOptionValue = this.optionValues[i].optionValue;
+
       // Check for duplicates
       if (!this.displayselectedOpValue.includes(selectedOptionValue)) {
         this.displayselectedOpValue.push(selectedOptionValue);
-        }
+      }
     }
   }
 
@@ -291,7 +291,7 @@ export class ProductSkuComponent implements OnInit {
   clearSelection() {
     // this.selectedOptionName = null;
     this.selectedOptionValue = null;
-  
+
     this.options.removeAt(this.selectedOptionValue)
     console.log('form', this.AddproductSkuform.value);
     this.note = '';

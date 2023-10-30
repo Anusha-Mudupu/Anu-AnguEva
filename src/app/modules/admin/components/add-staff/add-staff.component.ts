@@ -22,11 +22,22 @@ export class AddStaffComponent implements OnInit {
   selectedstaffroles: any;
   selectedStaffRoleId: any;
   currentStaffRoles: any;
+  mobileNumberValidator:any;
+  
   constructor(private dialogRef: MatDialogRef<AddStaffComponent>, private formBuilder: FormBuilder, private staffservice: StaffDataService, private router: Router) {
+    this.mobileNumberValidator = (control:any) => {
+      const value = control.value;
+    
+      if (value && /^[6-9]\d{9}$/.test(value)) {
+        return null; // Valid mobile number
+      } else {
+        return { invalidMobileNumber: true }; // Invalid mobile number
+      }
+    };
     this.addstaffform = this.formBuilder.group({
       staffName: ['', Validators.compose([Validators.required])],
       emailId: ['', Validators.compose([Validators.required, Validators.email])],
-      mobileNo: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]*$/)]],
+      mobileNo: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]*$/),this.mobileNumberValidator]],
       dob: ['', [Validators.required,]],
       area: ['', Validators.required],
       city: ['', Validators.required],
@@ -37,7 +48,7 @@ export class AddStaffComponent implements OnInit {
       staffRole: new FormArray([])
 
     })
-
+   
   }
   ngOnInit(): void {
     this.staffservice.getAllStaffRoles().subscribe((data: any) => {
@@ -112,5 +123,6 @@ export class AddStaffComponent implements OnInit {
       // ... other styling properties
     };
   }
+
 
 }

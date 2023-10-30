@@ -31,17 +31,26 @@ export class UpdateStaffComponent implements OnInit {
   filteredStaffRole: any;
   staffRoles:any;
   existedStaffRole:any[]=[];
+  mobileNumberValidator: (control: any) => { invalidMobileNumber: boolean; } | null;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private staffdataservice: StaffDataService, private router: Router, private formbuilder: FormBuilder, public dialogRef: MatDialogRef<UpdateStaffComponent>, private formBuilder: FormBuilder) {
     this.opStaffId = data.opStaffId
     console.log('opStaffId', this.opStaffId);
 
+    this.mobileNumberValidator = (control:any) => {
+      const value = control.value;
     
+      if (value && /^[6-9]\d{9}$/.test(value)) {
+        return null; // Valid mobile number
+      } else {
+        return { invalidMobileNumber: true }; // Invalid mobile number
+      }
+    };
 
     this.UpdateStaffform = this.formbuilder.group({
       staffName: ['', Validators.compose([Validators.required])],
       emailId: ['', [Validators.required, Validators.pattern(/^[\w]{1,}[\w.+-]{0,}@[\w-]{1,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/)]],
       // mobileNo: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]*$/)]],
-      mobileNo: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      mobileNo: ['', [Validators.required, Validators.pattern('[0-9]{10}'),this.mobileNumberValidator]],
       // dob: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
       dob: ['', [Validators.required, this.validateDateOfBirth]],
       area: ['', Validators.required],

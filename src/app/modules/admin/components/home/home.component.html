@@ -1,7 +1,18 @@
 <html>
-    <body>
 
-  
-<div class="spacer"><h1 style="margin-top:20px;">Welcome Admin</h1></div>
+<body>
+
+
+    <div class="spacer">
+        <h1 style="margin-top:20px;" *ngIf="!loading1">Welcome Admin</h1>
+    </div>
+    <figure *ngIf="loading1">
+        <div class="dot white"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </figure>
 </body>
+
 </html>

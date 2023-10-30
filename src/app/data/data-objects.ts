@@ -5,16 +5,16 @@
 
 
 export interface Product {
-    productId: number;
-   productName: string;
-    manufacturerName: string;
-    productDesc: string;
-    manufacturerId: number;
-    storeId: number;
-    searchTag: string;
-    Catalogdetails:Catalog[];
-    productOption:option[]
-  }
+  productId: number;
+  productName: string;
+  manufacturerName: string;
+  productDesc: string;
+  manufacturerId: number;
+  storeId: number;
+  searchTag: string;
+  Catalogdetails: Catalog[];
+  productOption: option[]
+}
 
 export interface Vendor {
   manufacturerId: number;
@@ -28,28 +28,28 @@ export interface SearchTag {
 export interface ProductSku {
   productSkuId: number;
   productSkuImage: any;
-price:number;
-skuDescription:string;
-status:any;
-count:number;
-discount:number;
-productId:number;
-productSkuCd:string;
-listPrice:number;
-barCode:string;
-selfLocCd:string;
-gstId:number;
-gstCode:string;
-igst:number;
-option:option[];
+  price: number;
+  skuDescription: string;
+  status: any;
+  count: number;
+  discount: number;
+  productId: number;
+  productSkuCd: string;
+  listPrice: number;
+  barCode: string;
+  selfLocCd: string;
+  gstId: number;
+  gstCode: string;
+  igst: number;
+  option: option[];
 
 }
 
-export interface option{
+export interface option {
   optionName: string,
   optionValue: string,
   optionId: number,
-  productSkuOptionsId:number;
+  productSkuOptionsId: number;
 }
 // export interface ProductSkuOptions{
 //   optionTypeName:string;
@@ -63,10 +63,10 @@ export interface option{
 //   optionValue: string;
 //   productSkuId:number
 // }
- 
+
 
 // export interface Options{
-  
+
 //     optionId: number;
 //     optionName: string;
 //     optionValue: string;
@@ -79,40 +79,40 @@ export interface option{
 //   productSkuOptionsId: number
 // }
 
-export interface OrderDetails{
+export interface OrderDetails {
   orderId: number,
   customerId: string,
-  orderModDtTm:number,
+  orderModDtTm: number,
   orderSubmitDtTm: number,
   status: string,
-  imageUrl:string,
+  imageUrl: string,
   totalAmount: number,
   userId: number,
   igst: number,
   couponApplied: boolean,
-  pgRazorpayOrderId:string,
-  pgRazorpayPaymentId:string,
+  pgRazorpayOrderId: string,
+  pgRazorpayPaymentId: string,
   mobileNumber: number,
   lastUpdate: number,
-  statusCd:string,
-  lastUpdateDtTm:number,
-  emailId:string
-  staffCd:number;
-  estimatedTime:number
-  orderItemdetails:orderItems[]
+  statusCd: string,
+  lastUpdateDtTm: number,
+  emailId: string
+  staffCd: number;
+  estimatedTime: number
+  orderItemdetails: orderItems[]
 }
 
-export interface orderItems{
+export interface orderItems {
   orderItemId: number,
   discountApplied: number,
   giftWrapped: string,
-  productName:string,
+  productName: string,
   status: string,
   price: number,
   mrpPrice: number,
   orderId: number,
   productId: number,
-  productSku:number,
+  productSku: number,
   quantity: number,
   totalPrice: number,
   finalPrice: number,
@@ -122,32 +122,32 @@ export interface orderItems{
 
 }
 
-export interface OrderStatus{
+export interface OrderStatus {
   orderId: number;
-  orderstatus:orderStatus[]
- 
+  orderstatus: orderStatus[]
 
-  }
-  export interface orderStatus{
-    id:number,
-    lastUpdateDtTm: string,
-    staffCd: number,
-    staffName: string,
-    statusCd: string
-  }
 
-  
-   export interface Catalog{
-   catalogId: number,
-   primaryFlg:string,
-   productCatalogId:Number,
-  
-    
-   }
-   
+}
+export interface orderStatus {
+  id: number,
+  lastUpdateDtTm: string,
+  staffCd: number,
+  staffName: string,
+  statusCd: string
+}
 
-export interface AddNewCatalog{
-  
+
+export interface Catalog {
+  catalogId: number,
+  primaryFlg: string,
+  productCatalogId: Number,
+
+
+}
+
+
+export interface AddNewCatalog {
+
   catalogId: number,
   parentCatalogId: number,
   // catalogLevel: number,
@@ -156,36 +156,69 @@ export interface AddNewCatalog{
   storeId: number
 }
 
-export interface Staffdetails{
+export interface Staffdetails {
   opStaffId: number,
-    staffCd: number,
-    staffName:string,
-    mobileNo: number,
-    emailId: string,
-    state: string,
-    area: string,
-    city: string,
-    pincode: number,
-    startDt:number,
-    endDt: number,
-    dob: number,
-    staffRole:staffRole[];
+  staffCd: number,
+  staffName: string,
+  mobileNo: number,
+  emailId: string,
+  state: string,
+  area: string,
+  city: string,
+  pincode: number,
+  startDt: number,
+  endDt: number,
+  dob: number,
+  staffRole: staffRole[];
 }
-export interface staffRole{
+export interface staffRole {
   opStaffId: number,
   roleId: number,
   staffRoleId: number,
-  roleName:string
+  roleName: string
 }
 
-export interface parentCatalogData{
+export interface parentCatalogData {
   catalogId: number,
   parent: string,
-  catalogName:string
+  catalogName: string
 }
 
-export interface StaffRoles{
+export interface StaffRoles {
   roleId: number,
   staffRole: string
 }
 
+
+export interface purchaseData {
+  poBillingAddress: string,
+  poCommentsTxt: string,
+  poCreateDt: number,
+  poCreatedBy: string,
+  poCurrency: string,
+  poDiscountAmount: number,
+  poId: number,
+  poLastUpdateBy: string,
+  poLastUpdateDt: number,
+  poPaymentTerms: string,
+  poShippingAddress: string,
+  poShippingEstimatedAmt: number,
+  poStatus: string,
+  poStoreId: number,
+  poTotalAmount: number,
+  supplierId: number
+  purchaseOrderDtl: purchaseOrderDtl[]
+}
+
+export interface purchaseOrderDtl {
+  amount: number,
+  discountPerPkg: number,
+  perPkgQty: number,
+  pkgCount: number,
+  poDtlId: number,
+  poId: number,
+  pricePerPkg: number,
+  productSkuId: number,
+  qualityFailedCount: number,
+  receivedCount: number
+}

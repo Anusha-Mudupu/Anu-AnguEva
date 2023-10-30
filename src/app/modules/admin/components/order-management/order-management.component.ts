@@ -39,7 +39,8 @@ export class OrderManagementComponent implements OnInit {
   Orders: any;
   CurrentOrder: any;
   index: any = 0
-
+  loading1: boolean=true;
+  loading = false;
   showDynamicComponent: boolean = false
 
   displayedColumns = ['orderId', 'userId', 'lastUpdate', 'mobileNumber', 'orderSubmitDtTm', 'status', 'totalAmount', 'Actions'];
@@ -63,7 +64,9 @@ export class OrderManagementComponent implements OnInit {
       this.Orders = this.allOrders;
       console.log(this.Orders)
       console.log(this.allOrders);
-
+      setTimeout(() => {
+        this.loading1 = false
+      }, 1100);
 
       this.dataSource.sort = this.sort;
     })

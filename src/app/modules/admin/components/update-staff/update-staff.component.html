@@ -84,7 +84,10 @@
                     required.</div>
                 <div *ngIf="UpdateStaffform.get('mobileNo').hasError('pattern')" class="text-danger">Invalid phone
                     number format.</div>
-
+                    <div *ngIf=" UpdateStaffform.get('mobileNo').hasError('invalidMobileNumber')">
+                        <span id="erromsgformbl">Enter valid mobile number.
+                        </span>
+                    </div>
             </div>
 
 

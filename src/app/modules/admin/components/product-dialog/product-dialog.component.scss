@@ -105,93 +105,204 @@ body {
     margin-left: 260px;
     margin-top: -70px;
 }
-@media screen and (min-width: 768px) and (max-width: 1280px) {
+#selectcatalogerrormsg{
+    margin-left: 50px;
+    margin-top: -20px;
+}
+// @media screen and (min-width: 768px) and (max-width: 1280px) {
+//     .product-name {
+//         font-size: large;
+//         margin-left: 9%;
+//         font-family: initial;
+//     }
+
+//     .vendor-select {
+//         margin-left: 5%;
+//         font-size: large;
+//         font-family: initial;
+//     }
+
+//     .search-tag-list {
+//         margin-left: 2%;
+//         font-size: large;
+//         font-family: initial;
+
+//     }
+
+//     .product-description {
+//         font-size: large;
+//         margin-left: 9%;
+//         font-family: initial;
+//     }
+
+//     .product-catalog {
+//         margin-left: 38%;
+//         margin-top: -170px;
+//         font-family: initial;
+//     }
+
+//     .dialog-content {
+//         height: 400px;
+//         width: auto;
+//         font-family: initial;
+//         overflow: hidden;
+
+//     }
+
+//     button {
+//         font-size: large;
+//         margin-top: 100px;
+//         font-family: initial;
+//     }
+
+//     .ManufacturerId {
+//         margin-left: 20px;
+//         font-size: large;
+//         font-family: initial;
+//     }
+
+//     #addnewcatalogbtn {
+//         margin-left: 350px;
+//         margin-top: 40px;
+//         font-family: initial;
+//     }
+
+//     #selectcatalog {
+//         margin-left: 45px;
+//         font-family: initial;
+
+//     }
+
+//     #search_tag {
+//         margin-left: 56px;
+//         font-family: initial;
+//     }
+
+//     #crossbtn {
+//         margin-left: 700px;
+//         margin-top: -5px;
+//         color: red;
+//         border: solid black 1px;
+//         padding: 7px;
+//         position: absolute;
+//     }
+
+//     h1 {
+//         margin-left: 330px;
+//         font-family: initial;
+//         font-weight: bolder;
+//         margin-top: -20px;
+//     }
+
+//     body {
+//         background-color: var(--toast-background);
+//         color: var(--toast-text);
+//     }
+// }
+@media only screen and (min-width: 768px) and (max-width: 1020px) {
+    
     .product-name {
         font-size: large;
         margin-left: 9%;
         font-family: initial;
     }
-
+    
     .vendor-select {
         margin-left: 5%;
         font-size: large;
         font-family: initial;
     }
-
+    
     .search-tag-list {
-        margin-left: 2%;
+        margin-left: 5%;
         font-size: large;
         font-family: initial;
-
+    
     }
-
+    
     .product-description {
         font-size: large;
         margin-left: 9%;
         font-family: initial;
     }
-
+    
     .product-catalog {
-        margin-left: 38%;
-        margin-top: -170px;
+        margin-left: 34%;
+        margin-top: -100px;
         font-family: initial;
     }
-
+    
     .dialog-content {
         height: 400px;
-        width: auto;
+        width: 800px;
         font-family: initial;
         overflow: hidden;
-
+    
     }
-
+    
     button {
         font-size: large;
         margin-top: 100px;
         font-family: initial;
     }
-
+    
     .ManufacturerId {
         margin-left: 20px;
         font-size: large;
         font-family: initial;
     }
-
+    
     #addnewcatalogbtn {
-        margin-left: 350px;
-        margin-top: 40px;
+        margin-left:80px;
+        margin-top: 30px;
         font-family: initial;
     }
-
+    
     #selectcatalog {
         margin-left: 45px;
         font-family: initial;
-
     }
-
+    
     #search_tag {
-        margin-left: 56px;
+        margin-left: 40px;
         font-family: initial;
+        position: absolute;
     }
-
+    
     #crossbtn {
-        margin-left: 700px;
-        margin-top: -5px;
+        margin-left: 840px;
+        margin-top: 0px;
         color: red;
         border: solid black 1px;
         padding: 7px;
-        position: absolute;
+         position: absolute;
+        // position: fixed;
     }
-
+    
     h1 {
-        margin-left: 330px;
+        margin-left: 370px;
         font-family: initial;
         font-weight: bolder;
         margin-top: -20px;
     }
-
+    
     body {
         background-color: var(--toast-background);
         color: var(--toast-text);
     }
+    
+    ::ng-deep .mat-dialog-container {
+        background-color: var(--toast-background); // Use your custom color here
+        color: var(--toast-text); // Use your custom text color here
+    }
+    #selectoption{
+        margin-left: 300px;
+        margin-top: 40px;
+        font-family: initial;
+    }
+    #addoptbtn{
+        margin-left: 260px;
+        margin-top: -70px;
+    }
+    
 }
