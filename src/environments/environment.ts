@@ -44,7 +44,10 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
   getStaffRoles:'http://localhost:8085/getRoles',
  getOptionsOnProdcut:'http://localhost:8085/getOptions',
  
-
+addproduct:'http://localhost:8085/ecomm/addProduct',
+getAllGStcodes:' http://localhost:8085/getAllGstCode',
+addProductSku : "http://localhost:8085/addproductsku",
+ addProductSkuImage : "http://localhost:8085/addImages"
 };
 
 

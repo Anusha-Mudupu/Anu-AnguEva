@@ -5,7 +5,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { AddNewCatalog, Catalog,Vendor, parentCatalogData } from '../data/data-objects';
+import { AddNewCatalog, Catalog, Vendor, parentCatalogData } from '../data/data-objects';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,72 +13,72 @@ import { environment } from 'src/environments/environment';
 })
 
 export class VendorDataService {
-abc='http://localhost:8085/api/getAllCatalog'
+  // abc = 'http://localhost:8085/api/getAllCatalog'
 
-  constructor(private httpclient:HttpClient) { }
+  constructor(private httpclient: HttpClient) { }
 
-  getVendors(): Observable<Vendor[]>{
+  getVendors(): Observable<Vendor[]> {
     const httpOptions = {
-      headers :new HttpHeaders({
-        'Content-Type':'application/json',
-        'Accept':'application/json',
-        'responseType':'text,application/json',              
-        'Access-Control-Allow-Origin':'http://localhost:8085',
-        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
-        'Access-Control-Allow-Headers':'Content-Type,application/json',
-        'Authorization':'my-auth-token' 
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'responseType': 'text,application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:8085',
+        'Access-Control-Allow-Methods': "DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers': 'Content-Type,application/json',
+        'Authorization': 'my-auth-token'
       })
     };
-    return this.httpclient.get<Vendor[]>(environment.getAllVendorsURL,httpOptions)
+    return this.httpclient.get<Vendor[]>(environment.getAllVendorsURL, httpOptions)
 
   }
-  getAllCatalogs():Observable<any>{
+  getAllCatalogs(): Observable<any> {
     const httpOptions = {
-      headers :new HttpHeaders({
-        'Content-Type':'application/json',
-        'Accept':'application/json',
-        'responseType':'text,application/json',              
-        'Access-Control-Allow-Origin':'http://localhost:8085',
-        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
-        'Access-Control-Allow-Headers':'Content-Type,application/json',
-        'Authorization':'my-auth-token' 
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'responseType': 'text,application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:8085',
+        'Access-Control-Allow-Methods': "DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers': 'Content-Type,application/json',
+        'Authorization': 'my-auth-token'
       })
     };
-    return this.httpclient.get<Catalog>(environment.getAllcatalogs,httpOptions)
+    return this.httpclient.get<Catalog>(environment.getAllcatalogs, httpOptions)
   }
 
   getData(): Observable<any> {
-    return of(this.abc);
+    return of(environment.getAllcatalogs);
   }
 
-  addNewCatalog(addnewcatalog:AddNewCatalog){
+  addNewCatalog(addnewcatalog: AddNewCatalog) {
     const httpOptions = {
-      headers :new HttpHeaders({
-        'Content-Type':'application/json',
-        'Accept':'application/json',
-        'responseType':'text,application/json',              
-        'Access-Control-Allow-Origin':'http://localhost:8085',
-        'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
-        'Access-Control-Allow-Headers':'Content-Type,application/json',
-        'Authorization':'my-auth-token' 
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'responseType': 'text,application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:8085',
+        'Access-Control-Allow-Methods': "DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers': 'Content-Type,application/json',
+        'Authorization': 'my-auth-token'
       })
     };
-    return this.httpclient.post<AddNewCatalog>(environment.Addnewcatalog ,addnewcatalog,httpOptions)
+    return this.httpclient.post<AddNewCatalog>(environment.Addnewcatalog, addnewcatalog, httpOptions)
   }
 
-getAllParentCatalogs():Observable<any>{
-  const httpOptions = {
-    headers :new HttpHeaders({
-      'Content-Type':'application/json',
-      'Accept':'application/json',
-      'responseType':'text,application/json',              
-      'Access-Control-Allow-Origin':'http://localhost:8085',
-      'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
-      'Access-Control-Allow-Headers':'Content-Type,application/json',
-      'Authorization':'my-auth-token' 
-    })
-  };
-  return this.httpclient.get<any>(environment.getAllParentCatalogs,httpOptions);
-}
+  getAllParentCatalogs(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'responseType': 'text,application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:8085',
+        'Access-Control-Allow-Methods': "DELETE, POST, GET, OPTIONS",
+        'Access-Control-Allow-Headers': 'Content-Type,application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
+    return this.httpclient.get<any>(environment.getAllParentCatalogs, httpOptions);
+  }
 
 }

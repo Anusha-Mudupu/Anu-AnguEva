@@ -50,7 +50,7 @@ export class ProductDataService {
     // const headers = new HttpHeaders()
     // .set('Authorization', 'my-auth-token')
     // .set('content-Type', 'application/json');
-    return this.httpclient.post<Product>('http://localhost:8085/ecomm/addProduct',productForm,httpOptions);
+    return this.httpclient.post<Product>(environment.addproduct,productForm,httpOptions);
   }
 
   getProductById(id: number): Observable<any>{

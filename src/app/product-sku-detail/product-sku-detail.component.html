@@ -167,7 +167,7 @@
         <div class="form-check form-switch" id="toggle">
             <p class="select" style="font-family: initial;font-weight: bolder;">Select Status:</p>
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
-                [(ngModel)]="productSku.status" formControlName="status">
+                [(ngModel)]="productSku.status" formControlName="status" id="toggleButton">
             <span style="font-size: 20px;font-family: initial;">{{productSku.status ?
                 'Available':'Not-Available'}}</span>
         </div>

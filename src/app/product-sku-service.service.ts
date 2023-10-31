@@ -7,16 +7,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductSku } from './product-sku';
 import { ProductSkuImage } from './product-sku-image';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductSkuServiceService {
 
-   private addProductSku = "http://localhost:8085/addproductsku";
+  //  private addProductSku = "http://localhost:8085/addproductsku";
   
 
-  private addProductSkuImage = "http://localhost:8085/addImages";
+  // private addProductSkuImage = "http://localhost:8085/addImages";
 
 
   constructor(private http: HttpClient) { }
@@ -32,7 +33,7 @@ export class ProductSkuServiceService {
         'Authorization':'my-auth-token' 
       })
     };
-    return this.http.post(`${this.addProductSku}`, productSku,httpOptions);
+    return this.http.post(environment.addProductSku, productSku,httpOptions);
   }
 
   addImageToProduSku(_productSkuImage: ProductSkuImage): Observable<Object> {
@@ -47,7 +48,7 @@ export class ProductSkuServiceService {
         'Authorization':'my-auth-token' 
       })
     };
-    return this.http.post(`${this.addProductSkuImage}`, _productSkuImage,httpOptions);
+    return this.http.post(environment.addProductSkuImage, _productSkuImage,httpOptions);
   }
 
 

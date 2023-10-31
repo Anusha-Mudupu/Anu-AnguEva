@@ -1,15 +1,15 @@
 <html>
-    <figure *ngIf="loading1">
-        <div class="dot white"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </figure>
+<figure *ngIf="loading1">
+    <div class="dot white"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</figure>
 
-<body *ngIf="!loading1" >
+<body *ngIf="!loading1">
 
-  
+
 
     <div class="demo-button-container">
         <button mat-raised-button class="demo-button" (click)="addStaffbtn()"> Add Staff </button>

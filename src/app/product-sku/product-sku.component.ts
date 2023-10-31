@@ -50,7 +50,7 @@ export class ProductSkuComponent implements OnInit {
   errorMessageforoptions: any;
   allproductskudata: any;
   extractOptionIds: any
-  optionIdsForEachArray: any []=[];
+  optionIdsForEachArray: any[] = [];
   allOptionsMatched: any;
   allSkuOptionMatched: any;
 

@@ -17,7 +17,7 @@ export class ProductSkuDataService {
   selectedFile: any;
 
   // getoptions = 'http://localhost:8085/api/getOptions';
-  test=' http://localhost:8085/getAllGstCode'
+  // test=' http://localhost:8085/getAllGstCode'
   erroMessagge: any;
   constructor(
     private httpclient: HttpClient
@@ -144,7 +144,7 @@ export class ProductSkuDataService {
         'Authorization':'my-auth-token' 
       })
     };
-    return this .httpclient.get<any>(`${this.test}`,httpOptions)
+    return this .httpclient.get<any>(environment.getAllGStcodes,httpOptions)
   }
 
   getAllOrders(){

@@ -106,7 +106,7 @@ export class ProductSkuDetailComponent implements OnInit {
     ).add(() => {
       this.loading = false;
     });
-    console.log(this.Updateform.value)
+    console.log(this.Updateform.value);
 
   }
 
