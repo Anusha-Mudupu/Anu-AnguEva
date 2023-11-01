@@ -12,6 +12,7 @@
   height: 700px;
   background-color: var(--toast-background);
   color: var(--toast-text);
+  border: solid 1px black;
 }
 
 .demo-button-container {
@@ -33,6 +34,8 @@
   color: black;
   justify-content: center;
   font-weight: bold;
+  text-align: center;
+  border-right: black 1px solid;
   // background-color:var(--toast-background);
   // color:var(--toast-text);
 }
@@ -40,12 +43,17 @@
 .mat-header-row {
   background-color: var(--stafflistbg);
   color: var(--toast-text);
+
+ 
 }
 
 .mat-cell {
   font-size: 18px;
   background-color: var(--toast-background);
   color: var(--toast-text);
+  // border-bottom: 1px solid black;
+  border-right:black solid 1px;
+ text-align: center;
 
 }
 
@@ -54,6 +62,7 @@
   // max-height: 500px;
   background-color: var(--toast-background);
   color: var(--toast-text);
+  
 }
 
 h1 {

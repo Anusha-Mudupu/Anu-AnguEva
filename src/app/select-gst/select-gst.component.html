@@ -1,68 +1,38 @@
-<!-- <html>
-  <body>
+<html>
+
+<body>
 
 
 
-<form id="gstform" [formGroup]="gstForm">
-  <div class="container">
-    <div class="row" id="dropdownrows">
-      <div class="2">
-        <mat-form-field >
-          <mat-label [ngStyle]="getInputStyles()"> select Gstcode</mat-label>
-          <mat-select formControlName="gstId" (selectionChange)="onSelectedGstCode($event)"
-            [(ngModel)]="productskudetails.gstId"  [ngStyle]="getInputStyles()">
+  <form id="gstform" [formGroup]="gstForm">
+    <div class="container">
+      <div class="row" id="dropdownrows">
+        <div class="2">
+          <mat-form-field>
+            <mat-label [ngStyle]="getInputStyles()"> select Gstcode</mat-label>
+            <mat-select formControlName="gstId" (selectionChange)="onSelectedGstCode($event)"
+              [(ngModel)]="productskudetails.gstId" [ngStyle]="getInputStyles()">
 
-            <ng-container *ngFor="let code of Gstcode; let i = index">
-              <mat-option [value]="code.gstId"[ngStyle]="getInputStyles()" >{{code.gst_code}}</mat-option>
+              <ng-container *ngFor="let code of Gstcode; let i = index">
+                <mat-option [value]="code.gstId" [ngStyle]="getInputStyles()">{{code.gst_code}}</mat-option>
               </ng-container>
-              
-          </mat-select>
-          
-        </mat-form-field>
-       
+
+            </mat-select>
+
+          </mat-form-field>
+
+        </div>
+
       </div>
+    </div>
+    <div id="gstsavebtn">
+      <button type="submit" class="btn btn-success"
+        (click)="onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div *ngIf="submitted && !gstForm.valid" class="text-danger">All fields are required.</div>
+      <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
     </div>
-  </div>
-  <div id="gstsavebtn">
-    <button type="submit" class="btn btn-success"
-      (click)="onSubmit()">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div *ngIf="submitted && !productskudetails.valid" class="text-danger">All fields are required.</div>
-    <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
-
-  </div>
-</form>
+  </form>
 </body>
-</html> -->
 
-
-
-
-
-
-
-<form id="gstform" [formGroup]="gstForm" (ngSubmit)="onSubmit()">
-  <div class="container">
-    <div class="row" id="dropdownrows">
-      <div class="2">
-        <mat-form-field>
-          <mat-label [ngStyle]="getInputStyles()">Select Gstcode</mat-label>
-          <mat-select formControlName="gstId" (selectionChange)="onSelectedGstCode($event)" [ngStyle]="getInputStyles()" placeholder="productskudetails.gstId">
-            <ng-container *ngFor="let code of Gstcode; let i = index">
-              <mat-option [value]="code.gstId" [ngStyle]="getInputStyles()" >{{ code.gst_code }}</mat-option>
-            </ng-container>
-          </mat-select>
-          <mat-error *ngIf="gstForm.get('gstId')?.invalid && (gstForm.get('gstId')?.dirty || gstForm.get('gstId')?.touched)">
-            Please select a Gst code.
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-  <div id="gstsavebtn">
-    <button type="submit" class="btn btn-success">Save</button>
-    <div *ngIf="submitted && gstForm.invalid" class="text-danger">All fields are required.</div>
-    <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
-  </div>
-</form>
-
+</html>

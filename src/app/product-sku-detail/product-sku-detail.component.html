@@ -1,152 +1,155 @@
-
 <html>
-    <body>
 
-  
+<body>
 
-<div id="left-arrow">
-    <i class="bi bi-arrow-left-circle"></i>
-    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="currentColor" class="bi bi-arrow-left-circle"
-        viewBox="0 0 16 16" (click)="goToProductView()">
-        <path fill-rule="evenodd"
-            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
-    </svg>
-</div>
-<form class="row  g-3" class="box" [formGroup]="Updateform">
-    <div>
-        <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()"
-            style="font-family: initial;">Edit</button>
-     
 
+
+    <div id="left-arrow">
+        <i class="bi bi-arrow-left-circle"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="currentColor"
+            class="bi bi-arrow-left-circle" viewBox="0 0 16 16" (click)="goToProductView()">
+            <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+        </svg>
     </div>
-
-    <div class="img1">
-        <div *ngFor="let img of image" class="images">
-           
-            <i class="bi bi-file-excel" ></i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-file-excel"
-                viewBox="0 0 16 16" (click)="deleteimage(img.productSkuImageId)" class="crossmark">
-                <path
-                    d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
-                <path
-                    d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
-            </svg>
-            <img src={{imageBaseUrl}}{{img.productSkuImage}} alt="no" width="100px" height="70px" class="Skuimgs"
-                [ngClass]="{'primary-image': isPrimary}">
-          
-            <!-- <button (click)="setPrimary()">Set as primary</button> -->
-        </div>
-    </div>
-
-
-
-
-
-
-    <div class="row">
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">productSkuid:</label>
-            <input type="text" class="form-control" id="productSkuId" name="productSkuId"
-                [(ngModel)]="productSku.productSkuId" formControlName="productSkuId" placeholder="{{id}}"
-                [attr.disabled]="isDisabled ? true : null" readonly>
-        </div>
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Price:</label>
-            <input type="text" class="form-control" id="price" [(ngModel)]="productSku.price" formControlName="price"
-                placeholder="{{productSku.price}}">
-
-        </div>
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">SkuCode:</label>
-            <input type="text" class="form-control" id="productSkuCd" name="productSkuCd"
-                [(ngModel)]="productSku.productSkuCd" formControlName="productSkuCd" style="font-family: initial;">
-
-        </div>
-    </div>
-
-    <div class="row">
-
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Quantity:</label>
-            <input type="text" class="form-control" id="count" formControlName="count" [(ngModel)]="productSku.count">
-
-        </div>
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Discount in %:</label>
-
-            <input type="text" class="form-control" id="discount" name="discount" [(ngModel)]="productSku.discount"
-                formControlName="discount">
-
-        </div>
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Barcode:</label>
-            <input type="text" class="form-control" id="barCode" name="barCode" [(ngModel)]="productSku.barCode"
-                formControlName="barCode">
+    <form class="row  g-3" class="box" [formGroup]="Updateform">
+        <div>
+            <button type="button" id="editbtn" class="btn btn-secondary" (click)="edit()"
+                style="font-family: initial;">Edit</button>
 
 
         </div>
-    </div>
 
+        <div class="img1">
+            <div *ngFor="let img of image" class="images">
 
-    <div class="row" id="lastrow">
+                <i class="bi bi-file-excel"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                    class="bi bi-file-excel" viewBox="0 0 16 16" (click)="deleteimage(img.productSkuImageId)"
+                    class="crossmark">
+                    <path
+                        d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
+                    <path
+                        d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                </svg>
+                <img src={{imageBaseUrl}}{{img.productSkuImage}} alt="no" width="100px" height="70px" class="Skuimgs"
+                    [ngClass]="{'primary-image': isPrimary}">
 
-        <div class="form-group" class="col-3" class="textarea">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">Description:</label>
-            <textarea class="form-control" rows="" id="skuDescription" name="skuDescription"
-                [(ngModel)]="productSku.skuDescription" formControlName="skuDescription"
-                style="font-family: initial;"></textarea>
-        </div>
-
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">ProductId:</label>
-            <input type="text" class="form-control" id="productId" name="productId" [(ngModel)]="productSku.productId"
-                formControlName="productId" placeholder="{{productSku.productId}}"
-                [attr.disabled]="isDisabled ? true : null" readonly>
-        </div>
-
-
-        <div class="col-3">
-            <label class="form-label" style="font-family: initial;font-weight: bolder;">SelfLocation Code:</label>
-            <input type="text" class="form-control" name="selfLocCd" [(ngModel)]="productSku.selfLocCd"
-                formControlName="selfLocCd" placeholder="{{productSku.selfLocCd}}"
-                [attr.disabled]="isDisabled ? true : null">
-        </div>
-
-
-
-    </div>
-
-    <div *ngIf="loading" class="spinner-overlay">
-        <div class="spinner">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <!-- <button (click)="setPrimary()">Set as primary</button> -->
             </div>
         </div>
-    </div>
 
-    <!-- <div *ngIf="loading" class="text-center">
+
+
+
+
+
+        <div class="row">
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">productSkuid:</label>
+                <input type="text" class="form-control" id="productSkuId" name="productSkuId"
+                    [(ngModel)]="productSku.productSkuId" formControlName="productSkuId" placeholder="{{id}}"
+                    [attr.disabled]="isDisabled ? true : null" readonly>
+            </div>
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Price:</label>
+                <input type="text" class="form-control" id="price" [(ngModel)]="productSku.price"
+                    formControlName="price" placeholder="{{productSku.price}}">
+
+            </div>
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">SkuCode:</label>
+                <input type="text" class="form-control" id="productSkuCd" name="productSkuCd"
+                    [(ngModel)]="productSku.productSkuCd" formControlName="productSkuCd" style="font-family: initial;">
+
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Quantity:</label>
+                <input type="text" class="form-control" id="count" formControlName="count"
+                    [(ngModel)]="productSku.count">
+
+            </div>
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Discount in %:</label>
+
+                <input type="text" class="form-control" id="discount" name="discount" [(ngModel)]="productSku.discount"
+                    formControlName="discount">
+
+            </div>
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Barcode:</label>
+                <input type="text" class="form-control" id="barCode" name="barCode" [(ngModel)]="productSku.barCode"
+                    formControlName="barCode">
+
+
+            </div>
+        </div>
+
+
+        <div class="row" id="lastrow">
+
+            <div class="form-group" class="col-3" class="textarea">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">Description:</label>
+                <textarea class="form-control" rows="" id="skuDescription" name="skuDescription"
+                    [(ngModel)]="productSku.skuDescription" formControlName="skuDescription"
+                    style="font-family: initial;"></textarea>
+            </div>
+
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">ProductId:</label>
+                <input type="text" class="form-control" id="productId" name="productId"
+                    [(ngModel)]="productSku.productId" formControlName="productId"
+                    placeholder="{{productSku.productId}}" [attr.disabled]="isDisabled ? true : null" readonly>
+            </div>
+
+
+            <div class="col-3">
+                <label class="form-label" style="font-family: initial;font-weight: bolder;">SelfLocation Code:</label>
+                <input type="text" class="form-control" name="selfLocCd" [(ngModel)]="productSku.selfLocCd"
+                    formControlName="selfLocCd" placeholder="{{productSku.selfLocCd}}"
+                    [attr.disabled]="isDisabled ? true : null">
+            </div>
+
+
+
+        </div>
+
+        <div *ngIf="loading" class="spinner-overlay">
+            <div class="spinner">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div *ngIf="loading" class="text-center">
         <div class="spinner-border" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div> -->
 
-    <div class="row">
+        <div class="row">
 
-        <div class="col-3" style="margin-left: 90px;margin-top: 10px;">
-            <label class="labelforoptions" style="font-family: initial;font-weight: bolder;">Option Name:</label>
-            <p *ngFor="let opt of OptionsData" class="optionsize">{{opt.optionName}}</p>
-        </div>
+            <div class="col-3" style="margin-left: 90px;margin-top: 10px;">
+                <label class="labelforoptions" style="font-family: initial;font-weight: bolder;">Option Name:</label>
+                <p *ngFor="let opt of OptionsData" class="optionsize">{{opt.optionName}}</p>
+            </div>
 
-        <div class="col-3" style="margin-left: 90px;margin-top: 10px;">
-            <label id="labelforoptionsvalues" style="font-family: initial;font-weight: bolder;">Option Value:</label>
-            <p *ngFor="let val of OptionsData" class="optionsize">
-                {{val.optionValue}}
+            <div class="col-3" style="margin-left: 90px;margin-top: 10px;">
+                <label id="labelforoptionsvalues" style="font-family: initial;font-weight: bolder;">Option
+                    Value:</label>
+                <p *ngFor="let val of OptionsData" class="optionsize">
+                    {{val.optionValue}}
 
 
-                <!-- <i class="bi bi-trash"></i>
+                    <!-- <i class="bi bi-trash"></i>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
                     viewBox="0 0 16 16" id="trashbin">
                     <path
@@ -154,56 +157,60 @@
                     <path
                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
                 </svg> -->
-            </p>
-        </div>
-       
+                </p>
+            </div>
 
-
-    </div>
-
-    <div class="row">
-
-
-        <div class="form-check form-switch" id="toggle">
-            <p class="select" style="font-family: initial;font-weight: bolder;">Select Status:</p>
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
-                [(ngModel)]="productSku.status" formControlName="status" id="toggleButton">
-            <span style="font-size: 20px;font-family: initial;">{{productSku.status ?
-                'Available':'Not-Available'}}</span>
-        </div>
-
-        <div class="col-2"  id="Uploadimg">
-            <p class="para" style="font-family: initial;">Upload Image:</p>
-            <input type="file" (change)="onFileSelected($event)" id="imag_upload" style="display: '';visibility:'';"
-                class="choosefile" style="font-family: initial;" [disabled]="!isEditMode">
-        </div>
-
-        <div id="Gst">
-            <h1 style="font-weight:bolder;" style="font-family: initial;">GST Info:</h1>
-            <p class="gstcd" style="font-family: initial;">GST Code:{{productSku.gstCode}}</p>
-            <input type="text" formControlName="gstId" placeholder="{{productSku.gstCode}}" [value]="productSku.gstId"
-                [(ngModel)]="productSku.gstId" hidden>
-            <p class="gstcd" id="gstPercentage" style="font-family: initial;">Percentage:{{productSku.igst}}%</p>
-
-            <div id="plusicon">
-                <button (click)="button()" class="btn btn-primary" id="gsteditbtn"
-                    [disabled]="!isEditMode">Edit</button>
-
+            <div class="col-3">
+             <label style="font-family: initial;font-weight: bolder;" id="statuslable">Status</label>
+             <p>{{status}}</p>
             </div>
 
         </div>
 
+        <div class="row">
+
+
+            <div class="form-check form-switch" id="toggle">
+                <p class="select" style="font-family: initial;font-weight: bolder;">Select Status:</p>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=''
+                    [(ngModel)]="productSku.status" formControlName="status" id="toggleButton">
+                <span style="font-size: 20px;font-family: initial;">{{productSku.status ?
+                    'Available':'Not-Available'}}</span>
+            </div>
+
+            <div class="col-2" id="Uploadimg">
+                <p class="para" style="font-family: initial;">Upload Image:</p>
+                <input type="file" (change)="onFileSelected($event)" id="imag_upload" style="display: '';visibility:'';"
+                    class="choosefile" style="font-family: initial;" [disabled]="!isEditMode">
+            </div>
+
+            <div id="Gst">
+                <h1 style="font-weight:bolder;" style="font-family: initial;">GST Info:</h1>
+                <p class="gstcd" style="font-family: initial;">GST Code:{{productSku.gstCode}}</p>
+                <input type="text" formControlName="gstId" placeholder="{{productSku.gstCode}}"
+                    [value]="productSku.gstId" [(ngModel)]="productSku.gstId" hidden>
+                <p class="gstcd" id="gstPercentage" style="font-family: initial;">Percentage:{{productSku.igst}}%</p>
+
+                <div id="plusicon">
+                    <button (click)="button()" class="btn btn-primary" id="gsteditbtn"
+                        [disabled]="!isEditMode">Edit</button>
+
+                </div>
+
+            </div>
 
 
 
-    </div>
-    <div class="col-3" class="button">
-        <button type="submit" class="btn btn-success" (click)=" onSubmit()"
-            style="width: 150px;height: 40px;" [disabled]="!isEditMode">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-danger" (click)="cancel()"
-            style="width: 150px;height: 40px;" >Cancel</button>
 
-    </div>
-</form>
+        </div>
+        <div class="col-3" class="button">
+            <button type="submit" class="btn btn-success" (click)=" onSubmit()" style="width: 150px;height: 40px;"
+                [disabled]="!isEditMode">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-danger" (click)="cancel()"
+                style="width: 150px;height: 40px;">Cancel</button>
+
+        </div>
+    </form>
 </body>
+
 </html>

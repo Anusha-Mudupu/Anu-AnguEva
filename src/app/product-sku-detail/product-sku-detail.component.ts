@@ -40,7 +40,7 @@ export class ProductSkuDetailComponent implements OnInit {
   Updateform: any;
   loading: boolean = false;
   productId: any;
-
+  status:any;
   constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService, private dialog: MatDialog, private fb: FormBuilder) {
     this.Updateform = this.fb.group({
       productSkuId: new FormControl('', Validators.compose([Validators.required])),
@@ -74,7 +74,8 @@ export class ProductSkuDetailComponent implements OnInit {
         console.log('productId', this.productId)
         this.image = this.productSku.image;
         this.OptionsData = this.productSku.option;
-
+        this.status=this.productSku.status;
+        console.log('status', this.status);
         console.log(this.Gstcode)
         console.log(this.image)
         console.log(this.productSku);

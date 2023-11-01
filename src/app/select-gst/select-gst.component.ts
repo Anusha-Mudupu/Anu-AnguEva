@@ -23,7 +23,7 @@ export class SelectGstComponent implements OnInit {
   selectedGstCode: any
   productskudetails: any;
   submitted: boolean = false;
-  constructor(private productskudataservice: ProductSkuDataService, private router: Router, private activate: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor(private productskudataservice: ProductSkuDataService, private router: Router, private activate: ActivatedRoute,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.productskudataservice.getAllGstCodes().subscribe((data: any) => {
@@ -38,13 +38,11 @@ export class SelectGstComponent implements OnInit {
       console.log(data);
       console.log(this.id)
     })
-    this.gstForm = this.formBuilder.group({
-      gstId: ['', Validators.required]
-
+    this.gstForm =this.formBuilder.group({
+     gstId: ['', Validators.required]
+     
     })
-    this.gstForm.patchValue({
-      gstId: this.productskudetails.gstId
-    });
+
   }
 
 
@@ -60,21 +58,19 @@ export class SelectGstComponent implements OnInit {
   onSelectedGstCode(event: any) {
     this.selectedGstCode = event.target.value;
 
-    console.log('selected value',this.selectedGstCode)
+    console.log(this.selectedGstCode)
 
   }
 
   onSubmit() {
-    this.submitted = true;
+   
+  
     
-    if (this.gstForm.valid) {
-      this.productskudetails.gstId =  this.gstForm.value.gstId;
-      // this.gstForm.get('gstId')?.setValue(this.productskudetails.gstId);
-      this.saveUpdateGst()
-      // alert('successfully Updated')
-      // this.router.navigate(['/admin/product-view/:productId/:productSkuId', this.productskudetails])
-    }
-  }
+    this.saveUpdateGst()
+    alert('successfully Updated')
+    this.router.navigate(['/admin/product-view/:productId/:productSkuId', this.productskudetails])
+  
+}
   cancel() {
     this.router.navigate(['/admin/product-view/:productId/:productSkuId', this.productskudetails])
   }
@@ -84,8 +80,8 @@ export class SelectGstComponent implements OnInit {
       'color': 'var(--toast-text)',
       // ... other styling properties
     };
-
-  }
+  
+    }
 
 }
 

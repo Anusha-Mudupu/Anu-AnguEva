@@ -56,7 +56,7 @@ export class ProductsComponent implements OnInit {
 
   openDialog() {
     // console.log('open dialog clicked')
-    const dialogRef = this.dialog.open(ProductDialogComponent, { width: '60%', height: 'auto', disableClose: true })
+    const dialogRef = this.dialog.open(ProductDialogComponent, { width: '100%', height: 'auto', disableClose: true })
       .afterClosed().subscribe(result => { this.ngOnInit() });
   }
   openUpdateProduct(productId: any) {

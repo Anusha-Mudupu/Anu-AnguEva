@@ -81,7 +81,7 @@ export interface option {
 
 export interface OrderDetails {
   orderId: number,
-  customerId: string,
+  customerName: string,
   orderModDtTm: number,
   orderSubmitDtTm: number,
   status: string,
