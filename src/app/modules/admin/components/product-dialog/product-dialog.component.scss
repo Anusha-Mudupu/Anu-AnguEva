@@ -71,7 +71,7 @@ button {
 }
 
 #crossbtn {
-    margin-left: 840px;
+    margin-left: 740px;
     margin-top: 0px;
     color: red;
     border: solid black 1px;
@@ -200,10 +200,7 @@ body {
 //     }
 // }
 @media only screen and (min-width: 768px) and (max-width: 1020px) {
-    #submitbtns{
-        margin-top: -200px;
-        position: relative;
-    }
+    
     .product-name {
         font-size: large;
         margin-left: 9%;

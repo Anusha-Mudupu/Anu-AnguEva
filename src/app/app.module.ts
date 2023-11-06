@@ -35,7 +35,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { NgxPrintElementModule } from 'ngx-print-element';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
     MatDatepickerModule,
     MatNativeDateModule,
     NgxPrintElementModule,
-    KeycloakAngularModule
+   
     
  
       ],
