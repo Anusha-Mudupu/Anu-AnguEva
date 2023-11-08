@@ -209,20 +209,119 @@ body{
  position: relative;
 }
 
-@media screen and (min-width:360px) and (max-width:1400px){
-  .dialog-content {
-      height: auto;
-      width: auto;
-  } 
-  .mat-dialog-title{
-  margin-left: 300px;
+// @media screen and (min-width:360px) and (max-width:1400px){
+//   .dialog-content {
+//       height: auto;
+//       width: auto;
+//   } 
+//   .mat-dialog-title{
+//   margin-left: 300px;
+//   }
+  
+//   #crossbtn{
+//     margin-left: 800px;
+//     margin-top: -50px;
+//   }
+  
+//   #toggle{
+//     margin-left: 100px;
+//     margin-top: 20px;
+//   }
+//   .select{
+//     margin-left: -30px;
+//     font-size: 18px;
+//   }
+//   body{
+//     background-color:var(--toast-background);
+//      color:var(--toast-text); 
+//   }
+// }
+@media only screen and (min-width:768px) and (max-width:1368px){
+  .catalogName {
+    font-size: large;
+    margin-left: 5%;
+    font-weight: bolder;font-family: initial;
+  
   }
   
   #crossbtn{
-    margin-left: 800px;
+    margin-left: 1000px;
     margin-top: -50px;
+    color: red;
+    background-color: var(--toast-background);
+    color: var(--toast-text),
   }
   
+  .catalogDesc {
+    font-size: medium;
+    margin-left: 7%;
+    font-weight: bolder;font-family: initial;
+  }
+  .dob {
+    // font-size: medium;
+    margin-left: 5%;
+    height: 10px;
+    margin-top: -20px;
+    font-weight: bolder;font-family: initial;
+  
+  }
+  #calicon{
+    margin-left: 150px;
+    font-weight: bolder;font-family: initial;
+  }
+  .area {
+    font-size: large;
+    margin-left: 6%;
+    font-weight: bolder;font-family: initial;
+  }
+  .city {
+    font-size: large;
+    margin-left: 6%;
+    font-weight: bolder;font-family: initial;
+  }
+  .state {
+    font-size: large;
+    margin-left: 6%;
+    font-weight: bolder;font-family: initial;
+  }
+  .mobileNo {
+    font-size: large;
+    margin-left: 7%;
+    font-weight: bolder;font-family: initial;
+  }
+  
+  .dialog-content {
+    height: 700px;
+    width: 1100px;
+    font-weight: bolder;font-family: initial;
+  }
+  
+  button {
+    font-size: large;
+    margin-top: 100px;
+    font-weight: bolder;font-family: initial;
+  }
+  .startdt{
+    font-size: large;
+    margin-left: 7%; 
+    margin-top: -20px;
+    font-weight: bolder;font-family: initial;
+    
+  }
+  
+  .enddt{
+    font-size: large;
+    margin-left: 9%; 
+    font-weight: bolder;font-family: initial;
+  
+  }
+  .pincode{
+    font-size: large;
+    margin-left: 5%; 
+    margin-top: 10px;
+    font-weight: bolder;font-family: initial;
+  
+  }
   #toggle{
     margin-left: 100px;
     margin-top: 20px;
@@ -230,10 +329,34 @@ body{
   .select{
     margin-left: -30px;
     font-size: 18px;
+    font-weight: bolder;font-family: initial;
   }
   body{
     background-color:var(--toast-background);
      color:var(--toast-text); 
+  }
+  #selectoptions{
+    margin-left: 400px;
+    margin-top: -70px;
+    font-family: initial;
+    font-size: 15px;
+    position: absolute;
+  }
+  #displayselectedopts{
+    margin-left: 700px;
+    margin-top: -90px;
+    font-family: initial;
+    display:inline-flexbox;
+     position: relative;
+    //  position: static;
+    
+  }
+  .display{
+    margin-left:10px;
+   margin-top: -18px;
+    
+    display: inline-flexbox;
+   position: relative;
   }
 }
 

@@ -47,7 +47,8 @@ updateProductSku:'http://localhost:8085/updateProductSkuById/{skuId}?id=',
 addproduct:'http://localhost:8085/ecomm/addProduct',
 getAllGStcodes:' http://localhost:8085/getAllGstCode',
 addProductSku : "http://localhost:8085/addproductsku",
- addProductSkuImage : "http://localhost:8085/addImages"
+ addProductSkuImage : "http://localhost:8085/addImages",
+ addimagetoPsku:'http://localhost:8085/api/file/upload/'
 };
 
 

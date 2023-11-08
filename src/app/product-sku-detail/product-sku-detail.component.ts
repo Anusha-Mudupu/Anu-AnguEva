@@ -100,7 +100,8 @@ export class ProductSkuDetailComponent implements OnInit {
 
     this.productSkuDataservice.upDateProductSkuById(this.id, this.Updateform.value).subscribe(data => {
       console.log(data);
-      alert('successfully updated');
+       alert('successfully updated');
+     
     }, errormsg => {
       alert('Something Went wrong');
     }
@@ -131,7 +132,7 @@ export class ProductSkuDetailComponent implements OnInit {
     // for(let i=0;i<this.selectedFile.length;i++){
     formData.append('file', this.selectedFile);
     // }
-    this.httpClient.post('http://localhost:8085/api/file/upload/' + this.id, formData).subscribe(
+    this.httpClient.post(environment.addimagetoPsku + this.id, formData).subscribe(
       response => console.log('image_added', response),
 
       error => console.error(error)

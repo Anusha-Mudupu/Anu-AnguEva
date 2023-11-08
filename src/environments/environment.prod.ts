@@ -41,4 +41,5 @@ export const environment = {
   getStaffRoles: 'http://103.12.1.167:30163/getRoles',
   getOptionsOnProdcut: 'http://103.12.1.167:30163/getOptions',
   getOptionValuesByProductId: 'http://103.12.1.167:30163/api/getOptions?productId=',
+  addimagetoPsku:'http://103.12.1.167:30163/api/file/upload/'
 };

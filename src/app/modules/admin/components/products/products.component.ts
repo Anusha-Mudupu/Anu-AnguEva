@@ -38,6 +38,7 @@ export class ProductsComponent implements OnInit {
       console.log(this.data);
       this.dataSource = new MatTableDataSource(this.data);
       // this.loading1=false;
+      
     })
     
   }
@@ -57,7 +58,7 @@ export class ProductsComponent implements OnInit {
   openDialog() {
     // console.log('open dialog clicked')
     const dialogRef = this.dialog.open(ProductDialogComponent, {  height: 'auto', disableClose: true })
-      .afterClosed().subscribe(result => { this.ngOnInit() });
+      .afterClosed().subscribe((result:any) => { this.ngOnInit(), window.location.reload(); });
   }
   openUpdateProduct(productId: any) {
     const dialogRef = this.dialog.open(UpdateProductComponent, {
