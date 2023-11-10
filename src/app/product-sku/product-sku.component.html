@@ -2,12 +2,12 @@
 
 <body>
     <button mat-raised-button color="" mat-dialog-close id="crossbtn">X</button>
-    <h1 mat-dialog-title style="margin-left: 430px;font-weight: bolder;font-family: initial;">Add New ProductSKu</h1>
+    <h1 mat-dialog-title>Add New ProductSKu</h1>
     <div mat-dialog-content class="dialog-content" id="form">
         <form [formGroup]="AddproductSkuform">
-            <div>
+            <div class="container">
                 <div>
-                    <mat-form-field class="catalogName" [ngStyle]="getInputStyles()">
+                    <mat-form-field class="catalogName" [ngStyle]="getInputStyles()" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">price </mat-label>
                         <input matInput formControlName="price" [(ngModel)]="productSku.price"
                             [ngStyle]="getInputStyles()">
@@ -16,14 +16,14 @@
                     </mat-form-field>
 
 
-                    <mat-form-field class="catalogDesc">
+                    <mat-form-field class="catalogDesc" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">Skucode</mat-label>
                         <input matInput formControlName="productSkuCd" [(ngModel)]="productSku.productSkuCd">
                         <div *ngIf="submitted && AddproductSkuform.get('productSkuCd').invalid">
                         </div>
                     </mat-form-field>
 
-                    <mat-form-field class="mobileNo">
+                    <mat-form-field class="mobileNo" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">count</mat-label>
                         <input matInput formControlName="count" [(ngModel)]="productSku.count">
                         <div *ngIf="submitted && AddproductSkuform.get('count').invalid">
@@ -31,7 +31,7 @@
                     </mat-form-field>
 
 
-                    <mat-form-field class="pincode">
+                    <mat-form-field class="pincode" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">Discount</mat-label>
                         <input matInput formControlName="Discount" [(ngModel)]="productSku.discount">
                         <div *ngIf="submitted && AddproductSkuform.get('Discount').invalid">
@@ -39,13 +39,13 @@
                     </mat-form-field>
                 </div>
                 <div>
-                    <mat-form-field class="area">
+                    <mat-form-field class="area" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">Description</mat-label>
                         <input matInput formControlName="skuDescription" [(ngModel)]="productSku.skuDescription">
                         <div *ngIf="submitted && AddproductSkuform.get('skuDescription').invalid">
                         </div>
                     </mat-form-field>
-                    <mat-form-field class="city">
+                    <mat-form-field class="city" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">barcode</mat-label>
                         <input matInput formControlName="barcode" [(ngModel)]="productSku.barCode">
                         <div *ngIf="submitted && AddproductSkuform.get('barcode').invalid">
@@ -53,13 +53,13 @@
                     </mat-form-field>
 
 
-                    <mat-form-field class="state">
+                    <mat-form-field class="state" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">selfLocCd</mat-label>
                         <input matInput formControlName="selfLocCd" [(ngModel)]="productSku.selfLocCd">
                         <div *ngIf="submitted && AddproductSkuform.get('selfLocCd').invalid">
                         </div>
                     </mat-form-field>
-                    <mat-form-field class="state" style="cursor: not-allowed;">
+                    <mat-form-field class="state" style="cursor: not-allowed;" class="col-2">
                         <mat-label [ngStyle]="getInputStyles()">productId</mat-label>
                         <input matInput formControlName="productId" placeholder="{{productSku.productId}}"
                             [(ngModel)]="productSku.productId" readonly>
@@ -82,7 +82,7 @@
                 </div>
 
 
-                <div class="col-3" id="selectoptions">
+                <div class="col-2" id="selectoptions">
                     <div formArrayName="options">
                         <label
                             style="font-weight: bolder;font-size: 21px;font-family: initial;font-weight: bolder;">Select
@@ -119,7 +119,7 @@
                             </mat-form-field>
                             <span *ngIf="selectedOptionValue" class="clear-icon" (click)="clearSelection()">clear</span>
                             <div *ngIf="note" style="font-size: 12px; color:indigo">
-                                <p>Note:{{note}}</p>
+                                <p id="note"><label style="color: red;font-size: 18px;" >Note:</label>{{note}}</p>
                             </div>
                             <div *ngIf="errormsg" style="color: red;">
                                 <p>{{ errormsg }}</p>
@@ -158,7 +158,7 @@
 
                 </div>
             </div>
-            <div mat-dialog-action [align]="'center'">
+            <div mat-dialog-action [align]="'center'" id="submtbtns">
 
                 <button style="margin-left:10px" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
                 <button mat-raised-button color="warn" mat-dialog-close style="margin-left: 20px;">Cancel</button>

@@ -191,6 +191,7 @@ export class ProductSkuComponent implements OnInit {
 
     if (this.AddproductSkuform.valid && this.productOptionsdata.length == this.options.length) {
       this.saveProductSku()
+      this.dialogRef.close();
     }
     // setTimeout(() => {
     //   this.AddproductSkuform.reset();
