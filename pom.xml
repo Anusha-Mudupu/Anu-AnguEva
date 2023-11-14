@@ -8,7 +8,7 @@
     <version>1.0</version>
 
     <build>
-        <directory>./deploy/dev</directory>
+        <directory>./dist/admin-app/</directory>
         <finalName>${project.artifactId}</finalName>
         <defaultGoal>install</defaultGoal>
         <!-- Source directory configuration -->
@@ -22,7 +22,7 @@
                     <webXml>./WEB-INF/web.xml</webXml>
                     <webResources>
                         <resource>
-                            <directory>./deploy/dev/</directory>
+                            <directory>./dist/admin-app/</directory>
                         </resource>
                     </webResources>
                 </configuration>
@@ -33,7 +33,7 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>./deploy/dev</directory>
+                            <directory>./dist/admin-app</directory>
                             <includes>
                                 <include>*</include>
                             </includes>
