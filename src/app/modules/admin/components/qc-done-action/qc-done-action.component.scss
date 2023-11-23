@@ -22,7 +22,7 @@
 //   // border:none;
 //    padding: 5px;
 //    margin-left: 30px;
-  
+
 // }
 
 // .custom-table td{
@@ -32,7 +32,7 @@
 
 
 
- 
+
 // }
 // .custom-table th{
 //   font-size: 20px;
@@ -49,8 +49,8 @@
 // #submittedbtns{
 //     margin-top:30px;
 //    margin-left: 500px;
-  
-  
+
+
 // }
 
 // #printbtn{
@@ -95,56 +95,58 @@
 //   position: absolute;
 //    color: red;
 // }
-#form{
-  width:auto;
+#form {
+  width: auto;
   height: 550px;
   overflow-y: auto;
   overflow-x: hidden;
-//  border: ridge 3px;
+  //  border: ridge 3px;
 
 }
 
-#table{
-border: ridge 2px;
-margin-left: 20px;
-margin-right: 20px;
+#table {
+  border: ridge 2px;
+  margin-left: 20px;
+  margin-right: 20px;
 
 }
 
 
-#submittedbtns{
-margin-top:30px;
-margin-left: 400px;
+#submittedbtns {
+  margin-top: 30px;
+  margin-left: 400px;
 }
 
 
 
 .custom-table td,
 .custom-table th {
-// border:none;
-padding: 5px;
-margin-left: 30px;
+  // border:none;
+  padding: 5px;
+  margin-left: 30px;
 
 }
 
-.custom-table td{
-font-size: 20px;
-font-family:initial ;
-padding-left: 70px;
+.custom-table td {
+  font-size: 20px;
+  font-family: initial;
+  padding-left: 70px;
 }
-.custom-table th{
-font-size: 20px;
-font-family:initial ;
-padding-left: 60px;
-border-bottom: 1px solid black;
+
+.custom-table th {
+  font-size: 20px;
+  font-family: initial;
+  padding-left: 60px;
+  border-bottom: 1px solid black;
 
 }
-h1{
-margin-left: 480px;
-color: coral;
-font-weight:bolder;
-font-family: initial;
-font-size: 30px;
+
+h1 {
+  margin-left: 480px;
+  color: coral;
+  font-weight: bolder;
+  font-family: initial;
+  font-size: 30px;
 }
 
 // #printbtn{
@@ -160,109 +162,116 @@ font-size: 30px;
 
 
 
-#crossbtn{
-margin-left: 1040px;
-margin-top: -60px;
-color: red;
-border: solid black 1px;
-padding: 5px;
-position: sticky;
-position: absolute;
- font-size: 20px;
+#crossbtn {
+  margin-left: 1040px;
+  margin-top: -60px;
+  color: red;
+  border: solid black 1px;
+  padding: 5px;
+  position: sticky;
+  position: absolute;
+  font-size: 20px;
 
 }
-#checkbox{
+
+#checkbox {
   margin-left: -30px;
   display: inline-flex;
 }
-body{
-  background-color:var(--toast-background);
-  color:var(--toast-text);
+
+body {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
 }
+
 ::ng-deep .mat-dialog-container {
   background-color: var(--toast-background); // Use your custom color here
   color: var(--toast-text); // Use your custom text color here
 }
-@media screen and (min-width:360px) and (max-width:1400px) {
-#form{
-width:auto;
-height: 500px;
-overflow-y: auto;
-overflow-x: hidden;
 
-//  border: ridge 3px;
+@media only screen and (min-width:768px) and (max-width:1024px) {
+  #form {
+    width: auto;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-}
+    //  border: ridge 3px;
 
-#table{
-border: ridge 2px;
-margin-left: 20px;
-margin-right: 20px;
+  }
 
-}
+  #table {
+    border: ridge 2px;
+    margin-left: 20px;
+    margin-right: 20px;
 
-
-#submittedbtns{
-margin-top:30px;
-margin-left: 350px;
-}
+  }
 
 
-
-.custom-table td,
-.custom-table th {
-// border:none;
-padding: 5px;
-margin-left: 30px;
-
-}
-
-.custom-table td{
-font-size: 20px;
-font-family:initial ;
-padding-left: 70px;
-}
-.custom-table th{
-font-size: 20px;
-font-family:initial ;
-padding-left: 60px;
-border-bottom: 1px solid black;
-
-}
-h1{
-margin-left: 420px;
-color: coral;
-font-weight:bolder;
-font-family: initial;
-font-size: 30px;
-}
-
-// #printbtn{
-//   margin-left: 810px;
-//  margin-top: -10px;
-//   width: 100px;
-//   height: 30px;
-//   color: cadetblue;
-//   margin-top:20px;
-//   position: absolute;
-// }
+  #submittedbtns {
+    margin-top: 30px;
+    margin-left: 350px;
+  }
 
 
 
+  .custom-table td,
+  .custom-table th {
+    // border:none;
+    padding: 5px;
+    margin-left: 30px;
 
-#crossbtn{
-margin-left: 940px;
-margin-top: -60px;
-color: red;
-border: solid black 1px;
-padding: 2px;
-position:sticky;
-position: absolute;
- font-size: 20px;
+  }
 
-}
-#checkbox{
-  margin-left: -50px;
-  display: inline-flex;
-}
+  .custom-table td {
+    font-size: 20px;
+    font-family: initial;
+    padding-left: 70px;
+  }
+
+  .custom-table th {
+    font-size: 20px;
+    font-family: initial;
+    padding-left: 60px;
+    border-bottom: 1px solid black;
+
+  }
+
+  h1 {
+    margin-left: 420px;
+    color: coral;
+    font-weight: bolder;
+    font-family: initial;
+    font-size: 30px;
+  }
+
+  // #printbtn{
+  //   margin-left: 810px;
+  //  margin-top: -10px;
+  //   width: 100px;
+  //   height: 30px;
+  //   color: cadetblue;
+  //   margin-top:20px;
+  //   position: absolute;
+  // }
+
+
+
+
+  #crossbtn {
+    margin-left: 940px;
+    margin-top: -60px;
+    color: red;
+    border: solid black 1px;
+    padding: 2px;
+    position: sticky;
+    position: absolute;
+    font-size: 20px;
+
+  }
+
+  #checkbox {
+    margin-left: -50px;
+    display: inline-flex;
+  }
 }
