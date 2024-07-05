@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: '**', component:PageNotFoundComponent}
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     useHash: true,
@@ -29,8 +30,9 @@ const routes: Routes = [
     scrollPositionRestoration: 'enabled',
     anchorScrolling: 'enabled',
     scrollOffset: [0, 64],
-    relativeLinkResolution: 'corrected'
+    // relativeLinkResolution: 'corrected'
   })],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule { }
