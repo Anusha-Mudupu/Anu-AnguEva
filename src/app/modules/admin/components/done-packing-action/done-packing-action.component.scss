@@ -22,13 +22,13 @@
 //     font-weight: bold;
 //     margin-left: 18px;
 //     margin-top: 20px;
-  
+
 // }
 // #submittedbtns{
 //       margin-top:250px;
 //     margin-left: 560px;
-   
-   
+
+
 // }
 // #dropdown{
 //   margin-top: 20px;
@@ -97,7 +97,7 @@
 //     position: absolute;
 //     margin-left: 160px;
 //   }
-  
+
 //   #sbmtbtn{
 //     margin-top: 200px;
 //     margin-left: 300px;
@@ -122,79 +122,90 @@
  *   All rights reserved.
  */
 
- #form{
+#form {
   width: 1000px;
-   height:580px;
-   border: ridge 3px;
-   overflow: hidden;
+  height: 580px;
+  border: ridge 3px;
+  overflow: hidden;
 }
-.card1{
+
+.card1 {
   height: 200px;
   margin-top: 10px;
 
-  
+
 }
-.card-body1{
+
+.card-body1 {
   display: inline-flex;
 
   // margin-top: 50px;
 }
-.lables{
+
+.lables {
   font-size: 15px;
   font-weight: bold;
   margin-left: 18px;
   margin-top: 20px;
 
 }
-#submittedbtns{
-    margin-top:280px;
+
+#submittedbtns {
+  margin-top: 280px;
   margin-left: 360px;
- 
- 
+
+
 }
 
 
-#printbtn1{
+#printbtn1 {
   // margin-left: 990px;
   width: 100px;
   height: 30px;
-color: black;
+  color: black;
   // margin-top: -200px;
+  background-color: #FF8C00;
 }
-.printbtn2{
+
+.printbtn2 {
   // margin-left: 1100px;
   width: 130px;
   height: 30px;
-  color:black;
-   margin-top: 10px;
-   margin-left: -10px;
-   position: relative;
+  color: black;
+  margin-top: 10px;
+  margin-left: -10px;
+  position: relative;
+  background-color: #FF8C00;
 }
-#printbtns{
+
+#printbtns {
   margin-left: 800px;
   margin-top: 40px;
   position: absolute;
 }
 
-p{
+p {
   margin-top: -20px;
- margin-left: 400px;
- font-size: 18px;
- font-family: initial;
+  margin-left: 400px;
+  font-size: 18px;
+  font-family: initial;
 }
-b{
+
+b {
   // font-size: 20px;
   margin-left: 200px;
   font-family: initial;
 }
-#addrress{
+
+#addrress {
   margin-left: 200px;
   font-family: initial;
   font-weight: bold;
 }
-#headding{
+
+#headding {
   margin-left: 460px;
-  color:coral
+  color: coral
 }
 
 
@@ -204,133 +215,146 @@ b{
 }
 
 
-#printbtn{
+#printbtn {
   margin-left: 1000px;
   width: 100px;
   height: 30px;
   color: cadetblue;
-  margin-top:100px;
+  margin-top: 100px;
   position: absolute;
 }
 
 
-#crossbtn{
+#crossbtn {
   margin-left: 995px;
   margin-top: -68px;
   position: absolute;
-   color: red;
-   border: solid black 1px;
-   padding: 5px;
+  color: red;
+  border: solid black 1px;
+  padding: 5px;
 
 }
 
-body{
-  background-color:var(--toast-background);
-  color:var(--toast-text);
+body {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
 }
+
 ::ng-deep .mat-dialog-container {
   background-color: var(--toast-background); // Use your custom color here
   color: var(--toast-text); // Use your custom text color here
 }
-@media screen and (min-width:360px) and (max-width:1360px){
-  #form{
+
+@media only screen and (min-width:768px) and (max-width:1024px) {
+  #form {
     width: 900px;
-    height:555px;
-     border: ridge 3px;
-     overflow: hidden;
-}
-.card1{
+    height: 555px;
+    border: ridge 3px;
+    overflow: hidden;
+  }
+
+  .card1 {
     height: 200px;
     margin-top: -10px;
-}
-.card-body1{
+  }
+
+  .card-body1 {
     display: inline-flex;
 
     // margin-top: 50px;
-}
-.lables{
+  }
+
+  .lables {
     font-size: 15px;
     font-weight: bold;
     margin-left: 18px;
     margin-top: 20px;
-  
-}
-#submittedbtns{
-      margin-top:280px;
+
+  }
+
+  #submittedbtns {
+    margin-top: 280px;
     margin-left: 330px;
-   
-   
-}
 
 
-#printbtn1{
+  }
+
+
+  #printbtn1 {
     // margin-left: 990px;
     width: 100px;
     height: 30px;
-  color: black;
+    color: black;
+    background-color: #FF8C00;
     // margin-top: -200px;
-}
-.printbtn2{
+  }
+
+  .printbtn2 {
     // margin-left: 1100px;
     width: 130px;
     height: 30px;
-    color:black;
-     margin-top: 10px;
-     margin-left: -10px;
-     position: relative;
-}
-#printbtns{
+    color: black;
+    margin-top: 10px;
+    margin-left: -10px;
+    position: relative;
+    background-color: #FF8C00;
+  }
+
+  #printbtns {
     margin-left: 700px;
     margin-top: 40px;
     position: absolute;
-}
+  }
 
-p{
+  p {
     margin-top: -20px;
-   margin-left: 400px;
-   font-size: 18px;
-   font-family: initial;
-}
-b{
+    margin-left: 400px;
+    font-size: 18px;
+    font-family: initial;
+  }
+
+  b {
     // font-size: 20px;
     margin-left: 200px;
     font-family: initial;
-}
-#addrress{
+  }
+
+  #addrress {
     margin-left: 200px;
     font-family: initial;
     font-weight: bold;
-}
-#headding{
+  }
+
+  #headding {
     margin-left: 340px;
-    color:coral
-}
+    color: coral
+  }
 
 
-.hide-input-border {
+  .hide-input-border {
     border: none;
     outline: none;
   }
 
 
-  #printbtn{
+  #printbtn {
     margin-left: 1000px;
     width: 100px;
     height: 30px;
     color: cadetblue;
-    margin-top:100px;
+    margin-top: 100px;
     position: absolute;
   }
 
 
- #crossbtn{
+  #crossbtn {
     margin-left: 895px;
     margin-top: -68px;
     position: absolute;
-     color: red;
-     border: solid black 1px;
-     padding: 5px;
+    color: red;
+    border: solid black 1px;
+    padding: 5px;
 
   }
-  
+
 }

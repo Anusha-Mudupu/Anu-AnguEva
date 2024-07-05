@@ -24,13 +24,13 @@
 //     font-weight: bold;
 //     margin-left: 18px;
 //     margin-top: 20px;
-  
+
 // }
 // #submittedbtns{
 //       margin-top:250px;
 //     margin-left: 550px;
-   
-   
+
+
 // }
 // #dropdown{
 //   margin-top: 20px;
@@ -103,7 +103,7 @@
 //     position: absolute;
 //     margin-left: 160px;
 //   }
-  
+
 //   #sbmtbtn{
 //     margin-top: 200px;
 //     margin-left: 300px;
@@ -159,6 +159,7 @@
   width: 100px;
   height: 30px;
   color: black;
+  background-color: #FF8C00;
   // margin-top: -200px;
 }
 
@@ -170,6 +171,7 @@
   margin-top: 10px;
   margin-left: -20px;
   position: relative;
+  background-color: #FF8C00;
 }
 
 #printbtns {
@@ -228,21 +230,24 @@ b {
   padding: 5px;
 
 }
-#scanner{
-    margin-left: 630px;
-    margin-top: -10px;
-    position: absolute;
+
+#scanner {
+  margin-left: 630px;
+  margin-top: -10px;
+  position: absolute;
 }
-body{
-  background-color:var(--toast-background);
-  color:var(--toast-text);
+
+body {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
 }
+
 ::ng-deep .mat-dialog-container {
   background-color: var(--toast-background); // Use your custom color here
   color: var(--toast-text); // Use your custom text color here
 }
 
-@media screen and (min-width:360px) and (max-width:1360px) {
+@media only screen and (min-width:768px) and (max-width:1024px) {
   #form {
     width: 900px;
     height: 560px;
@@ -282,6 +287,7 @@ body{
     width: 100px;
     height: 30px;
     color: black;
+    background-color: #FF8C00;
     // margin-top: -200px;
   }
 
@@ -293,6 +299,7 @@ body{
     margin-top: 10px;
     margin-left: -20px;
     position: relative;
+    background-color: #FF8C00;
   }
 
   #printbtns {
@@ -352,9 +359,9 @@ body{
 
   }
 
-  #scanner{
+  #scanner {
     margin-left: 630px;
     margin-top: -10px;
     position: absolute;
-}
+  }
 }
