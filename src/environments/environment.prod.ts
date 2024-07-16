@@ -47,5 +47,6 @@ export const environment = {
   getAllGStcodes: ' http://103.12.1.167:30163/getAllGstCode',
   addProductSku: "http://103.12.1.167:30163/addproductsku",
   addProductSkuImage: "http://103.12.1.167:30163/addImages",
-  addimagetoPsku: 'http://103.12.1.167:30163/api/file/upload/'
+  // addimagetoPsku: 'http://103.12.1.167:30163/api/file/upload/'
+  addimagetoPsku:'http://localhost:8085/api/strapi/upload?skuId='
 };
