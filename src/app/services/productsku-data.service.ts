@@ -260,22 +260,5 @@ export class ProductSkuDataService {
     getAllStarpiImages(){
       return this.httpclient.get(environment.getAllStrapiImages)
     }
-    getImageUrls():any {
-      return this.httpclient.get<any>(environment.getAllStrapiImages).pipe(
-        map((images:any) => {
-          const urls: any[] = [];
-          images.forEach((image:any) => {
-            urls.push(image.url);
-            if (image.formats) {
-              Object.values(image.formats).forEach((format:any) => {
-                if (format?.url) {
-                  urls.push(format.url);
-                }
-              });
-            }
-          });
-          return urls;
-        })
-      );
-    }
+   
 }

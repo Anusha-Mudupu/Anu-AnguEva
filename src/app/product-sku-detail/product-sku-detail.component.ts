@@ -14,11 +14,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { SelectGstComponent } from '../select-gst/select-gst.component';
 import { AddNewOptionComponent } from '../modules/admin/components/add-new-option/add-new-option.component';
 
-
 @Component({
   selector: 'app-product-sku-detail',
   templateUrl: './product-sku-detail.component.html',
-  styleUrls: ['./product-sku-detail.component.scss']
+  styleUrls: ['./product-sku-detail.component.scss'],
+ 
 })
 export class ProductSkuDetailComponent implements OnInit {
   // productSku: ProductSku = new ProductSku()
@@ -216,7 +216,12 @@ export class ProductSkuDetailComponent implements OnInit {
     this.router.navigate(['/admin/select-gst', this.id])
   }
 
-
+  // showSuccess() {
+  //   this.toastService.success(' Lead Created Successfully');
+  // }
+  // showError() {
+  //   this.toastService.error('Something is Wrong')
+  // }
 
 }
 
