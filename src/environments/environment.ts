@@ -49,7 +49,8 @@ getAllGStcodes:' http://localhost:8085/getAllGstCode',
 addProductSku : "http://localhost:8085/addproductsku",
  addProductSkuImage : "http://localhost:8085/addImages",
 //  addimagetoPsku:'http://localhost:8085/api/file/upload/'
- addimagetoPsku:'http://localhost:8085/api/strapi/upload?skuId='
+ addimagetoPsku:'http://localhost:8085/api/strapi/upload?skuId=',
+ getAllStrapiImages:'http://localhost:8085/api/strapi/getImages'
 };
 
 

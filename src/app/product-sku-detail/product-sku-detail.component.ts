@@ -40,7 +40,9 @@ export class ProductSkuDetailComponent implements OnInit {
   Updateform: any;
   loading: boolean = false;
   productId: any;
-  status:any;
+  allStarpiImages: any
+  status: any;
+  commonImages: any;
   constructor(private domSanitizer: DomSanitizer, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private productskuservice: ProductSkuServiceService, private productSkuDataservice: ProductSkuDataService, private dialog: MatDialog, private fb: FormBuilder) {
     this.Updateform = this.fb.group({
       productSkuId: new FormControl('', Validators.compose([Validators.required])),
@@ -56,6 +58,11 @@ export class ProductSkuDetailComponent implements OnInit {
       selfLocCd: new FormControl('', Validators.compose([Validators.required])),
       gstId: new FormControl(''),
     })
+    this.productSkuDataservice.getAllStarpiImages().subscribe((data: any) => {
+      this.allStarpiImages = data;
+      console.log('allStarpiImages', this.allStarpiImages)
+    });
+
   }
 
   ngOnInit(): void {
@@ -74,7 +81,7 @@ export class ProductSkuDetailComponent implements OnInit {
         console.log('productId', this.productId)
         this.image = this.productSku.image;
         this.OptionsData = this.productSku.option;
-        this.status=this.productSku.status;
+        this.status = this.productSku.status;
         console.log('status', this.status);
         console.log(this.Gstcode)
         console.log(this.image)
@@ -96,12 +103,22 @@ export class ProductSkuDetailComponent implements OnInit {
   }
 
 
+  getimages(img: any) {
+    if (this.allStarpiImages) {
+      const skuimg = this.allStarpiImages.find(
+        (constant: any) => constant.id === img
+      );
+
+      return skuimg ? skuimg.url : '';
+    }
+    return '';
+  }
   saveUpdateProductSku() {
 
     this.productSkuDataservice.upDateProductSkuById(this.id, this.Updateform.value).subscribe(data => {
       console.log(data);
-       alert('successfully updated');
-     
+      alert('successfully updated');
+
     }, errormsg => {
       alert('Something Went wrong');
     }

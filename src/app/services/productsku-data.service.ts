@@ -4,7 +4,7 @@
  */
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, retry, throwError } from 'rxjs';
+import { Observable, catchError, map, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import {  OrderDetails, ProductSku, option} from '../data/data-objects';
 import { ProductSkudetails } from '../data/productskudetail';
@@ -255,5 +255,27 @@ export class ProductSkuDataService {
     console.log("downloadInvoiceUrl is. ",environment.downloadinvoice+orderId);
     return this.httpclient.get(environment.downloadinvoice+orderId,{responseType: 'blob'});
     }
-  
+
+
+    getAllStarpiImages(){
+      return this.httpclient.get(environment.getAllStrapiImages)
+    }
+    getImageUrls():any {
+      return this.httpclient.get<any>(environment.getAllStrapiImages).pipe(
+        map((images:any) => {
+          const urls: any[] = [];
+          images.forEach((image:any) => {
+            urls.push(image.url);
+            if (image.formats) {
+              Object.values(image.formats).forEach((format:any) => {
+                if (format?.url) {
+                  urls.push(format.url);
+                }
+              });
+            }
+          });
+          return urls;
+        })
+      );
+    }
 }

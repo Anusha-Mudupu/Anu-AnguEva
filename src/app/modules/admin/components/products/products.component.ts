@@ -29,7 +29,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.loading1 = false
+      // this.loading1 = false
     }, 1100);
     // this.loading1=true;
     this.productDataService.getProducts().subscribe((response) => {
@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
 
       console.log(this.data);
       this.dataSource = new MatTableDataSource(this.data);
-      // this.loading1=false;
+       this.loading1=false;
       
     })
     
