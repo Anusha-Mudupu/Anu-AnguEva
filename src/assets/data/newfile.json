@@ -1,0 +1,173 @@
+[{
+    "catalog_nm": "GOLD",
+    "catalog_id": 1,
+    "catalog_desc": "Gold Ornaments ",
+    "catalog_level": 1,
+    "parent_catalog_id": 0,
+    "child_catalog": [
+        {
+            "catalog_nm": "NECKLACES",
+            "catalog_id": 4,
+            "catalog_desc": "GOLD NECKLACES",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "childCatalog": []
+        },
+        {
+            "catalog_nm": "BRACLETS",
+            "catalog_id": 4,
+            "catalog_desc": "GOLD braclets",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "childCatalog": []
+        },
+        {
+                "catalog_nm": "ANKLETS",
+                "catalog_id": 5,
+                "catalog_desc": "Gold Anklets",
+                "catalog_level": 2,
+                "parent_catalog_id": 1,
+                "child_catalog": []
+            
+        },
+        {
+            "catalog_nm": "RINGS",
+            "catalog_id": 6,
+            "catalog_desc": "Gold Rings ",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog": [{
+                "catalog_nm": "EARRINGS",
+                "catalog_id": 7,
+                "catalog_desc": "Gold Earrings",
+                "catalog_level": 3,
+                "parent_catalog_id": 2,
+                "child_catalog": []
+            }]
+        },
+        {
+            "catalog_nm": "BANGLES",
+            "catalog_id": 8,
+            "catalog_desc": "Gold Bangles",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog": [{
+                "catalog_nm": "STONE BANGLES",
+                "catalog_id": 9,
+                "catalog_desc": "Gold Stone Bangles",
+                "catalog_level": 3,
+                "parent_catalog_id": 2,
+                "child_catalog": []
+            }]
+        }
+    ]
+},
+
+{
+    "catalog_nm": "SILVER",
+    "catalog_id": 2,
+    "catalog_desc": "All Silver Items",
+    "catalog_level": 1,
+    "parent_catalog_id": 0,
+    "child_catalog": [{
+            "catalog_nm": "POOJA ITEMS",
+            "catalog_id": 3,
+            "catalog_desc": "All Pooja Items",
+            "catalog_level": 2,
+            "parent_catalog_id": 2,
+            "child_catalog": [{
+                "catalog_nm": "DIYAS",
+                "catalog_id": 4,
+                "catalog_desc": "Silver Diyas",
+                "catalog_level": 3,
+                "parent_catalog_id": 3,
+                "child_catalog": []
+            }]
+        },
+        {
+            "catalog_nm": "DINNER SETS",
+            "catalog_id": 5,
+            "catalog_desc": "All Dinner Sets ",
+            "catalog_level": 2,
+            "parent_catalog_id": 2,
+            "child_catalog": [{
+                "catalog_nm": "PLATES",
+                "catalog_id": 6,
+                "catalog_desc": "All Silver Plates",
+                "catalog_level": 3,
+                "parent_catalog_id": 5,
+                "child_catalog": []
+            }]
+
+        },
+        {
+            "catalog_nm": "MOMENTOES",
+            "catalog_id": 7,
+            "catalog_desc": "All Silver Momentoe ",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog": [{
+                "catalog_nm": "SPORTS",
+                "catalog_id": 8,
+                "catalog_desc": "All Silver Sports",
+                "catalog_level": 3,
+                "parent_catalog_id": 7,
+                "child_catalog": []
+            }]
+        }
+    ]
+},
+{
+    "catalog_nm": "DIAMONDS",
+    "catalog_id": 3,
+    "catalog_desc": "All Diamond Items",
+    "catalog_level": 1,
+    "parent_catalog_id": 0,
+    "child_catalog": [{
+            "catalog_nm": "WATCH",
+            "catalog_id": 4,
+            "catalog_desc": "All Diamond Watches",
+            "catalog_level": 2,
+            "parent_catalog_id": 3,
+            "child_catalog": [{
+                "catalog_nm": "CHAIN WATCHES",
+                "catalog_id": 5,
+                "catalog_desc": "All Chain Watches",
+                "catalog_level": 3,
+                "parent_catalog_id": 4,
+                "child_catalog": []
+            }]
+        },
+        {
+            "catalog_nm": "DIAMOND RINGS",
+            "catalog_id": 6,
+            "catalog_desc": "All Diamond Rings",
+            "catalog_level": 2,
+            "parent_catalog_id": 3,
+            "child_catalog": [{
+                "catalog_nm": "PEARLS",
+                "catalog_id": 7,
+                "catalog_desc": "PEARL STONE",
+                "catalog_level": 3,
+                "parent_catalog_id": 6,
+                "child_catalog": []
+            }]
+        },
+        {
+            "catalog_nm": "DIAMOND NECKLACE",
+            "catalog_id": 8,
+            "catalog_desc": "All Diamond Necklace",
+            "catalog_level": 2,
+            "parent_catalog_id": 3,
+            "child_catalog": [{
+                "catalog_nm": "UNCUT NECKLACE",
+                "catalog_id": 9,
+                "catalog_desc": "All Uncut Necklace",
+                "catalog_level": 3,
+                "parent_catalog_id": 8,
+                "child_catalog": []
+            }]
+        }
+    ]
+}
+]

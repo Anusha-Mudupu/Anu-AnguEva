@@ -1,0 +1,103 @@
+{
+    "deals": [
+        {
+            "skuId": 1,
+            "productName": "Mens Checkered Casual Spread Shirt",
+            "imageUrl": "https://bit.ly/2Szb3od",
+            "price": 850,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 2,
+            "productName": "Neeta Creations Green Rayon A-line Kurti",
+            "imageUrl": "https://n1.sdlcdn.com/imgs/i/z/i/Neeta-Creations-Green-Rayon-A-SDL015151165-1-09174.jpg",
+            "price": 750,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 3,
+            "productName": "Veirdo 100 Percent Cotton White Printed T-Shirt",
+            "imageUrl": "https://n1.sdlcdn.com/imgs/j/o/r/Veirdo-100-Percent-Cotton-White-SDL826952643-1-640bf.jpeg",
+            "price": 900,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 4,
+            "productName": "HMTe HM-9072 Metal Analog Men's Watch",
+            "imageUrl": "https://n4.sdlcdn.com/imgs/i/z/i/HMTe-HM-9072-Metal-Analog-SDL494827480-1-db8fc.jpg",
+            "price": 500,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 5,
+            "productName": " Trishul Damru Locket With Puchmukhi Rudraksha",
+            "imageUrl": "https://n1.sdlcdn.com/imgs/i/n/r/bhawna-collection-Loard-Shiv-Trishul-SDL890408077-1-86933.jpeg",
+            "price": 600,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 6,
+            "productName": "Faux Leather Beige Casual Regular Wallet",
+            "imageUrl": "https://n1.sdlcdn.com/imgs/i/3/9/DARK-ROMANCE-Faux-Leather-Beige-SDL899800683-1-500e3.jpeg",
+            "price": 780,
+            "avgCustomerRating": 3
+            
+        },
+        {
+            "skuId": 7,
+            "productName": " White Dial Tan Brown PU Strap Men's Watch",
+            "imageUrl": "https://n3.sdlcdn.com/imgs/j/p/k/David-Miller-White-Dial-Tan-SDL580697508-1-fe766.jpg",
+            "price": 1000,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 8,
+            "productName": "Veirdo 100 Percent Cotton Green Color Block T-Shirt",
+            "imageUrl": "https://n4.sdlcdn.com/imgs/j/o/r/Veirdo-100-Percent-Cotton-Green-SDL302182620-1-1ba35.jpeg",
+            "price": 250,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 9,
+            "productName": "Sir Corbett Lifestyle Tan Casual Shoes",
+            "imageUrl": "https://n1.sdlcdn.com/imgs/j/o/r/Sir-Corbett-Lifestyle-Tan-Casual-SDL599893886-1-e2c83.jpeg",
+            "price": 400,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 10,
+            "productName": "Sherine White Georgette Saree",
+            "imageUrl": "https://n3.sdlcdn.com/imgs/j/q/i/Sherine-White-Georgette-Saree-SDL556766569-1-f7a1b.jpg",
+            "price": 900,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 11,
+            "productName": "OM Trishul Damroo Designer Leather Kada Bracelet for Men & Women",
+            "imageUrl": "https://n2.sdlcdn.com/imgs/j/l/g/PK-Retailers-Rudraksha-OM-Trishul-SDL363661170-1-10537.jpeg",
+            "price": 550,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 12,
+            "productName": "ASIAN Brown Daily Slippers",
+            "imageUrl": "https://n3.sdlcdn.com/imgs/h/9/p/ASIAN-Brown-Daily-Slippers-SDL314442362-1-2b8a9.jpg",
+            "price": 890,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 13,
+            "productName": "Resistance Tube Toning Home gym equipment",
+            "imageUrl": "https://n1.sdlcdn.com/imgs/j/o/k/Resistance-Tube-Toning-Home-gym-SDL166425419-1-971b0.jpeg",
+            "price": 670,
+            "avgCustomerRating": 3
+        },
+        {
+            "skuId": 14,
+            "productName": "Sherine Black,Pink Printed Saree (Fabric- Poly Georgette)",
+            "imageUrl": "https://n2.sdlcdn.com/imgs/j/o/8/Sherine-Black-Pink-Printed-Saree-SDL062712840-1-ea3de.jpeg",
+            "price": 800,
+            "avgCustomerRating": 3
+        }
+    ]
+}

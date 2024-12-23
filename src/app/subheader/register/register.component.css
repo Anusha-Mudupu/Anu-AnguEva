@@ -1,0 +1,329 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+ .otp-box{
+  width: 600px;
+ }
+
+#Option {
+  position: relative;
+  top: 50px;
+  left: 20px;
+  cursor: pointer;
+}
+
+select {
+  cursor: pointer;
+}
+
+.form-group {
+  color: var(--toast-text);
+  background-color: var(--toast-background);
+}
+
+
+
+.underline {
+  color: green;
+  text-decoration: underline;
+  position: relative;
+  margin-left: 40%;
+  margin-top: 110px;
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 50px;
+  color: var(--toast-text);
+  background-color: var(--toast-background);
+}
+
+body {
+  /* background-color: #525252; */
+  color: var(--toast-text);
+  background-color: var(--toast-background);
+}
+
+.form-control {
+  color: var(--toast-text);
+  background-color: var(--toast-background);
+}
+
+.centered-form {
+  margin-top: 10px;
+}
+
+.centered-form .panel {
+  /* background: rgba(255, 255, 255, 0.8); */
+  color: var(--toast-text);
+  background-color: var(--toast-background);
+  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.otp {
+  border: none;
+  height: 311px;
+  /* box-shadow: 0px 5px 20px 0px #d2dae3; */
+  width: 50% !important;
+  margin-left: 300px !important;
+  margin-top: 10%;
+  position: absolute;
+
+}
+
+
+
+.fotp {
+  /* position: relative; */
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.labelForEmailOtp {
+  margin-top: 30px;
+}
+
+h1 {
+  font-size: 18px;
+  text-align: center;
+  color: blue;
+  font-family: emoji;
+  position: relative;
+  top: 60px;
+}
+
+.content {
+  text-align: center;
+}
+
+.field {
+  color: var(--toast-text);
+  background-color: var(--toast-background);
+  margin-left: 32%;
+}
+
+.btn-primary {
+
+  line-height: 23px;
+  font-family: monospace;
+  border-style: inset;
+  width: 100px;
+  background: rgb(90, 182, 18);
+  border-radius: 10px;
+  margin-left: 41%;
+  color: black;
+}
+
+.success1 {
+
+  top: -31px;
+  margin-left: 41%;
+  color: red;
+  font-size: 13px;
+  position: relative;
+}
+
+.success {
+
+  text-align: center;
+  color: rgb(15, 167, 15);
+  font-size: 17px;
+}
+
+.successful {
+  border: none;
+  height: 123px;
+  box-shadow: 0px 5px 20px 0px #d2dae3;
+  width: 41%;
+  margin-left: 33%;
+  margin-top: 8%;
+}
+
+h2 {
+  font-size: 28px;
+  text-align: center;
+  /* color:#2F4F4F; */
+  color: var(--register-text);
+  font-family: emoji;
+  font-weight: bold;
+}
+
+.btn-info {
+
+  line-height: 23px;
+  font-family: monospace;
+  border-style: inset;
+  width: 100px;
+  background: #9dd53a;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #9dd53a 0%, #a1d54f 50%, #80c217 51%, #7cbc0a 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #9dd53a 0%, #a1d54f 50%, #80c217 51%, #7cbc0a 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #9dd53a 0%, #a1d54f 50%, #80c217 51%, #7cbc0a 100%);
+  border-radius: 10px;
+  margin-left: 41%;
+  color: black;
+  margin-top: 12px;
+}
+
+.star {
+  color: rgb(188, 68, 66);
+}
+
+.recaptcha {
+  margin-left: 11px;
+  margin-bottom: 14px;
+}
+
+.captcha {
+  margin-left: 38%;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 360px) {
+  .recaptcha {
+
+    margin-left: -9px;
+    /* width: 29%; */
+    margin-bottom: 20px;
+  }
+
+}
+
+@media (min-width:360px) and (max-width: 768px) {
+  /* #emailOtp {
+    width: 150px;
+    left: -10px;
+    margin-left: 10px;
+    border: 1px solid black;
+  } */
+
+  /* #mobileOtp {
+    width: 150px;
+    left: -10px;
+    margin-left: 10px;
+  } */
+
+  /* .otp-button {
+    margin-left: 50px;
+    margin-top: 10px;
+    position: relative;
+    width: 30px !important;
+  } */
+  
+  .otp {
+    border: none;
+    height: 380px;
+    /* box-shadow: 0px 5px 20px 0px #d2dae3; */
+    width: 100%;
+    margin-left: 5% !important;
+    margin-top: 10%;
+
+  }
+
+  .time {
+   
+
+    margin-top: 30px;
+    color:red;
+    margin-left: 20px;
+  
+  }
+
+  .underline {
+
+    color: green;
+    text-decoration: underline;
+    position: relative;
+    left: -10px;
+
+    margin-top: 110px;
+    cursor: pointer;
+
+  }
+
+  select {
+
+    border: 1px solid black;
+
+  }
+
+}
+
+@media screen and(min-width:768px) and(max-width:1200px) {
+  #emailOtp {
+    border: 1px solid black;
+  }
+
+  #mobileOtp {
+    border: 1px solid black;
+  }
+
+  select {
+
+    border: 1px solid black;
+
+  }
+  .otp-button {
+    position: relative;
+    margin-left: -3px;
+  }
+
+  select {
+
+    border: 1px solid black;
+
+  }
+}
+
+
+
+@media (min-width:820px) {
+  #emailOtp {
+    border: 1px solid black;
+  }
+
+  #mobileOtp {
+    border: 1px solid black;
+  }
+
+  .time {
+    position: relative;
+
+    margin-top: 20px;
+    color:red;
+    margin-left: 20px;
+   
+  }
+  .otp {
+    border: none;
+    height: 311px;
+    /* box-shadow: 0px 5px 20px 0px #d2dae3; */
+    width: 41%;
+    margin-left: 10% !important;
+    margin-top: 10%;
+  
+  }
+
+  select {
+
+    border: 1px solid black;
+
+  }
+  #emailOtp {
+    border: 1px solid black;
+  }
+
+  #mobileOtp {
+    border: 1px solid black;
+  }
+
+  select {
+
+    border: 1px solid black;
+
+  }
+}
+

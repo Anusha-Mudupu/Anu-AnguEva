@@ -1,0 +1,45 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+ngb-rating {
+    color: orange;
+    font-size: large;
+}
+
+
+
+
+.review-block {
+    font-size: 12px;
+    text-align: justify;
+}
+
+.review-block-date {
+    font-size: 10px;
+}
+
+.review-block-name>a {
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+   
+}
+
+.review-block-user {
+    font-size: 18px;
+    color: grey;
+}
+.loader {
+	margin: auto;
+			border: 5px solid #EAF0F6;
+			border-radius: 50%;
+			border-top:5px solid lightslategrey;
+			width: 60px;
+			height: 60px;
+			animation: spinner 1s linear infinite;
+  }
+  
+  @keyframes spinner {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,73 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+.heading{
+    margin-left: 40%;
+    color: green;
+    font-family: emoji;
+}
+.para{
+    margin-left: 26%;
+    margin-bottom: 23%;
+    margin-top: 2%;
+    font-size: 20px;
+}
+.para1{
+    margin-top: -22%;
+    margin-left: 27%;
+    font-size: 21px;
+}
+.customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+    margin-left: 35%;
+  }
+  
+  .customers td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .customers tr:hover {background-color: #ddd;}
+  
+  .customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  @media (min-width:360px) and (max-width: 768px) {
+    .heading{
+        margin-left: 28%;
+        color: green;
+        font-family: emoji;
+    }
+    .para{
+        margin-left: 3%;
+        margin-bottom: 23%;
+        margin-top: 2%;
+        font-size: 20px;
+        text-align: center;
+    }
+    .para1{
+        margin-top: -22%;
+        margin-left: 3%;
+        font-size: 21px;
+        text-align: center;
+    }
+    .customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 70%;
+        margin-left: 15%;
+      }
+
+  }
+  

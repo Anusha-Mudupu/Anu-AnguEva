@@ -1,0 +1,104 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+zz
+#social-media
+{
+	
+    padding: 0 0;
+    margin-top: 28px;
+	color: var(--toast-text);
+}
+#social-media p
+{
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 30px;
+	color: var(--toast-text);
+}
+
+.social-icon img
+{
+	width: 60px;
+	transition: 0.5s;
+}
+.social-icon a:hover img
+{
+	transform: translateY(-10px);
+
+}
+
+#footer
+{
+	background-image: linear-gradient(to right, #929284,  rgba(700,0,0,0)) ;
+    color: #fff;
+    margin-top: 10px;
+	color: var(--toast-text);
+}
+.footer-img
+{
+	width: 100%;
+}
+.footer-box
+{
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.footer-box img
+{
+	width: 120px;
+	margin-bottom: 20px;
+}
+
+#footer p
+{
+	color: black;
+	color: var(--toast-text);
+}
+.footer-box .fa
+{
+	margin-right: 8px;
+	font-weight: 25px;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	padding: 7px;
+	border-radius: 2px;
+	background-image: linear-gradient(to right, #929284,  rgba(700,0,0,0)) ;
+	color: var(--toast-text);
+
+}
+
+.footer-box .form-control
+{
+	box-shadow: none !important;
+	border: none;
+	border-radius: 22px;
+	margin-top: 25px;
+	max-width: 250px;
+	color: var(--toast-text);
+    background-color: var(--toast-background); 
+}
+
+.footer-box .btn-primary
+{
+	box-shadow: none !important;
+	border: none;
+	border-radius: 20px;
+	margin-top: 30px;
+	background-image: linear-gradient(to right,  #929284,  rgba(700,0,0,0));
+	color: var(--toast-text);
+}
+.hr
+{
+	background-color: black;
+}
+.copyrights
+{
+	margin-bottom: 0;
+	padding-bottom:20px;
+	text-align: center;
+}

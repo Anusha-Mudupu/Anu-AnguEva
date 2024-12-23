@@ -1,0 +1,16 @@
+<div class="container1" [ngClass]="{'dark':themeService.isDark}">
+    <div class="container">
+        <div><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> {{'Continue Shopping'| translate}}</a>
+        </div>
+        <div *ngIf="wishlist.length === 0" class="alert alert-info">
+            {{'Please add products in your Favourites list to see them here.'| translate}}
+        </div>
+        <div class="container" *ngIf="wishlist.length > 0">
+            <div class="list-group" *ngFor="let item of wishlist">
+                <app-favorite-item [wishlistItem]="item"></app-favorite-item>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<router-outlet></router-outlet>

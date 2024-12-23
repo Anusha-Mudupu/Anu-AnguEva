@@ -1,0 +1,28 @@
+<!-- <hr> -->
+<div  class="container1 toast1" [ngClass]="{'dark':themeService.isDark}">
+
+    <div  class="row"*ngFor="let d of menuIconsRes" >
+        <div class="col-lg-12 col-md-3 col-sm-3 " >
+            <div *ngIf="!loading" class="product" (click)="getMenuIconDetails(d.catalogId)">
+                <picture>
+
+                    <img *ngIf="!themeService.isDark" src="{{imageBaseUrl}}{{d.imageUrl}}" alt="" />
+                    <img *ngIf="themeService.isDark" src="{{imageBaseUrl}}{{d.imageUrl}}" alt="" />
+                </picture>
+                <div class="detail">
+                    <p>
+                        {{d.iconsName}}
+                    </p>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="loader"></div>
+</div>
+

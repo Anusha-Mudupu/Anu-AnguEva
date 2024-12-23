@@ -1,0 +1,77 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+.form-group.review-text {
+    width: 50%;
+    background-color: var(--toast-background);
+    color: var(--toast-text); 
+}
+a.resetButton {
+    margin-left: 20px;
+    cursor: pointer;
+}
+button {
+    border-radius: 15px;
+   
+    margin: 10px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-light {
+    border-color: lightgray;
+}
+
+.btn-default.btn-outline {
+    color: darkgrey
+}
+
+.btn-success.btn-outline:hover,
+.btn-default.btn-outline:hover {
+    color: #fff;
+}
+
+.rating-list {
+    display: inline-block;
+    list-style: none;
+}
+
+
+
+.fa.fa-star-o {
+    cursor: pointer;
+    font-size: large;
+    color: grey;
+    
+    padding: 3px 1px;
+}
+
+.fa.fa-star {
+    cursor: pointer;
+    color: gold;
+    font-size: large;
+    padding: 5px 3px;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+select{
+    background-color: var(--toast-background);
+    color: var(--toast-text); 
+}
+.form-control{
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}

@@ -1,0 +1,379 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+.a-button.a-button-small .a-button-text,
+.a-button.a-button-small .a-button-inner .a-button-text {
+    line-height: 20px;
+    font-size: 11px;
+    padding: 0 6px 0 7px;
+    height: 20px;
+}
+
+.a-button .a-button-text,
+.a-button .a-button-input {
+    outline: 0;
+    color: #111;
+    text-align: center;
+    font-size: 13px;
+    line-height: 29px;
+    display: block;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+    background-color: transparent;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    padding: 0 10px 0 11px;
+}
+
+.a-button.a-button-small .a-button-text,
+.a-button.a-button-small .a-button-inner .a-button-text {
+    line-height: 20px;
+    font-size: 11px;
+    padding: 0 6px 0 7px;
+    height: 20px;
+}
+
+a,
+a:visited,
+a:active,
+a:link {
+    text-decoration: none;
+    color: #007eb9;
+}
+
+.a-button a,
+.a-button:hover a {
+    color: #111;
+    text-decoration: none !important;
+}
+
+.a-row {
+    width: 100%;
+    zoom: 1;
+}
+
+.a-row .a-span6,
+.a-ws .a-row .a-ws-span6 {
+    width: 48.68608%;
+    width: 48.6019%;
+}
+
+div.a-column.a-span-last,
+.a-ws .a-ws-span12 {
+    margin-right: 0;
+    float: right;
+}
+
+.a-span6.a-column.a-span-last {
+    position: absolute;
+    top: 9%;
+    left: 5%;
+}
+
+.a-row.row-of-edit-and-delete-button {
+    position: relative;
+    margin-left: -13px;
+    margin-top: -9px;
+}
+
+.a-column.a-span-last {
+    margin-right: 0;
+    float: right;
+}
+
+.a-row .a-span6,
+.a-ws .a-row .a-ws-span6 {
+    width: 48.68608%;
+    width: 48.6019%;
+}
+
+.a-button {
+    display: inline;
+    zoom: 1;
+    display: inline-block;
+    padding: 0;
+    vertical-align: middle;
+    height: 31px;
+    border: 1px solid;
+    border-color: #bcc1c8 #bababa #adb2bb;
+    text-align: center;
+    overflow: hidden;
+    max-width: 100%;
+    text-decoration: none !important;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* vaibhav */
+h2.a-spacing-base {
+    color: green;
+}
+
+span.highlight {
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+span.highlight1 {
+    font-weight: 600;
+
+}
+
+.a-divider.a-divider-section {
+    margin-top: 40px;
+}
+
+.btn.btn-warning.btn-deliver {
+    background-color: #FB641B;
+    margin-top: 10px;
+    margin-left: -14px;
+    margin-bottom: 23px;
+    outline: none;
+    width: 240px;
+    line-height: 10px;
+    text-align: center;
+}
+
+.btn.btn-warning.btn-deliver:hover {
+    background-color: #3e8e41
+}
+
+
+.btn.btn-primary.btn-edit {
+    margin-right: 10px;
+    outline: none;
+    width: 118px;
+    line-height: 10px;
+
+
+}
+
+.btn.btn-danger {
+    margin-left: -5px;
+    width: 118px;
+
+    line-height: 10px;
+}
+
+label.label-width {
+    width: 250px;
+}
+
+.area {
+    margin-left: 15px;
+}
+
+/* Media qwery for small screen */
+@media screen and (max-width: 768px) {
+    h2.a-spacing-base {
+        font-size: 20px;
+
+    }
+
+    .displayAddressDiv {
+        border-style: inset;
+        width: 325px !important;
+    }
+
+
+}
+
+.container {
+    display: block;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 100%;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+#Newaddress {
+    display: none;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
+    background-color: white;
+    margin-bottom: 15px;
+
+    position: relative;
+    border: 1px solid;
+    padding: -10px;
+    box-shadow: 5px 10px 8px #888888;
+    margin-top: -50px;
+}
+
+.btn.btn-primary.btn-edit {
+    margin-right: 10px;
+
+}
+
+.form-group.width-half {
+    display: inline-block;
+    width: 50%;
+}
+
+/* Media qwery for small screen */
+@media screen and (max-width: 768px) {
+    #Newaddress {
+        width: 80%;
+        margin-left: 35px;
+    }
+
+    .form-group.width-half {
+        display: block;
+        width: 100%;
+    }
+
+    .addressform {
+        margin-left: 20px;
+    }
+
+    span.highlight1 {
+
+        margin-left: 15px !important;
+    }
+
+}
+
+.btn-primary {
+    outline: none !important;
+
+}
+
+.displayAddressDiv {
+
+    width: 400px;
+    border-radius: 10px;
+    margin-top: 22px;
+    margin-left: -16px;
+
+}
+
+.shipping-address {
+    margin-left: 15px;
+}
+
+#backToPrevious {
+    position: relative;
+    margin-left: 10px;
+    width: 80px;
+    height: 35px;
+    top: 40px;
+}
+
+#Deliver_To_This_Address {
+    position: relative;
+    top: 40px;
+    margin-left: 20px;
+}
+
+#back {
+    position: relative;
+    margin-left: 10px;
+    color: aliceblue;
+}
+
+#Add-New-Addredss {
+    color: green;
+
+}
+
+.container1 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+    /* margin-top: 100px; */
+}
+
+.loader {
+    margin: auto;
+    border: 5px solid #EAF0F6;
+    border-radius: 50%;
+    border-top: 5px solid lightslategrey;
+    width: 60px;
+    height: 60px;
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@media (min-width:1024px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      margin-top:-40px;
+    }
+  }
+  @media (min-width:820px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      margin-top:-60px;
+    }
+  }
+  
+  @media (min-width:768px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      margin-top:-10px;
+      
+    }
+  }
+  @media (min-width:1280px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      /* margin-top: 10px; */
+      
+    }
+  }

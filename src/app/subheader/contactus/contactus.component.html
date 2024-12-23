@@ -1,0 +1,228 @@
+<html>
+
+<head>
+    <title>Contact Form Tutorial by Bootstrapious.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        label {
+            color: #333;
+        }
+
+        .btn-send {
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+        }
+
+        .help-block.with-errors {
+            color: #ff5050;
+            margin-top: 5px;
+        }
+
+        .row {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xl-8 offset-xl-2 py-5">
+
+                <h1>
+                </h1>
+
+                <form [formGroup]="contactus" id="contact-form" method="post" action="contact.php" role="form">
+
+                    <div class="messages"></div>
+
+                    <div class="controls">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_need">Select Option*</label>
+                                    <select formControlName="contactType" id="form_need" name="need"
+                                        class="form-control" required="required" data-error="Please specify your need.">
+                                        <option value=""></option>
+                                        <option value="Request quotation">Request quotation</option>
+                                        <option value="Request order status">Request order status</option>
+                                        <option value="Request copy of an invoice">Request copy of an invoice</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div *ngIf="contactus.controls['contactType'].invalid && (contactus.controls['contactType'].dirty || contactus.controls['contactType'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="contactus.controls['contactType'].errors.required">
+                                        Select Option is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_OrderId">Order Id*</label>
+                                    <input formControlName="orderId" id="form_OrderId" type="text" name="Order Id"
+                                        class="form-control" placeholder="Please enter your Order Id*"
+                                        required="required" data-error="Lastname is required." />
+
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div *ngIf="contactus.controls['orderId'].invalid && (contactus.controls['orderId'].dirty || contactus.controls['orderId'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="contactus.controls['orderId'].errors.required">
+                                        order Id is required.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_need">Issue*</label>
+                                    <select formControlName="reasonId" id="form_issue" name="need" class="form-control"
+                                        required="required" data-error="Please specify your Issue">
+                                        <option value=""></option>
+                                        <option value="1">Request quotation</option>
+                                        <option value="2">Request order status</option>
+                                        <option value="3">Request copy of an invoice</option>
+                                        <option value="4">Other</option>
+                                    </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div *ngIf="contactus.controls['reasonId'].invalid && (contactus.controls['reasonId'].dirty || contactus.controls['reasonId'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="contactus.controls['reasonId'].errors.required">
+                                        Issue is required.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label for="form_message">Issue Details*</label>
+                                    <textarea formControlName="reasonDesc" id="form_message" name="message"
+                                        class="form-control" placeholder="Please Specify Your Details*" rows="4"
+                                        required="required" data-error="Please, leave us a message."></textarea>
+
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div *ngIf="contactus.controls['reasonDesc'].invalid && (contactus.controls['reasonDesc'].dirty || contactus.controls['reasonDesc'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="contactus.controls['reasonDesc'].errors.required">
+                                        Issue Details is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_email">Email *</label>
+                                    <input formControlName="userEmailId" id="form_email" type="email" name="email"
+                                        class="form-control" placeholder="Please enter your email *" required="required"
+                                        data-error="Valid email is required.">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div *ngIf="contactus.controls['userEmailId'].invalid && (contactus.controls['userEmailId'].dirty || contactus.controls['userEmailId'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="contactus.controls['userEmailId'].errors.required">
+                                        Email is required.
+                                    </div>
+                                    <small *ngIf="email.errors?.pattern" class="text-danger">Please provide a valid
+                                        email address</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_userPhone">Mobile No*</label>
+                                    <input formControlName="userPhone" id="form_mobile" type="Mobile" name="Mobile"
+                                        class="form-control" placeholder="Please enter your Mobile No. *"
+                                        required="required" data-error="Valid Mobile No. is required.">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div *ngIf="contactus.controls['userPhone'].invalid && (contactus.controls['userPhone'].dirty || contactus.controls['userPhone'].touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="contactus.controls['userPhone'].errors.required">
+                                        Mobile No is required.
+                                    </div>
+                                    <small *ngIf="mobileNo.errors?.pattern" class="text-danger">Please provide a valid
+                                        Mobile number.For ex +919179990513</small>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <form id="mycaptha" (ngSubmit)="submit()">
+                                    <div class="g-recaptcha" data-sitekey="6LfrFKQUAAAAAMzFobDZ7ZWy982lDxeps8cd1I2i">
+                                    </div>
+                                    <button type="button" class="btn btn-success btn-submit" (click)="post()"
+                                        [disabled]="!contactus.valid">SUBMIT</button>
+                                    <input type="Reset" class="btn btn-danger btn-send" value="Reset"
+                                        (click)="resetForm()">
+
+                                </form>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("my_captcha_form").addEventListener("submit", function (evt) {
+            console.log("addeventlistner");
+            var response = grecaptcha.getResponse();
+            if (response.length == 0) {
+                //reCaptcha not verified
+                alert("please verify you are humann!");
+                evt.preventDefault();
+                return false;
+            }
+            //captcha verified
+            //do the rest of your validations here
+
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"
+        integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
+    <script src="contact.js"></script>
+</body>
+
+</html>

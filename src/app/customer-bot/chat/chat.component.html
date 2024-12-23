@@ -1,0 +1,114 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row chat-window  col-md-3" id="chat_window" style="margin-left:10px;">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading top-bar">
+                    <div class="col-md-8 col-xs-8">
+                        <h3 class="panel-title">
+                            <span class="glyphicon glyphicon-comment"></span> Chat - Dmantz
+                        </h3>
+                    </div>
+                    <div class="col-md-4 col-xs-4" style="text-align: right;">
+                        <a (click)="closeChat()">
+                            <span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span>
+                        </a>
+                        <a (click)="closeChat()"><span class="glyphicon glyphicon-remove icon_close"
+                                data-id="chat_window"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body msg_container_base" >
+                    <div class="row msg_container base_sent">
+                        <div class="col-md-10 col-xs-10">
+                            <div class="chatbox" *ngFor="let message of messages">
+                                <!-- Bot Message -->
+                                <div *ngIf="message.type === 'bot'" class="bot-message">
+                                    <div class="message-container">
+                                        <span class="icon">
+                                            <img src="https://cdn-icons-png.flaticon.com/128/13330/13330989.png"
+                                                height="50px" width="50px" alt="Chatbot Icon" class="chatbot-icon">
+                                        </span>
+                                        <div class="message">{{ message.text }}</div>
+                                    </div>
+                                    <div *ngIf="message.imageUrl">
+                                        <img [src]="imageBaseUrl + message.imageUrl" alt="Order Image"
+                                            class="order-image" />
+                                    </div>
+
+                                </div>
+
+                                <!-- User Message -->
+                                <div *ngIf="message.type === 'user'" class="user-message">
+                                    <div class="message-container">
+                                        <!-- <span class="icon">
+                                            <img src="https://helper.merkulov.design/wp-content/uploads/sites/24/2023/06/user-profile-interface-sign-symbol-icon-3d-rendering-1.png"height="30px" width="30px" alt="User Icon" class="user-icon">
+                                        </span> -->
+                                        <div>{{ message.text }}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-group" *ngIf="showOptions">
+                                <button id="option" class="btn btn-outline-primary"
+                                    *ngFor="let option of currentOptions"
+                                    [ngClass]="{'active-option': selectedOption === option}"
+                                    (click)="handleOptionClick(option)">
+                                    {{ option.label }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- <section> -->
+<!-- <div class="container py-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+                <div class="card" id="chat1" style="border-radius: 15px;">
+                    <div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0"
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                        <i class="fas fa-angle-left"></i>
+                        <p class="mb-0 fw-bold">Live chat</p>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex flex-row justify-content-start mb-4" *ngFor="let message of messages">
+                                <div *ngIf="message.type === 'bot'" class="bot-message">
+                                    <div class="message">{{ message.text }}</div>
+                                    <div *ngIf="message.imageUrl">
+                                        <img [src]="imageBaseUrl + message.imageUrl" alt="Order Image" class="order-image" />
+                                    </div>
+                                    <div *ngIf="message.status" class="message">{{ message.status }}</div>
+                                </div>
+                                <div *ngIf="message.type === 'user'" class="user-message">
+                                    <div>{{ message.text }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group" *ngIf="showOptions">
+                            <button id="option" class="btn btn-outline-primary" *ngFor="let option of currentOptions"
+                                [ngClass]="{'active-option': selectedOption === option}"
+                                (click)="handleOptionClick(option)">
+                                {{ option.label }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+<!-- </section> -->

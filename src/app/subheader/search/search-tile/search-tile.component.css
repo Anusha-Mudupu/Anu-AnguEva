@@ -1,0 +1,1520 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+.product-tiles {
+    background: whitesmoke;
+    width: 113%;
+    margin-left: 200px;
+}
+/* Added by raji */
+ngb-rating {
+    color: orange;
+    font-size: 18px;
+
+}
+.image-tag{
+    background: rgba(255,63,108,.8);
+   
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    z-index: 1;
+    padding: 0 4px;
+    line-height: 20px;
+}
+.image-tag:after {
+   
+    position: absolute;
+  
+    border-style: solid;
+    border-width: 10px;
+    left: 100%;
+    width: 0;
+    height: 0;
+    top: 0;
+}
+
+.pp {
+    font-size: 15px;
+    color: darkgray;
+    font-weight: 550;
+}
+
+#ratingStarts {
+    margin-left: 30px;
+    margin-top: -15px;
+    position: absolute;
+}
+
+.offer {
+    width: 32%;
+    height: auto;
+    position: relative;
+    border: 1px solid rgb(14, 13, 13);
+    box-sizing: border-box;
+    float: right;
+    /* margin-top: -102px; */
+    /* margin-right: -15px; */
+    margin-left: 143px;
+    margin-top: -100px;
+    text-align: center;
+    background-color: #2F4F4F;
+    color: white;
+    border-radius: 10px;
+}
+
+.rate {
+    margin-top: -30px;
+    margin-left: 3px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+/* .content{
+    color: var(--toast-text);
+    margin-top: 21px;
+    font-size: 14px;
+    margin-left: 14px;
+    font-weight: 700;
+    font-family: 'FontAwesome';
+    
+  } */
+.price {
+    margin-left: 30px;
+}
+
+h1 {
+    margin-left: 600px;
+    font-family: initial;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: 10;
+    animation-timing-function: linear;
+
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+}
+
+@keyframes example {
+    0% {
+        color: red;
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        color: darkcyan;
+        left: 200px;
+        top: 0px;
+    }
+
+    50% {
+        color: blue;
+        left: 200px;
+        top: 200px;
+    }
+
+    75% {
+        color: green;
+        left: 0px;
+        top: 200px;
+    }
+
+    100% {
+        color: red;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+#productName {
+    margin-left: 30px;
+    margin-top: 18px;
+}
+
+#price {
+    margin-top: 8px;
+    margin-left: 30px;
+}
+
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+.col-lg-2 {
+    width: 236px;
+}
+
+.row {
+
+    width: 100%;
+    margin-left: -33px;
+}
+
+.bx-content {
+
+
+    width: 222px;
+    height: 354px;
+
+    margin: 0 20px 0 26px;
+    border-radius: 11px;
+    position: relative;
+    left: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+
+.bx-content:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+a img {
+    cursor: pointer;
+
+}
+
+i.fa.fa-heart {
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    top: 1px;
+    right: 10px;
+
+}
+
+i.fa.fa-heart-o.fav {
+    color: grey;
+    font-size: 18px;
+    position: absolute;
+    top: 5px;
+    margin-left: 190px;
+    /* padding: 12px; */
+    cursor: pointer;
+
+}
+
+
+
+.btn {
+
+    color: #7ac400;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #7ac400;
+    margin-top: 5px;
+    line-height: 16px;
+    border-radius: 20px;
+    margin-left: 17px;
+    width: 194px;
+
+}
+
+.btn:hover,
+.btn:focus {
+    color: #fff;
+    background: #7ac400;
+    box-shadow: none;
+}
+
+/* .product-tiles {
+
+    width: 113%;
+    margin-left: -58px;
+    position: relative;
+} */
+
+img {
+    width: 223px;
+    height: 203px;
+    margin-left: 9px;
+    margin-top: 8px;
+}
+
+.offer {
+    width: 33%;
+    height: 9%;
+
+    border: 1px solid rgb(14, 13, 13);
+    box-sizing: border-box;
+    float: right;
+    margin-top: -32px;
+    margin-right: -15px;
+    text-align: center;
+}
+
+.content {
+    color: var(--toast-text);
+    margin-top: 21px;
+    font-size: 14px;
+    margin-left: 14px;
+    font-weight: 700;
+    font-family: 'FontAwesome';
+
+}
+
+.details {
+
+    width: 88%;
+
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+
+    color: rgb(14, 13, 13);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    font-family: fangsong;
+    color: var(--toast-text);
+}
+
+s {
+    margin-left: 10px;
+}
+
+.rate {
+    margin-top: -30px;
+    margin-left: 3px;
+}
+
+.image-box {
+    padding-top: 15px;
+    width: 201px;
+}
+
+.image-tag {
+    background: rgba(255, 63, 108, .8);
+
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    z-index: 1;
+    padding: 0 4px;
+    line-height: 20px;
+}
+
+.image-tag:after {
+
+    position: absolute;
+
+    border-style: solid;
+    border-width: 10px;
+    left: 100%;
+    width: 0;
+    height: 0;
+    top: 0;
+}
+
+.favo {
+    height: 12px;
+}
+
+
+.toast {
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+.container {
+    margin: auto;
+    display: inline-block;
+    color: black;
+    align-items: center;
+
+}
+
+.pdark {
+    background-color: var(--pdark-background);
+    color: var(--pdark-text);
+}
+
+#addtocartbtn {
+    width: 180px;
+    border-radius: 15px;
+    border-color: #2F4F4F;
+    padding: 3px;
+    margin-left: 15px;
+    margin-top: 10px;
+    color: rgb(6, 143, 6);
+
+}
+
+#addtocartbtn:hover {
+    background-color: #2F4F4F;
+    color: aliceblue;
+}
+
+@media only screen and (min-width:360px) and (max-width:480px) {
+    h1 {
+        margin-left: 250px;
+        font-family: initial;
+        animation-name: example;
+        animation-duration: 3s;
+        animation-iteration-count: 10;
+        animation-timing-function: linear;
+
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        font-size: 30px;
+        width: 220px;
+        margin-top: -30px;
+
+    }
+
+    @keyframes example {
+        0% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+
+        25% {
+            color: darkcyan;
+            left: 200px;
+            top: 0px;
+        }
+
+        50% {
+            color: blue;
+            left: 200px;
+            top: 200px;
+        }
+
+        75% {
+            color: green;
+            left: 0px;
+            top: 200px;
+        }
+
+        100% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+    }
+
+    .product-tiles {
+        background: whitesmoke;
+        width: 113%;
+        margin-left: 200px;
+    }
+
+    #productName {
+        margin-left: 30px;
+        margin-top: 18px;
+    }
+
+    #price {
+        margin-top: 8px;
+        margin-left: 30px;
+    }
+
+    /*
+     *   Copyright (c) 2023 Dmantz Technologies private limited
+     *   All rights reserved.
+     */
+
+    .col-lg-2 {
+        width: 236px;
+    }
+
+    .row {
+
+        width: 100%;
+        margin-left: -33px;
+    }
+
+    .bx-content {
+
+
+        width: 222px;
+        height: 354px;
+
+        margin: 0 20px 0 26px;
+        border-radius: 11px;
+        position: relative;
+        left: 0;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        cursor: pointer;
+
+    }
+
+    .bx-content:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    }
+
+    a img {
+        cursor: pointer;
+
+    }
+
+    i.fa.fa-heart {
+        color: red;
+        font-size: 20px;
+        position: absolute;
+        top: 1px;
+        right: 10px;
+
+    }
+
+    i.fa.fa-heart-o.fav {
+        color: grey;
+        font-size: 18px;
+        position: absolute;
+        top: 5px;
+        margin-left: 190px;
+        /* padding: 12px; */
+        cursor: pointer;
+
+    }
+
+
+
+    .btn {
+
+        color: #7ac400;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: none;
+        border: 1px solid #7ac400;
+        margin-top: 5px;
+        line-height: 16px;
+        border-radius: 20px;
+        margin-left: 17px;
+        width: 194px;
+
+    }
+
+    .btn:hover,
+    .btn:focus {
+        color: #fff;
+        background: #7ac400;
+        box-shadow: none;
+    }
+
+    /* .product-tiles {
+    
+        width: 113%;
+        margin-left: -58px;
+        position: relative;
+    } */
+
+    img {
+        width: 223px;
+        height: 203px;
+        margin-left: 9px;
+        margin-top: 8px;
+    }
+
+    .offer {
+        width: 33%;
+        height: 9%;
+
+        border: 1px solid rgb(14, 13, 13);
+        box-sizing: border-box;
+        float: right;
+        margin-top: -32px;
+        margin-right: -15px;
+        text-align: center;
+    }
+
+    .content {
+        color: var(--toast-text);
+        margin-top: 21px;
+        font-size: 14px;
+        margin-left: -140px;
+        font-weight: 700;
+        font-family: 'FontAwesome';
+
+    }
+
+    .details {
+
+        width: 88%;
+
+        margin: auto;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+
+        color: rgb(14, 13, 13);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        font-family: fangsong;
+        color: var(--toast-text);
+    }
+
+    s {
+        margin-left: 10px;
+    }
+
+    .rate {
+        margin-top: -30px;
+        margin-left: 3px;
+    }
+
+    .image-box {
+        padding-top: 15px;
+        width: 201px;
+    }
+
+    .image-tag {
+        background: rgba(255, 63, 108, .8);
+
+        display: inline-block;
+        position: absolute;
+        top: 6px;
+        left: 0;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 500;
+        z-index: 1;
+        padding: 0 4px;
+        line-height: 20px;
+    }
+
+    .image-tag:after {
+
+        position: absolute;
+
+        border-style: solid;
+        border-width: 10px;
+        left: 100%;
+        width: 0;
+        height: 0;
+        top: 0;
+    }
+
+    .favo {
+        height: 12px;
+    }
+
+
+    .toast {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+    }
+
+    .container {
+        /* margin: auto; */
+        display: inline-block;
+        color: black;
+        align-items: center;
+        margin-left: -140px;
+
+    }
+
+    .pdark {
+        background-color: var(--pdark-background);
+        color: var(--pdark-text);
+    }
+
+    #addtocartbtn {
+        width: 180px;
+        border-radius: 15px;
+        border-color: #2F4F4F;
+        padding: 3px;
+        margin-left: 15px;
+        margin-top: 10px;
+        color: #7ac400;
+
+    }
+
+    #addtocartbtn:hover {
+        border-color: #2F4F4F;
+        color: aliceblue;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width:990px) {
+    h1 {
+        margin-left: 400px;
+        font-family: initial;
+        animation-name: example;
+        animation-duration: 3s;
+        animation-iteration-count: 10;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        font-size: 40px;
+        width: 320px;
+        margin-top: -30px;
+
+    }
+
+    @keyframes example {
+        0% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+
+        25% {
+            color: darkcyan;
+            left: 200px;
+            top: 0px;
+        }
+
+        50% {
+            color: blue;
+            left: 200px;
+            top: 200px;
+        }
+
+        75% {
+            color: green;
+            left: 0px;
+            top: 200px;
+        }
+
+        100% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+    }
+
+    .product-tiles {
+        background: whitesmoke;
+        width: 113%;
+        margin-left: 200px;
+    }
+
+    #productName {
+        margin-left: 30px;
+        margin-top: 18px;
+    }
+
+    #price {
+        margin-top: 8px;
+        margin-left: 30px;
+    }
+
+    /*
+     *   Copyright (c) 2023 Dmantz Technologies private limited
+     *   All rights reserved.
+     */
+
+    .col-lg-2 {
+        width: 236px;
+    }
+
+    .row {
+
+        width: 100%;
+        margin-left: -33px;
+    }
+
+    .bx-content {
+
+
+        width: 222px;
+        height: 354px;
+
+        margin: 0px 20px 0 26px;
+        border-radius: 11px;
+        position: relative;
+        left: 0;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        cursor: pointer;
+
+
+    }
+
+    .bx-content:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    }
+
+    a img {
+        cursor: pointer;
+
+    }
+
+    i.fa.fa-heart {
+        color: red;
+        font-size: 20px;
+        position: absolute;
+        top: 1px;
+        right: 10px;
+
+    }
+
+    i.fa.fa-heart-o.fav {
+        color: grey;
+        font-size: 18px;
+        position: absolute;
+        top: 5px;
+        margin-left: 190px;
+        /* padding: 12px; */
+        cursor: pointer;
+
+    }
+
+
+
+    .btn {
+
+        color: #7ac400;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: none;
+        border: 1px solid #7ac400;
+        margin-top: 5px;
+        line-height: 16px;
+        border-radius: 20px;
+        margin-left: 17px;
+        width: 194px;
+
+    }
+
+    .btn:hover,
+    .btn:focus {
+        color: #fff;
+        background: #7ac400;
+        box-shadow: none;
+    }
+
+    /* .product-tiles {
+    
+        width: 113%;
+        margin-left: -58px;
+        position: relative;
+    } */
+
+    img {
+        width: 223px;
+        height: 203px;
+        margin-left: 9px;
+        margin-top: 8px;
+    }
+
+    .offer {
+        width: 33%;
+        height: 9%;
+
+        border: 1px solid rgb(14, 13, 13);
+        box-sizing: border-box;
+        float: right;
+        margin-top: -32px;
+        margin-right: -15px;
+        text-align: center;
+    }
+
+    .content {
+        color: var(--toast-text);
+        margin-top: 21px;
+        font-size: 14px;
+        margin-left: -100px;
+        font-weight: 700;
+        font-family: 'FontAwesome';
+
+    }
+
+    .details {
+
+        width: 88%;
+
+        margin: auto;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+
+        color: rgb(14, 13, 13);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        font-family: fangsong;
+        color: var(--toast-text);
+    }
+
+    s {
+        margin-left: 10px;
+    }
+
+    .rate {
+        margin-top: -30px;
+        margin-left: 3px;
+    }
+
+    .image-box {
+        padding-top: 15px;
+        width: 201px;
+    }
+
+    .image-tag {
+        background: rgba(255, 63, 108, .8);
+
+        display: inline-block;
+        position: absolute;
+        top: 6px;
+        left: 0;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 500;
+        z-index: 1;
+        padding: 0 4px;
+        line-height: 20px;
+    }
+
+    .image-tag:after {
+
+        position: absolute;
+
+        border-style: solid;
+        border-width: 10px;
+        left: 100%;
+        width: 0;
+        height: 0;
+        top: 0;
+    }
+
+    .favo {
+        height: 12px;
+    }
+
+
+    .toast {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+    }
+
+    .container {
+        /* margin: auto; */
+        display: inline-block;
+        color: black;
+        align-items: center;
+        margin-left: -80px;
+
+    }
+
+    .pdark {
+        background-color: var(--pdark-background);
+        color: var(--pdark-text);
+    }
+
+    #addtocartbtn {
+        width: 180px;
+        border-radius: 15px;
+        border-color: #2F4F4F;
+        padding: 3px;
+        margin-left: 15px;
+        margin-top: 10px;
+        color: #7ac400;
+
+    }
+
+    #addtocartbtn:hover {
+        border-color: #2F4F4F;
+        color: aliceblue;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width:1280px) {
+
+
+    h1 {
+        margin-left: 400px;
+        font-family: initial;
+        animation-name: example;
+        animation-duration: 3s;
+        animation-iteration-count: 10;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        font-size: 40px;
+        width: 320px;
+        margin-top: -30px;
+
+    }
+
+    @keyframes example {
+        0% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+
+        25% {
+            color: darkcyan;
+            left: 200px;
+            top: 0px;
+        }
+
+        50% {
+            color: blue;
+            left: 200px;
+            top: 200px;
+        }
+
+        75% {
+            color: green;
+            left: 0px;
+            top: 200px;
+        }
+
+        100% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+    }
+
+    .product-tiles {
+        background: whitesmoke;
+        width: 113%;
+        margin-left: 200px;
+    }
+
+    #productName {
+        margin-left: 30px;
+        margin-top: 18px;
+    }
+
+    #price {
+        margin-top: 8px;
+        margin-left: 30px;
+    }
+
+    /*
+     *   Copyright (c) 2023 Dmantz Technologies private limited
+     *   All rights reserved.
+     */
+
+    .col-lg-2 {
+        width: 236px;
+    }
+
+    .row {
+
+        width: 100%;
+        margin-left: -33px;
+    }
+
+    .bx-content {
+
+
+        width: 222px;
+        height: 354px;
+
+        margin: 0px 20px 0 26px;
+        border-radius: 11px;
+        position: relative;
+        left: 0;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        cursor: pointer;
+
+
+    }
+
+    .bx-content:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    }
+
+    a img {
+        cursor: pointer;
+
+    }
+
+    i.fa.fa-heart {
+        color: red;
+        font-size: 20px;
+        position: absolute;
+        top: 1px;
+        right: 10px;
+
+    }
+
+    i.fa.fa-heart-o.fav {
+        color: grey;
+        font-size: 18px;
+        position: absolute;
+        top: 5px;
+        margin-left: 190px;
+        /* padding: 12px; */
+        cursor: pointer;
+
+    }
+
+
+
+    .btn {
+
+        color: #7ac400;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: none;
+        border: 1px solid #7ac400;
+        margin-top: 5px;
+        line-height: 16px;
+        border-radius: 20px;
+        margin-left: 17px;
+        width: 194px;
+
+    }
+
+    .btn:hover,
+    .btn:focus {
+        color: #fff;
+        background: #7ac400;
+        box-shadow: none;
+    }
+
+    /* .product-tiles {
+    
+        width: 113%;
+        margin-left: -58px;
+        position: relative;
+    } */
+
+    img {
+        width: 223px;
+        height: 203px;
+        margin-left: 9px;
+        margin-top: 8px;
+    }
+
+    .offer {
+        width: 33%;
+        height: 9%;
+
+        border: 1px solid rgb(14, 13, 13);
+        box-sizing: border-box;
+        float: right;
+        margin-top: -32px;
+        margin-right: -15px;
+        text-align: center;
+    }
+
+    .content {
+        color: var(--toast-text);
+        margin-top: 21px;
+        font-size: 14px;
+        margin-left: -100px;
+        font-weight: 700;
+        font-family: 'FontAwesome';
+
+    }
+
+    .details {
+
+        width: 88%;
+
+        margin: auto;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+
+        color: rgb(14, 13, 13);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        font-family: fangsong;
+        color: var(--toast-text);
+    }
+
+    s {
+        margin-left: 10px;
+    }
+
+    .rate {
+        margin-top: -30px;
+        margin-left: 3px;
+    }
+
+    .image-box {
+        padding-top: 15px;
+        width: 201px;
+    }
+
+    .image-tag {
+        background: rgba(255, 63, 108, .8);
+
+        display: inline-block;
+        position: absolute;
+        top: 6px;
+        left: 0;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 500;
+        z-index: 1;
+        padding: 0 4px;
+        line-height: 20px;
+    }
+
+    .image-tag:after {
+
+        position: absolute;
+
+        border-style: solid;
+        border-width: 10px;
+        left: 100%;
+        width: 0;
+        height: 0;
+        top: 0;
+    }
+
+    .favo {
+        height: 12px;
+    }
+
+
+    .toast {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+    }
+
+    .container {
+        /* margin: auto; */
+        display: inline-block;
+        color: black;
+        align-items: center;
+        margin-left: -80px;
+
+    }
+
+    .pdark {
+        background-color: var(--pdark-background);
+        color: var(--pdark-text);
+    }
+
+    #addtocartbtn {
+        width: 180px;
+        border-radius: 15px;
+        border-color: #7ac400;
+        padding: 3px;
+        margin-left: 15px;
+        margin-top: 10px;
+
+    }
+
+    #addtocartbtn:hover {
+        background-color: #7ac400;
+    }
+
+}
+
+@media only screen and (max-width:540px) {
+    h1 {
+        margin-left: 270px;
+        font-family: initial;
+        animation-name: example;
+        animation-duration: 3s;
+        animation-iteration-count: 10;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        font-size: 40px;
+        width: 320px;
+        margin-top: -30px;
+
+    }
+
+    @keyframes example {
+        0% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+
+        25% {
+            color: darkcyan;
+            left: 200px;
+            top: 0px;
+        }
+
+        50% {
+            color: blue;
+            left: 200px;
+            top: 200px;
+        }
+
+        75% {
+            color: green;
+            left: 0px;
+            top: 200px;
+        }
+
+        100% {
+            color: red;
+            left: 0px;
+            top: 0px;
+        }
+    }
+
+    .product-tiles {
+        background: whitesmoke;
+        width: 113%;
+        margin-left: 200px;
+    }
+
+    #productName {
+        margin-left: 30px;
+        margin-top: 18px;
+    }
+
+    #price {
+        margin-top: 8px;
+        margin-left: 30px;
+    }
+
+    /*
+     *   Copyright (c) 2023 Dmantz Technologies private limited
+     *   All rights reserved.
+     */
+
+    .col-lg-2 {
+        width: 236px;
+    }
+
+    .row {
+
+        width: 100%;
+        margin-left: -33px;
+    }
+
+    .bx-content {
+
+
+        width: 222px;
+        height: 354px;
+
+        margin: 0px 20px 0 26px;
+        border-radius: 11px;
+        position: relative;
+        left: 0;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        cursor: pointer;
+
+
+    }
+
+    .bx-content:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    }
+
+    a img {
+        cursor: pointer;
+
+    }
+
+    i.fa.fa-heart {
+        color: red;
+        font-size: 20px;
+        position: absolute;
+        top: 1px;
+        right: 10px;
+
+    }
+
+    i.fa.fa-heart-o.fav {
+        color: grey;
+        font-size: 18px;
+        position: absolute;
+        top: 5px;
+        margin-left: 190px;
+        /* padding: 12px; */
+        cursor: pointer;
+
+    }
+
+
+
+    .btn {
+
+        color: #7ac400;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: none;
+        border: 1px solid #7ac400;
+        margin-top: 5px;
+        line-height: 16px;
+        border-radius: 20px;
+        margin-left: 17px;
+        width: 194px;
+
+    }
+
+    .btn:hover,
+    .btn:focus {
+        color: #fff;
+        background: #7ac400;
+        box-shadow: none;
+    }
+
+    /* .product-tiles {
+    
+        width: 113%;
+        margin-left: -58px;
+        position: relative;
+    } */
+
+    img {
+        width: 223px;
+        height: 203px;
+        margin-left: 9px;
+        margin-top: 8px;
+    }
+
+    .offer {
+        width: 33%;
+        height: 9%;
+
+        border: 1px solid rgb(14, 13, 13);
+        box-sizing: border-box;
+        float: right;
+        margin-top: -32px;
+        margin-right: -15px;
+        text-align: center;
+    }
+
+    .content {
+        color: var(--toast-text);
+        margin-top: 21px;
+        font-size: 14px;
+        margin-left: -100px;
+        font-weight: 700;
+        font-family: 'FontAwesome';
+
+    }
+
+    .details {
+
+        width: 88%;
+
+        margin: auto;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+
+        color: rgb(14, 13, 13);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        font-family: fangsong;
+        color: var(--toast-text);
+    }
+
+    s {
+        margin-left: 10px;
+    }
+
+    .rate {
+        margin-top: -30px;
+        margin-left: 3px;
+    }
+
+    .image-box {
+        padding-top: 15px;
+        width: 201px;
+    }
+
+    .image-tag {
+        background: rgba(255, 63, 108, .8);
+
+        display: inline-block;
+        position: absolute;
+        top: 6px;
+        left: 0;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 500;
+        z-index: 1;
+        padding: 0 4px;
+        line-height: 20px;
+    }
+
+    .image-tag:after {
+
+        position: absolute;
+
+        border-style: solid;
+        border-width: 10px;
+        left: 100%;
+        width: 0;
+        height: 0;
+        top: 0;
+    }
+
+    .favo {
+        height: 12px;
+    }
+
+
+    .toast {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+    }
+
+    .container {
+        /* margin: auto; */
+        display: inline-block;
+        color: black;
+        align-items: center;
+        margin-left: -130px;
+
+    }
+
+    .pdark {
+        background-color: var(--pdark-background);
+        color: var(--pdark-text);
+    }
+
+    #addtocartbtn {
+        width: 180px;
+        border-radius: 15px;
+        border-color: #7ac400;
+        padding: 3px;
+        margin-left: 15px;
+        margin-top: 10px;
+
+    }
+
+    #addtocartbtn:hover {
+        background-color: #7ac400;
+    }
+
+}

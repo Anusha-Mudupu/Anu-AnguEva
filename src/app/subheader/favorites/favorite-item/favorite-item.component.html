@@ -1,0 +1,41 @@
+<div class="container1" [ngClass]="{'dark':themeService.isDark}">
+    <div  class="list-group-item" id="{{item.productSkuId}}">
+
+        <div class="row" *ngIf="!loading">
+            <div class="col-sm-3">
+                <img src="{{imagesBaseUrl}}{{item.imageUrl}}" alt="image"
+                    (click)="getDetail(item.productSkuId,item.productId)" />
+            </div>
+            <div class="col-sm-6">
+
+                <p id="ProductName">
+                    <a (click)="getDetail(item.productSkuId,item.productId)">{{item.productName}}</a>
+                </p>
+                <p *ngIf="item.averageCustomerRating !== 0  && item.averageCustomerRating !== null; else obj">{{'Ratings'| translate}} :- {{item.averageCustomerRating}}
+                    <span class="glyphicon glyphicon-star"></span>
+                </p>
+                <p class="price">{{'Price'| translate}} :- {{item.price|currency:'INR':'symbol'}}</p>
+                <ng-template #obj>
+                    <span style="color: royalblue;">No ratings yet</span>
+
+
+                </ng-template>
+
+            </div>
+            <div class="col-sm-3">
+                <div class="button-group">
+                    <div>
+                        <p><button type="button" id="btn-warning" class="btn btn-warning btn-ms"
+                                (click)="addToCart(item,item.productSkuId,1)">
+                                {{'Add to cart' | translate}}</button></p>
+                        <button type="button" class="btn btn-light btn-sm"
+                            (click)="handleRemoveFromWishlist(item.productSkuId)">{{'Delete'| translate}}</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="loading" class="loader"></div>

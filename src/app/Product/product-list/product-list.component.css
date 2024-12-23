@@ -1,0 +1,98 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+.viewrings-section{
+	  display:none;
+   text-transform: uppercase;
+	}
+.viewrings-section .design-head{
+	font-size:20px;
+}
+p.design-head {
+    border-bottom: 1px solid #f1f1f1;
+    padding:20px 0;
+}
+.filter-head{
+    margin: 15px 0 20px;
+}
+
+.toast{
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+.container{
+    box-shadow: none;
+    position: relative;
+  
+    display: inline-block;
+ 
+    align-items: center;
+    width: 100%;
+    border-color: transparent;
+    height:100%;
+    }
+.text-center{
+    font-size: 20px;
+color: var(--toast-text);
+
+}
+.container1{
+    background-color: var(--toast-background);
+    color: var(--toast-text); 
+    height: 100%; 
+    width: 100%; 
+    font-weight: 20px; 
+}
+.loader {
+	margin: auto;
+	border: 10px solid #EAF0F6;
+	border-radius: 50%;
+	border-top: 10px solid lightslategrey;
+	width: 80px;
+	height: 80px;
+	animation: spinner 1s linear infinite;
+  }
+  
+  @keyframes spinner {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
+  .filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between filter tags */
+    margin: 20px ; /* Optional margin */
+  }
+  
+  .filter-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .filter-tag:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .close-icon {
+    margin-left: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close-icon:hover {
+    color: red;
+  }
+  

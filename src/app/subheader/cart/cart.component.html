@@ -1,0 +1,218 @@
+<!-- <div class="container" style="margin-left: 18px;">
+  <div *ngIf="orderDetails==undefined  ;else obj">
+    <h1>{{'your cart is empty plz click on continue to shop.'| translate}}</h1><br><br>
+    <a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> {{'Continue Shopping'| translate}}</a>
+  </div>
+
+  <ng-template #obj>
+
+    <table id="cart" class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th></th>
+          <th>{{'Product'| translate}}</th>
+          <th style="width: 14%;">{{'Price'| translate}}</th>
+          <th>{{'Quantity'| translate}}</th>
+          <th class="subtotal" style="width: 20%;">{{'Subtotal'| translate}}</th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody ng-init="total = 0" *ngIf="!loading">
+        <tr *ngFor="let orderItem of orderDetails.orderItemObj">
+          <div *ngIf="orderItem.quantity == 0; else pSku"></div>
+          <ng-template #pSku>
+            <img src="{{imageBaseUrl}}{{orderItem.imageUrl}}" class="image" height="80px" width="80px"
+              (click)="getDetail(orderItem.productId,orderItem.productSku)">
+            <td>
+
+              {{orderItem.productSkuCd}}
+
+            </td>
+            <td>{{orderItem.price}}</td>
+
+            <td>
+
+              <button type="button" (click)="onRemoveQuantity(orderItem.productSku) " class="btn btn-danger btn-sm"><i
+                  class="fa fa-minus"></i></button> {{orderItem.quantity}}
+
+              <button type="button" (click)="quantityIncrement(orderItem.productSku)" class="btn btn-success btn-sm"><i
+                  class="fa fa-plus"></i></button>
+            </td>
+
+            <td data-th="Subtotal" class="st">{{orderItem.price * orderItem.quantity}}
+            </td>
+            <td class="actions" data-th="">
+
+              <button class="btn btn-danger btn-sm" id="delete" (click)="DeleteItem(orderItem.productId)"><i
+                  class="fa fa-trash-o"></i></button>
+
+            </td>
+          </ng-template>
+        </tr>
+        <td id="total">
+          <div *ngIf="orderDetails.totalAmount=='0' ;else obj1">
+            <strong id="fontSize">{{'your cart is empty plz click on continue to shop.'| translate}}</strong>
+          </div>
+        </td>
+        <ng-template #obj1>
+          <div id="total1"><strong>{{'Total Amount'| translate}}:₹
+              {{orderDetails.totalAmount}}
+            </strong></div>
+        </ng-template>
+      </tbody>
+      <div *ngIf="loading" class="loader"></div>
+      <br>
+
+      <tfoot>
+
+        <tr>
+          <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i>{{'Continue Shopping'| translate}}</a>
+          </td>
+          <td colspan="2" class="hidden-xs">
+          </td>
+          <td id="shippingAddress"><button id="rzp-button2" class="btn btn-success btn-block " type="button"
+              [disabled]="isPaymentDisabled()" (click)="length > 0 && proceedToPay()">{{'Proceed to Buy'|
+              translate}}</button>
+
+          </td>
+       
+          <div class="modal" id="myModal1" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Please Subscribe</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" id="closeModalBtn">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 
+                  <button class="btn btn-primary" (click)="subscribe()">{{ buttonLabel }}</button>
+                  <button class="btn btn-danger" (click)="closeModel()" id="closebtn">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+        </tr>
+      </tfoot>
+    </table>
+    <br>
+    <br>
+    <br>
+
+  </ng-template>
+</div> -->
+
+
+
+
+
+
+<div class="container py-4" [ngClass]="{'dark':themeService.isDark}">
+
+  <div *ngIf="!orderDetails || !orderDetails.orderItemObj?.length; else cartTable">
+    <h1 class="text-center text-muted">{{ 'Your cart is empty. Please continue shopping.' | translate }}</h1>
+    <div class="text-center mt-4">
+      <a href="#" class="btn btn-warning">
+        <i class="fa fa-angle-left"></i> {{ 'Continue Shopping' | translate }}
+      </a>
+    </div>
+  </div>
+
+  
+  <ng-template #cartTable>
+    <table id="cart" class="table table-bordered table-hover table-condensed align-middle">
+      <thead class="text-center">
+        <tr>
+          <th>Product Image</th>
+          <th>{{ 'Product' | translate }}</th>
+          <th style="width: 14%;">{{ 'Price' | translate }}</th>
+          <th>{{ 'Quantity' | translate }}</th>
+          <th class="subtotal" style="width: 20%;">{{ 'Subtotal' | translate }}</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderItem of orderDetails.orderItemObj" class="text-center">
+          <td>
+            <img src="{{ imageBaseUrl }}{{ orderItem.imageUrl }}" class="img-thumbnail"
+              alt="{{ orderItem.productSkuCd }}" style="max-width: 80px; max-height: 80px;"
+              (click)="getDetail(orderItem.productId, orderItem.productSku)" />
+          </td>
+          <td>{{ orderItem.productSkuCd }}</td>
+          <td>₹{{ orderItem.price }}</td>
+          <td>
+            <div class="quantity-controls">
+              <button type="button" (click)="onRemoveQuantity(orderItem.productSku)" class="btn btn-danger btn-sm">
+                <i class="fa fa-minus"></i>
+              </button>
+              <span>{{ orderItem.quantity }}</span>
+              <button type="button" (click)="quantityIncrement(orderItem.productSku)" class="btn btn-success btn-sm">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </td>
+
+          <td>₹{{ orderItem.price * orderItem.quantity }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="DeleteItem(orderItem.productId)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+      <tfoot class="">
+        <tr>
+          <td colspan="3">
+            <a href="#" class="btn btn-warning">
+              <i class="fa fa-angle-left"></i> {{ 'Continue Shopping' | translate }}
+            </a>
+          </td>
+          <td colspan="2" class="text-end">
+            <strong>{{ 'Total Amount' | translate }}: ₹{{ orderDetails.totalAmount }}</strong>
+          </td>
+          <td>
+            <button class="btn btn-success w-100" [disabled]="isPaymentDisabled()" (click)="length > 0 && proceedToPay()">
+              {{ 'Proceed to Buy' | translate }}
+            </button>
+          </td>
+        </tr>
+
+
+        <div class="modal" id="myModal1" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Please Subscribe</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" id="closeModalBtn">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               
+                <button class="btn btn-primary" (click)="subscribe()">{{ buttonLabel }}</button>
+                <button class="btn btn-danger" (click)="closeModel()" id="closebtn">Close</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+
+        
+      </tfoot>
+    </table>
+  </ng-template>
+</div>

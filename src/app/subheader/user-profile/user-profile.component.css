@@ -1,0 +1,169 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+
+.container1 {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+  height: auto;
+  width: 70%;
+  margin-top: 0%;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 100px !important;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black background with opacity */
+}
+
+.modal-body {
+  margin-left: 140px;
+}
+
+#closebtn {
+  margin-left: 10px;
+}
+
+.profile-section {
+  display: none;
+}
+
+.list-group-item.list-group-item-action.dashboard {
+  margin-top: 20px;
+}
+
+.userprofile {
+  width: 100%;
+  margin-left: 15%;
+}
+
+.col-md-12 {
+  margin-left: 182px;
+}
+
+#buttons {
+  margin-left: 24%;
+  margin-top: 32px;
+  outline: none !important;
+}
+
+#userId {
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .container1 {
+    margin-top: 0;
+  }
+  .modal {
+    display: none;
+    /* Hidden by default */
+
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 220px !important;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+  }
+
+  .modal-body {
+    margin-left: 120px;
+  }
+
+  #closebtn {
+    margin-left: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .col-md-12 {
+    margin-left: 50px;
+  }
+
+}
+
+.container1 {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+  height: auto;
+  width: 70%;
+}
+
+#birthday {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+  cursor: pointer;
+}
+
+.loader {
+  margin: auto;
+  border: 5px solid #EAF0F6;
+  border-radius: 50%;
+  border-top: 5px solid lightslategrey;
+  width: 60px;
+  height: 60px;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+  .container1 {
+    margin-top:0;
+  }
+  .modal {
+    display: none;
+    /* Hidden by default */
+
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 220px !important;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+  }
+
+  .modal-body {
+    margin-left: 140px;
+  }
+
+  #closebtn {
+    margin-left: 10px;
+  }
+
+}

@@ -1,0 +1,56 @@
+<div class="container">
+  <h3>{{'ORDER CANCELLATION REQUEST'| translate}}</h3><br>
+  <div class="col-lg-6 col-sm-3">
+    <div class="details">
+      <ul class="row">
+
+        <li class="col-lg-12">
+          <figure class="itemside mb-3" *ngFor="let order of subViewOrder">
+            <div class="aside">
+              <img src="{{imagesBaseUrl}}{{order.imageUrl}}" class="img-sm border" 
+              (click)="getDetail(order.productId,order.productSku)">
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">{{order.productName}}
+              <p>Rs.{{order.price}}   <br></p>
+             
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-6 col-sm-3">
+    <div class="options">
+      <form #cancelform="ngForm" (ngSubmit)="cancelformsubmit(cancelform)">
+
+        <div class="form-group">
+
+
+          <input type="radio" name="reason" value="I want to change my Phone Number" ngModel>
+         {{'I want to change my Phone Number'| translate}}<br>
+          <input type="radio" name="reason" value="Expected delivery time is very long" ngModel>
+          {{'Expected delivery time is very long'| translate}}<br>
+          <input type="radio" name="reason" value="Price for the Product has decreased" ngModel>
+         {{'Price for the Product has decreased'| translate}} <br>
+          <input type="radio" name="reason" value="I want  to change address for the order" ngModel>
+           {{'I want to change address for the order'| translate}}<br>
+          <input type="radio" name="reason" value="I have Purchased the product elsewhere" ngModel>
+         {{'I have Purchased the product elsewhere'| translate}}<br>
+          <input type="radio" name="reason" value="I want to cancel due to product quality issues" ngModel>
+          {{'I want to cancel due to product quality issues'| translate}}<br>
+          <input type="radio" name="reason" value="I want to convert my order to Prepaid" ngModel>
+           {{'I want to convert my order to Prepaid'| translate}}<br>
+          <input type="text" id="r7" name="notes" placeholder="{{'Comments (optional)'| translate}}" ngModel>
+
+        </div>
+
+        <br>
+        <button class="btn btn-warning" type="submit">{{'Confirm'| translate}}</button>
+
+      </form>
+      <button class="btn btn-warning" (click)="backToCustomerOrders()">{{'Back'| translate}}</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

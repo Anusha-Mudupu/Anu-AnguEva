@@ -1,0 +1,131 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+body {
+  font: 18px/1.5 'Abel', system-ui, sans-serif;
+  padding: 0 2rem;
+  background: #000E;
+  color: dimgray;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid silver;
+  border-image: linear-gradient(to right, transparent 20%, darkslategrey, transparent 80%)30;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid silver;
+  border-image: linear-gradient(to right, transparent 20%, darkslategrey, transparent 80%)30;
+}
+
+
+details {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid silver;
+  width: 81%;
+  margin-left: 8%;
+  transition: 0.3s;
+
+}
+
+summary {
+
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  color: black;
+  transition: 0.3s;
+}
+
+summary::after {
+  content: "🔻";
+  padding: 0.5rem;
+  position: absolute;
+  right: 0.25rem;
+  top: -0.5rem;
+  color: rgb(14, 13, 13);
+  transition: 0.3s;
+}
+
+details[open] {
+  background: whitesmoke;
+}
+
+details[open] summary::after {
+  content: "🔺";
+  transition: 0.3s;
+}
+
+p {
+  color: black;
+  letter-spacing: 1.5;
+  transition: 0.3s;
+}
+
+.container1 {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+  height: 100%;
+  width: 100%;
+  position: relative;
+  /* top: -20px; */
+  margin-top: 0%;
+}
+
+summary {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+}
+
+p {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+}
+
+details {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+  background-color: transparent;
+}
+
+.loader {
+  margin: auto;
+  border: 5px solid #EAF0F6;
+  border-radius: 50%;
+  border-top: 5px solid lightslategrey;
+  width: 60px;
+  height: 60px;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 768px) {
+  .container1 {
+      margin-top: 0;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+  .container1 {
+      margin-top: 0;
+  }
+}

@@ -1,0 +1,338 @@
+<div class="container" *ngIf="!loading">
+       <div class="row">
+              <div class="filter-area">
+
+                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <nav class="navbar">
+
+                                   <div class="navbar-header">
+
+                                          <span class="h3">{{'filter_by'| translate}}</span>
+                                   </div>
+                                   <div>
+                                          <button class="float-right" data-bs-toggle="tooltip" title="click here"
+                                                 id="click here" type="button" class="filter"
+                                                 (click)="pricerange()">{{'Price-range'|
+                                                 translate}}</button>
+                                          <div id="panel1" style="display: none">
+                                                 <div id="termSheetPopup1">
+
+                                                        <ul class="categories-menu menu vertical nested is-active"
+                                                               style="padding-left: 20px;" id ="slider">
+                                                                <ngx-slider [(value)]="minValue" [(highValue)]="maxValue"
+                                                                      [options]="options"
+                                                                      (click)="getPriceRange($event, minValue, maxValue)">
+                                                               </ngx-slider>
+
+                                                        </ul>
+                                                 </div>
+                                          </div>
+                                          <button class="float-right" data-bs-toggle="tooltip" title="click here"
+                                                 id="click here" class="filter" (click)="rating()">{{'Rating'|
+                                                 translate}}</button>
+                                          <div id="panel2" style="display: none">
+                                                 <div id="termSheetPopup3">
+
+                                                        <ul class="categories-menu menu vertical nested is-active"
+                                                               style="list-style-type:none;">
+
+                                                               <li>
+                                                                      <input id="category-checkbox1" type="checkbox"
+                                                                             [checked]="selectedRatings.includes(5)"
+                                                                             (change)="filterByRating(5, $event.target.checked)">
+                                                                      <label for="category-checkbox1"
+                                                                             style="margin-left: 10px;">5 star</label>
+                                                               </li>
+                                                               <li>
+                                                                      <input id="category-checkbox2" type="checkbox"
+                                                                             [checked]="selectedRatings.includes(4)"
+                                                                             (change)="filterByRating(4, $event.target.checked)">
+                                                                      <label for="category-checkbox2"
+                                                                             style="margin-left: 10px;">4 star</label>
+                                                               </li>
+                                                               <li>
+                                                                      <input id="category-checkbox3" type="checkbox"
+                                                                             [checked]="selectedRatings.includes(3)"
+                                                                             (change)="filterByRating(3, $event.target.checked)">
+                                                                      <label for="category-checkbox3"
+                                                                             style="margin-left: 10px;">3 star</label>
+                                                               </li>
+                                                               <li>
+                                                                      <input id="category-checkbox4" type="checkbox"
+                                                                             [checked]="selectedRatings.includes(2)"
+                                                                             (change)="filterByRating(2, $event.target.checked)">
+                                                                      <label for="category-checkbox4"
+                                                                             style="margin-left: 10px;">2 star</label>
+                                                               </li>
+                                                               <li>
+                                                                      <input id="category-checkbox5" type="checkbox"
+                                                                             [checked]="selectedRatings.includes(1)"
+                                                                             (change)="filterByRating(1, $event.target.checked)">
+                                                                      <label for="category-checkbox5"
+                                                                             style="margin-left: 10px;">1 star</label>
+                                                               </li>
+                                                        </ul>
+
+                                                 </div>
+                                          </div>
+
+
+
+
+                                          <button class="float-right" data-bs-toggle="tooltip" title="click here"
+                                                 id="click here" class="filter" (click)="brand()">{{'Products'|
+                                                 translate}}</button>
+                                          <div id="panel" style="display: none">
+                                                 <div id="termSheetPopup2">
+                                                        <ul class="categories-menu menu vertical nested is-active"
+                                                               style="list-style-type:none;">
+                                                              
+                                                               <li>
+                                                                      <ng-container
+                                                                             *ngFor="let productName of currentProductName">
+                                                                             <input [checked]="brandDataSeparated.includes(productName)"
+                                                                                    (change)="getBrandSelected($event, productName)"
+                                                                                    id="category-checkbox{{productName}}"
+                                                                                    type="checkbox">
+                                                                             <label for="category-checkbox{{productName}}"
+                                                                                    style="margin-left: 10px;">{{productName}}</label><br>
+                                                                      </ng-container>
+                                                               </li>
+                                                        </ul>
+                                                        <a href="#" class="clear-all-third" id="category-clear-all"
+                                                               (click)="clearAll($event)">Clear
+                                                               All</a>
+                                                 </div>
+
+                                          </div>
+
+                                   </div>
+
+                            </nav>
+
+
+
+                     </div>
+              </div>
+       </div>
+</div>
+<div *ngIf="loading" class="loader"></div>
+
+
+
+
+
+
+
+
+
+<!-- <div class="container" *ngIf="!loading">
+       <div class="row">
+              Desktop Filter Sidebar
+              <div class="col-lg-3 col-md-3 d-none d-md-block">
+                     <nav class="navbar">
+
+                            <div class="navbar-header">
+
+                                   <span class="h3">{{'filter_by'| translate}}</span>
+                            </div>
+                            <div>
+                                   <button class="float-right" data-bs-toggle="tooltip" title="click here"
+                                          id="click here" type="button" class="filter"
+                                          (click)="pricerange()">{{'Price-range'|
+                                          translate}}</button>
+                                   <div id="panel1" style="display: none">
+                                          <div id="termSheetPopup1">
+
+                                                 <ul class="categories-menu menu vertical nested is-active"
+                                                        style=" padding-left: 56px;">
+
+                                                       
+
+
+                                                        <ngx-slider [(value)]="minValue" [(highValue)]="maxValue"
+                                                               [options]="options"
+                                                               (click)="getPriceRange($event, minValue, maxValue)">
+                                                        </ngx-slider>
+
+                                                 </ul>
+                                          </div>
+                                   </div>
+                                   <button class="float-right" data-bs-toggle="tooltip" title="click here"
+                                          id="click here" class="filter" (click)="rating()">{{'Rating'|
+                                          translate}}</button>
+                                   <div id="panel2" style="display: none">
+                                          <div id="termSheetPopup3">
+
+                                                 <ul class="categories-menu menu vertical nested is-active"
+                                                        style="list-style-type:none;">
+
+                                                        <li>
+                                                               <input id="category-checkbox1" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(5)"
+                                                                      (change)="filterByRating(5, $event.target.checked)">
+                                                               <label for="category-checkbox1"
+                                                                      style="margin-left: 10px;">5 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox2" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(4)"
+                                                                      (change)="filterByRating(4, $event.target.checked)">
+                                                               <label for="category-checkbox2"
+                                                                      style="margin-left: 10px;">4 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox3" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(3)"
+                                                                      (change)="filterByRating(3, $event.target.checked)">
+                                                               <label for="category-checkbox3"
+                                                                      style="margin-left: 10px;">3 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox4" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(2)"
+                                                                      (change)="filterByRating(2, $event.target.checked)">
+                                                               <label for="category-checkbox4"
+                                                                      style="margin-left: 10px;">2 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox5" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(1)"
+                                                                      (change)="filterByRating(1, $event.target.checked)">
+                                                               <label for="category-checkbox5"
+                                                                      style="margin-left: 10px;">1 star</label>
+                                                        </li>
+                                                 </ul>
+
+                                          </div>
+                                   </div>
+
+
+
+
+                                   <button class="float-right" data-bs-toggle="tooltip" title="click here"
+                                          id="click here" class="filter" (click)="brand()">{{'Products'|
+                                          translate}}</button>
+                                   <div id="panel" style="display: none">
+                                          <div id="termSheetPopup2">
+                                                 <ul class="categories-menu menu vertical nested is-active"
+                                                        style="list-style-type:none;">
+                                                       
+                                                        <li>
+                                                               <ng-container
+                                                                      *ngFor="let productName of currentProductName">
+                                                                      <input [checked]="brandDataSeparated.includes(productName)"
+                                                                             (change)="getBrandSelected($event, productName)"
+                                                                             id="category-checkbox{{productName}}"
+                                                                             type="checkbox">
+                                                                      <label for="category-checkbox{{productName}}"
+                                                                             style="margin-left: 10px;">{{productName}}</label><br>
+                                                               </ng-container>
+                                                        </li>
+                                                 </ul>
+                                                 <a href="#" class="clear-all-third" id="category-clear-all"
+                                                        (click)="clearAll($event)">Clear
+                                                        All</a>
+                                          </div>
+
+                                   </div>
+
+                            </div>
+
+                     </nav>
+              </div>
+              Mobile Filter Button
+              <div class="col-12 d-block d-md-none">
+                     <button class="filter-btn" (click)="toggleFilterVisibility()">
+                            <i class="fa fa-filter" aria-hidden="true"></i> {{ 'filter_by' | translate }}
+                     </button>
+                     Mobile Filter Sidebar
+                     <div class="mobile-filter-container"
+                            [ngClass]="{'show': isFilterVisible, 'hide': !isFilterVisible}">
+                            Repeat the filter sections as in desktop view
+                            Price Range Section
+                            <button class="filter" (click)="toggleSection('priceRange')">
+                                   {{ 'Price-range' | translate }}
+                            </button>
+                            <div *ngIf="visibleSections.priceRange">
+                                   <ngx-slider [(value)]="minValue" [(highValue)]="maxValue"
+                                                               [options]="options"
+                                                               (click)="getPriceRange($event, minValue, maxValue)">
+                                                        </ngx-slider>
+                            </div>
+                            Rating Section
+                            <button class="filter" (click)="toggleSection('rating')">
+                                   {{ 'Rating' | translate }}
+                            </button>
+                            <div *ngIf="visibleSections.rating">
+                                   <ul class="categories-menu menu vertical nested is-active"
+                                                        style="list-style-type:none;">
+
+                                                        <li>
+                                                               <input id="category-checkbox1" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(5)"
+                                                                      (change)="filterByRating(5, $event.target.checked)">
+                                                               <label for="category-checkbox1"
+                                                                      style="margin-left: 10px;">5 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox2" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(4)"
+                                                                      (change)="filterByRating(4, $event.target.checked)">
+                                                               <label for="category-checkbox2"
+                                                                      style="margin-left: 10px;">4 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox3" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(3)"
+                                                                      (change)="filterByRating(3, $event.target.checked)">
+                                                               <label for="category-checkbox3"
+                                                                      style="margin-left: 10px;">3 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox4" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(2)"
+                                                                      (change)="filterByRating(2, $event.target.checked)">
+                                                               <label for="category-checkbox4"
+                                                                      style="margin-left: 10px;">2 star</label>
+                                                        </li>
+                                                        <li>
+                                                               <input id="category-checkbox5" type="checkbox"
+                                                                      [checked]="selectedRatings.includes(1)"
+                                                                      (change)="filterByRating(1, $event.target.checked)">
+                                                               <label for="category-checkbox5"
+                                                                      style="margin-left: 10px;">1 star</label>
+                                                        </li>
+                                                 </ul>
+                            </div>
+                            Products Section
+                            <button class="filter" (click)="toggleSection('products')">
+                                   {{ 'Products' | translate }}
+                            </button>
+                            <div *ngIf="visibleSections.products">
+                                   <ul class="categories-menu menu vertical nested is-active"
+                                                        style="list-style-type:none;">
+                                                       
+                                                        <li>
+                                                               <ng-container
+                                                                      *ngFor="let productName of currentProductName">
+                                                                      <input [checked]="brandDataSeparated.includes(productName)"
+                                                                             (change)="getBrandSelected($event, productName)"
+                                                                             id="category-checkbox{{productName}}"
+                                                                             type="checkbox">
+                                                                      <label for="category-checkbox{{productName}}"
+                                                                             style="margin-left: 10px;">{{productName}}</label><br>
+                                                               </ng-container>
+                                                        </li>
+                                                 </ul>
+                            </div>
+                            <a href="#" class="clear-all" (click)="clearAll($event)">Clear All</a>
+                     </div>
+              </div>
+              Main Content Area
+              <div class="col-lg-9 col-md-9 col-sm-12">
+                     Your main content here
+              </div>
+       </div>
+</div>
+<div *ngIf="loading" class="loader"></div> -->

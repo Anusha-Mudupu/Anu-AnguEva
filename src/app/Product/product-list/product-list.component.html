@@ -1,0 +1,71 @@
+<div class="container1" [ngClass]="{'dark':themeService.isDark}">
+    <div class="container">
+        <div class="row">
+            <div class="search-term-confirm">
+
+            </div>
+
+            <div *ngIf="products && products.length!=0;">
+                <div class="col-sm-3">
+                    <div>
+
+                        <app-refine-search [productListObj]='products'>
+                        </app-refine-search>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="search-results-wrapper">
+
+                        <!-- <div
+                            *ngFor="let currentTileProduct of products.products  | contentfilter : { productManufacturerName:productfilterData,price:pricerangefilterData}|   paginate: {  itemsPerPage:4,currentPage: page,totalItems:totalLength }">
+                            <app-product-tile [currentTileProduct]='currentTileProduct' [favourites]='favourites'>
+                            </app-product-tile>
+
+                        </div> -->
+                        <div class="filter-tags">
+                            <div class="filter-tag" *ngIf="pricerangefilterData?.length">
+                                {{ pricerangefilterData[0] }}-{{ pricerangefilterData[1] }}
+                                
+                            </div>
+                            <div class="filter-tag" *ngIf="avgRatingFilterData?.length">
+                                {{ avgRatingFilterData.join(', ') }} Star
+                                <!-- <span class="close-icon" (click)="clearRatingFilter()">×</span> -->
+                            </div>
+                            <div class="filter-tag" *ngIf="productfilterData?.length">
+                                {{ productfilterData.join(', ') }} 
+                                <!-- <span class="close-icon" (click)="clearProductFilter()">×</span> -->
+                            </div>
+                        </div>
+
+
+                        <div
+                            *ngFor="let currentTileProduct of products.products  | contentfilter : { productManufacturerName: productfilterData, price: pricerangefilterData, rating: avgRatingFilterData } | paginate: { itemsPerPage: 4, currentPage: page, totalItems: totalLength }">
+
+                            <app-product-tile [currentTileProduct]='currentTileProduct'
+                                [favourites]='favourites'></app-product-tile>
+
+
+                            <!-- <br> -->
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!-- <div *ngIf="loading" class="loader"></div> -->
+            </div>
+        </div>
+
+        <pagination-controls class="text-center" (pageChange)="page = $event"
+            (pageChange)="updatePage($event)"></pagination-controls>
+
+
+
+
+
+
+
+    </div>
+
+</div>
+<app-footer></app-footer>

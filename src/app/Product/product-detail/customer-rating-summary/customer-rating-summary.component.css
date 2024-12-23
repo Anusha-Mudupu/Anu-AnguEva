@@ -1,0 +1,32 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+
+ngb-rating {
+    color: orange;
+    font-size: x-large;
+}
+
+button {
+    border-radius: 10px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-info.btn-outline {
+    color: lightblue;
+}
+
+.btn-info.btn-outline:hover {
+    color: #fff;
+}
+small{
+    background-color: var(--toast-background);
+    color: var(--toast-text);  
+}

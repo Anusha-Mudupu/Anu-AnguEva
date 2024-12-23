@@ -1,0 +1,76 @@
+<div class="container1"  *ngIf="!loading" [ngClass]="{'dark':themeService.isDark}">
+  <h1>{{'Frequently Asked Questions'| translate}}</h1>
+  <details style="background-color: transparent;">
+    <summary>{{'When is my order shipped?'| translate}}</summary>
+    <hr>
+    <p>{{'We ship within 24 hours of the order being placed.'| translate}}</p>
+  </details>
+  <details style="background-color: transparent;">
+    <summary>{{'How long will it take to get my order?'| translate}}</summary>
+    <hr>
+    <p>{{'This depends on whether it is an *International or a Domestic order'| translate}}.
+      {{'All orders within the U.S. are considered domestic orders and they are shipped and delivered within 2-5
+      business days'| translate}}.
+      {{'*Please see International Orders for more details.'| translate}}</p>
+  </details>
+  <details style="background-color: transparent;">
+    <summary>{{'How can I track my order?'| translate}}</summary>
+    <hr>
+    <p>{{'We will send tracking information to the e-mail address associated with your order once the item has shipped.
+      '| translate}}
+      {{'If you have not received your tracking information and it has been over 2 business day,'| translate}}
+      {{'please contact us at +91-9876543210'| translate}}</p>
+  </details>
+  <details style="background-color: transparent;">
+    <summary>{{'How can I change my order after it’s been placed?'| translate}}</summary>
+    <hr>
+    <p>{{'Since the turnaround time on packages are so fast, changing an order after it’s been placed can be tricky'|
+      translate}}.
+      {{'Because of this, we recommend calling us immediately upon realizing that something may be wrong with your
+      order. We will always do our best to make sure you’ll get what you need.'| translate}}</p>
+  </details>
+  <details style="background-color: transparent;">
+    <summary>{{'How do I return an item/receive a refund?'| translate}}</summary>
+    <hr>
+    <p>{{'If you find that you’re not completely satisfied with your Products,'| translate}}
+      {{' we will gladly issue you a refund. We offer a full, no BS money back guarantee.'| translate}}
+      {{'That’s how committed we are to this coffee. All we ask is that you send us a quick message on why it didn’t
+      meet your standards'| translate}}.
+      {{' We are always looking for ways to improve our product.'| translate}}</p>
+  </details>
+
+
+  <h3>{{'PAYMENT'| translate}}</h3>
+
+  <details style="background-color: transparent;">
+    <summary>{{'What are my payment options?'| translate}}</summary>
+    <hr>
+    <p>{{'We accept PayPal, Visa, MasterCard, Discover, and American Express.'| translate}}</p>
+  </details>
+  <details style="background-color: transparent;">
+    <summary>{{'How do I cancel my subscription?'| translate}}</summary>
+    <hr>
+    <p>{{'When you would like to discontinue your subscription:'| translate}}<br>
+
+    <p>1.{{'Enter in your email address in the appropriate field.'| translate}}</p>
+    <p>2. {{'On the next page, click the “edit” pencil.'| translate}}</p>
+    <p>3.{{'Followed by the “trashcan” icon.'| translate}}</p>
+    <p>4. {{'Selecting this icon, it will ask you to confirm the cancellation.'| translate}}</p>
+    <p>5. {{'Confirm cancellation and feel free to reach out if there is anything we can further assist you with.'|
+      translate}}</p>
+  </details>
+
+  <h3>{{'RETURNS AND EXCHANGES'| translate}}</h3>
+
+  <details style="background-color: transparent;">
+    <summary>{{'What is your return and exchange policy?'| translate}}</summary>
+    <hr>
+    <p>{{'If for any reason you are not completely satisfied with your purchase,'| translate}}
+      {{'within 60 days of placing your order,'| translate}}{{'we will refund you for your purchase with no questions
+      asked..'| translate}}</p>
+  </details>
+  <br>
+  <br>
+</div>
+<div *ngIf="loading" class="loader" ></div>
+<app-footer></app-footer>

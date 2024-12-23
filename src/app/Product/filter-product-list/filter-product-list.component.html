@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>jewellery</title>
+
+</head>
+
+<body id="content">
+
+  <div class="a-fixed-left-flipped-grid s-padding-left-small s-padding-right-small s-span-page a-spacing-top-small">
+    <div class="a-fixed-left-grid-inner" style="padding-left:200px">
+      <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;width:100%;float:right;">
+        <div id="container" class="lp s-padding-left-small twoColumn" data-app="lp" data-page="hybrid"
+          data-page-construction="sx" documentrole="main">
+        </div>
+        <div class="a-spacing-top-base">
+          <h1 class="a-size-large" role="header">
+            Top Deals in {{filterProductRes[0].category}} category
+          </h1>
+          <div class="a-divider a-divider-section">
+            <div class="a-divider-inner"></div>
+          </div>
+          <div class="container">
+            <br>
+            <div class="row row-flex">
+              <ng-container *ngFor="let catalog of filterProductRes">
+
+                <div class="box-content">
+                  <div class="image-box">
+                    <img src="{{catalog.imageUrl}}" class="img-responsive" alt="Cinque Terre">
+                    <div [attr.id]="'catalog'+catalog.price">Rs.{{catalog.price}}</div>
+
+                    <div [attr.id]="'catalog'+catalog.catalogId" [attr.value]="'catalogId'+catalog.catalogId">
+                      {{catalog.catalogName}}</div>
+                  </div>
+                </div>
+
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <hr class="a-spacing-small a-divider-normal">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

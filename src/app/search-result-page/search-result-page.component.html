@@ -1,0 +1,31 @@
+<html>
+
+<head>
+</head>
+
+<body id="content">
+    <div class="container">
+        <br>
+        <div class="row row-flex">
+            <div class="search-result" *ngFor="let search of resultSearch">
+                <div class="bx-content">
+                    <div class="image-box">
+                        <div id="addtocart">
+                            <button type=”button”>
+                                addToCart</button>
+                        </div>
+                        <img src="{{search._source.image_url}}" class="img-responsive">
+                    </div>
+                    {{search._source.price}}<br>
+                    {{search._source.product_name}}<br>
+                    {{search._source.product_desc}}<br>
+                    {{search._source.search_tag}}<br>
+                    {{search._source.product_sku_id}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

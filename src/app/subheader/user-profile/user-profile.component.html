@@ -1,0 +1,149 @@
+<div class="container1" *ngIf="!loading1" [ngClass]="{'dark':themeService.isDark}">
+  <div class="row">
+    <div class="col-md-12">
+      <h2><i class="bi bi-person-circle"></i>{{'Your Profile'| translate}}</h2>
+      <hr>
+    </div>
+  </div>
+
+  <form class="userprofile" [formGroup]="myForm" novalidate (ngSubmit)="submitProfile()">
+
+    <div class="form-group row">
+      <label for="name" class="col-md-3 col-sm-3 col-xs-3 col-form-label">{{'UserId*'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="userId" name="userId" formControlName="userId" class="form-control here" type="text" value="userId"
+          [readonly]=true>
+        <!-- <div *ngIf="submitted && f.user_id.errors" class="invalid-feedback">
+          <div *ngIf="f.user_id.errors.required" class="text-danger"> {{'UserId is required.'| translate}}</div>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="name" class="col-md-3 col-sm-3 col-xs-3 col-form-label">{{'First Name'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="name" name="name" formControlName="firstName" class="form-control here" type="text"
+          value="First Name" [readonly]="isReadonly" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors}">
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required" class="text-danger"> FirstName is required.</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="lastname" class="col-md-3 col-sm-3 col-xs-3 col-form-label">{{'Last Name'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="lastname" name="lastname" formControlName="lastName" placeholder="Last Name"
+          class="form-control here" type="text" value="Last Name" [readonly]="isReadonly"
+          [ngClass]="{ 'is-invalid': submitted && f.lastName.errors}">
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required" class="text-danger"> LastName is required.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="email" class="col-md-3 col-sm-3 col-xs-3 col-form-label">{{'Email*'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="email" name="email" formControlName="emailId" placeholder="Email" class="form-control here"
+          required="required" type="text" value="Email" [readonly]=true
+          [ngClass]="{ 'is-invalid': submitted && f.emailId.errors}">
+        <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+          <div *ngIf="f.emailId.errors.required" class="text-danger"> Email is required.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="lastname" class="col-md-3 col-sm-3 col-xs-3 col-form-label">{{'Mobile No.'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="mobile" name="mobile" formControlName="mobileNumber" appNumericOnly placeholder="Mobile Number"
+          class="form-control here" type="text" value="Mobile No." [readonly]="isReadonly"
+          [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors}">
+        <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+          <div *ngIf="f.mobileNumber.errors.required" class="text-danger"> Mobile Number is required.</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="newpass" class="col-md-3  col-sm-3 col-xs-3 col-form-label">{{'New Password'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="newpass" name="newpass" formControlName="password" placeholder="New Password"
+          class="form-control here" type="password" value="Email" [readonly]="isReadonly"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors}">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required" class="text-danger"> This field is required.</div>
+          <div *ngIf="f.password.errors.minlength" class="text-danger">Length must be minium 6 charectors.</div>
+          <div *ngIf="f.mobileNumber.errors.invalidMobileNumber" class="text-danger">Mobile Number must be 10 digits.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="lastname" class="col-md-3 col-sm-3 col-xs-3 col-form-label">{{'Gender'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="gender" type="radio" name="gender" value="male" formControlName="gender" [attr.disabled]="val">
+        {{'Male'| translate}}<br>
+        <input id="gender" type="radio" name="gender" value="female" readonly formControlName="gender"
+          [attr.disabled]="val"> {{'Female'| translate}}<br>
+        <input id="gender" type="radio" name="gender" value="other" readonly formControlName="gender"
+          [attr.disabled]="val"> {{'Other'| translate}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="Birthday" class="col-md-3 col-sm-3 col-xs-3 col-form-label">{{'Birthday:'| translate}}</label>
+      <div class="col-md-9 col-sm-9 col-xs-9">
+        <input id="birthday" type="date" name="bday" formControlName="birthday" [readonly]="isReadonly"
+          [ngClass]="{ 'is-invalid': submitted && f.birthday.errors}">
+        <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
+          <div *ngIf="f.birthday.errors.required" class="text-danger"> birthday is required.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="showBtnLabel">
+      <button type="button" class="btn btn-danger" (click)="openModel()" [attr.disabled]="val">UnSubscribe</button>
+    </div>
+
+
+    <!-- Modal Structure -->
+    <div class="modal" id="myModal1" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Are you sure you want to unsubscribe!</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" id="closeModalBtn">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <button class="btn btn-primary" (click)="onUnsubscribed()">{{ btnLabel }}</button>
+            <button class="btn btn-danger" (click)="closeModel()" id="closebtn">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div id="buttons" class="form-group row">
+      <div class="col-md-3  col-sm-3 col-xs-3 log-out">
+        <button name="edit" type="button" class="btn btn-primary  logout-btn" (click)="editProfile()">{{'Edit'|
+          translate}}</button>
+      </div>
+      <div class="col-md-3  col-sm-3 col-xs-3 log-out">
+
+        <button name="submit" type="submit" [disabled]="loading" class="btn btn-success update-btn">{{'Save'|
+          translate}}</button>
+      </div>
+      <div class="col-md-3  col-sm-3 col-xs-3 log-out">
+        <button name="logout" type="button" class="btn btn-primary btn-danger logout-btn"
+          (click)="showProfile()">{{'Cancel'| translate}}</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div *ngIf="loading1" class="loader"></div>
+<app-footer></app-footer>

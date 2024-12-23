@@ -1,0 +1,894 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+
+/*  
+.cancel-icon {
+   color: red;
+}
+
+
+.menu-area {
+   
+   margin-top: 74px;
+   width: 100%;
+   color: var(--toast-text);
+   overflow: none;
+   background-color: var(--subheaderbg);
+   color: var(--toast-text);
+  
+
+}
+
+.dropdown-menu {
+   padding: 0;
+   margin: 0;
+   border: 0 solid transition !important;
+   border: 0 solid rgba(0, 255, 255, 0.15);
+   border-radius: 0;
+   -webkit-box-shadow: none !important;
+   box-shadow: none !important;
+
+}
+
+.navbar-toggle .icon-bar {
+   background-color: #DAA520;
+
+
+}
+
+.mainmenu a,
+.navbar-default .navbar-nav>li>a,
+.mainmenu ul li a,
+.navbar-expand-lg .navbar-nav .nav-link {
+
+   color: #fff;
+   font-size: 20px;
+   text-transform: capitalize;
+   padding: 16px 15px;
+   font-family: "Snell Roundhand, cursive";
+   display: block !important;
+}
+
+
+
+.mainmenu .collapse ul ul>li:hover>a,
+.navbar-default .navbar-nav .show .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav .show .dropdown-menu>li>a:hover {
+   background: #4CAF50;
+
+}
+
+.mainmenu .collapse ul ul ul>li:hover>a {
+
+background-color   : var(--toast-background);
+   color: var(--toast-text);
+
+
+}
+
+.mainmenu .collapse ul ul,
+.mainmenu .collapse ul ul.dropdown-menu {
+   background: #1565C0;
+}
+
+.mainmenu .collapse ul ul ul,
+.mainmenu .collapse ul ul ul.dropdown-menu {
+   background: #1E88E5
+}
+
+.mainmenu .collapse ul ul ul ul,
+.mainmenu .collapse ul ul ul ul.dropdown-menu {
+   background: #64B5F6
+}
+
+.navbar-toggle {
+   background-color: var(--toast-background);
+   color: var(--toast-text);
+   height: 35px;
+}
+
+.dropdown {
+   position: relative;
+   margin-bottom: 5px;
+}
+
+.mainmenu .collapse ul ul ul>li:hover>a {
+
+   background-color: var(--navbarbg);
+   color: #EAF0F6;
+
+
+}
+
+
+
+@media only screen and (min-width: 767px) {
+
+   .menu-area {
+   
+      margin-top: 74px;
+      width: 100%;
+      color: var(--toast-text);
+      overflow: none;
+      background-color: var(--subheaderbg);
+      color: var(--toast-text);
+
+
+   }
+
+   .mainmenu .collapse ul ul>li:hover>a,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:focus,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:hover {
+      background: #333333;
+
+   }
+
+   .mainmenu .collapse ul ul ul>li:hover>a {
+
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+
+   }
+
+   .mainmenu .collapse ul ul,
+   .mainmenu .collapse ul ul.dropdown-menu {
+      background: #333333;
+
+   }
+
+   .mainmenu .collapse ul ul ul,
+   .mainmenu .collapse ul ul ul.dropdown-menu {
+      background: #333333;
+   }
+
+   .mainmenu .collapse ul ul ul ul,
+   .mainmenu .collapse ul ul ul ul.dropdown-menu {
+      background: #333333;
+   }
+
+   .mainmenu .collapse ul li:hover>ul {
+      display: block;
+   }
+
+
+
+   .mainmenu .collapse ul ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 100px;
+      display: none
+   }
+
+   .mainmenu .collapse ul ul li {
+      position: relative;
+
+   }
+
+   .mainmenu .collapse ul ul li:hover>ul {
+      display: block;
+
+   }
+
+   .mainmenu .collapse ul ul ul {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      min-width: 100px;
+      display: none
+   }
+
+   .mainmenu .collapse ul ul ul li {
+      position: relative
+   }
+
+   .mainmenu .collapse ul ul ul li:hover ul {
+      display: block
+   }
+
+
+   .mainmenu .collapse ul ul ul ul {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      min-width: 100px;
+      display: none;
+      z-index: 1
+   }
+
+
+}
+
+
+
+
+@media (min-width: 1200px) {
+
+   .mainmenu .collapse ul ul ul>li:hover>a {
+      color: white !important;
+
+   }
+
+   .menu-area {
+     
+      margin-top: 74px;
+      width: 100%;
+      color: var(--toast-text);
+      overflow: none;
+      background-color: var(--subheaderbg);
+      color: var(--toast-text);
+      min-height: 50px;
+      position: fixed;
+      z-index: 100;
+
+   }
+
+   .mainmenu .active a,
+   .mainmenu .active a:focus,
+   .mainmenu .active a:hover,
+   .mainmenu li a:hover,
+   .mainmenu li a:focus,
+   .navbar-default .navbar-nav>.show>a,
+   .navbar-default .navbar-nav>.show>a:focus,
+   .navbar-default .navbar-nav>.show>a:hover {
+     
+      border: solid 1px white;
+
+   }
+
+
+   .mainmenu .collapse ul ul>li:hover>a,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:focus,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:hover {
+     
+      background-color: var(--subheaderbg);
+     
+   }
+
+   .menu-area {
+      height: 30px;
+   }
+
+   .mainmenu a,
+   .navbar-default .navbar-nav>li>a,
+   .mainmenu ul li a,
+   .navbar-expand-lg .navbar-nav .nav-link {
+      color: #fff;
+      font-size: 18px;
+      text-transform: capitalize;
+      padding: 5px 15px;
+      font-family: "Snell Roundhand, cursive";
+      display: block !important;
+   }
+
+}
+
+@media screen and (max-device-width: 640px) {
+
+   .mainmenu .active a,
+   .mainmenu .active a:focus,
+   .mainmenu .active a:hover,
+   .mainmenu li a:hover,
+   .mainmenu li a:focus,
+   .navbar-default .navbar-nav>.show>a,
+   .navbar-default .navbar-nav>.show>a:focus,
+   .navbar-default .navbar-nav>.show>a:hover {
+      background: #1565C0;
+      width: 200px;
+      border: solid 1px white;
+   }
+
+   .mainmenu .collapse ul ul>li:hover>a,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:focus,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:hover {
+      background: #4CAF50;
+      width: 200px;
+      border: solid 1px white;
+      position: relative;
+   }
+
+   .mainmenu .collapse ul ul,
+   .mainmenu .collapse ul ul.dropdown-menu {
+      background: none;
+      position: relative;
+   }
+
+   .mainmenu .collapse ul ul ul,
+   .mainmenu .collapse ul ul ul.dropdown-menu {
+      background: none;
+      position: relative;
+   }
+
+   .mainmenu .collapse ul ul ul ul,
+   .mainmenu .collapse ul ul ul ul.dropdown-menu {
+      background: none;
+      position: relative;
+   }
+
+   .mainmenu .collapse ul li:hover>ul {
+      display: block;
+      position: relative;
+   }
+
+   .mainmenu .collapse ul ul li:hover>ul {
+      display: block;
+      margin-left: 0px;
+      position: relative;
+   }
+
+   .mainmenu a,
+   .navbar-default .navbar-nav>li>a,
+   .mainmenu ul li a,
+   .navbar-expand-lg .navbar-nav .nav-link {
+      color: #fff;
+      font-size: 12px;
+      text-transform: capitalize;
+      padding: 6px 15px;
+      font-family: "Snell Roundhand, cursive";
+      position: relative !important;
+   }
+
+   .navbar-toggle {
+      float: left;
+   }
+
+   .dropdown-menu {
+      position: absolute;
+      top: 0;
+      left: 10%;
+      margin-top: 0px;
+      margin-left: 20px;
+   }
+
+   .dropdown-menu>li {
+      position: relative;
+   }
+
+   .dropdown-menu>li>a {
+      display: block;
+      width: 200px;
+   }
+}
+
+
+
+
+
+@media screen and (max-width:360px) {
+
+
+
+
+
+   .navbar-toggle {
+      position: absolute;
+      position: fixed !important;
+
+      top: 10px !important;
+
+      left: 10px;
+
+      z-index: 1000;
+
+   }
+}
+
+
+
+@media screen and (min-width: 360px) and (max-width: 767px) {
+   #sidebar {
+      position: fixed;
+      left: -410px;
+      top: 150px;
+      width: 300px;
+      height: 100vh!important;
+
+      overflow-y: auto;
+      background-color: var(--subheaderbg);
+      transition: left 0.3s;
+      z-index: 1000;
+
+   }
+
+   .navbar-nav {
+      height: 100vh !important;
+   }
+
+   #sidebar.active {
+      left: 0;
+      height: 100vh !important;
+   }
+
+   .navbar-toggle {
+      position: fixed !important;
+      top: 130px !important;
+      left: -10px;
+      z-index: 1000;
+   }
+
+   .mainmenu .active a,
+   .mainmenu .active a:focus,
+   .mainmenu .active a:hover,
+   .mainmenu li a:hover,
+   .mainmenu li a:focus,
+   .navbar-default .navbar-nav>.show>a,
+   .navbar-default .navbar-nav>.show>a:focus,
+   .navbar-default .navbar-nav>.show>a:hover {
+      background: #1565C0;
+      width: 100px;
+   }
+
+   
+
+   .dropdown {
+      position: relative;
+      width: 10px;
+      left: 100px;
+
+
+   }
+
+   .navbar-toggle {
+    
+      position: relative;
+      margin-top: 10px;
+      margin-left: 15px;
+      z-index: 1000;
+   }
+
+
+}
+
+
+
+.loader {
+   margin: auto;
+   border: 5px solid #EAF0F6;
+   border-radius: 50%;
+   border-top: 5px solid lightslategrey;
+   width: 40px;
+   height: 40px;
+   animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+
+@media only screen and (min-width : 768px) and (max-width : 1200px) {
+
+
+
+
+   .mainmenu .active a,
+   .mainmenu .active a:focus,
+   .mainmenu .active a:hover,
+   .mainmenu li a:hover,
+   .mainmenu li a:focus,
+   .navbar-default .navbar-nav>.show>a,
+   .navbar-default .navbar-nav>.show>a:focus,
+   .navbar-default .navbar-nav>.show>a:hover {
+      background: #1565C0;
+      width: 200px;
+      border: solid 1px white;
+
+
+
+   }
+
+   .mainmenu .collapse ul ul>li:hover>a,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:focus,
+   .navbar-default .navbar-nav .show .dropdown-menu>li>a:hover {
+      background: #4CAF50;
+      width: 200px;
+   }
+
+   .mainmenu .collapse ul ul,
+   .mainmenu .collapse ul ul.dropdown-menu {
+      background: none;
+      position: relative;
+   }
+
+   .mainmenu .collapse ul ul ul,
+   .mainmenu .collapse ul ul ul.dropdown-menu {
+      background: none;
+
+   }
+
+   .mainmenu .collapse ul ul ul ul,
+   .mainmenu .collapse ul ul ul ul.dropdown-menu {
+      background: none;
+
+   }
+
+   .mainmenu .collapse ul li:hover>ul {
+      display: flex;
+
+   }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+/* Added by Raji */
+.menu-area {
+   width: 100%;
+   margin-top: 74px;
+   /* Adjust as needed */
+   background-color: var(--subheaderbg);
+   color: var(--toast-text);
+   padding: 5px;
+}
+
+
+/* .navbar {
+   display: flex;
+  
+   background-color: var(--subheaderbg);
+  
+   z-index: 1050;
+} */
+
+.navbar-toggle {
+   display: none;
+   /* Hidden in desktop view */
+   background-color: var(--toast-background);
+   color: var(--toast-text);
+   border: none;
+   padding: 10px;
+   cursor: pointer;
+   font-size: 20px;
+}
+
+.navbar-toggle.toggled {
+   color: red;
+}
+
+.navbar-nav {
+   display: flex;
+   flex-direction: row;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+  
+}
+
+.navbar-nav>li {
+   display: inline-block;
+   position: relative;
+
+}
+
+.navbar-nav>li>a {
+   color: #fff;
+   font-size: 18px;
+   text-transform: capitalize;
+   text-decoration: none;
+   padding: 10px 15px;
+   font-family: "Snell Roundhand, cursive";
+   transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-nav>li>a:hover {
+   border: 1px solid;
+   color: #EAF0F6;
+}
+
+.dropdown-menu {
+   display: none;
+   position: absolute;
+   top: 100%;
+   margin-top: 5px;
+   left: 0;
+   background-color: rgb(34, 18, 18);
+   min-width: 150px;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+   z-index: 1000;
+   font-size: large;
+   font-family: 'Times New Roman', Times, serif;
+   padding: 0;
+   border-radius: 0;
+}
+
+.navbar-nav>li:hover .dropdown-menu {
+   display: block;
+}
+
+.dropdown-menu>li>a {
+   color: #fff;
+   padding: 10px 15px;
+   display: block;
+   text-decoration: none;
+   background-color: transparent;
+   transition: background-color 0.3s;
+}
+
+.dropdown-menu>li>a:hover {
+   background-color: var(--toast-background);
+   color: var(--toast-text);
+   border: 1px solid;
+
+}
+
+/* .dropdown-menu ul {
+   background: #1565C0;
+}
+
+.dropdown-menu ul ul {
+   background: #1E88E5;
+}
+
+.dropdown-menu ul ul ul {
+   background: #64B5F6;
+} */
+
+/* Mobile View */
+@media (min-width:360px) and (max-width: 767px) {
+   .navbar {
+      flex-direction: column;
+      width: 200px;
+      /* margin-top: -50px; */
+      position: absolute;
+     
+      overflow: auto !important;
+   }
+
+   .navbar-nav>li .dropdown-menu {
+      display: none;
+      /* background-color: white; */
+      position: absolute;
+      /* Make it independent of the parent's flow */
+      padding: 5px;
+      top: 100%;
+      /* Show below the parent item */
+      left: 0;
+      z-index: 1000;
+      /* Ensure it's above other elements */
+      max-height: calc(100vh - 20px);
+      /* Restrict max height to avoid going off-screen */
+      overflow-y: auto;
+      /* Allow scrolling for dropdown items */
+   }
+
+   .navbar-toggle {
+      display: block;
+      background-color: white;
+      color: goldenrod;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      position: fixed;
+      top: 120px;
+      left: 10px;
+      /* Always at the top-right corner */
+      z-index: 1100;
+      /* Ensures it's above other elements */
+   }
+
+   .navbar-toggle.toggled {
+      color: red;
+
+   }
+
+
+   .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: fixed;
+      left: -300px;
+      margin-top: -18px;
+      /* top: 180px; */
+      background-color: var(--subheaderbg);
+      color: var(--toast-text);
+      transition: left 0.3s ease-in-out;
+      /* padding-top: 10px; */
+
+      z-index: 1050;
+
+   }
+
+   .navbar-nav.sidebar-open {
+      left: 0;
+      /* Sidebar slides in */
+   }
+
+   .navbar-nav.sidebar-closed {
+      left: -300px;
+   }
+
+   .navbar-nav>li {
+      display: block;
+      padding: 5px 20px 0px 20px;
+      margin-left: 40px;
+      color: var(--toast-text);
+   }
+
+   .navbar-nav>li>a {
+      display: block;
+      width: 100%;
+
+      text-decoration: none;
+   }
+
+   .navbar-nav>li>a:hover {
+      /* background-color: #e9ecef; */
+      border: solid 1px;
+      color: #f8fafd;
+   }
+
+   /* Dropdown menu within mobile */
+   .navbar-nav>li>.dropdown-menu {
+      display: none;
+      background-color: var(--subheaderbg);
+      color: var(--toast-text);
+      
+      position: relative;
+      padding: 10px;
+      top: 10px !important;
+
+
+   }
+
+   .navbar-nav>li.dropdown-open>.dropdown-menu {
+      display: block;
+   }
+
+   .navbar-nav>li>.dropdown-menu>li>a {
+      padding-left: 20px;
+      /* color: var(--toast-text); */
+      color:white;
+   }
+
+   .navbar-nav>li>.dropdown-menu>li>a:hover {
+      /* background-color: #f1f1f1; */
+      border: 1px solid;
+   }
+
+   .navbar-nav {
+      scrollbar-width: thin;
+      /* Firefox */
+      scrollbar-color: #ccc transparent;
+      /* Firefox */
+   }
+
+   .navbar-nav::-webkit-scrollbar {
+      width: 8px;
+   }
+
+   .navbar-nav::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+   }
+
+
+}
+
+
+@media (min-width:768px) and (max-width:992px) {
+   .navbar {
+      flex-direction: column;
+      width: 200px;
+      position: absolute;
+   }
+
+   .navbar-toggle {
+      display: block;
+      background-color: white;
+      color: goldenrod;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      position: fixed;
+      top: 180px;
+      left: 10px;
+      /* Always at the top-right corner */
+      z-index: 1100;
+      /* Ensures it's above other elements */
+   }
+
+   .navbar-toggle.toggled {
+      color: red;
+   }
+
+
+   .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      width: 450px;
+      height: 100vh;
+      overflow: auto;
+      position: fixed;
+      left: -300px;
+      /* Initially hidden */
+      top: 190px;
+      background-color: var(--subheaderbg);
+      color: var(--toast-text);
+      transition: left 0.3s ease-in-out;
+      padding-top: 50px;
+      /* Space for toggle button */
+      z-index: 1050;
+      /* Sidebar layering */
+   }
+
+   .navbar-nav.sidebar-open {
+      left: 0;
+      /* Sidebar slides in */
+   }
+
+   .navbar-nav.sidebar-closed {
+      left: -450px;
+   }
+
+   .navbar-nav>li {
+      display: block;
+      padding: 15px 20px 0px 80px;
+      color: var(--toast-text);
+   }
+
+   .navbar-nav>li>a {
+      display: block;
+      width: 100%;
+
+      text-decoration: none;
+   }
+
+   .navbar-nav>li>a:hover {
+      /* background-color: #e9ecef; */
+      border: solid 1px;
+      color: #fbfcfd;
+   }
+
+   /* Dropdown menu within mobile */
+   .navbar-nav>li>.dropdown-menu {
+      display: none;
+      background-color: var(--subheaderbg);
+      color: var(--toast-text);
+      
+      position: relative;
+      padding: 10px;
+      top: 10px !important;
+
+
+   }
+
+   .navbar-nav>li.dropdown-open>.dropdown-menu {
+      display: block;
+   }
+
+  
+
+
+   .navbar-nav>li>.dropdown-menu>li>a {
+      padding-left: 20px;
+      /* color: var(--toast-text); */
+      color:white;
+   }
+
+   .navbar-nav>li>.dropdown-menu>li>a:hover {
+      /* background-color: #f1f1f1; */
+      border: 1px solid;
+   }
+
+}

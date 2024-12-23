@@ -1,0 +1,97 @@
+<div class="container1" [ngClass]="{'dark':themeService.isDark}">
+  <h1 id="h1-responsive">{{'Your Orders'| translate}}</h1>
+
+  <div>
+    <p class="order_placed">{{ 'Orders Placed in' | translate }}</p>
+    <div class="placed">
+
+      <select (change)="selectTimeFrame($event.target.value)">
+        <option value="Last 30 Days">Last 30 Days</option>
+        <option value="Last 3 Months">Last 3 Months</option>
+        <option value="Last 6 Months">Last 6 Months</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+      </select>
+
+    </div>
+  </div>
+
+
+  <hr>
+  <!-- <h1></h1> -->
+
+  <ng-container *ngIf="!custViewOrder[0];  then noOrders; else Orders"></ng-container>
+
+  <ng-template #noOrders>
+    <h2 class="order">{{'You dont have current orders'| translate}}</h2>
+  </ng-template>
+
+  <ng-template #Orders>
+
+    <div *ngIf="!loading" class="card-container">
+
+      <div class="card" *ngFor="let viewOrder of custViewOrder">
+        <div class="card-header">
+          <span>
+
+            <li id="order"> <b>{{'ORDER'| translate}}</b>
+              <br>#{{viewOrder.orderId}}
+            </li>
+            <li id="submitteddate"><b>{{'Submit Date'| translate}}</b>
+              <br>{{viewOrder.orderdDate}}
+            </li>
+            <li id="expecteddate"><b>{{'Expected Date'| translate}}</b>
+              <br>{{viewOrder.estimatedTime}}
+            </li>
+            <li id="totalamount"><b>{{'Total Amount'| translate}}</b>
+              <br>₹{{viewOrder.totalAmount}}.00
+            </li>
+            <li id="statusCd"><b>{{'Order status'| translate}}</b>
+              <br>{{viewOrder.statusCd}}
+            </li>
+            <span class="icons">
+              <span class="float-right" data-bs-toggle="tooltip" title="Track Order" id="tooltip"> <i
+                  class="bi bi-geo-alt" (click)="trackOrder(viewOrder.orderId)" id="trackOrder"></i></span>
+
+              <span class="float-right"> <i class="bi bi-receipt" (click)="downloadInvoice(viewOrder.orderId)"
+                  data-bs-toggle="tooltip" title="Download Invoice" id="download-invoice"></i></span>
+
+              <span class="float-right"> <i class="bi bi-cart-x-fill"
+                  *ngIf="viewOrder.statusCd !== 'CANCELLED' && viewOrder.statusCd  !== 'SHIPPED'"
+                  (click)="cancelOrder(viewOrder.orderId)" data-bs-toggle="tooltip" title="Cancel Order"
+                  id="cancelOrder"></i></span>
+            </span>
+          </span>
+
+        </div>
+        <div class="card-body" class="image-item" class="row">
+          <div class="col-6 col-md-3 mb-4" *ngFor="let order of viewOrder.orderItems">
+            <img src="{{imageBaseUrl}}{{order.imageUrl}}" class="image" height="130px" width="130px"
+              (click)="getDetail(order.productId,order.productSkuId)">
+            <div class="description">
+
+              <p>{{order.productdescription}}</p>
+              <p><b>{{'Quantity:'| translate}}</b>{{order.quantity}}</p>
+              <p><b>{{'price:'| translate}}</b>{{order.price}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+    </div>
+    <div class="loading">
+      <!-- <i class="fa fa-spinner" style="font-size: 44px" id="custom-spinner">
+          </i> -->
+
+    </div>
+    <div *ngIf="loading" class="loader"></div>
+  </ng-template>
+</div>
+
+
+<app-footer></app-footer>
+<!-- <br> -->

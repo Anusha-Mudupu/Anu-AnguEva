@@ -1,0 +1,185 @@
+<br>
+<div class="container1" [ngClass]="{'dark':themeService.isDark}">
+  <ng-template #cartLengthZero>
+    <h2>
+      <center>{{'zero products in cart...'| translate }}</center>
+    </h2>
+  </ng-template>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="container-fluid">
+    <h4 style="margin-left: 26%;"><b>{{'REVIEW YOUR ORDER'| translate }}</b></h4>
+    <div class="row">
+      <aside class="" id="first-col">
+
+        <div class="">
+          <div class="">
+
+            <app-cart (valueEmitter)="receivedValue = $event">
+
+            </app-cart>
+
+          </div>
+        </div>
+
+      </aside>
+
+      <aside *ngIf="!loading" class="col-lg-3" id="second-col">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div>
+              <p class="Shipping Address">
+                <b>{{'Shipping Address'| translate }}</b><br> {{clickedAddress.firstName}}
+                {{clickedAddress.flatNo}},,{{clickedAddress.area}},
+                {{clickedAddress.city}},{{clickedAddress.state}},
+                {{clickedAddress.pincode}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+
+            <div>
+              <h4 class="heading"><b>{{'BILLING SUMMARY'| translate }}</b></h4>
+              <hr>
+
+            </div>
+            <div>
+
+              <div style="display:flex;flex-direction:column">
+                <div>
+
+                  <input #test class="apply-coupon" type="text" onfocus="this.value=''">
+
+                  <button style="margin-left :5px;margin-bottom:6px" id='button' value='test'
+                    (click)='applyCouponChange(test)' data-dismiss="modal">{{'Apply Coupon'| translate }}</button>
+
+                </div>
+                <div>
+                  <button type="button" class="btn btn-link" data-toggle="modal" (click)="openPopup()"
+                    data-target="#CouponModalScrollable">
+                    {{'check for coupons'| translate }}
+                  </button>
+                </div>
+                <p *ngIf="couponMSG !== 'coupon expired' && couponMSG !== 'coupon invalid'" class="coupon-applied">
+                  {{'You got'| translate }}<strong>{{bSummery.couponCharges}}/-</strong>{{'off with'| translate
+                  }}<strong>{{coupon}}</strong>{{'coupon'| translate }}</p>
+
+                <p *ngIf="couponMSG == 'already applied'" style="color: red">
+                  {{'coupon'| translate }} <strong>"{{coupon}}"</strong>{{'got applied maximum number of times'|
+                  translate
+                  }}</p>
+                <p *ngIf="couponMSG == 'coupon invalid'" style="color: red">
+                  {{'You have entered an invalid coupon..Please check'| translate }}</p>
+                <p *ngIf="couponMSG == 'coupon expired'" style="color: red">
+                  {{'Sorry.. The coupon you entered has already expired ,please try another one'| translate }}
+                </p>
+              </div>
+              <label class="recipient">{{'Recipient Summary'| translate }}</label>
+              <table class="table2">
+
+                <tr>
+                  <td>{{'Total Amount:'| translate }}</td>
+                  <td>₹{{this.bSummery.totalAmount}}.00</td>
+
+                </tr>
+                <tr>
+                  <td>{{'Shipping Charges:'| translate }}</td>
+                  <td>₹{{this.bSummery.shippingCharges}}.00
+                  <td>
+
+                </tr>
+                <tr>
+                  <td>{{'Coupon Applied:'| translate }}</td>
+                  <td>-₹{{this.bSummery.couponCharges}}.00</td>
+
+                </tr>
+                <tr>
+                  <td>{{'GST Amount:'| translate }}</td>
+                  <td>₹{{this.bSummery.gst}}</td>
+
+                </tr>
+                <hr style="margin-bottom: 4px; margin-top: 10px;">
+
+                <tr>
+
+
+                  <td>{{'Total Amount :'| translate }}</td>
+                  <td>₹{{this.bSummery.total | number : '1.2-2'}}</td>
+
+                </tr>
+                <hr>
+
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div *ngIf="loading" class="loader"></div>
+    </div>
+
+  </div>
+
+  <div class="modal fade" [ngClass]="{'dark':themeService.isDark}" id="CouponModalScrollable" tabindex="-1"
+    role="dialog" aria-labelledby="CouponModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="CouponModal">{{'Available coupons' | translate}}</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <input #test class="apply-coupon" type="text" onfocus="this.value=''">
+            <button style="margin-left :5px;margin-bottom:6px" id='button' value='test'
+              (click)='applyCouponChange(test)' data-dismiss="modal">{{'Enter manually' | translate}}</button>
+          </div>
+          <div *ngFor="let coupon of coupons" style="border: 1px solid black;padding: 7px;">
+            <div style="display:flex; flex-direction:row; justify-content: flex-start;">
+              <div id="container">
+                <svg width="200" height="30" viewBox="-1 -2 201 33">
+                  <path d="M0,0 h200 l-15,15 l15,15 h-200 l15,-15z" stroke="black" stroke-width="2" fill="orange" />
+                </svg>
+                <div id="content">
+                  <input #test class="modal-coupon" type="text" disabled value="{{coupon.couponCode}}">
+                </div>
+              </div>
+
+              <div>
+                <button class="button" style="margin-top: 3px" id='button' value='test'
+                  (click)='applyCouponChange(test)' data-dismiss="modal">{{'Apply' | translate}}</button>
+
+              </div>
+            </div>
+
+
+            <p *ngIf="coupon.couponType == 'percentage'" style="margin-top:2px">
+              {{'Get a discount of' | translate}} <strong>{{coupon.percentage}}%</strong>{{'upto' | translate}}
+              <strong>{{coupon.maxAmount}}/-</strong>
+            </p>
+            <p *ngIf="coupon.couponType == 'flat'" style="margin-top:2px">
+              {{'Get a flat discount of' | translate}} <strong>{{coupon.couponValue}}/-</strong> {{'on orders above '
+              |
+              translate}} <strong>{{coupon.minAmount}}/-</strong>
+            </p>
+            <p>{{'this coupon expires on' | translate}} <strong>{{coupon.endingDate | date:'fullDate'}}</strong></p>
+            <hr>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{'Close' | translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

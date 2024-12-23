@@ -1,0 +1,198 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+
+#Newaddress {
+    width: 50%;
+
+    margin-bottom: 15px;
+    margin-left: 300px;
+    position: relative;
+    padding: -10px;
+    border: 1px solid black;
+}
+
+#backToPrevious {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#Deliver_To_This_Address {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.addressform {
+    position: relative;
+    margin-left: 30px;
+}
+
+#Add-New-Addredss {
+    position: relative;
+    margin-left: 30px;
+}
+
+.row {
+    height: 430px;
+}
+
+.container1 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+    /* margin-top: 100px; */
+
+}
+
+.form-control {
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+/* added by raji */
+
+
+@media screen and (min-width:360px) and (max-width:768px) {
+    #Newaddress {
+        width: 90%;
+
+        margin-bottom: 15px;
+        margin-left: 10px;
+        position: relative;
+        padding: -10px;
+        border: 1px solid black;
+    }
+
+    #backToPrevious {
+        position: relative;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    #Deliver_To_This_Address {
+        position: relative;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .addressform {
+        position: relative;
+        margin-left: 30px;
+    }
+
+    #Add-New-Addredss {
+        position: relative;
+        margin-left: 30px;
+    }
+
+    .row {
+        height: auto;
+    }
+
+    .container1 {
+        width: 100%;
+        height: 100%;
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+        /* margin-top: 150px; */
+
+    }
+
+    .form-control {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1200px){
+
+    #Newaddress {
+        width: 80%;
+    
+        margin-bottom: 15px;
+        margin-left: 100px;
+        position: relative;
+        padding: -10px;
+        border: 1px solid black;
+    }
+    
+    #backToPrevious {
+        position: relative;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    #Deliver_To_This_Address {
+        position: relative;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    
+    .addressform {
+        position: relative;
+        margin-left: 30px;
+    }
+    
+    #Add-New-Addredss {
+        position: relative;
+        margin-left: 30px;
+    }
+    
+    .row {
+        height: 430px;
+    }
+    
+    .container1 {
+        width: 100%;
+        height: 100%;
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+        margin-top: 100px;
+    
+    }
+    
+    .form-control {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+    }
+}
+@media (min-width:1024px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      margin-top:100px;
+    }
+  }
+  @media (min-width:820px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      margin-top:100px;
+    }
+  }
+  
+  @media (min-width:768px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      margin-top:10px;
+      
+    }
+  }
+  @media (min-width:1280px) {
+    .container1{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      margin-top: 10px;
+      
+    }
+  }

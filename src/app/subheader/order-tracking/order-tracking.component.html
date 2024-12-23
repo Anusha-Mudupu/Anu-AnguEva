@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header"> {{'My Orders'| translate}}/{{'Tracking'| translate}}
+        </div>
+        <div class="card-body">
+            <h6 style="margin-left: 16px;">{{orderStatusChanged.orderId}}</h6>
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-sm-3 col-lg-4"> <strong>{{'Estimated Delivery time:'| translate}}</strong>
+                        <br>{{orderStatusChanged.estimatedTime}}
+                    </div>
+
+                    <div class="col-sm-3 col-lg-4"> <strong>{{'Status:'| translate}}</strong>
+                        <br>{{orderStatusChanged.statusCd}}
+                    </div>
+                    <div class="col-sm-3 col-lg-4 "> <strong>{{'Tracking #:'| translate}}</strong> <br>
+                        BD045903594059
+                    </div>
+                </div>
+            </div>
+            <div class="track">
+
+                <div class="step" [class.active]="track.status=='Completed'" *ngFor="let track of data">
+                    <span class="icon" *ngIf="track.step=='PAID'"> <i class="fa fa-money"></i> </span>
+                    <span class="text" *ngIf="track.step=='PAID'">{{'Paid'| translate}}</span>
+
+                    <span class="icon" *ngIf="track.step=='Shipped'"> <i class="fa fa-check-circle"></i></span>
+                    <span class="text" *ngIf="track.step=='Shipped'"> {{'Order Confirmed'| translate}}</span>
+
+                    <span class="icon" *ngIf="track.step=='In transit'"> <i class="fa fa-truck"></i> </span>
+                    <span class="text" *ngIf="track.step=='In transit'"> {{'In-Transit'| translate}} </span>
+
+                    <span class="icon" *ngIf="track.step=='Out for delivery'"> <i class="fa fa-user"></i> </span>
+                    <span class="text" *ngIf="track.step=='Out for delivery'">{{'Out For Delivery'|
+                        translate}}</span>
+
+                    <span class="icon" *ngIf="track.step=='delivery completed'"> <i class="fa fa-home"></i> </span>
+                    <span class="text" *ngIf="track.step=='delivery completed'">{{'Delivered'| translate}}</span>
+                </div>
+
+            </div>
+            <br>
+
+            <br> <a class="btn btn-success" data-abc="true" (click)="gotoOrders()"> <i class="fa fa-chevron-left"></i>
+                {{'Back to orders'| translate}}</a>
+
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

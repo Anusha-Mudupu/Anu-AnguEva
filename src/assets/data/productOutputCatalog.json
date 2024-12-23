@@ -1,0 +1,507 @@
+
+
+{
+  "products": [
+    {
+      "productId": 1,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Men's Checkered Casual Spread Shirt",
+      "productSkus": [
+        {
+          "sku": 1,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2Szb3od",
+          "price": "850",
+          "productSkuCode": null
+        },
+        {
+          "sku": 2,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "l"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2Szb3od",
+          "price": "900",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 2,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Regular Women's Black Jeans",
+      "productSkus": [
+        {
+          "sku": 3,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2X0T1cX",
+          "price": "1500",
+          "productSkuCode": null
+        },
+        {
+          "sku": 4,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2X0T1cX",
+          "price": "1550",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 3,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Full Sleeve Solid Men's Sweatshirt",
+      "productSkus": [
+        {
+          "sku": 5,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "s"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2DEX5GK",
+          "price": "962",
+          "productSkuCode": null
+        },
+        {
+          "sku": 6,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2DEX5GK",
+          "price": "1000",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 4,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Solid Men Round Neck White T-Shirt",
+      "productSkus": [
+        {
+          "sku": 7,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2TLDI5J",
+          "price": "2500",
+          "productSkuCode": null
+        },
+        {
+          "sku": 8,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2TLDI5J",
+          "price": "2400",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 5,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Men's Solid Straight Kurta",
+      "productSkus": [
+        {
+          "sku": 9,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2E6Wcbs",
+          "price": "570",
+          "productSkuCode": null
+        },
+        {
+          "sku": 10,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2E6Wcbs",
+          "price": "525",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 6,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Full Sleeve Solid Men Jacket",
+      "productSkus": [
+        {
+          "sku": 11,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2StirRQ",
+          "price": "899",
+          "productSkuCode": null
+        },
+        {
+          "sku": 12,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "s"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2StirRQ",
+          "price": "850",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 7,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Casual Full Sleeve Solid Women's Light Blue Top",
+      "productSkus": [
+        {
+          "sku": 13,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2TLql5v",
+          "price": "700",
+          "productSkuCode": null
+        },
+        {
+          "sku": 14,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "l"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2TLql5v",
+          "price": "750",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 8,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Boy's Solid Cotton T Shirt",
+      "productSkus": [
+        {
+          "sku": 16,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "s"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2tnzx4o",
+          "price": "500",
+          "productSkuCode": null
+        },
+        {
+          "sku": 15,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2tnzx4o",
+          "price": "528",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 9,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Tapered Fit Men Blue Jeans",
+      "productSkus": [
+        {
+          "sku": 17,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2BzmoKp",
+          "price": "900",
+          "productSkuCode": null
+        },
+        {
+          "sku": 18,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "l"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2BzmoKp",
+          "price": "950",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 10,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Regular Boys Blue Jeans",
+      "productSkus": [
+        {
+          "sku": 19,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "s"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2STEzEw",
+          "price": "500",
+          "productSkuCode": null
+        },
+        {
+          "sku": 20,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2STEzEw",
+          "price": "600",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 11,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Boy's Festive & Party Kurta",
+      "productSkus": [
+        {
+          "sku": 21,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "s"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2BxIwor",
+          "price": "474",
+          "productSkuCode": null
+        },
+        {
+          "sku": 22,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2BxIwor",
+          "price": "550",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 12,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Embroidered Bollywood Light Green, Light Blue Georgette Saree",
+      "productSkus": [
+        {
+          "sku": 23,
+          "options": [
+            {
+              "optionName": "length",
+              "optionValue": "8 meters"
+            }
+          ],
+          "image": "https://bit.ly/2WXyg1D",
+          "price": "3000",
+          "productSkuCode": null
+        }
+      ]
+    },
+    {
+      "productId": 13,
+      "productManufacturerName": null,
+      "brandName": null,
+      "productName": "Saara Poly Chanderi Embroidered Kurta &Churidar Material ",
+      "productSkus": [
+        {
+          "sku": 24,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "m"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "blue"
+            }
+          ],
+          "image": "https://bit.ly/2ti6G1H",
+          "price": "600",
+          "productSkuCode": null
+        },
+        {
+          "sku": 25,
+          "options": [
+            {
+              "optionName": "size",
+              "optionValue": "l"
+            },
+            {
+              "optionName": "color",
+              "optionValue": "red"
+            }
+          ],
+          "image": "https://bit.ly/2ti6G1H",
+          "price": "650",
+          "productSkuCode": null
+        }
+      ]
+    }
+  ]
+}
+

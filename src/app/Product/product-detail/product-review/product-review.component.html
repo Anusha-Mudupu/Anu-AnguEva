@@ -1,0 +1,84 @@
+<div class="container" id="productReviewHtml">
+    <div class="row">
+        <div class="col-sm-7">
+
+            <h4><b>{{'Your Review'| translate}}</b>
+
+            </h4>
+            <div class="rating-body">
+
+                <div class="review-block-rate">
+
+                    <p><b style="margin-right: 10px;">{{'Rate this product:'| translate}} </b>
+                        <a *ngFor="let item of starList; let i=index " (click)="setStar(i)" id="starIcon">
+                            <i *ngIf="item" class="fa fa-star-o"></i>
+                            <i *ngIf="!item" class="fa fa-star"></i>
+
+                        </a>
+
+                        <span> <a class="resetButton" (click)="clearStar()"> {{'Clear'| translate}} </a></span>
+
+                </div>
+                <br />
+                <form class="product-review" #productReviewForm="ngForm" (ngSubmit)="onSubmit(productReviewForm)">
+
+                    <div class="form-group review-text">
+                        <input class="form-control" name="customerId" type="hidden" [ngModel]="customerId">
+                    </div>
+                    
+                    <div class="form-group review-text">
+                        <input class="form-control" name="productSkuId" type="hidden" ngModel="{{productSkuId}}">
+                    </div>
+
+                    <div class="form-group review-text">
+                        <input class="form-control" type="hidden" name="lastUpdate"
+                            [ngModel]="lastUpdate|date:'yyyy-MM-dd'" />
+                    </div>
+
+                    <div class="form-group review-text">
+                        <input class="form-control" name="rating" type="hidden" ngModel="{{ratingValue}}">
+                    </div>
+
+                    <div class="form-group review-text">
+
+                        <input class="form-control" name="reviewTitleTxt" id="reviewTitleTxt" required
+                            placeholder="{{'Review Title'| translate}}" ngModel #reviewTitleTxt="ngModel" />
+                        <span class="text text-danger" *ngIf="reviewTitleTxt.touched && reviewTitleTxt.invalid">
+                            {{'Please enter your review title.'| translate}}
+                        </span>
+                    </div>
+
+                    <div class="form-group review-text">
+
+
+                        <textarea class="form-control" rows="3" name="feedBack" id="feedBack" required
+                            placeholder="{{'Tell us what you think of this product'| translate}} " ngModel
+                            #feedBack="ngModel"></textarea>
+                        <span class="text text-danger" *ngIf="feedBack.touched && feedBack.invalid">
+                            {{'Please enter your feedBack.'| translate}}
+                        </span>
+                    </div>
+
+                    <div class="form-group review-text">
+                        <span>{{'I recommend you'| translate}} </span>
+                        <select id="recommendedFlag" name="recommendedFlag" [(ngModel)]="recommendedFlag" required>
+
+                            <option *ngFor="let value of values" [ngValue]="value" class="value">{{value}}</option>
+
+                        </select>
+                        <div *ngIf="!recommendedFlag" style="color: red;">Please select an option from the dropdown.
+                        </div>
+                    </div>
+
+                    <div class="form-group review-text">
+                        <button class="btn btn-success btn-outline" type="submit"
+                            (click)="hideProductReview()">{{'Submit'| translate}}</button>
+                        <button class="btn btn-default btn-outline" type="button"
+                            (click)="onCancel(productReviewForm)">{{'Cancel'| translate}}</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

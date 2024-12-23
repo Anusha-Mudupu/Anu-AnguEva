@@ -1,0 +1,196 @@
+<div class="container" *ngIf="!isOTP && !isSUCCESS && !isALREADY">
+    <h2 class="text-center">Registration</h2>
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="firstName">First
+                                Name<sup class="star">*</sup></label>
+                            <input type="text" formControlName="firstName" class="form-control"
+                                pattern="{{alphabetPattern}}" required />
+                            <div *ngIf="(submitted && f.firstName.errors)||(f.firstName.touched||f.firstName.dirty)"
+                                class="text-danger">
+
+                                <div *ngIf="f.firstName.errors?.required"> <sup>*</sup>First Name is required</div>
+                                <div *ngIf="f.firstName.errors?.pattern"><sup>*</sup> Only alphabets are allowed</div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <sup class="star">*</sup></label>
+                            <input type="text" formControlName="lastName" class="form-control"
+                                pattern="{{alphabetPattern}}" required />
+                            <div *ngIf="(submitted && f.lastName.errors)||f.lastName.touched" class="text-danger">
+                                <div *ngIf="f.lastName.errors?.required"><sup>*</sup>Last Name is required</div>
+                                <div *ngIf="f.lastName.errors?.pattern"><sup>*</sup>Only alphabets are allowed</div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="mobileNumber">Mobile Number <sup class="star">*</sup></label>
+                            <input type="tel" formControlName="mobileNumber" class="form-control"
+                                pattern="{{numberPattern}}" required appNumericOnly maxlength="10" minlength="10" />
+                            <div *ngIf="submitted && f.mobileNumber.errors" class="text-danger">
+                                <div *ngIf="f.mobileNumber.errors.required"><sup>*</sup> Mobile is required</div>
+                                <div *ngIf="f.mobileNumber.errors.minlength"><sup>*</sup> Please enter 10 digits</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailId">Email Id <sup class="star">*</sup></label>
+                            <input type="email" formControlName="emailId" class="form-control" required />
+                            <div *ngIf="(submitted && f.emailId.errors)||f.emailId.touched" class="text-danger">
+                                <div *ngIf="f.emailId.errors?.required"><sup>*</sup> Emaild is required</div>
+                                <div *ngIf="f.emailId.errors?.email"><sup>*</sup> Email format should be
+                                    sample&#64;abc.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password <sup class="star">*</sup></label>
+                            <input type="password" formControlName="password" class="form-control"
+                                pattern="{{pwdPattern}}" maxlength="16" />
+                            <div *ngIf="(submitted && f.password.errors)||f.password.touched" class="text-danger">
+                                <div *ngIf="f.password.errors?.required"><sup>*</sup> Password is required</div>
+                                <div *ngIf="f.password.errors?.maxlength||f.password.errors?.pattern"><sup>*</sup>
+                                    Password should contains 8 chars, 1 Uppercase, a Special char
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password <sup class="star">*</sup></label>
+                            <input type="password" formControlName="confirmPassword" class="form-control"
+                                maxlength="16" />
+                            <div *ngIf="(submitted && f.confirmPassword.errors)||f.confirmPassword.touched"
+                                class="text-danger">
+                                <div *ngIf="f.confirmPassword.errors?.required"><sup>*</sup> Confirm Password is
+                                    required</div>
+
+
+                                <div *ngIf="f.confirmPassword.errors?.mustMatch"><sup>*</sup> Passwords must match</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender<sup class="star">*</sup></label><br>
+                            <input id="gender" type="radio" name="gender" value="male" formControlName="gender"
+                                readonly>
+                            Male<br>
+                            <input id="gender" type="radio" name="gender" value="female" readonly
+                                formControlName="gender">
+                            Female<br>
+                            <input id="gender" type="radio" name="gender" value="other" readonly
+                                formControlName="gender"> Other
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthday">DateOfBirth</label>
+                            <input type="date" formControlName="birthday" class="form-control" />
+                        </div>
+                        <div class="d-flex">
+                            <input type="checkbox" [checked]="isSubscribed" (change)="onSubscribed($event)" />
+                            <p style="margin-top:10px;">&nbsp;Subscribe</p>
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <button [disabled]="loading" class="btn btn-success btn-block"
+                                type="submit">Register</button>
+
+                            <button [disabled]="loading" class="btn btn-danger btn-block"
+                                (click)="Login()">Cancel</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="otp" *ngIf="isOTP">
+
+    <ng-container>
+
+        <!-- <div class="form-group" id="Option">
+            <label for="optionSelector">Select:</label>
+            <select id="optionSelector" id="dd" (change)="onOptionChange($event)">
+                <option value="email">Email</option>
+                <option value="mobile">Mobile Number</option>
+            </select>
+        </div> -->
+
+        <div *ngIf="isoTP">
+            <div class="">
+                <div *ngIf="selectedOption === 'email'" class="otp-box">
+                    <h1>Please enter the one-time password sent to your email</h1>
+                    <div class="fotp row d-flex gap-3">
+                        <label for="emailOtp" class="labelForEmailOtp">Email OTP:</label>
+                        <input type="text" [(ngModel)]="emailOtpValue" class="form-control col">
+                        <button (click)="emailmobilevalidate(emailOtpValue)" class="btn-success col">Validate</button>
+                    </div>
+                </div>
+
+                <!-- <div *ngIf="selectedOption === 'mobile'" class="otp-box">
+                    <h1>Please enter the one-time password sent to your mobile</h1>
+                    <div class="fotp">
+                        <label for="mobileOtp">Mobile OTP:</label>
+                        <input type="text" id="mobileOtp" [(ngModel)]="mobileOtpValue" class="otp-input">
+                        <button (click)="emailmobilevalidate(mobileOtpValue)" class="otp-button">Validate</button>
+                    </div>
+                </div> -->
+                <div *ngIf="countdown > 0">
+                    <p class="time">Time remaining: {{ formatTime(countdown) }}</p>
+                </div>
+                <div *ngIf="countdown <= 0 && !isOtpResent">
+                    <a class="underline" (click)="sendResetOTP()">Resend OTP</a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </ng-container>
+
+
+
+</div>
+<div class="successful" *ngIf="isSUCCESS">
+    <h2>Registration Successful</h2>
+    <div class="success" id="otpSuccess">
+
+        {{OtpVaraible?.status}}<br>
+
+    </div>
+    <button class="btn-info" routerLink="/main/header/subheader/login">Login Page</button>
+</div>
+<div class="success1" id="otpSuccess" *ngIf="isFAIL">
+
+    {{OtpVaraible?.status}}
+
+</div>
+
+<div class="captcha" *ngIf="otpValidationCount>1">
+    <div class="recaptcha">
+        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey">
+        </ngx-recaptcha2>
+    </div>
+</div>
+
+<div class="alreadyreg" *ngIf="isALREADY">
+    <h2>Already Registered</h2>
+    <button class="btn-info" routerLink="/main/header/subheader/login">Login Page</button>
+    <button class="btn-warning" routerLink="/main/header/subheader/login">Frogot Password</button>
+</div>

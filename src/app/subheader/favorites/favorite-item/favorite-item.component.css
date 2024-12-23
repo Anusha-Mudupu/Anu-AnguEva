@@ -1,0 +1,122 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+ #btn-warning{
+     width:130px;
+ }
+img {
+    border: 0;
+    width: 135px;
+    height: 135px;
+    cursor: pointer;
+    
+}
+a {
+    cursor: pointer;
+}
+.glyphicon-star{
+   color: orange;
+
+}
+.btn {
+    margin: 5px;
+    border-radius: 5px;
+}
+.border {
+    border: solid;
+    color: #0ff;
+    border-radius: 1em;
+    margin: 1em 1em 1em;
+    padding:0 1em 1em;
+}
+.btn-ms{
+    width: 100px;
+}
+.btn-sm{
+    width: 100px;
+    padding: 6px 12px;
+    color: white;
+    background-color: tomato;
+    border-color: tomato;
+}
+@media only screen and (max-width: 360px){
+
+    /* .btn-sm{
+        float: right;
+        margin-top: -48px;
+    } */
+    /* .price{
+        float: right;
+        margin-top: -30px;
+    } */
+}
+.container1{
+    background-color: var(--toast-background);
+  color: var(--toast-text); 
+  height: 100%;
+  width:100%; 
+  position: relative;
+  top:-20px;
+}
+.list-group-item{
+    background-color: var(--toast-background);
+  color: var(--toast-text); 
+  height: 100%;
+  width:100%;   
+}
+.loader {
+	margin: auto;
+			border: 5px solid #EAF0F6;
+			border-radius: 50%;
+			border-top:5px solid lightslategrey;
+			width: 60px;
+			height: 60px;
+			animation: spinner 1s linear infinite;
+  }
+  
+  @keyframes spinner {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+ 
+ /* Align two items side-by-side in mobile view */
+@media (max-width: 768px) {
+    .container1{
+        position: relative;
+        justify-content: center;
+        text-align: center;
+    }
+    .list-group-item{
+        position: relative;
+        justify-content: center;
+        text-align: center;
+    }
+    img {
+        width:200px;
+        height: 180px;;
+    }
+
+}
+
+/* @media (min-width: 360px) {
+    .container1{
+        position: relative;
+        justify-content: none;
+        text-align: none !important;
+    }
+    .list-group-item{
+        position: relative;
+        justify-content:  none !important;
+        text-align:  none !important;
+    }
+    
+    img {
+        border: 0;
+        width: 135px;
+        height: 135px;
+        cursor: pointer;
+        
+    }
+
+} */

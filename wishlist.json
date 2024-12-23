@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 5
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 1
+    }
+  ]
+}

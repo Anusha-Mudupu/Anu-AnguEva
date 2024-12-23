@@ -1,0 +1,13 @@
+ {
+    "byweight": [
+        "1-gram",
+        "2-gram",
+        "5 gram",
+        "7 gram"
+    ],
+
+    "bydesign": [
+        "floral",
+        "laxmi-ganesh"
+    ]
+}

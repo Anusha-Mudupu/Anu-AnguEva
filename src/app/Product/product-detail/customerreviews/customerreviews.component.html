@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row" *ngIf="!loading">
+        <div class="col-sm-7">
+
+            <h5><b>{{'Top reviews from India'| translate}}</b></h5>
+            <div class="review-block" *ngFor="let rd of reviewDescription">
+
+                <div class=" row ">
+                    <div class="col-sm-3 ">
+
+                        <div class="review-block-name ">
+                            <a href="# ">
+                                <span class="review-block-user"> <i class="fa fa-user-circle"></i>
+                                </span > {{rd.firstName}}
+                            </a>
+                        </div>
+                        <div class="review-block-date">{{'Reviewed in India on'| translate}} {{rd.lastUpdate|date}}<br /></div>
+                    </div>
+                    <div class="col-sm-9 ">
+                        <div class="review-block-rate ">
+                            <ngb-rating [max]="5 " [(rate)]="rd.rating " [readonly]="true "></ngb-rating>
+                            {{rd.rating}} {{'star'| translate}}
+                        </div>
+                        <div class="review-block-title ">
+                            <h5><strong> {{rd.reviewTitleTxt}}</strong></h5>
+                        </div>
+                        <div class="review-block-description ">
+                            <p class="product-description ">{{rd.feedback}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="loading" class="loader"></div>
+

@@ -1,0 +1,65 @@
+
+{
+    "catalog_nm": "GOLD",
+    "catalog_id": 1,
+    "catalog_desc": "Gold Ornaments ",
+    "catalog_level": 1,
+    "parent_catalog_id": 0,
+    "child_catalog": [
+        {
+            "catalog_nm": "NECKLACES",
+            "catalog_id": 4,
+            "catalog_desc": "GOLD NECKLACES",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog":[]
+        },
+        {
+            "catalog_nm": "Braclets",
+            "catalog_id": 4,
+            "catalog_desc": "GOLD braclets",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog":[]
+        },
+        {
+            "catalog_nm": "Anklets",
+            "catalog_id": 5,
+            "catalog_desc": "Gold Anklets",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog": []
+            
+        },
+        {
+            "catalog_nm": "Rings",
+            "catalog_id": 6,
+            "catalog_desc": "Gold Rings ",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog": [{
+                "catalog_nm": "Earrings",
+                "catalog_id": 7,
+                "catalog_desc": "Gold Earrings",
+                "catalog_level": 3,
+                "parent_catalog_id": 2,
+                "child_catalog": []
+            }]
+        },
+        {
+            "catalog_nm": "Bangles",
+            "catalog_id": 8,
+            "catalog_desc": "Gold Bangles",
+            "catalog_level": 2,
+            "parent_catalog_id": 1,
+            "child_catalog": [{
+                "catalog_nm": "Stone Bangles",
+                "catalog_id": 9,
+                "catalog_desc": "Gold Stone Bangles",
+                "catalog_level": 3,
+                "parent_catalog_id": 2,
+                "child_catalog": []
+            }]
+        }
+    ]
+}    

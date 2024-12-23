@@ -1,0 +1,16 @@
+ {
+    "popularpendentstypes": [
+        "dailywear",
+        "religious"
+    ],
+
+    "bypricerange": [
+        "below-10k",
+        "10k-20k"
+    ],
+
+    "bymetalandstones": [
+        "diamond",
+        "gold"
+    ]
+}

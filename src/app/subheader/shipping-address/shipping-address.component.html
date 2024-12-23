@@ -1,0 +1,56 @@
+<div class="container1">
+  <div class="container" [ngClass]="{'dark':themeService.isDark}">
+    <h2 class="a-spacing-base" data-testid>
+    </h2>
+    <div class="a-spacing-base">
+      <p data-testid>
+        <a (click)="enterNew()"><button type="button" class="btn btn-primary">{{'Enter a new delivery address'|
+            translate}}</button></a>
+        <a> <button type="button" class="btn btn-secondary" id="back" (click)="goToCart()">{{'Back'|
+            translate}}</button></a>
+      </p>
+
+      <p data-testid></p>
+
+    </div>
+    <div *ngIf="!loading1">
+
+      <form class="a-nostyle" *ngFor="let addresses of addresslist; let i=index" name="radioid">
+        <div class="col-lg-4 col-sm-6">
+          <div id="address-book-entry-0" class="address-book-entry a-spacing-double-large address-book-new-row">
+            <div class="js-same-height addr-display a-nostyle a-spacing-base" data-testid>
+              <div class="displayAddressDiv">
+                <span class="highlight">{{addresses.firstName}},</span><br>
+                <span class="shipping-address"> {{addresses.flatNo}},</span><br>
+                <span class="shipping-address">{{addresses.area}},</span><br>
+                <span class="shipping-address">{{addresses.city}},</span><br>
+                <span class="shipping-address">{{addresses.state}}</span>
+                <span class="highlight1"> {{addresses.pincode}}</span><br>
+                <p style="margin-left: 15px;"> Mobile No:<span class="highlight">{{addresses.mobileNo}}</span></p>
+              </div>
+              <button type="button" class="btn btn-warning btn-deliver"
+                (click)="deliverToThisAddress(addresses.id)">{{'Deliver To This Address'| translate}}</button>
+              <div class="a-row row-of-edit-and-delete-button">
+
+                <button type="button" class="btn btn-primary btn-edit"
+                  (click)="formActiveWithFeilds(addresses.id, addresses)">{{'Edit'| translate}}</button>
+                <button type="button" class="btn btn-danger" (click)="deleteAddress(addresses.id)">{{'Delete'|
+                  translate}}</button>
+
+                <br>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+<div *ngIf="loading1" class="loader"></div>
+<app-footer></app-footer>

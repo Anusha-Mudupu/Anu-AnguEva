@@ -1,0 +1,63 @@
+
+{ 
+    "icons": [
+        {
+            "catalogId":1,
+            "category":"diamonds",
+            "iconId":1,
+            "iconsName": "DIAMONDS",
+            "imageUrl": "https://th.bing.com/th/id/OIP.uGOzzq6Wp5Nz388W-i1zOwHaHa?pid=ImgDet&w=1870&h=1870&rs=1"
+            
+        },
+        {
+            "catalogId":2,
+            "category":"jumkas",
+            "iconId":2,
+            "iconsName": "JUMKAS",
+            "imageUrl": "http://localhost:8080/jumka.jpg"
+            
+        },
+        {
+            "catalogId":3,
+            "category":"necklace",
+            "iconId":3,
+            "iconsName": "NECKLACE",
+            "imageUrl": "http://localhost:8080/Stylish%20Necklaces.jpg"
+            
+        },
+        {
+            "catalogId":5,
+            "category":"bangles",
+            "iconId":5,
+            "iconsName": "BANGLES",
+            "imageUrl": "http://localhost:8080/Color%20full%20Maggam%20bangles.jpg"
+            
+        },
+        {
+            "catalogId":6,
+            "category":"rings",
+            "iconId":6,
+            "iconsName": "RINGS",
+            "imageUrl": "http://localhost:8080/Beautiful%20studs.jpg"
+            
+        },
+        {
+            "catalogId":7,
+            "category":"charm braceletes",
+            "iconId":7,
+            "iconsName": "BRACELETS",
+            "imageUrl": "https://ae01.alicdn.com/kf/HTB18FG4bXmWBuNjSspdq6zugXXan/Purple-Crystal-Charm-pandora-Bracelet-Femme-For-Women-Girls-Bridal-Wedding-gold-Color-Bracelets-Heart-Jewelry.jpg"
+            
+        },
+        {
+            "catalogId":8,
+            "category":"ear-rings",
+            "iconId":8,
+            "iconsName": "EAR_RINGS",
+            "imageUrl": "http://localhost:8080/German%20Silver%20Jhumka.jpg"
+            
+        }
+        
+        
+    ]
+}

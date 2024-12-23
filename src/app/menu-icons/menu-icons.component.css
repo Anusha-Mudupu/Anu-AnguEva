@@ -1,0 +1,270 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+ .product img {
+	 position: relative;
+    left: 10px; 
+}
+ .loader {
+	margin: auto;
+			border: 5px solid #EAF0F6;
+			border-radius: 50%;
+			border-top:5px solid lightslategrey;
+			width: 60px;
+			height: 60px;
+			animation: spinner 1s linear infinite;
+  }
+  p{
+	  position: relative;
+	  margin-top: -25px;
+  }
+  @keyframes spinner {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+h1 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 60px;
+}
+h1::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	border-radius: 1px;
+	background: #7ac400;
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
+		header p span{
+			font-size: 40px;
+		    margin: 0 5px;
+		    cursor: pointer;
+		    color: #555;
+		     width: 30px;
+		    height: 30px;
+		    display: inline-block;
+		    line-height: 19px;
+		    text-align: center;
+		    border-radius: 3px;
+		}
+		header p span:hover{
+			
+		}
+		.container{
+			color: black;
+			width: 100%;
+            height: 50%;
+	    
+			display: flex;
+			align-items: center;
+			overflow-x: auto;
+			margin-top: 20px;
+			box-shadow: none;
+		}
+		.container1{
+			width: 100%;
+					/* height: 250px; */
+					
+				  position: relative;
+					margin: auto;
+					display: flex;
+					align-items: center;
+					overflow-x: auto;
+					box-shadow: none;
+					border-color: transparent;
+					/* margin-top: 20px; */
+		
+		}
+		.toast1{
+		 background-color: var(--toast1-background);
+		}
+		.container::-webkit-scrollbar{
+			display: none;
+		}
+		.product{
+			width: 195px;
+			height: 170px;
+			margin-left:-10px ;
+			
+			border-radius: 20px;
+			margin-top: 20px;
+			position: relative;
+			left: 0;
+			transition: 0.5s;
+            cursor: pointer;
+			overflow:hidden;
+		
+            
+
+		}
+        .product:hover {
+            /* box-shadow: 0 0 11px rgba(33,33,33,.2);  */
+			
+          }
+
+		
+		picture{
+			width: 99%;
+			height: 62%;
+			padding: 20px;
+			
+			display: flex;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		picture img{
+			width: 100%;
+            height: 117%;
+		}
+		.detail{
+			display: flex;
+			padding: 5px;
+			font-size: 14px;
+			line-height: 20px;
+            font-family: fangsong;
+			font-weight: 500;
+			left: 30px;
+			position: relative;
+		}
+		
+		.detail,
+		.button{
+			width: 90%;
+			
+			margin: auto;
+			padding: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 50px;
+			
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            font-family: fangsong;
+
+		}
+		small{
+            color: rgb(7, 7, 7);
+        }
+		
+        .scroll{
+            font-size: 23px;
+            margin-left: 94%;
+            cursor: pointer;
+			margin-top: -60px;
+        }
+        
+        .checked {
+            color: orange;
+          }
+          .star{
+            margin-top: -9px;
+            margin-left: 14px;
+        
+          }
+          .offer{
+            width: 32%;
+            height: 9%;
+          
+            border: 1px solid rgb(14, 13, 13);
+            box-sizing: border-box;
+            margin-top: -30px;
+            margin-left: 111px;
+            text-align: center;
+          }
+         
+          .content{
+            margin-left: 14px;
+            font-size: 12px;
+            margin-top: 7px;
+          }
+		@media (max-width: 768px) {
+			.container1{
+				width: 100%;
+						/* height: 250px; */
+						
+					  position: relative;
+						margin: auto;
+						display: flex;
+						align-items: center;
+						overflow-x: auto;
+						box-shadow: none;
+						border-color: transparent;
+						 margin-top: 20px; 
+			
+			}
+			picture{
+				width: 99%;
+				height: 62%;
+				padding: 0px; 
+				
+				display: flex;
+				overflow: hidden;
+				margin-bottom: 20px;
+			}
+			.product img {
+				position: relative;
+			   left: -10px; 
+		   }
+			.text h1{
+				font-size: 35px;
+			}
+			.text p{
+				width: 90%;
+			}
+			header h1{
+				font-size: 25px;
+			}
+			header p span{
+				font-size: 10px;
+			}
+			.product {
+				min-width: 39%;
+				margin:  0 10px  0 0;
+			}
+			.detail, .button{
+				font-size: 16px;
+			}
+			a{
+				padding: 6px 10px;
+			}
+            #left{
+                margin-left: -52px;
+            }
+            .scroll{
+                margin-top: 49px;
+            }
+            .content{
+               
+                font-size: 10px;
+                
+              }
+              .offer{
+                margin-left: 86px;
+                text-align: center;
+                margin-top: -26px;
+              }
+			  h1{
+				  margin-bottom: -42px;
+			  }
+		}
+		
+		.toast{
+			background-color: var(--toast-background);
+			color: var(--toast-text);
+		}
+		.text{
+			color:var(--toast-text);
+		}
+		
+		 

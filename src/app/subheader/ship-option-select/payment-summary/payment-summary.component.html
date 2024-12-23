@@ -1,0 +1,32 @@
+<div class="container1" [ngClass]="{'dark':themeService.isDark}">
+  <div class="heading">
+    <h1> {{'PAYMENT SUCCESS'| translate}}</h1>
+  </div>
+  <p class="para"> {{'Thank You for Placing Order with'| translate}} <b style="color: aqua;">{{'Opening Soon'|
+      translate}}</b>
+    {{'We Appreciate Your Bussiness'| translate}}</p>
+  <p class="para1"> {{'Your Order Will Be Delivered as Scheduled and we will notify you on Email'| translate}}</p>
+  <table *ngIf="!loading" class="customers">
+    <tr>
+      <th colspan="2"> {{'Transaction Details'| translate}} </th>
+    </tr>
+    <tr>
+      <td>{{'Order Id'| translate}} </td>
+      <td>{{id}}</td>
+
+    </tr>
+    <tr>
+      <td>{{'Amount'| translate}}</td>
+      <td>{{totalAmount}}</td>
+      
+
+    </tr>
+
+  </table>
+  <div *ngIf="loading" class="loader"></div>
+  <div class="continue">
+    <a (click)="continueShopping(id)" class="btn btn-warning"><i class="fa fa-angle-left"></i>{{'Continue Shopping'| translate}}</a>
+  </div><br><br>
+  
+  <app-footer></app-footer>
+</div>

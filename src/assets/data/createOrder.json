@@ -1,0 +1,15 @@
+{
+    "customerId":"sajana",
+    "orderItemObj":[
+        {
+            "discountApplied":"0",
+            "giftWrapped":"yes",
+            "mrpPrice":"10.0",
+            "price":10.0,
+            "productId":4,
+            "quantity":"1",
+            "productName":"red mi",
+            "productSku":"123456"
+        }
+    ]
+}

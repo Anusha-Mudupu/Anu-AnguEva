@@ -1,0 +1,198 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+body {
+    /* background-color: #eeeeee; */
+    font-family: 'Open Sans', serif
+}
+
+.container {
+    margin-top: 9%;
+    margin-bottom: 50px;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+.card {
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+
+    background-clip: border-box;
+    border: 1px solid var(--toast-track);
+    border-radius: 0.10rem
+}
+
+.card-header:first-child {
+    border-radius: calc(0.37rem - 1px) calc(0.37rem - 1px) 0 0
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    border: 1px solid var(--toast-track);
+    border-bottom: 1px solid var(--toast-track);
+    ;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+.track {
+    position: relative;
+    background-color: #ddd;
+    height: 7px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 60px;
+    margin-top: 50px
+}
+
+.track .step {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: 25%;
+    margin-top: -18px;
+    text-align: center;
+    position: relative;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+.track .step.active:before {
+    background: rgb(154, 205, 50);
+
+}
+
+.track .step::before {
+    height: 7px;
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    top: 18px;
+
+}
+
+.track .step.active .icon {
+    background: rgb(154, 205, 50);
+    color: #fff;
+
+}
+
+.track .icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    border-radius: 100%;
+    background: #ddd
+}
+
+.track .step.active .text {
+    font-weight: 400;
+    color: #000;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+.track .text {
+    display: block;
+    margin-top: 7px
+}
+
+
+.btn-success {
+    color: #ffffff;
+
+    border-radius: 14px;
+    margin-left: 15px;
+    margin-bottom: 7px;
+    margin-top: -13px;
+}
+
+.btn-success:hover {
+    color: #ffffff;
+
+    border-radius: 14px
+}
+
+.btn-danger {
+    color: #ffffff;
+
+    border-radius: 14px;
+    margin-top: -13px;
+    float: right;
+    margin-right: 10px;
+    outline: none !important;
+}
+
+.container {
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+@media (min-width:1024px) {
+    .container {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+        position: relative;
+        /* margin-top:-60px; */
+        margin-left: 50px;
+    }
+}
+
+@media (min-width:820px) {
+    .container {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+        position: relative;
+        /* margin-top:-60px; */
+    }
+}
+
+@media (min-width:768px) {
+    .container {
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+        position: relative;
+        /* margin-top:-10px; */
+
+    }
+
+    .card-header {
+        position: relative;
+        height: 80px;
+    }
+}
+
+@media (min-width:1280px) {
+    .container {
+        margin-top: 9%;
+        margin-bottom: 50px
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+    .container {
+        margin-top: 0;
+    }
+}

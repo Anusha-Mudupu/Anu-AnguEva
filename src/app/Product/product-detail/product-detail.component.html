@@ -1,0 +1,16 @@
+<div class="container toast" [ngClass]="{'dark':themeService.isDark}">
+
+    <app-product-detail-tile [currentTileProductDetail]='currentClickedProduct' [map]='map'
+        [resultvaluearray]='resultvaluearray' [resultnamearray]='resultnamearray'
+        [productskuSelected]='productskuSelected' (clicked)="OnClicked()" id="products-details">
+    </app-product-detail-tile>
+    <hr />
+    <app-customer-rating-summary [currentTileProductDetail]='currentClickedProduct'
+        [productskuSelected]='productskuSelected'>
+    </app-customer-rating-summary>
+    <hr />
+    <app-customerreviews [currentTileProductDetail]='currentClickedProduct' [productskuSelected]='productskuSelected'>
+    </app-customerreviews>
+
+
+</div>

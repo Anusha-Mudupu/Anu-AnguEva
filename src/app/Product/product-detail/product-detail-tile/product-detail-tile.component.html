@@ -1,0 +1,265 @@
+<div class="container1">
+    <div class="row" *ngIf="!loading">
+        <div class="col-sm-6 col-lg-6 product-detail">
+            <ul class="thumb">
+
+                <li class="multiple-image" *ngFor="let sku of productskuSelected[0].productSkuImageUrls">
+
+                    <a href="javascript: void (0)" (click)="imageBox(sku.imageUrl)"><img
+                            src="{{imagesBaseUrl}}{{sku.imageUrl}}">
+                    </a>
+                </li>
+            </ul>
+
+
+
+
+
+            
+
+
+            
+            <div class="imgBox">
+                <i *ngIf="isFavorite(productskuSelected[0].productSkuId) " class="fa fa-heart"
+                    (click)="handleFavorite(productskuSelected[0].productSkuId) " id="wishlist" #wl>
+
+                </i>
+                <div [attr.id]="'myModal1' + productskuSelected[0].productSkuId" class="modal">
+                    <div class="modal-content">
+                        <span class="close" (click)="closeModal1(productskuSelected[0].productSkuId)"></span>
+                        <p style="color: white;">{{'Product-is-saved-in-your-Favorites'| translate}}</p>
+                    </div>
+                </div>
+                <i *ngIf="!isFavorite(productskuSelected[0].productSkuId) " class="fa fa-heart-o fav "
+                    (click)="handleFavorite(productskuSelected[0].productSkuId) " id="wishlist" #wl>
+
+                </i>
+                <div [attr.id]="'Modal'+ productskuSelected[0].productSkuId" class="modal">
+                    <div class="modal-content">
+                        <span class="close" (click)="removeModal(productskuSelected[0].productSkuId)"></span>
+                        <p style="color: white;">{{'Product-removed-from-your-Favorites'| translate}}</p>
+                    </div>
+                </div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="dropdown">
+                    <div><a (click)="copyLink(productskuSelected[0].productSkuId,currentTileProductDetail)" class="btn-social btn-link" href="javascript:void(0);">
+                            <i class="fa fa-link"></i> {{ linkText }}
+                        </a></div>
+                    <div>
+                        <a aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-share-alt" style="cursor: pointer;" (click)="toggleDropdown()"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-content" [class.show]="dropdownOpen">
+                        <a href="javascript:void(0);" (click)="shareToApp('whatsapp')" class="dropdown-item"><i
+                                class="fa fa-whatsapp"></i> WhatsApp</a>
+                        <a href="javascript:void(0);" (click)="shareToApp('facebook')" class="dropdown-item"><i
+                                class="fa fa-facebook"></i> Facebook</a>
+                        <a href="javascript:void(0);" (click)="shareToApp('email')" class="dropdown-item"><i
+                                class="fa fa-envelope"></i> Email</a>
+                        <a href="javascript:void(0);" (click)="shareToApp('twitter')" class="dropdown-item"><i
+                                class="fa fa-twitter"></i> Twitter</a>
+                    </div>
+                </div>
+                <img class="img-responsive" *ngIf="imageUrl" src="{{imagesBaseUrl}}{{imageUrl}} ">
+                <img class="img-responsive" *ngIf="!imageUrl" src="{{imagesBaseUrl}}{{productskuSelected[0].imageUrl}}">
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-6 ">
+            <div class="right-side-ring-details">
+                <h4><b>{{productskuSelected[0].productSkuCd}}</b></h4>
+                <p>
+                    <span>{{'By'| translate}} <b>Evadella Jewellery</b> | </span> <span>{{'Product Code'|
+                        translate}}</span>
+                    <span>{{productskuSelected[0].productSkuId}}</span>
+                    <br />
+                    <span id="check " class="avg-customer-rating ">
+                        <ngb-rating
+                            *ngIf="productskuSelected[0].avgCustomerRating !== 0 && productskuSelected[0].avgCustomerRating !== null; else obj"
+                            [max]="5 " [(rate)]="productskuSelected[0].avgCustomerRating " [readonly]="true ">
+                        </ngb-rating>
+                        <ng-template #obj>
+                            <span style="color:royalblue;">No ratings yet</span>
+
+
+                        </ng-template>
+                        <a *ngIf="productskuSelected[0].avgCustomerRating !== 0 && productskuSelected[0].avgCustomerRating !== null"
+                            href="#rating_summary " id="rating" style="font-size: 16px;">
+                            {{productskuSelected[0].avgCustomerRating}} {{'ratings'| translate}}
+                        </a>
+
+                    </span>
+                </p>
+                <p>
+                    <span *ngIf="productskuSelected[0].discount !== 0">{{'M.R.P.:'| translate}}
+                        <del class="pp">{{productskuSelected[0].price |currency:'INR':'symbol'}} </del>
+                    </span>
+
+                <div *ngIf="productskuSelected[0].discount !== 0" class="offer">{{productskuSelected[0].discount}}%
+                    {{'OFF'|translate}}</div>
+
+
+                <span id="discounted-price"> {{'Price.'| translate}}{{productskuSelected[0].price -
+                    (productskuSelected[0].price * productskuSelected[0].discount / 100)}}</span>
+
+                <div>
+                    <p>{{'GST:'| translate}}{{productskuSelected[0].igst}}%</p>
+                </div>
+
+                <div class="cascading ">
+                    <form class="form-inline ">
+                        <div class="form-group" *ngFor="let optionName of mapKeys;let i=index;">
+                            <label for="Size">{{optionName}}</label>
+                            <div class="select-wrapper">
+                                <select class="form-control color-selector " id="{{optionName}}"
+                                    (change)="changeProductSkuOptions($event)" selected="">
+                                    <option *ngFor="let optionval of map.get(optionName) " [ngValue]="optionval">
+                                        {{optionval}} </option>
+
+                                </select>
+                                <i class="fas fa-caret-down"></i>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id='notAvailableTxt' style='color: red; display: none;'>{{'Product Not Available'| translate}}
+                </div>
+                <div class="accordion " id="accordionExample ">
+                    <div>
+
+
+                        <div id="collapseOne " class="collapse " aria-labelledby="headingOne "
+                            data-parent="#accordionExample ">
+                            <div class="card-body ">
+
+                                <div class="gold each-charge text-centeer ">
+                                    {{'Gold'| translate}}
+                                    <div class="each-charge-val ">
+                                        <i class="fa fa-inr " aria-hidden="true "></i> 4,043
+                                    </div>
+                                </div>
+                                <span class="divider "><i class="fa fa-plus seperator " aria-hidden="true "></i></span>
+                                <div class="making each-charge text-centeer ">
+                                    {{'Making-Charges'| translate}}
+                                    <div class="each-charge-val ">
+                                        <i class="fa fa-inr " aria-hidden="true "></i> 1,850
+                                    </div>
+                                </div>
+                                <span class="divider "><i class="fa fa-plus seperator " aria-hidden="true "></i>
+                                </span>
+                                <div class="making each-charge text-centeer ">
+
+                                    <div class="each-charge-val ">
+                                        <i class="fa fa-inr " aria-hidden="true "></i> 177
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buy-now-section ">
+
+
+                <div class="btn-list row">
+                    <div class="col-xs-6">
+                        <button
+                            (click)="getDetails(productskuSelected[0], productskuSelected[0].productSkuId, currentTileProductDetail)"
+                            class="btn btn-labeled btn-warning" type="button">
+                            <span class="btn-label"><i class="fa fa-shopping-cart"></i></span>{{'Add to Cart' |
+                            translate}}
+                        </button>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" (click)="closeModal(productSku.productSkuId)"></span>
+                                <p style="color: white;"> {{'Product-is-added-to-the-cart'| translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class=" col-lg-12 col-sm-2 ">
+
+                    <b>{{'skuDescription'| translate}}</b>
+
+                    <h4 id="pskdescription">{{productskuSelected[0].skuDescription}}
+                    </h4>
+                    <hr>
+
+                    <div class="product-info">
+                        <h3 class="Shipping">Shipping & Return Policy</h3>
+                        <button (click)="togglePolicies()" class="Productsd"><i class="bi bi-box"></i> &nbsp;Terms and
+                            Conditions
+                        </button>
+                        <div *ngIf="showPolicies">
+                            <ol>
+                                <li>Dispatch with in 48Hrs</li>
+                                <li>Only online payments Acceptable</li>
+                                <li><i class="bi bi-x-square-fill"></i> No returns</li>
+                                <li>Exchange possible only for damaged product's with clear unboxing video from start to
+                                    end .</li>
+                                <li>For your cancel products money will be refund with in 5 to 6 business working days
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="loading" class="loader"></div>
+</div>
+
+
+
+
+<!-- <a (click)="copyLink()" class="dropdown-item btn-social btn-link" href="javascript:void(0);">
+                        <i class="fa fa-link"></i> {{ linkText }}
+                    </a>
+
+                    <div class="dropdown share-section">
+                        <button class="btn btn-subtle-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a (click)="shareToApp('whatsapp')" class="dropdown-item edit-item-btn">
+                                    <i class="fa fa-whatsapp"></i> WhatsApp
+                                </a></li>
+                            <li><a (click)="shareToApp('facebook')" class="dropdown-item btn-facebook"
+                                    href="javascript:void(0);">
+                                    <i class="fa fa-facebook"></i> Facebook
+                                </a></li>
+                            <li><a (click)="shareToApp('email')" class="dropdown-item edit-item-btn">
+                                    <i class="fa fa-envelope"></i> Email
+                                </a></li>
+                            
+                            <li><a (click)="shareToApp('twitter')" class="dropdown-item btn-twitter">
+                                    <i class="fa fa-twitter"></i> Twitter
+                                </a></li>
+                        </ul>
+                    </div> -->

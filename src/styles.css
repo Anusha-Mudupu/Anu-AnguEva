@@ -1,0 +1,22 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+/* @import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css); */
+/* styles.css */
+:root{
+--toast-background:white;
+--toast-text: #333333;
+}
+:root{
+--subheaderbg:#2F4F4F;
+
+}
+:root{
+--navbarbg:#000000;
+
+}
+:root{
+--themebg:#ffffff;
+
+}

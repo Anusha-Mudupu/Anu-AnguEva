@@ -1,0 +1,419 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+
+.h3 {
+  /* margin-left: -47px; */
+  font-family: fangsong;
+  position: relative;
+}
+
+button {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.filter {
+  background-color: darkgrey;
+  border: 2px solid black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 14px;
+  margin: 4px 43px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 200px;
+  font-family: fangsong;
+  font-size: 15px;
+  position: relative;
+  left: -30px;
+  color: black;
+
+
+}
+.filter1 {
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 14px;
+  margin: 4px 43px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 200px;
+  font-family: fangsong;
+  font-size: 18px;
+  position: relative;
+  left: -30px;
+  color: black;
+  font-weight: bold;
+
+}
+.categories-menu {
+  position: relative;
+  left: -30px;
+}
+
+
+button {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+}
+
+#panel {
+  padding: 0 18px;
+  display: none;
+
+  overflow: hidden;
+
+
+}
+
+#panel1 {
+  padding: 0 18px;
+  display: none;
+
+  overflow: hidden;
+  color: var(--toast-text);
+}
+
+#panel2 {
+  padding: 0 18px;
+  display: none;
+
+  overflow: hidden;
+}
+
+.slidecontainer {
+  width: 186px;
+  margin-top: 5px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #31b135;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.container {
+  margin-left: -100px;
+  color: var(--toast-text);
+
+}
+
+.col-12 {
+  margin-left: 100px;
+}
+
+.navbar-header {
+
+  border-radius: none;
+
+}
+
+.h3 {
+  position: relative;
+  left: -90px;
+}
+
+#myNavbar {
+
+
+  position: relative;
+  margin-left: -70px;
+  color: var(--toast-text);
+}
+
+.navbar-brand {
+  color: black;
+}
+
+@media screen and (min-width:280px) and (max-width:768px) {
+
+  .container {
+
+
+    position: relative;
+
+    left: 10px;
+
+  }
+
+  .navbar-toggle {
+    position: relative;
+    left: -100px;
+    top: -10px;
+  }
+
+  #myNavbar {
+
+    width: 100px;
+    position: relative;
+    margin-left: 14px;
+    color: var(--toast-text);
+  }
+
+
+  .filter {
+    background-color: darkgrey;
+    border: 2px solid black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 14px;
+    margin: 4px 43px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    font-family: fangsong;
+    font-size: 15px;
+
+    color: black;
+
+
+  }
+  .filter1 {
+    background-color: darkgrey;
+    border: 2px solid black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 14px;
+    margin: 4px 43px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    font-family: fangsong;
+    font-size: 15px;
+
+    color: black;
+
+
+  }
+}
+
+@media (max-width: 540px) {
+  .h3 {
+    position: relative;
+    left: -220px;
+  }
+}
+
+@media (max-width: 280px) {
+  .h3 {
+    position: relative;
+    left: -50px;
+  }
+
+}
+
+@media screen and (min-width:768px) and (max-width:1200px) {
+#slider{
+  /* position: relative;
+ left:38px !important ; */
+}
+  .container {
+
+
+    position: relative;
+
+    left: 10px;
+
+  }
+
+  .navbar-toggle {
+    position: relative;
+    left: -100px;
+    top: -10px;
+  }
+
+  /* #myNavbar {
+
+    width: 100px;
+    position: relative;
+    margin-left: 14px;
+    color: var(--toast-text);
+  } */
+
+
+  .filter {
+    background-color: darkgrey;
+    border: 2px solid black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: -14px !important;
+    margin: 4px 43px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    font-family: fangsong;
+    font-size: 15px;
+
+    color: black;
+
+
+  }
+  .filter1 {
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: -14px !important;
+    margin: 4px 43px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    font-family: fangsong;
+    font-size: 15px;
+
+    color: black;
+
+
+  }
+}
+
+
+.navbar-inverse .navbar-toggle {
+  border-color: grey;
+  border-radius: 20px;
+}
+
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .navbar-toggle:hover {
+  background-color: white;
+  margin-top: 12px;
+}
+
+.navbar-inverse {
+  background-color: white;
+  border-color: white;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: white;
+}
+
+.toast {
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+}
+
+.container {
+  margin: auto;
+  display: inline-block;
+  color: var(--toast-text);
+}
+
+.categories-menu {
+  color: var(--toast-text);
+}
+
+.loader {
+  margin: auto;
+  border: 5px solid #EAF0F6;
+  border-radius: 50%;
+  border-top: 5px solid lightslategrey;
+  width: 60px;
+  height: 60px;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Default Styles */
+.filter-header {
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-left: 14px;
+    margin: 4px 43px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    font-family: fangsong;
+    font-size: 15px;
+    position: relative;
+    left: -30px;
+    color: black;
+}
+
+.filter-container {
+  display: none;
+}
+
+.desktop-filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-button {
+  width: 200px;
+  padding: 10px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.mobile-filter-content {
+  display: none;
+}
+
+.mobile-filter-content.show {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-filter-content.hide {
+  display: none;
+}
+
+
+
+
+

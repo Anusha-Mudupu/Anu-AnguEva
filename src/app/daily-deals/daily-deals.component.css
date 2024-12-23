@@ -1,0 +1,289 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+
+ ngb-rating {
+    color: orange;
+    font-size:20px;
+}
+.productName{
+	font-size: 18px;
+}
+.discountedPrice{
+	font-size: 15px;
+	font-weight:bolder;
+}
+.pp{
+	font-size: 15px;
+	color: darkgray;
+	font-weight:550;
+}
+.glyphicon-star {
+	font-size: 20px; 
+	color: orange; 
+  }
+  
+  .glyphicon-star.filled::before {
+	content: "\2605"; 
+	color: orange; 
+  }
+  
+  .glyphicon-star.bordered::before {
+	content: "\2606"; 
+
+	padding: 2px; 
+	border-radius: 50%; 
+  }
+  
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-info.btn-outline {
+    color: lightblue;
+}
+
+.btn-info.btn-outline:hover {
+    color: #fff;
+}
+small{
+    background-color: var(--toast-background);
+    color: var(--toast-text);  
+}
+h1 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 60px;
+	color: var(--toast-text);
+}
+h1::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	border-radius: 1px;
+	background: #7ac400;
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
+		header p span{
+			font-size: 40px;
+		    margin: 0 5px;
+		    cursor: pointer;
+		    color: #555;
+		     width: 30px;
+		    height: 30px;
+		    display: inline-block;
+		    line-height: 19px;
+		    text-align: center;
+		    border-radius: 3px;
+		}
+		header p span:hover{
+			background: #222;
+    		color: white;
+		}
+		.container1{
+			width: 100%;
+            height: 350px;
+			
+          
+			margin: auto;
+			display: flex;
+			align-items: center;
+			overflow-x: auto;
+			box-shadow: none;
+			border-color: transparent;
+			
+		}
+		
+		.container::-webkit-scrollbar{
+			display: none;
+		}
+		.product{
+			width: 195px;
+			height: 330px;
+		
+			margin:  0 20px  0 0;
+			border-radius: 20px;
+			position: relative;
+			left: 0;
+			transition: 0.5s;
+            cursor: pointer;
+            
+		}
+        .product:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2); 
+          }
+
+		
+		picture{
+			width: 99%;
+			height: 62%;
+			padding: 20px;
+			
+			display: flex;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		picture img{
+			width: 100%;
+            height: 117%;
+			
+		}
+		.detail,
+		.button{
+			color: var(--detail-text);
+			width: 90%;
+			
+			margin: auto;
+			padding: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 50px;
+			
+			color: rgb(14, 13, 13);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            font-family: fangsong;
+
+		}
+		small{
+            color: rgb(7, 7, 7);
+        }
+		
+        .scroll{
+            font-size: 23px;
+            margin-left: 94%;
+            cursor: pointer;
+			margin-top: -60px;
+        }
+        
+        .checked {
+            color: orange;
+          }
+          .star{
+            margin-top: -9px;
+            margin-left: 14px;
+        
+          }
+          .offer{
+            /* width: 32%; */
+            height: 9%;
+			background-color:#2F4F4F ;
+			color:white;
+			border-radius: 10px;
+            border: 1px solid rgb(14, 13, 13);
+            box-sizing: border-box;
+            margin-top: -40px;
+            margin-left: 111px;
+            text-align: center;
+          }
+         
+          .content{
+            margin-left: 14px;
+            font-size: 12px;
+            margin-top: 7px;
+			color: black;
+			color: var(--toast-text);
+		  }
+		@media (max-width: 768px) {
+			.h1{
+				position: relative;
+			   margin-top: 0;
+			}
+			.text h1{
+				font-size: 35px;
+			}
+			.text p{
+				width: 90%;
+			}
+			header h1{
+				font-size: 25px;
+			}
+			header p span{
+				font-size: 10px;
+			}
+			.product {
+				min-width: 49%;
+				margin:  0 10px  0 0;
+			}
+			.detail, .button{
+				font-size: 16px;
+			}
+			a{
+				padding: 6px 10px;
+			}
+            #left{
+                margin-left: -52px;
+            }
+            .scroll{
+                margin-top: 49px;
+            }
+            .content{
+                color: black;
+                font-size: 10px;
+               
+              }
+			  .price{
+				background-color: var(--toast-background);
+				color: var(--toast-text);	  
+			  }
+              .offer{
+                margin-left: 86px;
+                text-align: center;
+                /* margin-top: -28px; */
+				background-color:#2F4F4F ;
+				color:white;
+				border-radius: 10px;
+              }
+			  picture img{
+				width: 100%;
+				height: 117%;
+				margin-top: 50px;
+			}
+			  h1{
+				  margin-bottom: -42px;
+			  }
+		}
+
+		.toast1{
+			background-color: var(--toast1-background);
+			color: var(--toast-text);
+		}
+		.detail{
+			display: flex;
+			padding: 5px;
+			font-size: 14px;
+			line-height: 20px;
+            font-family: fangsong;
+			font-weight: 500;
+			
+			position: relative;
+			color: var(--toast-text);
+		}
+		.loader {
+			margin: auto;
+			border: 5px solid #EAF0F6;
+			border-radius: 50%;
+			border-top:5px solid lightslategrey;
+			width: 60px;
+			height: 60px;
+			animation: spinner 1s linear infinite;
+		  }
+		  
+		  @keyframes spinner {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		  }
+		 

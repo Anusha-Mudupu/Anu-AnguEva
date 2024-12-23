@@ -1,0 +1,78 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+ .toast{
+    background-color: var(--toast-background);
+   }
+.container {
+    position: relative;
+    /* top:-140px; */
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+   
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: none;
+    position: relative;
+  
+    display: inline-block;
+    
+    align-items: center;
+    
+    border-color: transparent;
+     height: auto;
+     width: 100%; 
+     font-size: 15px;
+}
+.toast{
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+
+
+
+@media screen and (min-width : 360px) and (max-width: 767px) {
+.container {
+    position: relative;
+    top:-140px;
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+   
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: none;
+    position: relative;
+  
+    display: inline-block;
+    
+    align-items: center;
+    
+    border-color: transparent;
+     height: auto;
+     width: 100%; 
+     font-size: 15px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        position: relative;
+        top:-60px;
+        background-color: var(--toast-background);
+        color: var(--toast-text);
+       
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: none;
+        position: relative;
+      
+        display: inline-block;
+        
+        align-items: center;
+        
+        border-color: transparent;
+         height: auto;
+         width: 100%; 
+         font-size: 15px;
+    }
+    #products-details{
+        margin-top: -200px !important;
+    }
+}

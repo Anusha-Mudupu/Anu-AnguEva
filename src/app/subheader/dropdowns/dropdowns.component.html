@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="assets/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+
+    <title>Dropdown</title>
+</head>
+
+<body>
+    <!-- <div id="navbar" class="navbar-collapse collapse">
+
+        <ul class="nav navbar-nav navbar-right" role="tablist">
+
+            <li *ngFor="let headerLink of headerLinks"><a [routerLink]="headerLink.link"
+                    routerLinkActive="active">{{headerLink.label}}</a>
+            </li>
+
+        </ul>
+    </div> -->
+
+
+    <!-- <div id="menu_area" class="menu-area">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-light navbar-expand-lg mainmenu">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-expanded="false"
+                        aria-controls="navbarSupportedContent" (click)=" toggleData()">
+                        <span *ngIf="!showIconBar ;else obj" class="cancel-icon">X</span>
+                        <ng-template #obj>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </ng-template>
+
+                        <a></a>
+
+
+                    </button>
+                    <div class="collapse navbar-collapse" *ngIf="!loading" id="navbarSupportedContent">
+
+
+                        <ul class="navbar-nav">
+
+                            <li *ngFor="let dropdowns of NavigationList" class="dropdown"
+                                [attr.id]="'dropdowns'+dropdowns.catalogId"
+                                [attr.value]="'catlogId'+dropdowns.catalogId">
+                                <a class="dropdown-toggle" id="NavBar_{{dropdowns.catalogId }}" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    (click)="catalogNameSelected(dropdowns.catalogId)" style="text-decoration:none;"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false"
+                                    aria-controls="collapseExample1">{{dropdowns.catalogName }}</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li *ngFor="let childitems of dropdowns.childCatalog" class="dropdown"
+                                        id="collapseExample1">
+                                        <a class="dropdown-toggle" id=NavBar_{{childitems.catalogId}} role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            (click)="childCatalogNmSelected(childitems.catalogId)"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                            aria-expanded="false"
+                                            aria-controls="collapseExample">{{childitems.catalogName}}</a>
+                                        <ul aria-labelledby="navbarDropdown">
+
+                                            <li *ngFor="let subitems of childitems.childCatalog" class="collapse"
+                                                id="collapseExample">
+                                                <a id=NavBar_{{subitems.catalogId}} role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false"
+                                                    (click)="subChildCatalogNmSelected(subitems.catalogId)">{{subitems.catalogName}}
+                                                </a>
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div *ngIf="loading" class="loader"></div>
+                    <br>
+
+
+
+                </nav>
+            </div>
+        </div>
+
+    </div> -->
+
+
+    <!-- <div id="menu_area" class="menu-area">
+        <div class="container">
+            <div class="row">
+                <nav id="sidebar" class="navbar navbar-light navbar-expand-lg mainmenu">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-expanded="false"
+                        aria-controls="navbarSupportedContent" (click)="toggleSidebar()">
+                        <span *ngIf="!showIconBar; else obj" class="cancel-icon">X</span>
+                        <ng-template #obj>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </ng-template>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li *ngFor="let dropdowns of NavigationList" class="dropdown"
+                                id="dropdowns{{dropdowns.catalogId}}">
+                                <a class="dropdown-toggle" id="NavBar_{{dropdowns.catalogId}}" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    (click)="catalogNameSelected(dropdowns.catalogId)"
+                                    style="text-decoration:none;">{{dropdowns.catalogName}}</a>
+                                <ul class="dropdown-menu" aria-labelledby="NavBar_{{dropdowns.catalogId}}">
+                                    <li *ngFor="let childitems of dropdowns.childCatalog">
+                                        <a class="dropdown-toggle" id="NavBar_{{childitems.catalogId}}" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            (click)="childCatalogNmSelected(childitems.catalogId)">{{childitems.catalogName}}</a>
+                                        <ul class="dropdown-menu">
+                                            <li *ngFor="let subitems of childitems.childCatalog">
+                                                <a id="NavBar_{{subitems.catalogId}}" role="button"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                    (click)="subChildCatalogNmSelected(subitems.catalogId)">{{subitems.catalogName}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <br>
+                </nav>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+    <!-- Added by Raji -->
+
+<div id="menu_area" class="menu-area">
+    <div class="container">
+        <div class="row">
+            <nav id="sidebar" class="navbar navbar-light navbar-expand-lg mainmenu">
+                <!-- Sidebar Toggle Button -->
+                <button type="button" class="navbar-toggle" (click)="toggleSidebar()"
+                    [ngClass]="{ 'toggled': isSidebarOpen }">
+                    <ng-container *ngIf="!isSidebarOpen; else closeIcon">
+                        ☰ <!-- Hamburger Icon -->
+                    </ng-container>
+                    <ng-template #closeIcon>
+                        ✖ <!-- Close Icon -->
+                    </ng-template>
+                </button>
+
+
+                <!-- Sidebar Menu -->
+                <ul class="navbar-nav" [ngClass]="{
+                   'sidebar-open': isSidebarOpen,
+                   'sidebar-closed': !isSidebarOpen
+                }">
+                    <li *ngFor="let dropdowns of NavigationList" class="dropdown">
+                        <a class="dropdown-toggle" (click)="catalogNameSelected(dropdowns.catalogId)" >
+                            {{ dropdowns.catalogName }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li *ngFor="let childitems of dropdowns.childCatalog || []">
+                                <a class="dropdown-toggle" (click)="childCatalogNmSelected(childitems.catalogId)">
+                                    {{ childitems.catalogName }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let subitems of childitems.childCatalog || []">
+                                        <a (click)="subChildCatalogNmSelected(subitems.catalogId)">
+                                            {{ subitems.catalogName }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

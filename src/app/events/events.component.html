@@ -1,0 +1,15 @@
+<p>example to keyup event</p>
+press any key<input (keyup)="onKey($event)">
+<p>{{values}}</p>
+or
+<p>another way of dng keyup event is using template refferance</p>
+<input #box (keyup)="onkey2(box.value)">
+{{value1}}
+<hr>
+<p>example to keyup event</p>
+<div (mouseenter)="mouseEnter('div a') " (mouseleave)="mouseLeave('div A')">
+  <h2>Div A</h2>
+</div>
+<div (mouseenter)="mouseEnter('div b')" (mouseleave)="mouseLeave('div B')">
+  <h2>Div B</h2>
+</div>

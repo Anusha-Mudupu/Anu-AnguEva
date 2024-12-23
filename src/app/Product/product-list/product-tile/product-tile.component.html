@@ -1,0 +1,103 @@
+<div>
+    <div *ngFor="let productSku of productList.productSkus" id="product-tile" class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+
+        <div class="bx-content">
+            <div class="image-box">
+                <div class="favo">
+
+                    <div>
+         
+                        <span class="image-tag">{{ productSku.createDate | isNew }}</span>
+                    </div>
+
+                    <i style="cursor: pointer; color: red;" *ngIf="isFavorite(productSku.productSkuId)"
+                        [attr.id]="'fav-icon-'+productSku.productSkuId" class="fa fa-heart fav"
+                        (click)="handleFavorite(productSku.productSkuId)" #wl>
+                      
+                    </i>
+                    <div [attr.id]="'myModal1' + productSku.productSkuId" class="modal">
+                        <div class="modal-content">
+                            <span class="close" (click)="closeModal1(productSku.productSkuId)"></span>
+                            <p style="color: white;">Product is saved in your Favorites</p>
+                        </div>
+                    </div>
+                    <i style="cursor: pointer;" *ngIf="!isFavorite(productSku.productSkuId)"
+                        [attr.id]="'fav-icon-'+productSku.productSkuId" class="fa fa-heart-o fav"
+                        (click)="handleFavorite(productSku.productSkuId)" #wl>
+                        
+                    </i>
+                    <div [attr.id]="'Modal'+ productSku.productSkuId" class="modal">
+                        <div class="modal-content">
+                            <span class="close" (click)="removeModal(productSku.productSkuId)"></span>
+                            <p style="color: white;">{{'Product removed from your Favorites' | translate}}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div [routerLink]="['/main/header/subheader/productDetail',productList.productId,productSku.productSkuId]"
+                    routerLinkActive="active" class="image-tile">
+                    <picture>
+                        <img src="{{imageBaseUrl}}{{productSku.imageUrl}}" class="img-responsive" alt="Cinque Terre"
+                            [attr.id]="'fav-icon-'+productSku.productSkuId"
+                            (click)="productDetailTile(productSku.productSkuId)" #pdt>
+
+
+                    </picture>
+
+                    <div class="details" [attr.id]="'productList'+productList.productId"
+                        [attr.value]="'productId'+productList.productId">
+                        {{productSku.productSkuCd}}</div>
+                    <div class="content">
+                        <div [attr.id]="'productSku'+productSku.price" class="rate">
+                            <p>₹{{productSku.price - (productSku.price * productSku.discount / 100)}}
+                                <s class="pp" *ngIf="productSku.discount !== 0">₹{{productSku.price}} </s>
+
+
+                            </p>
+
+
+                        </div>
+
+                        <ngb-rating *ngIf="productSku.avgCustomerRating !== 0  && productSku.avgCustomerRating !== null"
+                            [max]="5" [rate]="productSku?.avgCustomerRating" [readonly]="true">
+                        </ngb-rating>
+                        <!-- <ng-template #obj>
+                                <span class="glyphicon glyphicon-star filled"></span>
+                                <span class="glyphicon glyphicon-star filled"></span>
+                                <span class="glyphicon glyphicon-star filled"></span>
+                                <span class="glyphicon glyphicon-star bordered"></span>
+                                <span class="glyphicon glyphicon-star bordered"></span>
+                            </ng-template> -->
+
+                        <div *ngIf="productSku.discount !== 0" class="offer">{{productSku.discount}}% {{'OFF'|
+                            translate}}</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="addtocart">
+                <span><button (click)="addToCart(productSku,productSku.productSkuId,productList)" type="button"
+                        class="btn btn-secondary btn-rounded" autocomplete="off">
+
+                        {{'Add to Cart'| translate}}
+                    </button>
+                </span>
+                <!-- Unique modal for each product -->
+                <!-- Added by raji -->
+                <div [attr.id]="'myModal' + productSku.productSkuId" class="modal">
+                    <div class="modal-content">
+                        <span class="close" (click)="closeModal(productSku.productSkuId)"></span>
+                        <p style="color: white;">Product is added to the cart</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <router-outlet></router-outlet>
+
+
+</div>

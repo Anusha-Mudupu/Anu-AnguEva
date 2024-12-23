@@ -1,0 +1,37 @@
+<div class="container">
+    <form (submit)="onSubmit()" [formGroup]="registerForm">
+        <div class="mb-3" class="form-group">
+            <label for="exampleFormControlInput1" class="form-label">✉️Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="email"
+                [ngClass]="{'is-invalid':submitted && registerForm.controls['email'].errors}"
+                placeholder="enter Email Address">
+            <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
+                <div *ngIf="submitted && registerForm.controls['email'].errors['required']">
+                    Email Address is required
+                </div>
+                <div *ngIf="submitted && registerForm.controls['email'].errors['email']">
+                    Email Address is not Valid
+                </div>
+            </div>
+        </div>
+        <div class="mb-3" class="form-group">
+            <label for="exampleFormControlTextarea1" class="form-label">Type your Feedback to help customers</label>
+
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="feedback"
+                [ngClass]="{'is-invalid':submitted && registerForm.controls['feedback'].errors}"
+                placeholder="Type here..."></textarea>
+            <div *ngIf="submitted && registerForm.controls['feedback'].errors" class="text-danger">
+                <div *ngIf="submitted && registerForm.controls['feedback'].errors['required']">
+                    Feedback is required
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <button id="cancel" name="cancel" class="btn btn-primary" id="submit">Submit</button>
+            <button id="cancel" name="cancel" class="btn btn-danger" (click)="goToViewOrder()"
+                id="cancel">Cancel</button>
+
+        </div>
+    </form>
+</div>

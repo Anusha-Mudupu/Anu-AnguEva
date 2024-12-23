@@ -1,0 +1,128 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+.container {
+    /* margin-top: 130px; */
+    margin-bottom: 50px;
+    border: 1px solid black;
+    border-radius: 0.10rem;
+    width:97%;
+    
+}
+#r7{
+    background-color: var(--toast-background);
+    color: var(--toast-text);   
+}
+.itemside {
+    position: relative;
+  
+    display: flex;
+    width: 100%;
+    background-color: var(--toast-background);
+  color: var(--toast-text); 
+}
+
+img{
+    cursor: pointer;
+}
+
+.img-sm {
+    width: 80px;
+    height: 80px;
+    padding: 7px
+}
+
+ul.row,
+ul.row-sm {
+    list-style: none;
+    padding: 0
+}
+
+.itemside .info {
+    padding-left: 15px;
+    padding-right: 7px;
+    background-color: var(--toast-background);
+    color: var(--toast-text); 
+    
+}
+
+.itemside .title {
+    display: block;
+    margin-bottom: 5px;
+    
+    background-color: var(--toast-background);
+  color: var(--toast-text); 
+}
+.align-self-center{
+    background-color: var(--toast-background);
+  color: var(--toast-text); 
+}
+
+h3{
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid silver;
+    border-image: linear-gradient(to right, transparent 20%, darkslategrey, transparent 80%)30;
+}
+
+#r7{
+    height: 79px;
+    width: 67%;
+    margin-left: 18px;
+
+}
+.btn-warning{
+    margin-top: 12px;
+    margin-bottom: 10px;
+    float: right;
+    border-radius: 10px;
+    width: 106px;
+    margin-left: 2%;
+}
+#r7{
+    background-color: var(--toast-background);
+    color: var(--toast-text);
+}
+@media (min-width:1024px) {
+    .container{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      /* margin-top:-60px; */
+      margin-left: 50px;
+    }
+  }
+  @media (min-width:820px) {
+    .container{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      /* margin-top:-60px; */
+    }
+  }
+  
+  @media (min-width:768px) {
+    .container{
+      background-color: var(--toast-background);
+      color: var(--toast-text);
+      position: relative;
+      /* margin-top:-10px; */
+      
+    }
+    .card-header{
+      position: relative;
+      height: 80px;
+    }
+  }
+  @media (min-width:1280px) {
+    .container {
+        margin-top: 130px;
+        margin-bottom: 50px;
+        border: 1px solid black;
+        border-radius: 0.10rem;
+        width:97%;
+        
+    }
+  }

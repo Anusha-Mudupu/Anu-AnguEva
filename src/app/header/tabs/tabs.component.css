@@ -1,0 +1,40 @@
+.toll-free {
+    color: #fff;
+    text-transform: uppercase;
+    display: block;
+}
+.header-top{
+    background-color: #000;
+}
+@media screen and (max-width: 768px) {
+    .navbar-toggle.mobile-icon{
+        margin-top: 5px;
+    }
+    .toll-free{
+        padding-top: 15px;
+    } 
+    .navbar-brand {
+        font-size:14px;
+        height: 10px;
+        padding: 0px 5px;
+    }
+}
+
+@media only screen and (max-width: 991px){
+.nav>li>a{
+    padding:10px;
+    
+}
+.navbar-brand{
+    font-size:14px;
+    height:10px;
+    padding: 5px 0px;
+}
+.nav>li>a{
+    padding:6px;
+}
+.navbar{
+    min-height:40px;
+}
+
+    }

@@ -1,0 +1,140 @@
+<div class="container1" [ngClass]="{'dark':themeService.isDark}">
+    <div id="Newaddress" class="zoom-target">
+        <div class="row">
+            <div class="" >
+                <h2 id="Edit-Address-Detail">{{'Edit Address Details'| translate}}</h2>
+                <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+                    <!-- name -->
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="full_name_id" class="control-label"> <i class="fa fa-user"></i>
+                                {{'Full Name' | translate}}</label><br>
+                            <input type="text" formControlName="firstName" class="form-control"
+                                [(ngModel)]="addressDetails2.firstName"
+                                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required" class="text-danger"> {{'Full name is
+                                    required.'|
+                                    translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="Mobile_id" class="control-label"><i class="far fa-mobile"></i>
+                                {{'Mobile Number'| translate}}</label><br>
+                            <input type="text" formControlName="mobileNo" class="form-control"
+                                [(ngModel)]="addressDetails2.mobileNo" appNumericOnly maxLength="10"
+                                [ngClass]="{ 'is-invalid': submitted && f.mobileNo.errors }" />
+                            <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.mobileNo.errors.required" class="text-danger">{{'mobileNumber is
+                                    required'|
+                                    translate}}
+                                </div>
+                                <div *ngIf="f.mobileNo.errors.minlength" class="text-danger">{{'minium 10 charectors.'|
+                                    translate}}</div>
+                                <div *ngIf="f.mobileNo.errors.maxlength" class="text-danger">mobileNumber can not exceed
+                                    11
+                                    charectors.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="street2_id" class="control-label"><i
+                                    class="fa fa-address-card-o"></i>{{'Address:'|
+                                translate}}</label><br>
+                            <input type="text" formControlName="flatNo" class="form-control"
+                                [(ngModel)]="addressDetails2.flatNo"
+                                [ngClass]="{ 'is-invalid': submitted && f.flatNo.errors }" />
+                            <div *ngIf="submitted && f.flatNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.flatNo.errors.required" class="text-danger"> {{'flatNo is required.'|
+                                    translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Landmark e.g. near apollo hospital-->
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="Landmark_id" class="control-label"><i class="fa fa-landmark"></i>
+                                {{'Landmark e.g. near apollo hospital'| translate}}</label><br>
+                            <input type="text" formControlName="landmark" class="form-control"
+                                [(ngModel)]="addressDetails2.landmark"
+                                [ngClass]="{ 'is-invalid': submitted && f.landmark.errors }" />
+                            <div *ngIf="submitted && f.landmark.errors" class="invalid-feedback">
+                                <div *ngIf="f.landmark.errors.required" class="text-danger"> {{'landmark is required.'|
+                                    translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--street-->
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="area_id" class="control-label"><i class="fa fa-address-card-o"></i>{{'Area'|
+                                translate}}</label><br>
+                            <input type="text" formControlName="area" class="form-control"
+                                [(ngModel)]="addressDetails2.area"
+                                [ngClass]="{ 'is-invalid': submitted && f.area.errors }" />
+                            <div *ngIf="submitted && f.area.errors" class="invalid-feedback">
+                                <div *ngIf="f.area.errors.required" class="text-danger"> {{'area is required.'|
+                                    translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Town/City:  -->
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="city_id" class="control-label"><i class="fa fa-institution"></i>{{'Town/City'|
+                                translate}}</label><br>
+                            <input type="text" formControlName="city" class="form-control"
+                                [(ngModel)]="addressDetails2.city"
+                                [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                <div *ngIf="f.city.errors.required" class="text-danger"> {{'city is required.'|
+                                    translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- State -->
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="state_id" class="control-label">{{'State'| translate}}</label><br>
+                            <input type="text" formControlName="state" class="form-control"
+                                [(ngModel)]="addressDetails2.state"
+                                [ngClass]="{ 'is-invalid': submitted && f.state.errors }" />
+                            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                                <div *ngIf="f.state.errors.required" class="text-danger">{{'state is required.'|
+                                    translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--postcode-->
+                    <div class="form-group">
+                        <div class="col-sm-6 pd-5">
+                            <label for="zip_id" class="control-label">{{'Pincode [Zipcode]'| translate}}</label><br>
+                            <input type="text" formControlName="pincode" class="form-control"
+                                [(ngModel)]="addressDetails2.pincode"
+                                [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }">
+                            <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                                <div *ngIf="f.pincode.errors.required" class="text-danger">{{'pincode is required.'|
+                                    translate}}</div>
+                                <div *ngIf="f.pincode.errors.minlength" class="text-danger">{{'must be 6 charectors.'|
+                                    translate}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button type="submit" [disabled]="loading" class="btn btn-success btn-deliver-edit"
+                        (click)="save()">{{'Deliver To This Address'| translate}}</button>
+                    <button type="submit" class="btn btn-danger btn-deliver" (click)="previousAddress()">{{'Cancel'|
+                        translate}}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

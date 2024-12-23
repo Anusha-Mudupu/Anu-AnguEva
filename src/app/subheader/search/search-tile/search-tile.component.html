@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>jewellery</title>
+</head>
+
+<body id="content">
+    <div class="container">
+        <br>
+        <div class="row row-flex">
+            <div *ngIf="resultSearch.length === 0">
+                <h1>No results found</h1>
+            </div>
+            ..<div class="product-tiles">
+                <br>
+                ..<div class="row row-flex">
+
+                    <div *ngFor="let search of resultSearch" class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                        <div class="bx-content">
+                            <div class="image-box">
+                                <div>
+                                    <span class="image-tag">{{ search._source.createDate | isNew }}</span>
+                                </div>
+                                <i *ngIf="isFavorite(search._source.productSkuId)"
+                                    [attr.id]="'fav-icon-'+search._source.productSkuId" class="fa fa-heart"
+                                    (click)="handleFavorite(search,search._source.productSkuId)"></i>
+                                <i *ngIf="!isFavorite(search._source.productSkuId)"
+                                    [attr.id]="'fav-icon-'+search._source.productSkuId" class="fa fa-heart-o fav"
+                                    (click)="handleFavorite(search,search._source.productSkuId)"></i>
+                                <a>
+                                    <img src="{{imagesBaseUrl}}{{search._source.imageUrl}}" class="img-responsive"
+                                        alt="Cinque Terre"
+                                        (click)="getDetail(search._source.productSkuId,search,resultSearch)">
+
+                                </a>
+                                <!-- Added by raji -->
+                                <div id="productName">{{search._source.productSkuCd}}</div>
+                                <!-- <div id="price">Rs.{{search._source.price}}</div> -->
+                                <div class=".content">
+                                    <p class="price">Rs.{{search._source.price - (search._source.price * search._source.discount /
+                                        100)}}
+                                        <s class="pp" *ngIf="search._source.discount !== 0">Rs.{{search._source.price}}
+                                        </s>
+
+
+                                    </p>
+                                    <div *ngIf="search._source.discount !== 0" class="offer">
+                                        {{search._source.discount}}%
+                                        {{'OFF' }}
+                                    </div>
+                                    <div id="ratingStarts">
+                                        <ngb-rating
+                                            *ngIf="search._source.avgCustomerRating !== 0  && search._source.avgCustomerRating !== null" 
+                                            [max]="5" [rate]="search._source.avgCustomerRating" [readonly]="true">
+                                        </ngb-rating>
+                                    </div>
+                                   
+                                </div>
+
+
+                                <div id="addtocart">
+                                    <button (click)="addToCart(search._source.productSkuId,search._source.productId)"
+                                        type=”button” id="addtocartbtn">
+
+                                        Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <router-outlet></router-outlet>
+
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

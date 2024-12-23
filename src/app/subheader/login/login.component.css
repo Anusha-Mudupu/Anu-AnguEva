@@ -1,0 +1,328 @@
+/*
+ *   Copyright (c) 2023 Dmantz Technologies private limited
+ *   All rights reserved.
+ */
+ .underline{
+    color: green; 
+    text-decoration: underline; 
+    cursor: pointer;
+ }
+ /* .field{
+     position: relative;
+     margin-left: 60px;
+ } */
+ body{
+ color: var(--toast-text);
+ background-color: var(--toast-background);
+ }
+.login-body{
+    width: 405px;
+    margin: 0 auto;
+}
+.time{
+    position: relative;
+    /* margin-left: 35%; */
+    margin-top: 10px;
+    color:navy;
+}
+.box {
+    display: block;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: #fff;
+    padding: 20px 26px!important;
+}
+a#forgot {
+    float: right;
+}
+.login-btn{
+    background: #fb641b;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    border: none;
+    color: #fff;
+    margin-top: 40px;
+}
+.login-form {
+    width: 340px;
+    margin: 30px auto;
+}
+.login-form form {
+    margin-top: 50px;
+    margin-bottom: 15px;
+  
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 100%;
+
+}
+.login-form h2 {
+    margin: 0 0 15px;
+    
+}
+.login-form .hint-text {
+    color: #777;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.login-btn {        
+    font-size: 15px;
+    font-weight: bold;
+}
+.or-seperator {
+    margin: 20px 0 10px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+.or-seperator i {
+    padding: 0 10px;
+    color: var(--toast-text);
+ background-color: var(--toast-background);
+    position: relative;
+    top: -11px;
+    z-index: 1;
+}
+.social-btn .btn {
+    margin: 10px 0;
+    font-size: 15px;
+    text-align: left; 
+    line-height: 24px;       
+}
+.social-btn .btn i {
+    float: left;
+    margin: 4px 15px  0 5px;
+    min-width: 15px;
+}
+.input-group-addon .fa{
+    font-size: 18px;
+}
+#myDialog{
+border:none;
+color: red;
+background: none;
+}
+#forgotpassword{
+    margin-top: 25px;
+    margin-left: 125px;
+    border-radius: 8px;
+    background-color: thistle;
+    color: black;
+    border-color: unset;
+    outline: none;
+    width: 100px;
+   
+}
+.forgot{
+    width: 125%;
+}
+.inputvalue{
+    float: right;
+}
+.inputvalue1{
+    float: right;
+}
+h4{
+    text-align: center;
+    margin-bottom: 20px;
+    color: green;
+    font-family: 'FontAwesome';
+    font-weight: revert;
+}
+p{
+    text-align: center;
+   margin-left: -43px;
+    color: rgb(250, 10, 10);
+    font-family: 'FontAwesome';
+    font-weight: revert;
+}
+
+@media screen and (max-width: 360px){
+    .forgot{
+        width: 100%;
+    }
+    .inputvalue{
+        margin-right: -6%;
+    }
+    .inputvalue1{
+        margin-right: -6%;
+    }
+    .field{
+    width: 100%;
+    }
+    .btn-info{
+    
+        line-height: 23px;
+        font-family: monospace;
+        border-style: inset;
+        width: 100px;
+        background: rgb(90,182,18);
+        border-radius: 10px;
+        margin-left: 21%;
+        color: black;
+        position: relative;
+       
+      }
+}
+@media only screen and (min-width : 280px) and (max-width : 768px)  {
+    .time{
+        position: relative;
+       
+        margin-top: 10px
+    }
+    .failedotp{
+        position: relative;
+       top: -30px;
+        margin-left: 30%;
+        font-size: 10px;
+        color: red;
+        
+      }
+    .otp {
+        border: none;
+      
+        box-shadow: 0px 5px 20px 0px #d2dae3;
+        width: 50%;
+        margin-left: 30%;
+        margin-bottom: 17%;
+        position: relative;
+        top:80px;
+    }
+    .time{
+        position: relative;
+      
+        margin-top: 10px
+    }
+    .field{
+        width: 100%;
+        margin-left: none;
+        line-height: none;
+        }
+        .btn-info{
+        
+            line-height: 23px;
+            font-family: monospace;
+            border-style: inset;
+            width: 100px;
+            background: rgb(90,182,18);
+            border-radius: 10px;
+            /* margin-left: none; */
+            color: black;
+            top: -20px;
+            position: relative;
+            left: -30px;
+          }
+}
+.otp {
+    border: none;
+    /* height: 311px; */
+    height: 400px;
+    box-shadow: 0px 5px 20px 0px #d2dae3;
+    width: 50%;
+    margin-left: 30%;
+    margin-bottom: 17%;
+    position: relative;
+    top:80px;
+}
+.fotp{
+    position: relative;
+    top:80px;   
+}
+.content{
+    text-align: center;
+}
+.field{
+    
+    line-height: none;
+}
+.btn-info{
+    
+    line-height: 23px;
+    font-family: monospace;
+    border-style: inset;
+    width: 100px;
+    background: rgb(90,182,18);
+    border-radius: 10px;
+    margin-left: 37%;
+    color: black;
+    position: relative;
+    margin-top: 20px;
+  }
+  h1{
+    font-size: 18px;
+    text-align: center;
+    color: green;
+    font-family: emoji;
+    position: relative;
+    top:60px;
+}
+.failedotp{
+
+    margin-top: -10%;
+    margin-left: 30%;
+    font-size: 10px;
+    color: red;
+    
+  }
+  .recaptcha{
+    margin-left: 11px;
+    margin-bottom: 14px;
+  }
+  .captcha{
+    margin-left: 38%;
+    margin-top: 10px;
+  }
+.fp{
+    color: red;
+}
+
+@media (max-width : 360px){
+    .field{
+       
+        position: relative;
+        top:5px;
+        line-height: none;
+        width: 85%;
+    left: 10px;
+    }
+}
+@media (min-width : 820px){
+    .field{
+        margin-left: 32%;
+        position: relative;
+        top:10px;
+        line-height: none;
+    }
+}
+@media (min-width : 810px){
+  .field{
+      position: relative;
+      /* margin-left: 50px; */
+  } 
+ 
+}
+@media (min-width:1280px) {
+    .time{
+        position: relative;
+        /* margin-left: 35%; */
+        margin-top: 10px;
+        color:navy;
+    } 
+    .underline{
+        color: green; 
+        text-decoration: underline; 
+        position: relative;
+        margin-left: 35%;
+     }
+     .failedotp{
+        
+        position: relative;
+        top: -85px;
+        margin-left: 45%;
+        font-size: 13px;
+        color: red;
+        
+      }
+  }

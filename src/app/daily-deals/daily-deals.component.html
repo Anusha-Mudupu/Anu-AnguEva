@@ -1,0 +1,55 @@
+  <h1 style="margin-top: 5px;">{{'TRENDING PRODUCTS'| translate}}</h1>
+    <div *ngIf="!loading">
+        <!-- <div class="scroll">
+        <p>
+            <span id="left"><i class="fa fa-arrow-circle-left" aria-hidden="true"
+                    style="margin-right: 10px;"></i></span>
+            <span id="right"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+        </p>
+    </div> -->
+        <div class="container1 toast1" [ngClass]="{'dark':themeService.isDark}">
+
+            <div class="row" *ngFor="let d of deal">
+                <div class="col-lg-12 col-md-3 col-sm-3">
+                    <div class="product" [routerLink]="['/main/header/subheader/productDetail',d.productId,d.skuId]">
+                        <picture>
+
+                            <img *ngIf="!themeService.isDark" src="{{image}}{{d.imageUrl}}" alt="">
+                            <img *ngIf="themeService.isDark" src="{{image}}{{d.imageUrl}}" alt="">
+                        </picture>
+                        <div class="detail">
+                            <p class="productName">
+                                {{d.productName}}<br>
+                            </p>
+                        </div>
+
+                        <div class="star">
+                            <ngb-rating *ngIf="d.avgCustomerRating !== 0" [max]="5" [rate]="d?.avgCustomerRating"
+                                [readonly]="true">
+                            </ngb-rating>
+                            <!-- <small>{{d.avgCustomerRating}} / 5
+
+                        </small> -->
+
+                        </div>
+
+                        <div class="content">
+                            <div class="rate">
+                                <div class="price">
+                                    <s class="pp" *ngIf="d.discount !== 0">Rs: {{d.price}}</s>
+
+                                    <span class="discountedPrice"> Price:{{d.discountedPrice }}</span>
+
+                                </div>
+
+                            </div>
+
+                            <div *ngIf="d.discount !== 0" class="offer">{{d.discount}}% {{'OFF'| translate}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="loading" class="loader"></div>
+<hr>
